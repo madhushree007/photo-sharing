@@ -1,4 +1,4 @@
-package com.flatappseed;
+package com.flatapp;
 
 import com.facebook.react.ReactActivity;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -17,7 +17,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "FlatAppSeed";
+        return "FlatApp";
     }
 
     /**
