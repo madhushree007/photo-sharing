@@ -1,9 +1,9 @@
+
 'use strict';
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { View } from 'native-base';
-
+import { Image, View } from 'react-native';
 
 export default class SplashPage extends Component {
 
@@ -11,13 +11,14 @@ export default class SplashPage extends Component {
         var navigator = this.props.navigator;
         setTimeout (() => {
             navigator.replace({
-                id: 'index',
+                id: 'login',
             });
         }, 1500);
     }
     render () {
         return (
-            <View />
+            <Image source={require('../../../images/launchscreen.png')} style={{flex: 1, height: null, width: null}} />
+
 
         );
     }

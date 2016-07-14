@@ -1,20 +1,28 @@
-import Color from 'color';
+//import Color from 'color';
 
 import {Platform} from 'react-native';
-
+var primary = require('./variable').brandPrimary;
+var secondary = require('./variable').brandSecondary;
+var info = require('./variable').brandInfo;
+var success = require('./variable').brandSuccess;
+var danger = require('./variable').brandDanger;
+var warning = require('./variable').brandWarning;
+var sidebar = require('./variable').brandSidebar;
 module.exports = {
-    brandPrimary : "#428bca",
-    brandInfo: "#5bc0de",
-    brandSuccess: "#5cb85c",
-    brandDanger: "#d9534f",
-    brandWarning: "#f0ad4e",
-    brandSidebar: "#252932",
+    brandPrimary : primary,
+    brandInfo: info,
+    brandSuccess: success,
+    brandDanger: danger,
+    brandWarning: warning,
+    brandSidebar: sidebar,
+
+    brandSecondary: secondary,   //new style
 
     inverseTextColor: "#fff",
-    textColor: "#000",
+    textColor: "#fff",
 
     fontSizeBase: 15,
-    titleFontSize: 17,
+    titleFontSize: 18,
 
     get fontSizeH1 () {
         return this.fontSizeBase*1.8;
@@ -35,7 +43,7 @@ module.exports = {
         return this.fontSizeBase* .8;
     },
     get iconSizeLarge () {
-        return this.iconFontSize* 1.5;
+        return this.iconFontSize* 1.4;
     },
     get iconSizeSmall () {
         return this.iconFontSize* .6;
@@ -49,20 +57,11 @@ module.exports = {
 
     footerHeight: 55,
     toolbarHeight: (Platform.OS === 'ios' ) ? 70 : 55,
-    toolbarDefaultBg: "#00c497",
+    toolbarDefaultBg: secondary,
     toolbarInverseBg: "#222",
 
-        tabBgColor: "#00c497",
-        tabTextColor: "#fff",
 
-        btnDisabledBg: '#b5b5b5',
-    btnDisabledClr: '#f1f1f1',
 
-        cardDefaultBg: "#fff",
-
-        get darkenHeader() {
-            return Color(this.tabBgColor).darken(0.03).hexString();
-        },
     get btnPrimaryBg () {
         return this.brandPrimary;
     },
@@ -100,17 +99,16 @@ module.exports = {
         return this.textColor;
     },
     get inputColorPlaceholder () {
-        return 'rgba(0, 0, 0, 0.7)';
+        return 'rgba(255, 255, 255, 1.0)';
     },
-    inputBorderColor: "#000",
-    inputHeightBase: 40,
+    
+    inputBorderColor: "#fff",
+    inputHeightBase: 50,
     inputGroupMarginBottom: 10,
     inputPaddingLeft: 5,
     get inputPaddingLeftIcon () {
         return this.inputPaddingLeft* 8;
     },
-
-    btnLineHeight: (Platform.OS==='ios') ? 20 : 23,
 
     dropdownBg: "#000",
     dropdownLinkColor: "#414142",
@@ -120,12 +118,13 @@ module.exports = {
 
     contentPadding: 10,
 
-    listBorderColor: "#ddd",
-    listDividerBg: "#F5F5F5",
+    listBorderColor: "rgba(181, 181, 181, 0.34)",
+    listDividerBg: "#f2f2f2",
     listItemPadding: 15,
-    listNoteColor: "#58575C",
+    listNoteColor: "#ddd",
+    listBg: "#fff",
 
-    iconFontSize: 32,
+    iconFontSize: 37,
 
     badgeColor: "#fff",
     badgeBg: "#ED1727",
