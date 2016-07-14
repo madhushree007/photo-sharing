@@ -1,13 +1,13 @@
-//import Color from 'color';
+// import Color from 'color';
 
 import {Platform} from 'react-native';
-var primary = require('./variable').brandPrimary;
-var secondary = require('./variable').brandSecondary;
-var info = require('./variable').brandInfo;
-var success = require('./variable').brandSuccess;
-var danger = require('./variable').brandDanger;
-var warning = require('./variable').brandWarning;
-var sidebar = require('./variable').brandSidebar;
+var primary = require('../../themes/variable').brandPrimary;
+var secondary = require('../../themes/variable').brandSecondary;
+var info = require('../../themes/variable').brandInfo;
+var success = require('../../themes/variable').brandSuccess;
+var danger = require('../../themes/variable').brandDanger;
+var warning = require('../../themes/variable').brandWarning;
+var sidebar = require('../../themes/variable').brandSidebar;
 module.exports = {
     brandPrimary : primary,
     brandInfo: info,
@@ -16,13 +16,13 @@ module.exports = {
     brandWarning: warning,
     brandSidebar: sidebar,
 
-    brandSecondary: secondary,   //new style
+    brandSecondary: secondary,
 
     inverseTextColor: "#fff",
     textColor: "#fff",
-
+    
     fontSizeBase: 15,
-    titleFontSize: 18,
+    titleFontSize: 17,
 
     get fontSizeH1 () {
         return this.fontSizeBase*1.8;
@@ -43,7 +43,7 @@ module.exports = {
         return this.fontSizeBase* .8;
     },
     get iconSizeLarge () {
-        return this.iconFontSize* 1.4;
+        return this.iconFontSize* 1.5;
     },
     get iconSizeSmall () {
         return this.iconFontSize* .6;
@@ -57,11 +57,20 @@ module.exports = {
 
     footerHeight: 55,
     toolbarHeight: (Platform.OS === 'ios' ) ? 70 : 55,
-    toolbarDefaultBg: secondary,
+    toolbarDefaultBg: "#00c497",
     toolbarInverseBg: "#222",
 
+    tabBgColor: "#00c497",
+    tabTextColor: "#fff",
 
+    btnDisabledBg: '#b5b5b5',
+    btnDisabledClr: '#f1f1f1',
 
+    cardDefaultBg: "#fff",
+
+    get darkenHeader() {
+        return Color(this.tabBgColor).darken(0.03).hexString();
+    },
     get btnPrimaryBg () {
         return this.brandPrimary;
     },
@@ -99,10 +108,9 @@ module.exports = {
         return this.textColor;
     },
     get inputColorPlaceholder () {
-        return 'rgba(255, 255, 255, 1.0)';
+        return 'rgba(0, 0, 0, 0.7)';
     },
-    
-    inputBorderColor: "#fff",
+    inputBorderColor: "transparent",
     inputHeightBase: 50,
     inputGroupMarginBottom: 10,
     inputPaddingLeft: 5,
@@ -118,13 +126,12 @@ module.exports = {
 
     contentPadding: 10,
 
-    listBorderColor: "rgba(181, 181, 181, 0.34)",
-    listDividerBg: "#f2f2f2",
+    listBorderColor: "#ddd",
+    listDividerBg: "#F5F5F5",
     listItemPadding: 15,
-    listNoteColor: "#ddd",
-    listBg: "#fff",
+    listNoteColor: "#58575C",
 
-    iconFontSize: 37,
+    iconFontSize: 32,
 
     badgeColor: "#fff",
     badgeBg: "#ED1727",

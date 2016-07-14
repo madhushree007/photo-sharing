@@ -14,6 +14,8 @@ import {popRoute} from './actions/route';
 import Navigator from 'Navigator';
 
 import Index from './components/index/';
+import Home from './components/home/';
+import BlankPage from './components/blankPage/';
 import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
 import { statusBarColor } from "./themes/base-theme";
@@ -147,6 +149,10 @@ class AppNavigator extends Component {
                 return <SplashPage navigator={navigator} />;
             case 'index':
                 return <Index navigator={navigator} />;
+            case 'home':
+                return <Home navigator={navigator} />;
+            case 'blankPage':
+                return <BlankPage navigator={navigator} />;
             default :
                 return <Index navigator={navigator}  />;
         }
