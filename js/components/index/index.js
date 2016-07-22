@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {DeviceEventEmitter, Dimensions, Image, Platform} from 'react-native';
+import {Keyboard, Dimensions, Image, Platform} from 'react-native';
 import {pushNewRoute, replaceRoute} from '../../actions/route';
 
 import {Container, Content, Text, InputGroup, Input, Button, Icon, View} from 'native-base';
@@ -30,8 +30,8 @@ class Index extends Component {
     }
    
     componentWillMount () {
-        DeviceEventEmitter.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
-        DeviceEventEmitter.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
+        Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
+        Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
     }
 
     keyboardWillShow (e) {
