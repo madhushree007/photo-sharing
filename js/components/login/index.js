@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { DeviceEventEmitter, Dimensions, Image, Platform} from 'react-native';
+import {Keyboard, Dimensions, Image, Platform} from 'react-native';
 import {pushNewRoute, replaceRoute} from '../../actions/route';
 
 import {Container, Content, Text, InputGroup, Input, Button, Icon, View } from 'native-base';
@@ -30,19 +30,19 @@ class Login extends Component {
         }
     }
    
-    // componentWillMount () {
-    //     DeviceEventEmitter.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
-    //     DeviceEventEmitter.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
-    // }
+    componentWillMount () {
+        Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
+        Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
+    }
 
-    // keyboardWillShow (e) {
-    //     let newSize = Dimensions.get('window').height - e.endCoordinates.height
-    //     this.setState({offset :{y: 80}});
-    // }
+    keyboardWillShow (e) {
+        let newSize = Dimensions.get('window').height - e.endCoordinates.height
+        this.setState({offset :{y: 80}});
+    }
 
-    // keyboardWillHide (e) {
-    //     this.setState({offset :{y: 0}});
-    // }
+    keyboardWillHide (e) {
+        this.setState({offset :{y: 0}});
+    }
 
     replaceRoute(route) {
         this.props.replaceRoute(route);
