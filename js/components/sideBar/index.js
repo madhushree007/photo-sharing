@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { TouchableOpacity, Image, Platform } from 'react-native';
 
 import {closeDrawer} from '../../actions/drawer';
-import {replaceOrPushRoute} from '../../actions/route';
+import {replaceOrPushRoute, resetRoute} from '../../actions/route';
 
 import {Container, Content, View, Text, Button, Icon, List, ListItem, Thumbnail} from 'native-base';
 import { Grid, Col, Row } from "react-native-easy-grid";

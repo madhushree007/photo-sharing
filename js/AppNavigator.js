@@ -13,7 +13,7 @@ import {closeDrawer} from './actions/drawer';
 import {popRoute} from './actions/route';
 import Navigator from 'Navigator';
 
-import Index from './components/index/';
+import Login from './components/login/';
 import Home from './components/home/';
 import BlankPage from './components/blankPage/';
 import SplashPage from './components/splashscreen/';
@@ -132,9 +132,12 @@ class AppNavigator extends Component {
                 <Navigator
                     ref={(ref) => this._navigator = ref}
                     configureScene={(route) => {
-                        return Navigator.SceneConfigs.FloatFromRight;
+                        return {
+                            ...Navigator.SceneConfigs.FloatFromRight,
+                            gestures: {}
+                        };
                     }}
-                    initialRoute={{id: (Platform.OS === "android") ? 'splashscreen' : 'index', statusBarHidden: true}}
+                    initialRoute={{id: (Platform.OS === "android") ? 'splashscreen' : 'login', statusBarHidden: true}}
                     renderScene={this.renderScene}
                   />
             </Drawer>
@@ -144,17 +147,24 @@ class AppNavigator extends Component {
     }
 
     renderScene(route, navigator) {
+        if(route.component) {
+            var Component = route.component;
+            return (
+                <Component navigator={navigator} route={route} {...route.passProps} />
+            );
+        }
+
         switch (route.id) {
             case 'splashscreen':
                 return <SplashPage navigator={navigator} />;
-            case 'index':
-                return <Index navigator={navigator} />;
+            case 'login':
+                return <Login navigator={navigator} />;
             case 'home':
                 return <Home navigator={navigator} />;
             case 'blankPage':
                 return <BlankPage navigator={navigator} />;
             default :
-                return <Index navigator={navigator}  />;
+                return <Login navigator={navigator}  />;
         }
     }
 }

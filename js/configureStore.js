@@ -16,9 +16,8 @@ import promise from './promise';
 export default function configureStore(onCompletion:()=>void):any {
 	const enhancer = compose(
 		applyMiddleware(thunk, promise),
-		devTools({
-	      name: 'ecommerce', realtime: true
-	    }),
+		autoRehydrate(),
+		devTools(),
 	);
 	
 	let store = createStore(reducer, enhancer);

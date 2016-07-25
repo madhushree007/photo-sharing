@@ -24,7 +24,7 @@ class Home extends Component {
             <Container theme={theme}>
                 <Image source={require('../../../images/BG-signUp.png')} style={styles.container} >
                     <Header>
-                        <Button transparent style={{padding: 20}}  onPress={() => this.replaceRoute('index')}>
+                        <Button transparent style={{padding: 20}}  onPress={() => this.replaceRoute('login')}>
                             <Icon name="ios-power" />
                         </Button>
                         

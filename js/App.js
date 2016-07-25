@@ -25,21 +25,16 @@ let styles = StyleSheet.create({
     space: {
         marginTop: 10,
         marginBottom: 10,
-      justifyContent: 'center'
+        justifyContent: 'center'
     },
     modal: {
         justifyContent: 'center',
         alignItems: 'center'
     },
     modal1: {
-        height: 300
-
-    },
-    modal2: {
-        height: height-78,
-        position: 'relative',
-        justifyContent: 'center',
-    },
+        height: 300,
+        width: 300
+    }
 });
 
 class App extends Component {
@@ -93,24 +88,24 @@ class App extends Component {
     render() {
         if(this.state.showDownloadingModal)
             return (
-                <Container theme={theme} style={{backgroundColor: theme.defaultBackgroundColor}}>
-                    <Content style={styles.container}>
+                <Container theme={theme} style={{backgroundColor: theme.brandSecondary}}>
+                    <Image source={require('../images/glow2.png')} style={styles.container} >
                         <Modal style={[styles.modal, styles.modal1]} backdrop={false} ref={"modal"} swipeToClose={false} >
 
                             <View style={{flex:1, alignSelf: 'stretch', justifyContent: 'center', padding:20}}>
                                 {this.state.showInstalling ?
-                                    <Text style={{color: theme.brandPrimary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>
+                                    <Text style={{color: theme.brandSecondary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>
                                         Installing update...
                                     </Text> :
                                     <View style={{flex:1, alignSelf: 'stretch', justifyContent: 'center', padding:20}}>
-                                        <Text style={{color: theme.brandPrimary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>Downloading update... {parseInt(this.state.downloadProgress) + ' %'}</Text>
-                                        <ProgressBar color="theme.brandPrimary" progress={parseInt(this.state.downloadProgress)} />
+                                        <Text style={{color: theme.brandSecondary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>Downloading update... {parseInt(this.state.downloadProgress) + ' %'}</Text>
+                                        <ProgressBar color={theme.brandSecondary} progress={parseInt(this.state.downloadProgress)} />
                                     </View>
                                 }
                             </View>
 
                         </Modal>
-                    </Content>
+                    </Image>
                 </Container>
 
             );

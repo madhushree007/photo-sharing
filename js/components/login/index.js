@@ -11,7 +11,7 @@ import {Grid, Col, Row} from "react-native-easy-grid";
 import login from './login-theme';
 import styles from './styles';
 
-class Index extends Component {
+class Login extends Component {
 
     constructor(props) {
         super(props);
@@ -72,7 +72,7 @@ class Index extends Component {
                                     Get Started
                                 </Button>
                             
-                                <View style={Platform.OS === 'android' ? {flexDirection: 'row',marginTop: 10} : {flexDirection: 'row'}}>
+                                <View style={Platform.OS === 'android' ? styles.aOtherLinksContainer : styles.iosOtherLinksContainer}>
                                     <Grid>
                                         <Col>
                                             <Button transparent style={{alignSelf: 'flex-start'}}>
@@ -107,4 +107,4 @@ function bindActions(dispatch){
     }
 }
 
-export default connect(null, bindActions)(Index);
+export default connect(null, bindActions)(Login);

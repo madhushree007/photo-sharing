@@ -7,7 +7,7 @@
 
 import type {Action} from '../actions/types';
 import {globalNav} from '../AppNavigator';
-import { PUSH_NEW_ROUTE, POP_ROUTE, POP_TO_ROUTE, REPLACE_ROUTE, REPLACE_OR_PUSH_ROUTE } from '../actions/route';
+import { PUSH_NEW_ROUTE, POP_ROUTE, RESET_ROUTE, POP_TO_ROUTE, REPLACE_ROUTE, REPLACE_OR_PUSH_ROUTE } from '../actions/route';
 import { REHYDRATE } from 'redux-persist/constants'
 
 export type State = {
@@ -28,6 +28,13 @@ export default function (state:State = initialState, action:Action): State {
       routes: [...state.routes, action.route]
     };
   }
+
+  if (action.type === RESET_ROUTE) {
+        globalNav.navigator.resetTo({id: 'login'});
+        return {
+            routes: []
+        }
+    }
 
   if (action.type === REPLACE_ROUTE) {
     globalNav.navigator.replaceWithAnimation({id: action.route});
