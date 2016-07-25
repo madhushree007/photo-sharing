@@ -211,7 +211,7 @@ var HeaderControls = React.createClass({
     return (
       <View>
       <View style={{alignItems: 'center'}}>
-        <Text style={{alignItems: 'center',fontWeight: '900',padding: 10, color: 'rgba(255,255,255,0.5)'}}>{ this.props.year }</Text>
+        <Text style={{alignItems: 'center',textAlign: 'center',fontWeight: '900',padding: 10, color: 'rgba(255,255,255,0.5)'}}>{ this.props.year }</Text>
       </View>
       <View style={styles.headerWrapper}>
         <View style={styles.monthSelector}>

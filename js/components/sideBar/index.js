@@ -78,7 +78,7 @@ class SideBar extends Component {
                                     </Col>
                                     <Col>
                                         <TouchableOpacity style={{alignSelf: 'flex-end'}}  onPress={() => this.navigateTo('profile')}>
-                                            <Thumbnail source={require('../../../images/contacts/sanket.png')} style={{height: 40,width: 40, borderRadius: 20}} />
+                                            <Thumbnail source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? styles.aProfilePic : styles.iosProfilePic} />
                                         </TouchableOpacity>
                                     </Col>
                                 </Grid>

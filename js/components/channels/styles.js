@@ -25,6 +25,7 @@ module.exports = StyleSheet.create({
     aheaderIcon: {
 
     },
+    na :{},
     iosheaderIcon: {
         paddingTop: 30,
     },

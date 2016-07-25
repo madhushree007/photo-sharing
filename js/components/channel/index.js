@@ -41,7 +41,7 @@ class Channel extends Component {
                             <Image source={require('../../../images/NewsIcons/2.png')} style={styles.newsPoster}>
                                 <View>
                                     <Text style={Platform.OS === 'android' ? styles.achanelHeader : styles.ioschanelHeader}>SCIENCE CHANNEL</Text>
-                                    <Button rounded  style={styles.followBtn}  textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 13,fontWeight: '900',marginTop: -1,textAlign: 'center'} : {color: primary,fontSize: 13,fontWeight: '900',marginTop: -5} }>
+                                    <Button rounded  style={styles.followBtn}  textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 13,fontWeight: '900',textAlign: 'center'} : {color: primary,fontSize: 13,fontWeight: '900'} }>
                                         Following
                                     </Button>
                                     <TouchableOpacity style={{padding: 0}}>
@@ -68,6 +68,51 @@ class Channel extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                                <View style={styles.newsContentWrap}>
+                                    <Text numberOfLines={2} style={styles.newsHeader}>Contrary to popular belief, Lorem Ipsum is not simply random text.</Text>
+                                    <Grid style={styles.newsContent}>
+                                        <Col style={{flexDirection:'row'}}>
+                                            <TouchableOpacity>
+                                                <Text style={styles.newsLink}>SPACE.com</Text>
+                                            </TouchableOpacity>
+                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Text style={styles.newsLink}>Apr 17,2016</Text>
+                                        </Col>
+                                    </Grid>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                                <View style={styles.newsContentWrap}>
+                                    <Text numberOfLines={2} style={styles.newsHeader}>
+                                        It has survived not only five centuries
+                                    </Text>
+                                    <Grid style={styles.newsContent}>
+                                        <Col style={{flexDirection:'row'}}>
+                                            <TouchableOpacity>
+                                                <Text style={styles.newsLink}>CNN</Text>
+                                            </TouchableOpacity>
+                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Text style={styles.newsLink}>Feb 3,2016</Text>
+                                        </Col>
+                                    </Grid>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                                <View style={styles.newsContentWrap}>
+                                    <Text numberOfLines={2} style={styles.newsHeader}>It has survived not only five centuries</Text>
+                                    <Grid style={styles.newsContent}>
+                                        <Col style={{flexDirection:'row'}}>
+                                            <TouchableOpacity>
+                                                <Text style={styles.newsLink}>SKY.com</Text>
+                                            </TouchableOpacity>
+                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Text style={styles.newsLink}>Dec 17,2015</Text>
+                                        </Col>
+                                    </Grid>
+                                </View>
+                            </TouchableOpacity>
+
                             <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>Contrary to popular belief, Lorem Ipsum is not simply random text.</Text>

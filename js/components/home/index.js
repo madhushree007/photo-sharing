@@ -14,17 +14,6 @@ import { Grid, Col, Row } from "react-native-easy-grid";
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
-const renderPagination = (index, total, context) => {
-    return (
-        <View style={{ position: 'absolute', bottom: -25, right: 10 }}>
-            <Text>
-                <Text style={{ color: '#007aff', fontSize: 20 }}>{index + 1}</Text>
-                /{total}
-            </Text>
-        </View>
-    )
-}
-
 class Home extends Component {
 
     pushNewRoute(route) {
@@ -51,20 +40,22 @@ class Home extends Component {
                         <View>
                             <View>
                                 <Swiper height={330} loop={true} 
-                                    dot={<View style={{backgroundColor:'rgba(0,0,0,.8)', width: 8, height: 8,borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 0,}} />} 
-                                    activeDot={<View style={{backgroundColor: '#fff', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 0,}} 
+                                    dot={<View style={styles.swiperDot} />} 
+                                    activeDot={<View style={styles.swiperActiveDot} 
                                     showsButtons={true} />}  >
 
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}  title={<View style={styles.swiperTextContent} >
+                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
+                                             <View style={styles.swiperTextContent} >
                                             <Text numberOfLines={2} style={styles.newsPosterHeader}>
                                                 Contrary to popular belief, Lorem Ipsum is not simply random text.
                                             </Text>
-                                            <Grid style={{paddingTop: 20,paddingBottom: 20}}>
+                                            <Grid style={styles.swiperContentBox}>
                                                 <Col style={{flexDirection:'row'}}>
                                                     <TouchableOpacity>
                                                         <Text style={styles.newsPosterLink}>SPACE.com</Text>
                                                     </TouchableOpacity>
-                                                    <Icon name="ios-time-outline" style={{fontSize: 20,paddingLeft: 20,paddingRight: 10,marginTop: 5}} />
+                                                    <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.aHeadertimeIcon : styles.iosHeadertimeIcon} />
                                                     <Text style={styles.newsPosterLink}>20m ago</Text>
                                                 </Col>
                                                 <Col>
@@ -73,20 +64,22 @@ class Home extends Component {
                                                     </TouchableOpacity>
                                                 </Col>
                                             </Grid>
-                                        </View>}>
-                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} />
+                                        </View>
+                                        </Image>
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}  title={<View  style={styles.swiperTextContent}>
+                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
+                                            <View  style={styles.swiperTextContent}>
                                             <Text numberOfLines={2} style={styles.newsPosterHeader}>
                                                 Lorem Ipsum is simply dummy text of the printing
                                             </Text>
-                                            <Grid style={{paddingTop: 20,paddingBottom: 20}}>
+                                            <Grid style={styles.swiperContentBox}>
                                                 <Col style={{flexDirection:'row'}}>
                                                     <TouchableOpacity>
                                                         <Text style={styles.newsPosterLink}>CDC</Text>
                                                     </TouchableOpacity>
-                                                    <Icon name="ios-time-outline" style={{fontSize: 20,paddingLeft: 20,paddingRight: 10,marginTop: 5}} />
+                                                    <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.aHeadertimeIcon : styles.iosHeadertimeIcon} />
                                                     <Text style={styles.newsPosterLink}>2hr ago</Text>
                                                 </Col>
                                                 <Col>
@@ -95,20 +88,22 @@ class Home extends Component {
                                                     </TouchableOpacity>
                                                 </Col>
                                             </Grid>
-                                        </View>}>
-                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')} />
+                                        </View>
+                                        </Image>
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}  title={<View  style={styles.swiperTextContent}>
+                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
+                                            <View  style={styles.swiperTextContent}>
                                             <Text numberOfLines={2} style={styles.newsPosterHeader}>
                                                 Lorem Ipsum is simply dummy text of the printing
                                             </Text>
-                                            <Grid style={{paddingTop: 20,paddingBottom: 20}}>
+                                            <Grid style={styles.swiperContentBox}>
                                                 <Col style={{flexDirection:'row'}}>
                                                     <TouchableOpacity>
                                                         <Text style={styles.newsPosterLink}>SKY.com</Text>
                                                     </TouchableOpacity>
-                                                    <Icon name="ios-time-outline" style={{fontSize: 20,paddingLeft: 20,paddingRight: 10,marginTop: 5}} />
+                                                    <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.aHeadertimeIcon : styles.iosHeadertimeIcon} />
                                                     <Text style={styles.newsPosterLink}>1day ago</Text>
                                                 </Col>
                                                 <Col>
@@ -117,12 +112,16 @@ class Home extends Component {
                                                     </TouchableOpacity>
                                                 </Col>
                                             </Grid>
-                                        </View>}>
-                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')} />
+                                        </View>
+                                        </Image>
                                     </TouchableOpacity>
                                 </Swiper>
                             </View>
                         </View>
+
+
+
+
 
                         <Card style={{backgroundColor: '#fff'}}>
                             <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
@@ -130,7 +129,7 @@ class Home extends Component {
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         Lorem Ipsum is simply dummy text of the printing
                                     </Text>
-                                    <Grid style={{paddingTop: 20,paddingBottom: 20}}>
+                                    <Grid style={styles.swiperContentBox}>
                                         <Col style={{flexDirection:'row'}}>
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>CDC</Text>
@@ -146,12 +145,14 @@ class Home extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
+
+
                             <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         Contrary to popular belief, Lorem Ipsum is not simply random text.
                                     </Text>
-                                    <Grid style={{paddingTop: 20,paddingBottom: 20}}>
+                                    <Grid style={styles.swiperContentBox}>
                                         <Col style={{flexDirection:'row'}}>
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>SPACE.com</Text>
@@ -167,12 +168,13 @@ class Home extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
+
                             <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         It has survived not only five centuries
                                     </Text>
-                                    <Grid style={{paddingTop: 20,paddingBottom: 20}}>
+                                    <Grid style={styles.swiperContentBox}>
                                         <Col style={{flexDirection:'row'}}>
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>SKY.com</Text>
@@ -188,6 +190,74 @@ class Home extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                                <View style={styles.newsContent}>
+                                    <Text numberOfLines={2} style={styles.newsHeader}>
+                                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages
+                                    </Text>
+                                    <Grid style={styles.swiperContentBox}>
+                                        <Col style={{flexDirection:'row'}}>
+                                            <TouchableOpacity>
+                                                <Text style={styles.newsLink}>ESPN</Text>
+                                            </TouchableOpacity>
+                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Text style={styles.newsLink}>12days ago</Text>
+                                        </Col>
+                                        <Col>
+                                            <TouchableOpacity style={styles.newsTypeView}>
+                                                <Text style={styles.newsTypeText}>SPORTS</Text>
+                                            </TouchableOpacity>
+                                        </Col>
+                                    </Grid>
+                                </View>
+                            </TouchableOpacity>
+
+
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                                <View style={styles.newsContent}>
+                                    <Text numberOfLines={2} style={styles.newsHeader}>
+                                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested
+                                    </Text>
+                                    <Grid style={styles.swiperContentBox}>
+                                        <Col style={{flexDirection:'row'}}>
+                                            <TouchableOpacity>
+                                                <Text style={styles.newsLink}>ART.com</Text>
+                                            </TouchableOpacity>
+                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Text style={styles.newsLink}>23days ago</Text>
+                                        </Col>
+                                        <Col>
+                                            <TouchableOpacity style={styles.newsTypeView}>
+                                                <Text style={styles.newsTypeText}>ART</Text>
+                                            </TouchableOpacity>
+                                        </Col>
+                                    </Grid>
+                                </View>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                                <View style={styles.newsContent}>
+                                    <Text numberOfLines={2} style={styles.newsHeader}>
+                                        There are many variations of passages of Lorem Ipsum available
+                                    </Text>
+                                    <Grid style={styles.swiperContentBox}>
+                                        <Col style={{flexDirection:'row'}}>
+                                            <TouchableOpacity>
+                                                <Text style={styles.newsLink}>Money.com</Text>
+                                            </TouchableOpacity>
+                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Text style={styles.newsLink}>2months ago</Text>
+                                        </Col>
+                                        <Col>
+                                            <TouchableOpacity style={styles.newsTypeView}>
+                                                <Text style={styles.newsTypeText}>FINANCE</Text>
+                                            </TouchableOpacity>
+                                        </Col>
+                                    </Grid>
+                                </View>
+                            </TouchableOpacity>
+
                         </Card>
                     </Content>
                 </Image>

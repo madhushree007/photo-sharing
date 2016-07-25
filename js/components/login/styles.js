@@ -80,4 +80,11 @@ module.exports = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold',
     },
+    aOtherLinksContainer: {
+        flexDirection: 'row',
+        marginTop: 10,
+    },
+    iosOtherLinksContainer: {
+        flexDirection: 'row',
+    },
 });

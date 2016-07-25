@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { Image, View, Platform, DeviceEventEmitter, Dimensions } from 'react-native';
+import { Image, View, Platform, Keyboard, Dimensions } from 'react-native';
 import {resetRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
 
@@ -31,19 +31,19 @@ class Feedback extends Component {
         }
     }
    
-    // componentWillMount () {
-    //     DeviceEventEmitter.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
-    //     DeviceEventEmitter.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
-    // }
+    componentWillMount () {
+        Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
+        Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
+    }
    
-    // keyboardWillShow (e) {
-    //     let newSize = Dimensions.get('window').height - e.endCoordinates.height
-    //     this.setState({offset :{y: 80}});
-    // }
+    keyboardWillShow (e) {
+        let newSize = Dimensions.get('window').height - e.endCoordinates.height
+        this.setState({offset :{y: 80}});
+    }
    
-    // keyboardWillHide (e) {
-    //     this.setState({offset :{y: 0}});
-    // }
+    keyboardWillHide (e) {
+        this.setState({offset :{y: 0}});
+    }
    
     resetRoute(route) {
         this.props.resetRoute(route);
@@ -61,12 +61,12 @@ class Feedback extends Component {
                         <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
                         
                         <Button transparent style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon} onPress={() => this.resetRoute('login')}>
-                            <Icon name="ios-power" style={{marginTop: 5,paddingBottom: 10}} />
+                            <Icon name="ios-power" style={Platform.OS === 'android' ? {paddingBottom: 10,marginTop: 8} : {}}/>
                         </Button>    
                     </Header>
 
                     <Content>
-                        <View style={{paddingTop: 30,paddingLeft: 50,paddingRight: 50}}>
+                        <View style={styles.ContentIconsContainer}>
                             <Grid>
                                 <Col>
                                     <Button transparent style={styles.roundedButton}>
@@ -90,22 +90,26 @@ class Feedback extends Component {
                             <Text note  style={styles.feedbackHead}>Your feedback is very important to us.</Text>
                         </View>
                         <View style={styles.feedbackContainer}>
-                            <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 25}]}>
+                            <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                 <Icon name="ios-person-outline" />
                                 <Input placeholder="Username"  style={styles.input}/>
                             </InputGroup>
-                            <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 25}]}>
+                            <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                 <Icon name="ios-mail-outline" />
                                 <Input placeholder="Email"  style={styles.input}/>
                             </InputGroup>
-                            <Grid style={Platform.OS === 'android' ? {borderBottomWidth: 1,borderBottomColor: '#797979'} : {borderBottomWidth: 1,borderBottomColor: 'rgba(255,255,255,0.5)'}}>
-                                <Col style={{alignSelf: 'flex-start'}}>
-                                    <Input placeholder="Write something..."  style={styles.input}/>
+
+
+                            <Grid style={Platform.OS === 'android' ? styles.afeedbackInputBox : styles.iosfeedbackInputBox}>
+                                <Col style={styles.inputBox}>
+                                    <Input placeholder="Write something..."  style={styles.input} />
                                 </Col>
-                                <Col style={{alignSelf: 'flex-end'}}>
-                                    <Icon name="ios-arrow-forward"  style={{alignSelf: 'flex-end'}} />
+                                <Col style={styles.inputBoxIcon}>
+                                    <Icon name="ios-arrow-forward"  style={styles.forwardIcon} />
                                 </Col>
                             </Grid>
+
+
                         </View>
                     </Content>
                 </Image>

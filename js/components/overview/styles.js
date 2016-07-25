@@ -13,9 +13,6 @@ module.exports = StyleSheet.create({
         width: null,
         height: null,
     },
-    Bg : {
-        backgroundColor: primary,
-    },
     logoHeader: {
         width: 20,
         height: 28,
@@ -31,6 +28,8 @@ module.exports = StyleSheet.create({
         padding: 20,
         paddingTop: 30,
         alignSelf: 'center',
+        backgroundColor: primary,
+        width: deviceWidth
 
     },
     overviewHeader: {
@@ -42,7 +41,8 @@ module.exports = StyleSheet.create({
     overviewHead: {
         opacity: 0.9,
         fontSize: 14,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        alignSelf: 'center'
     },
     overviewInfoHeader: {
         alignSelf: 'flex-start',
@@ -53,5 +53,12 @@ module.exports = StyleSheet.create({
         alignSelf: 'flex-end',
         fontSize: 14,
         fontWeight: '900'
+    },
+    overviewContent: {
+        padding: 20,
+        backgroundColor: primary,
+    },
+    overviewTopicsBox: {
+        paddingBottom: 20,
     },
 });

@@ -178,4 +178,74 @@ module.exports = StyleSheet.create({
         bottom: 0,
         right: 0,
     },
+    headerBtns : {
+        padding: 10,
+    },
+    headerIcons : {
+        paddingTop: 10,
+    },
+    headerContainer: {
+        marginTop: 10,
+    },
+    aheaderTextIcon: {
+        fontSize: 28,
+        paddingTop: 10,
+        marginTop: -10,
+    },
+    iosheaderTextIcon: {
+        fontSize: 28,
+        paddingTop: 10,
+    },
+    swiperDot: {
+        backgroundColor:'rgba(0,0,0,.8)', 
+        width: 8, 
+        height: 8,
+        borderRadius: 4, 
+        marginLeft: 3, 
+        marginRight: 3, 
+        marginTop: 3, 
+        marginBottom: 3,
+    },
+    swiperActiveDot: {
+        backgroundColor: '#fff', 
+        width: 8, 
+        height: 8, 
+        borderRadius: 4, 
+        marginLeft: 3, 
+        marginRight: 3, 
+        marginTop: 3, 
+        marginBottom: 3,
+    },
+    aModalContentBox: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#fff',
+    },
+    iosModalContentBox: {
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(255,255,255,0.5)',
+    },
+    modalSmallText: {
+        alignSelf: 'flex-start',
+        fontWeight: '700',
+    },
+    iosModalLargeText: {
+        alignSelf: 'flex-end',
+        fontSize: 24,
+        fontWeight: '700',
+    },
+    aModalLargeText: {
+        alignSelf: 'flex-end',
+        fontSize: 24,
+        fontWeight: '700',
+        paddingBottom: 10,
+        marginTop: - 10,
+    },
+    nextStoryBtn: {
+        color: primary,
+        fontWeight: '900',
+    },
+    forwardBtn: {
+        color: primary,
+        fontSize: 26,
+    },
 });

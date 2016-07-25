@@ -1,3 +1,4 @@
+
 'use strict';
 
 import AppNavigator from './AppNavigator';
@@ -32,14 +33,9 @@ let styles = StyleSheet.create({
         alignItems: 'center'
     },
     modal1: {
-        height: 300
-
-    },
-    modal2: {
-        height: height-78,
-        position: 'relative',
-        justifyContent: 'center',
-    },
+        height: 300,
+        width: 300,
+    }
 });
 
 class App extends Component {
@@ -55,7 +51,7 @@ class App extends Component {
     componentDidMount() {
         /* Uncomment this code for testing the update modal */
         // this.setState({showDownloadingModal: true});
-        //this.setState({showInstalling: true});
+        // //this.setState({showInstalling: true});
         // this.refs.modal.open();
         // var intervalId = setInterval(() => {
         //     if(this.state.downloadProgress == 99) {
@@ -63,12 +59,11 @@ class App extends Component {
         //         this.setState({showDownloadingModal: false});
         //     }
         //     this.setState({downloadProgress: this.state.downloadProgress + 1});
-        // }, 30);
+        // }, 300);
 
         // Prompt the user when an update is available
-        // and then display a "downloading" modal
-
-        CodePush.sync({ updateDialog: true, installMode: CodePush.InstallMode.IMMEDIATE },
+        // and then display a "downloading" modal 
+        CodePush.sync({ updateDialog: true, installMode: CodePush.InstallMode.IMMEDIATE }, 
           (status) => {
               switch (status) {
                   case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
@@ -84,7 +79,7 @@ class App extends Component {
                       break;
               }
           },
-          ({ receivedBytes, totalBytes, }) => {
+          ({ receivedBytes, totalBytes, }) => { 
             this.setState({downloadProgress: receivedBytes / totalBytes * 100});
           }
         );
@@ -92,29 +87,29 @@ class App extends Component {
 
     render() {
         if(this.state.showDownloadingModal)
-            return (
-                <Container theme={theme} style={{backgroundColor: theme.defaultBackgroundColor}}>
-                    <Content style={styles.container}>
+            return ( 
+                <Container theme={theme} style={{backgroundColor: theme.brandSecondary}}>
+                    <Image source={require('../images/glow2.png')} style={styles.container} >
                         <Modal style={[styles.modal, styles.modal1]} backdrop={false} ref={"modal"} swipeToClose={false} >
 
                             <View style={{flex:1, alignSelf: 'stretch', justifyContent: 'center', padding:20}}>
                                 {this.state.showInstalling ?
-                                    <Text style={{color: theme.brandPrimary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>
+                                    <Text style={{color: theme.brandSecondary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>
                                         Installing update...
                                     </Text> :
                                     <View style={{flex:1, alignSelf: 'stretch', justifyContent: 'center', padding:20}}>
-                                        <Text style={{color: theme.brandPrimary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>Downloading update... {parseInt(this.state.downloadProgress) + ' %'}</Text>
-                                        <ProgressBar color="theme.brandPrimary" progress={parseInt(this.state.downloadProgress)} />
+                                        <Text style={{color: theme.brandSecondary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>Downloading update... {parseInt(this.state.downloadProgress) + ' %'}</Text>
+                                        <ProgressBar color={theme.brandSuccess} progress={parseInt(this.state.downloadProgress)} />
                                     </View>
                                 }
                             </View>
 
                         </Modal>
-                    </Content>
+                    </Image>
                 </Container>
 
             );
-        else
+        else 
             return(
                 <AppNavigator store={this.props.store} />
             );

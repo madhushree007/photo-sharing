@@ -21,7 +21,8 @@ module.exports = StyleSheet.create({
     logoHeader: {
         width: 20,
         height: 28,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginTop: 5
     },
     feedbackContainer: {
         marginTop: 30,
@@ -50,6 +51,8 @@ module.exports = StyleSheet.create({
         borderRadius: 25,
         backgroundColor: 'rgba(0,0,0,0.2)',
         marginBottom: 20,
+        borderWidth: 0, 
+        paddingLeft: 25,
        
     },
     inputGrp: {
@@ -57,6 +60,8 @@ module.exports = StyleSheet.create({
         borderRadius: 25,
         backgroundColor: 'rgba(0,0,0,0.2)',
         marginBottom: 20,
+        borderWidth: 0, 
+        paddingLeft: 25,
     },
     input: {
         paddingLeft: 15
@@ -78,5 +83,28 @@ module.exports = StyleSheet.create({
         opacity: 0.8,
         fontSize: 13,
         fontWeight: 'bold'
+    },
+    ContentIconsContainer: {
+        paddingTop: 30,
+        paddingLeft: 50,
+        paddingRight: 50,
+    },
+    afeedbackInputBox : {
+        borderBottomWidth: 1,
+        borderBottomColor: '#797979',
+    },
+    iosfeedbackInputBox : {
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(255,255,255,0.5)',
+    },
+    inputBox: {
+        alignSelf: 'flex-start',
+    },
+    inputBoxIcon: {
+        alignSelf: 'flex-end',
+    },
+    forwardIcon: {
+        alignSelf: 'flex-end',
+        paddingBottom: 5,
     },
 });

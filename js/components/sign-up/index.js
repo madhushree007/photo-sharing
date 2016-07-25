@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { DeviceEventEmitter, Image, Platform, Dimensions, TouchableOpacity } from 'react-native';
+import { Keyboard, Image, Platform, Dimensions, TouchableOpacity } from 'react-native';
 import {popRoute} from '../../actions/route';
 
 import {Container, Content, Text, Button, Icon, InputGroup, Input, View } from 'native-base';
@@ -29,19 +29,19 @@ class SignUp extends Component {
         }
     }
    
-    // componentWillMount () {
-    //     DeviceEventEmitter.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
-    //     DeviceEventEmitter.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
-    // }
+    componentWillMount () {
+        Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
+        Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
+    }
 
-    // keyboardWillShow (e) {
-    //    let newSize = Dimensions.get('window').height - e.endCoordinates.height
-    //    this.setState({offset :{y: 80}});
-    // }
+    keyboardWillShow (e) {
+       let newSize = Dimensions.get('window').height - e.endCoordinates.height
+       this.setState({offset :{y: 80}});
+    }
     
-    // keyboardWillHide (e) {
-    //     this.setState({offset :{y: 0}});
-    // }
+    keyboardWillHide (e) {
+        this.setState({offset :{y: 0}});
+    }
     
     popRoute() {
         this.props.popRoute();
@@ -53,18 +53,21 @@ class SignUp extends Component {
                 <Content contentOffset={this.state.offset} scrollEnabled={false}>
                     <View theme={theme}>
                         <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
-                            <Content padder style={{backgroundColor: 'transparent'}}>
+                            <Content padder>
                                 <Text style={Platform.OS === 'android' ? styles.asignupHeader : styles.signupHeader}>CREATE ACCOUNT</Text>
                                 <View style={Platform.OS === 'android' ? styles.asignupContainer : styles.signupContainer}>
-                                    <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
+
+                                    <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                         <Icon name="ios-person-outline" />
                                         <Input placeholder="Username"  style={styles.input}/>
                                     </InputGroup>
-                                    <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
+
+                                    <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                         <Icon name="ios-mail-open-outline" />
                                         <Input placeholder="Email"  style={styles.input}/>
                                     </InputGroup>
-                                    <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
+
+                                    <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                         <Icon name="ios-unlock-outline" />
                                         <Input placeholder="Password" secureTextEntry={true}  style={styles.input}/>
                                     </InputGroup>

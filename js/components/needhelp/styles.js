@@ -49,13 +49,17 @@ module.exports = StyleSheet.create({
         flexDirection: 'row',
         borderRadius: 25,
         backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 20
+        marginBottom: 20,
+        borderWidth: 0, 
+        paddingLeft: 15,
     },
     inputGrp: {
         flexDirection: 'row',
         borderRadius: 25,
         backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 20
+        marginBottom: 20,
+        borderWidth: 0, 
+        paddingLeft: 15,
     },
     iosInputIcon: {
         alignSelf: 'center',

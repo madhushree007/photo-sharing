@@ -18,7 +18,7 @@ class Widgets extends Component {
 
     render() {
         return (
-            <Container theme={theme} style={styles.bg} >
+            <Container theme={theme}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
                         <Button transparent onPress={this.props.openDrawer}  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
@@ -32,13 +32,13 @@ class Widgets extends Component {
                         </Button>    
                     </Header>
 
-                    <Content style={{backgroundColor: 'transparent'}} >
+                    <Content>
                         <View style={styles.overviewHeaderContainer}>
                             <Text style={Platform.OS === 'android' ? styles.aoverviewHeader :styles.iosoverviewHeader}>WIDGETS</Text>
                         </View>
 
                         <Image source={require('../../../images/Widgets/widget1.png')} style={styles.mainWidget}>
-                            <Grid style={{flex: 10,flexDirection: 'row',padding: 20}}>
+                            <Grid style={styles.mainWidgetContainer}>
                                 <Col>
                                     <Icon name="ios-cloud-outline" style={{fontSize: 40}} />
                                     <Text style={{fontWeight: '700'}}>Mostly Cloudy</Text>
@@ -46,7 +46,7 @@ class Widgets extends Component {
                                 </Col>
                                 <Col style={{alignItems: 'flex-end'}}>
                                     <View style={{flexDirection: 'row'}}>
-                                        <Text style={Platform.OS === 'android' ? {fontSize: 80,paddingBottom: 70,fontWeight: '700',marginTop: - 15} : {fontSize: 120,lineHeight: 0,fontWeight: '700',marginTop: -20}}>76</Text>
+                                        <Text style={Platform.OS === 'android' ? styles.aWeather : styles.iosWeather}>76</Text>
                                         <Icon name="ios-radio-button-off" style={{fontSize: 16,marginTop: 5}} />
                                     </View>
                                 </Col>
@@ -83,11 +83,11 @@ class Widgets extends Component {
                         <Grid>
                             <Col>
                                 <Image source={require('../../../images/Widgets/widget2.png')} style={styles.otherWidget}>
-                                    <View style={{flex: 2,padding: 20,paddingTop: 10}}>
+                                    <View style={styles.otherWidgetContainer}>
                                         <Text style={styles.widgetName}>KUMAR SANKET</Text>
                                         <Text style={[{color: 'blue'},Platform.OS === 'android' ? styles.aratingPerc :styles.iosratingPerc]}>+0.51%</Text>
-                                        <Text style={Platform.OS === 'android' ? styles.aratingNum :styles.iosratingNum}>5,055.55</Text>
-                                        <Button rounded small style={styles.detailsBtn} textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center',marginTop: -3} :{color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                        <Text style={styles.ratingNum}>5,055.55</Text>
+                                        <Button rounded small style={styles.detailsBtn} textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} :{color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
                                             Details
                                         </Button>
                                     </View>
@@ -95,11 +95,11 @@ class Widgets extends Component {
                             </Col>
                             <Col>
                                 <Image source={require('../../../images/Widgets/widget3.png')} style={styles.otherWidget}>
-                                    <View style={{flex: 2,padding: 20,paddingTop: 10}}>
+                                    <View  style={styles.otherWidgetContainer}>
                                         <Text style={styles.widgetName}>KUMAR PRATIK</Text>
                                         <Text style={[{color: 'red'},Platform.OS === 'android' ? styles.aratingPerc :styles.iosratingPerc]}>-0.31%</Text>
-                                        <Text style={Platform.OS === 'android' ? styles.aratingNum :styles.iosratingNum}>4,567.00</Text>
-                                        <Button rounded small style={styles.detailsBtn} textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center',marginTop: -3} :{color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                        <Text style={styles.ratingNum}>4,567.00</Text>
+                                        <Button rounded small style={styles.detailsBtn} textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} :{color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
                                             Details
                                         </Button>
                                     </View>

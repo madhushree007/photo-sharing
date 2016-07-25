@@ -13,7 +13,7 @@ module.exports = StyleSheet.create({
         height: null
     },
     bg: {
-        backgroundColor: primary,
+        // backgroundColor: primary,
     },
     logoHeader: {
         width: 20,
@@ -24,7 +24,8 @@ module.exports = StyleSheet.create({
         padding: 20,
         paddingTop: 30,
         alignSelf: 'center',
-        backgroundColor: 'transparent'
+        backgroundColor: primary,
+        width: deviceWidth
     },
     aheaderIcon: {
 
@@ -55,7 +56,14 @@ module.exports = StyleSheet.create({
         fontSize: 14,
         fontWeight: '900'
     },
-    timelineContentHeading: {
+    atimelineContentHeading: {
+        color: primary,
+        fontSize: 12,
+        alignSelf: 'center',
+        fontWeight: 'bold',
+        marginTop: 10
+    },
+    iostimelineContentHeading: {
         color: primary,
         fontSize: 12,
         alignSelf: 'center',
@@ -85,9 +93,14 @@ module.exports = StyleSheet.create({
         alignSelf: 'center',
         color: '#999'
     },
-    newsTypeView: {
+    anewsTypeView: {
         alignSelf: 'flex-end',
-        flexDirection:'row'
+        flexDirection:'row',
+        marginTop: 10
+    },
+    iosnewsTypeView: {
+        alignSelf: 'flex-end',
+        flexDirection:'row',
     },
     newsTypeText: {
         color: '#666',
@@ -104,5 +117,21 @@ module.exports = StyleSheet.create({
     timelineView: {
         paddingLeft: 30,
         backgroundColor: '#fff' 
+    },
+    contentContainer: {
+        backgroundColor: '#fff',
+        paddingLeft: 20,
+        paddingRight: 20,
+    },
+    timelineTextHeader: {
+        color: '#222',
+        fontSize: 14,
+        fontWeight: '700',
+    },
+    timelineTextComment: {
+        color: '#aaa',
+        fontSize: 12,
+        fontWeight: '700',
+        paddingLeft: 30,
     },
 });

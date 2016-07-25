@@ -39,5 +39,15 @@ module.exports = StyleSheet.create({
     },
     adrawerContent: {
         paddingTop: 20,
-    }
+    },
+    aProfilePic: {
+        height: 40,
+        width: 40, 
+        borderRadius: 40,
+    },
+    iosProfilePic: {
+        height: 40,
+        width: 40, 
+        borderRadius: 20,
+    },
 });

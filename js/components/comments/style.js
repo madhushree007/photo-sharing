@@ -17,6 +17,12 @@ module.exports = StyleSheet.create({
         backgroundColor: primary,
         padding: 20
     },
+    commentHeader : {
+        alignSelf: 'center',
+        fontWeight: '900',
+        fontSize: 20,
+        paddingBottom: 20
+    },
     card: {
         backgroundColor: '#fff',
         borderWidth: 0
@@ -32,16 +38,24 @@ module.exports = StyleSheet.create({
         paddingTop: 5,
         paddingLeft: 55
     },
-    date: {
+    adate: {
         textAlign: 'right',
         fontWeight: '100',
         fontSize: 12,
-        marginTop: 5
+        marginTop: 5,
+        color: '#666',
+    },
+    iosdate: {
+        textAlign: 'right',
+        fontWeight: '100',
+        fontSize: 12,
+        color: '#666',
+        marginTop: -5
     },
     iostimeIcon: {
         fontSize: 16,
         paddingLeft: 15,
-        marginTop: 8,
+        marginTop: 5,
         marginRight: -20,
         color: '#666',
     },
@@ -54,13 +68,13 @@ module.exports = StyleSheet.create({
     },
     ioslikeIcon: {
         fontSize: 16,
-        marginTop: 8,
+        marginTop: 5,
         marginRight: -20,
         paddingLeft: 2
     },
     alikeIcon: {
         fontSize: 16,
-        marginTop: 2,
+        marginTop: 1,
         marginRight: -20,
         paddingLeft: 2
     },
@@ -76,7 +90,43 @@ module.exports = StyleSheet.create({
         color: '#222',
     },
     commentBox: {
-        backgroundColor: 'transparent',
-        marginTop: 60,
+        backgroundColor: '#fff',
+        flexDirection: 'row',
+        height: 55,
     },
+    attachIconContainer: {
+        padding: 20,
+        paddingTop: 10
+    },
+    attachIcon : {
+        color: '#797979', 
+        fontSize: 27,
+    },
+    arrowForwardIcon: {
+        alignSelf: 'flex-end',
+        color: primary,
+    },
+    arrowForwardIconContainer: {
+        paddingRight: 20,
+        paddingTop: 5,
+    },
+    headerBtns : {
+        padding: 10,
+    },
+    headerIcons : {
+        paddingTop: 10,
+    },
+    aheaderTextIcon: {
+        fontSize: 28,
+        paddingTop: 10,
+        marginTop: -10,
+    },
+    iosheaderTextIcon: {
+        fontSize: 28,
+        paddingTop: 10,
+    },
+    headerContainer: {
+        marginTop: 10,
+    },
+
 });

@@ -1,14 +1,8 @@
-/**
- * Created by kylefang on 4/28/16.
- * @flow
- */
 
 'use strict';
-//Currently using it as playground
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import CodePush from 'react-native-code-push';
 import { Image, View, TouchableOpacity,Platform,Slider } from 'react-native';
 import {replaceRoute, popRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
@@ -44,9 +38,6 @@ class Story extends Component {
       animationType: 'slideInDown',
       open: false,
       value: 0,
-      // isOpen: false,
-      // isDisabled: false,
-      // swipeToClose: true
     };
   }
    
@@ -66,36 +57,36 @@ class Story extends Component {
         return (
             <Container theme={theme} style={{backgroundColor: '#fff'}}>
               <Image source={require('../../../images/glow2.png')} style={styles.container} >
+                
                 <Header>
-                  <Grid style={{flexDirection: 'row',marginTop: 10}}>
-                    <Col style={{padding: 10}}>
+                  <Grid style={styles.headerContainer}>
+                    <Col style={styles.headerBtns}>
                       <Button transparent onPress={() => this.popRoute()}>
-                        <Icon name="ios-arrow-back" style={{paddingTop: 10}} />
+                        <Icon name="ios-arrow-back" style={styles.headerIcons} />
                       </Button>
                     </Col>
-                    <Col style={{padding: 10}}>
+                    <Col style={styles.headerBtns}>
                       <Button transparent  onPress={() => this.replaceRoute('comments')}>
-                        <Icon name="ios-chatboxes-outline" style={{paddingTop: 10}} />
+                        <Icon name="ios-chatboxes-outline" style={styles.headerIcons} />
                       </Button>
                     </Col>
-                    <Col style={{padding: 10}}>
-                      <Button transparent onPress={() => this.modalO()}>
-                        <Text style={{fontSize: 28,paddingTop: 5}}>Aa</Text>
+                    <Col style={styles.headerBtns}>
+                      <Button transparent  onPress={() => this.modalO()}>
+                        <Text style={Platform.OS === 'android' ? styles.aheaderTextIcon : styles.iosheaderTextIcon}>Aa</Text>
                       </Button>
                     </Col>
-                    <Col style={{padding: 10}} >
-                      <Button transparent  onPress={() => this.modalX()}>
-                        <Icon name="ios-bookmarks-outline" style={{paddingTop: 10}} />
-                      </Button>
-                    </Col>
-                    <Col style={{padding: 10}}>
+                    <Col style={styles.headerBtns} >
                       <Button transparent>
-                        <Icon name="ios-download-outline" style={{paddingTop: 10}} />
+                        <Icon name="ios-bookmarks-outline"  style={styles.headerIcons} />
+                      </Button>
+                    </Col>
+                    <Col style={styles.headerBtns}>
+                      <Button transparent>
+                        <Icon name="ios-download-outline" style={styles.headerIcons} />
                       </Button>
                     </Col>
                   </Grid>
                 </Header>
-
 
                 <Content>
                 
@@ -115,6 +106,7 @@ class Story extends Component {
                   <View style={{backgroundColor: '#fff'}}>
                         
                         <View style={styles.newsContent}>
+
                             <Grid style={{paddingBottom: 20}}>
                                 <Col style={{flexDirection:'row'}}>
                                     <TouchableOpacity><Text style={styles.newsLink}>CDC</Text></TouchableOpacity>
@@ -160,7 +152,7 @@ class Story extends Component {
                         
                         <View style={styles.wrapper}>
                           <Swiper height={240} 
-                             loop={true}  dot={<View style={{backgroundColor:'rgba(0,0,0,.8)', width: 8, height: 8,borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />} activeDot={<View style={{backgroundColor: '#fff', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} showsButtons={true} />} >
+                             loop={true}  dot={<View style={styles.swiperDot} />} activeDot={<View style={styles.swiperActiveDot} showsButtons={true} />} >
                             <Lightbox  navigator={this.props.navigator}>
                               <View style={styles.slide}>
                                 <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} />
@@ -187,11 +179,11 @@ class Story extends Component {
 
                         <View style={{alignSelf: 'center'}}>
                             <Button transparent iconRight onPress={() => this.replaceRoute('home')} >
-                                <Text style={{color: primary,fontWeight: '900'}}>NEXT STORY</Text>
-                                <Icon name="ios-arrow-forward" style={{color: primary,fontSize: 26}}/>
+                                <Text style={styles.nextStoryBtn}>NEXT STORY</Text>
+                                <Icon name="ios-arrow-forward" style={styles.forwardBtn}/>
                             </Button>
                         </View>
-                    
+                   
                   </View>
                   </View>
                   
@@ -206,8 +198,8 @@ class Story extends Component {
                modalDidClose={() => this.setState({open: false})}
                style={styles.modal}>
                <View>
-               <View style={Platform.OS === 'android' ? {borderBottomWidth: 1,borderBottomColor: '#fff'} : {borderBottomWidth: 1,borderBottomColor: 'rgba(255,255,255,0.5)'}}>
-               <Grid style={{flex: 10,padding: 20}}>
+                <View style={Platform.OS === 'android' ? styles.aModalContentBox : styles.iosModalContentBox}>
+                  <Grid style={{flex: 10,padding: 20}}>
                             
                             <Col style={{paddingLeft: 30}}>
                                 <Button transparent style={styles.dayButton}>
@@ -219,9 +211,10 @@ class Story extends Component {
                                     <Icon name="ios-moon-outline" style={Platform.OS === 'android' ? {fontSize: 26,marginTop: 5} : {fontSize: 26} } />
                                 </Button>
                             </Col>
-                        </Grid>
-                        </View>
-                        <View style={Platform.OS === 'android' ? {borderBottomWidth: 1,borderBottomColor: '#fff'} : {borderBottomWidth: 1,borderBottomColor: 'rgba(255,255,255,0.5)'}}>
+                  </Grid>
+                </View>
+                <View style={Platform.OS === 'android' ? styles.aModalContentBox : styles.iosModalContentBox}>
+
                           <Grid style={{padding: 20,paddingBottom: 15}}>
                               <Col><Text style={Platform.OS === 'android' ? {fontSize: 12,marginTop: 5} : {fontSize: 12}}>CHOOSE TYPESPACE</Text></Col>
                               <Col>
@@ -232,18 +225,19 @@ class Story extends Component {
 
                               </Col>
                           </Grid>
-                          </View>
-                          <View> 
-                            <Grid style={{flexDirection: 'row',paddingTop: 20}}>
-                            <Col><Text style={{alignSelf: 'flex-start',fontWeight: '700'}}>A</Text></Col>
-                            <Col style={{alignSelf: 'flex-end'}}><Text style={Platform.OS === 'android' ? {alignSelf: 'flex-end',fontSize: 24,fontWeight: '700',paddingBottom: 10,marginTop: - 10} : {alignSelf: 'flex-end',fontSize: 24,fontWeight: '700'}}>A</Text></Col>
-                            </Grid>
-                            <Slider
+                  </View>
+                  <View> 
+                          <Grid style={{flexDirection: 'row',paddingTop: 20}}>
+                            <Col><Text style={styles.modalSmallText}>A</Text></Col>
+                            <Col style={{alignSelf: 'flex-end'}}><Text style={Platform.OS === 'android' ? styles.aModalLargeText : styles.iosModalLargeText}>A</Text></Col>
+                          </Grid>
+                          <Slider
                             {...this.props} minimumTrackTintColor="#fff"
                             onValueChange={(value) => this.setState({value: value})} />
 
-                          </View>
-                        </View>
+                  </View>
+
+                </View>
             </Modal>
 
               </Image>

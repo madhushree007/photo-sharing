@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { Image, View, Switch, TouchableOpacity, Platform, DeviceEventEmitter, Dimensions } from 'react-native';
+import { Image, View, Switch, TouchableOpacity, Platform, Keyboard, Dimensions } from 'react-native';
 import {resetRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
 
@@ -41,27 +41,25 @@ class Settings extends Component {
        }
     }
    
-    // componentWillMount () {
-    //     DeviceEventEmitter.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
-    //     DeviceEventEmitter.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
-    // }
+    componentWillMount () {
+        Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
+        Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
+    }
 
-    // keyboardWillShow (e) {
-    //    let newSize = Dimensions.get('window').height - e.endCoordinates.height
-    //    this.setState({offset :{y: 80}});
-    // }
-
-    // keyboardWillHide (e) {
-    //     this.setState({offset :{y: 0}});
-    // }
-   
-    resetRoute(route) {
+    keyboardWillShow (e) {
+       let newSize = Dimensions.get('window').height - e.endCoordinates.height
+       this.setState({offset :{y: 80}});
+   }
+   keyboardWillHide (e) {
+        this.setState({offset :{y: 0}});
+   }
+   resetRoute(route) {
         this.props.resetRoute(route);
     }
 
     render() {
         return (
-            <Container theme={theme} style={styles.bg} >
+            <Container theme={theme} >
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
                         <Button transparent onPress={this.props.openDrawer}  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
@@ -71,11 +69,12 @@ class Settings extends Component {
                         <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
                         
                         <Button transparent style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon} onPress={() => this.resetRoute('login')}>
-                            <Icon name="ios-power" style={{marginTop: 5,paddingBottom: 10}} />
+                            <Icon name="ios-power" style={Platform.OS === 'android' ? {paddingBottom: 10,marginTop: 8} : {}}/>
                         </Button>    
                     </Header>
 
                     <Content contentOffset={this.state.offset} scrollEnabled={true} >
+                        <View  style={styles.bg}>
                         <Text style={styles.signupHeader}>SETTINGS</Text>
                         <View style={{marginTop: 20}}>
                             <Grid>
@@ -86,7 +85,7 @@ class Settings extends Component {
                                 </Col>
                                 <Col>
                                     <TouchableOpacity style={{alignSelf: 'center'}}>
-                                        <Thumbnail source={require('../../../images/contacts/sanket.png')} style={{width: 60, height: 60,borderRadius: 30}} />
+                                        <Thumbnail source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? styles.aProfilePic : styles.iosProfilePic} />
                                     </TouchableOpacity>
                                 </Col>
                                 <Col>
@@ -97,18 +96,19 @@ class Settings extends Component {
                             </Grid>   
                         </View>
                         <View style={styles.signupContainer}>
-                            <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
+                            <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                 <Icon name="ios-person-outline" />
                                 <Input placeholder="Username"  style={styles.input}/>
                             </InputGroup>
-                            <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
+                            <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                 <Icon name="ios-mail-open-outline" />
                                 <Input placeholder="Email"  style={styles.input}/>
                             </InputGroup>
-                            <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
+                            <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                 <Icon name="ios-unlock-outline" />
                                 <Input placeholder="Password" secureTextEntry={true}  style={styles.input}/>
                             </InputGroup>
+                        </View>
                         </View>
                         <View style={styles.notificationSwitchContainer}>
                             <Text style={styles.notificationHeader}>EMAIL NOTIFICATIONS</Text>

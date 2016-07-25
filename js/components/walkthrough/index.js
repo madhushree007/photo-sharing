@@ -24,27 +24,27 @@ class Walkthrough extends Component {
         return (
             <Container>
                 <Content theme={theme}  scrollEnabled={false}>
-                    <Swiper  loop={false} dot={<View style={{backgroundColor:'rgba(0,0,0,.2)', width: 50, height: 1, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 20,}} />} activeDot={<View style={{backgroundColor: '#fff', width: 50, height: 1, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 20,}} />}>
+                    <Swiper  loop={false} dot={<View style={styles.swiperDot} />} activeDot={<View style={styles.swiperActiveDot} />}>
                         
                         <View style={styles.slides}>
                             <Text style={Platform.OS === 'android' ? styles.apaginationText : styles.iospaginationText}>1 of 3</Text>
-                            <Icon name="ios-paper-outline" style={{ fontSize: 60}} />
+                            <Icon name="ios-paper-outline" style={styles.imageIcons} />
                             <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>Explore the latest news from your mobile device</Text>
-                            <Button transparent rounded style={{alignSelf: 'center',backgroundColor: 'rgba(0,0,0,0.2)'}} textStyle={{fontWeight: '900',textAlign: 'center',marginTop: -5}}  onPress={() => this.replaceRoute('home')}> Skip To App </Button>
+                            <Button transparent rounded style={styles.Button} textStyle={Platform.OS === 'android' ? {fontWeight: '900',textAlign: 'center',marginTop: -5} : {fontWeight: '900',textAlign: 'center'}}  onPress={() => this.replaceRoute('home')}> Skip To App </Button>
                         </View>
         
                         <View style={styles.slides}>
                             <Text style={Platform.OS === 'android' ? styles.apaginationText : styles.iospaginationText}>2 of 3</Text>
-                            <Icon name="ios-information-circle-outline" style={{ fontSize: 60}} />
+                            <Icon name="ios-information-circle-outline"  style={styles.imageIcons} />
                             <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>Lorem Ipsum industry's standard dummy text</Text>
-                            <Button transparent rounded style={{alignSelf: 'center',backgroundColor: 'rgba(0,0,0,0.2)'}} textStyle={{fontWeight: '900',textAlign: 'center',marginTop: -5}}  onPress={() => this.replaceRoute('home')}> Skip To App </Button>
+                            <Button transparent rounded style={styles.Button}  textStyle={Platform.OS === 'android' ? {fontWeight: '900',textAlign: 'center',marginTop: -5} : {fontWeight: '900',textAlign: 'center'}}  onPress={() => this.replaceRoute('home')}> Skip To App </Button>
                         </View>
         
                         <View style={styles.slides}>
                             <Text style={Platform.OS === 'android' ? styles.apaginationText : styles.iospaginationText}>3 of 3</Text>
-                            <Icon name="ios-volume-up-outline" style={{ fontSize: 60}} />
+                            <Icon name="ios-volume-up-outline"  style={styles.imageIcons} />
                             <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>Lorem Ipsum is not simply random text</Text>
-                            <Button transparent rounded style={{alignSelf: 'center',backgroundColor: 'rgba(0,0,0,0.2)'}} textStyle={{fontWeight: '900',textAlign: 'center',marginTop: -5}}  onPress={() => this.replaceRoute('home')}> Continue To App </Button>
+                            <Button transparent rounded style={styles.Button}  textStyle={Platform.OS === 'android' ? {fontWeight: '900',textAlign: 'center',marginTop: -5} : {fontWeight: '900',textAlign: 'center'}}  onPress={() => this.replaceRoute('home')}> Continue To App </Button>
                         </View>
                     </Swiper>  
                 </Content>

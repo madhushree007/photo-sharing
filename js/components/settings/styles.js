@@ -24,7 +24,8 @@ module.exports = StyleSheet.create({
     logoHeader: {
         width: 20,
         height: 28,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginTop: 5,
     },
     mb20: {
         marginBottom: 20,
@@ -83,17 +84,21 @@ module.exports = StyleSheet.create({
         flexDirection: 'row',
         borderRadius: 25,
         backgroundColor: 'rgba(0,0,0,0.2)',
-        marginBottom: 20
+        marginBottom: 20,
+        borderWidth: 0, 
+        paddingLeft: 15,
     },
     inputGrp: {
         flexDirection: 'row',
         borderRadius: 25,
         backgroundColor: 'rgba(0,0,0,0.2)',
-        marginBottom: 20
+        marginBottom: 20,
+        borderWidth: 0, 
+        paddingLeft: 15,
     },
     iosInputIcon: {
         alignSelf: 'center',
-        paddingLeft: 20
+        paddingLeft: 20,
     },
     inputIcon: {
         alignSelf: 'center',
@@ -110,5 +115,15 @@ module.exports = StyleSheet.create({
         color: primary,
         fontWeight: 'bold',
         paddingBottom: 20
+    },
+    aProfilePic: {
+        width: 60, 
+        height: 60,
+        borderRadius: 60,
+    },
+    iosProfilePic: {
+        width: 60, 
+        height: 60,
+        borderRadius: 30,
     },
 });

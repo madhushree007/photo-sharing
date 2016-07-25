@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { DeviceEventEmitter, Dimensions,Image, View, TouchableOpacity,Platform } from 'react-native';
+import { Keyboard, Dimensions,Image, View, TouchableOpacity,Platform } from 'react-native';
 import {popRoute} from '../../actions/route';
 
 import {Container, Header, Content, Text, Input, Button, Icon, Card, CardItem, Thumbnail } from 'native-base';
@@ -29,19 +29,19 @@ class Comments extends Component {
         }
     }
    
-    // componentWillMount () {
-    //     DeviceEventEmitter.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
-    //     DeviceEventEmitter.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
-    // }
+    componentWillMount () {
+        Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
+        Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
+    }
 
-    // keyboardWillShow (e) {
-    //     let newSize = Dimensions.get('window').height - e.endCoordinates.height
-    //     this.setState({offset :{y: 80}});
-    // }
+    keyboardWillShow (e) {
+        let newSize = Dimensions.get('window').height - e.endCoordinates.height
+        this.setState({offset :{y: 80}});
+    }
 
-    // keyboardWillHide (e) {
-    //     this.setState({offset :{y: 0}});
-    // }
+    keyboardWillHide (e) {
+        this.setState({offset :{y: 0}});
+    }
    
     popRoute() {
         this.props.popRoute();
@@ -51,42 +51,42 @@ class Comments extends Component {
         return (
             <Container theme={theme}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
-                    <Header>
-                  <Grid style={{flexDirection: 'row',marginTop: 10}}>
-                    <Col style={{padding: 10}}>
+                <Header>
+                  <Grid style={styles.headerContainer}>
+                    <Col style={styles.headerBtns}>
                       <Button transparent onPress={() => this.popRoute()}>
-                        <Icon name="ios-arrow-back" style={{paddingTop: 10}} />
+                        <Icon name="ios-arrow-back" style={styles.headerIcons} />
                       </Button>
                     </Col>
-                    <Col style={{padding: 10}}>
-                      <Button transparent  onPress={() => this.replaceRoute('comments')}>
-                        <Icon name="ios-chatboxes-outline" style={{paddingTop: 10}} />
-                      </Button>
-                    </Col>
-                    <Col style={{padding: 10}}>
+                    <Col style={styles.headerBtns}>
                       <Button transparent>
-                        <Text style={{fontSize: 28,paddingTop: 10}}>Aa</Text>
+                        <Icon name="ios-chatboxes-outline" style={styles.headerIcons} />
                       </Button>
                     </Col>
-                    <Col style={{padding: 10}} >
+                    <Col style={styles.headerBtns}>
                       <Button transparent>
-                        <Icon name="ios-bookmarks-outline" style={{paddingTop: 10}} />
+                        <Text style={Platform.OS === 'android' ? styles.aheaderTextIcon : styles.iosheaderTextIcon}>Aa</Text>
                       </Button>
                     </Col>
-                    <Col style={{padding: 10}}>
+                    <Col style={styles.headerBtns} >
                       <Button transparent>
-                        <Icon name="ios-download-outline" style={{paddingTop: 10}} />
+                        <Icon name="ios-bookmarks-outline"  style={styles.headerIcons} />
+                      </Button>
+                    </Col>
+                    <Col style={styles.headerBtns}>
+                      <Button transparent>
+                        <Icon name="ios-download-outline" style={styles.headerIcons} />
                       </Button>
                     </Col>
                   </Grid>
                 </Header>
 
-                    <Content>
+                    
                         <View style={styles.commentHeadbg}>
-                            <Text style={{alignSelf: 'center',fontWeight: '900',fontSize: 20,paddingBottom: 20}}>23 COMMENTS</Text>
+                            <Text style={styles.commentHeader}>23 COMMENTS</Text>
                             <Grid>
                                 <Col>
-                                    <Button rounded primary block  style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}   textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900',marginTop: -5}}>
+                                    <Button rounded primary block  style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}   textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900'}}>
                                         Best
                                     </Button>
                                 </Col>
@@ -102,14 +102,15 @@ class Comments extends Component {
                                 </Col>
                             </Grid>
                         </View>
+                    <Content>
                         <Card foregroundColor="#222" style={styles.card}>
                             <CardItem style={styles.cardHeader}  header>
-                                <Thumbnail source={require('../../../images/contacts/sanket.png')} />
+                                <Thumbnail source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? {borderRadius: 40} : {}} />
                                 <Text>Kumar Sanket</Text>
                                 <Icon name="ios-time-outline"  style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
-                                <Text style={styles.date}>May 24, 11 AM</Text>
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>May 24, 11 AM</Text>
                                 <Icon name="ios-heart-outline" style={ Platform.OS === 'android' ? styles.alikeIcon : styles.ioslikeIcon} />
-                                <Text style={styles.date}>12</Text>
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>12</Text>
                             </CardItem>
 
                             <CardItem style={styles.cardItem} >
@@ -121,12 +122,12 @@ class Comments extends Component {
 
                         <Card foregroundColor="#222" style={styles.card}>
                             <CardItem style={styles.cardHeader}  header>
-                                <Thumbnail source={require('../../../images/contacts/pratik.png')} />
+                                <Thumbnail source={require('../../../images/contacts/pratik.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
                                 <Text>Kumar Pratik</Text>
                                 <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
-                                <Text style={styles.date}>May 24, 11 AM</Text>
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>May 24, 11 AM</Text>
                                 <Icon name="ios-heart-outline" style={ Platform.OS === 'android' ? styles.alikeIcon : styles.ioslikeIcon} />
-                                <Text style={styles.date}>12</Text>
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>12</Text>
                             </CardItem>
                             <CardItem style={styles.cardItem} >
                                 <Text>
@@ -137,12 +138,12 @@ class Comments extends Component {
                         
                         <Card foregroundColor="#222" style={styles.card}>
                             <CardItem style={styles.cardHeader}  header>
-                                <Thumbnail source={require('../../../images/contacts/megha.png')} />
+                                <Thumbnail source={require('../../../images/contacts/megha.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
                                 <Text>Kumari Megha</Text>
                                 <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
-                                <Text style={styles.date}>Apr 02, 7 PM</Text>
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>Apr 02, 7 PM</Text>
                                 <Icon name="ios-heart-outline" style={ Platform.OS === 'android' ? styles.alikeIcon : styles.ioslikeIcon} />
-                                <Text style={styles.date}>8</Text>
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>8</Text>
                             </CardItem>
                             <CardItem style={styles.cardItem} >
                                 <Text>
@@ -153,12 +154,12 @@ class Comments extends Component {
                     
                         <Card foregroundColor="#222" style={styles.card}>
                             <CardItem style={styles.cardHeader}  header>
-                                <Thumbnail source={require('../../../images/contacts/saurav.png')} />
+                                <Thumbnail source={require('../../../images/contacts/saurav.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
                                 <Text>Saurav Sahu</Text>
                                 <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
-                                <Text style={styles.date}>Feb 17, 4:30 PM</Text>
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>Feb 17, 4:30 PM</Text>
                                 <Icon name="ios-heart-outline" style={ Platform.OS === 'android' ? styles.alikeIcon : styles.ioslikeIcon} />
-                                <Text style={styles.date}>5</Text>
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>5</Text>
                             </CardItem>
                             <CardItem style={styles.cardItem} >
                                 <Text>
@@ -166,17 +167,51 @@ class Comments extends Component {
                                 </Text>
                             </CardItem>
                         </Card>
+
+                        <Card foregroundColor="#222" style={styles.card}>
+                            <CardItem style={styles.cardHeader}  header>
+                                <Thumbnail source={require('../../../images/contacts/atul.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
+                                <Text>Atul Ranjan</Text>
+                                <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>Feb 3, 1:00 PM</Text>
+                                <Icon name="ios-heart-outline" style={ Platform.OS === 'android' ? styles.alikeIcon : styles.ioslikeIcon} />
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>5</Text>
+                            </CardItem>
+                            <CardItem style={styles.cardItem} >
+                                <Text>
+                                    The generated Lorem Ipsum is therefore always free from repetition
+                                </Text>
+                            </CardItem>
+                        </Card>
+
+                        <Card foregroundColor="#222" style={styles.card}>
+                            <CardItem style={styles.cardHeader}  header>
+                                <Thumbnail source={require('../../../images/contacts/varun.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
+                                <Text>Varun Sahu</Text>
+                                <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>Jan 12, 9:30 PM</Text>
+                                <Icon name="ios-heart-outline" style={ Platform.OS === 'android' ? styles.alikeIcon : styles.ioslikeIcon} />
+                                <Text style={Platform.OS === 'android' ? styles.adate : styles.iosdate}>4</Text>
+                            </CardItem>
+                            <CardItem style={styles.cardItem} >
+                                <Text>
+                                     Various versions have evolved over the years, sometimes by accident
+                                </Text>
+                            </CardItem>
+                        </Card>
                     </Content>
 
-                    <View style={{backgroundColor: '#fff',flexDirection: 'row',height: 55}}>
-                        <View style={{padding: 20,paddingTop: 10}}>
-                            <Icon name="ios-attach" style={{color: '#797979', fontSize: 27}} />
+                    <View style={styles.commentBox}>
+                        <View style={styles.attachIconContainer}>
+                            <Icon name="ios-attach" style={styles.attachIcon} />
                         </View>
                         <Input placeholder="Write something..." placeholderTextColor="#797979" style={styles.input}/>
-                        <TouchableOpacity style={{paddingRight: 20,paddingTop: 5}}>
-                            <Icon name="ios-arrow-forward"  style={{alignSelf: 'flex-end',color: primary}} />
+                        <TouchableOpacity style={styles.arrowForwardIconContainer}>
+                            <Icon name="ios-arrow-forward"  style={styles.arrowForwardIcon} />
                         </TouchableOpacity>
                     </View>
+
+
                 </Image>
             </Container>
         )

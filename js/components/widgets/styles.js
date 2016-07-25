@@ -13,9 +13,6 @@ module.exports = StyleSheet.create({
         width: null,
         height: null,
     },
-    bg: {
-      backgroundColor: primary,
-    },
     logoHeader: {
         width: 20,
         height: 28,
@@ -31,7 +28,8 @@ module.exports = StyleSheet.create({
         padding: 30,
         paddingTop: 40,
         alignSelf: 'center',
-        backgroundColor: 'transparent',
+        backgroundColor: primary,
+        width: deviceWidth
     },
     iosoverviewHeader: {
         fontSize: 22,
@@ -102,19 +100,37 @@ module.exports = StyleSheet.create({
         paddingTop: 10,
         paddingBottom:10
     },
-    iosratingNum: {
+    ratingNum: {
         color: '#ccc',
         fontWeight: '800',
     },
-    aratingNum: {
-        color: '#ccc',
-        fontWeight: '800',
-        marginTop: - 20,
-    },
+    
     widgetName: {
         color: '#222',
         fontWeight: '700',
         fontSize: 12
+    },
+    mainWidgetContainer: {
+        flex: 10,
+        flexDirection: 'row',
+        padding: 20,
+    },
+    aWeather: {
+        fontSize: 80,
+        paddingBottom: 70,
+        fontWeight: '700',
+        marginTop: - 15,
+    },
+    iosWeather: {
+        fontSize: 120,
+        lineHeight: 0,
+        fontWeight: '700',
+        marginTop: -20,
+    },
+    otherWidgetContainer: {
+        flex: 2,
+        padding: 20,
+        paddingTop: 10,
     },
 });
 

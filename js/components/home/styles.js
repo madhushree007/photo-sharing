@@ -70,7 +70,6 @@ module.exports = StyleSheet.create({
     },
     newsPosterHeader: {
         fontWeight: '900',
-        paddingRight: 20,
     },
     newsPosterContent: {
         marginTop: (deviceHeight/3) - 20,
@@ -90,7 +89,6 @@ module.exports = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#666',
         alignSelf: 'flex-end',
-        right: 20
     },
     newsPosterTypeText: {
         opacity: 0.8,
@@ -111,6 +109,20 @@ module.exports = StyleSheet.create({
         paddingRight: 10,
         marginTop: -2,
         color: '#666',
+    },
+    iosHeadertimeIcon: {
+        fontSize: 20,
+        paddingLeft: 20,
+        paddingRight: 10,
+        marginTop: 5,
+        color: '#fff',
+    },
+    aHeadertimeIcon: {
+        fontSize: 20,
+        marginLeft: 15,
+        paddingRight: 10,
+        marginTop: -2,
+        color: '#fff',
     },
     slide: {
         flex: 1,
@@ -133,7 +145,33 @@ module.exports = StyleSheet.create({
         position: 'relative'
     },
     swiperTextContent: {
-        marginBottom: 170,
+        // marginBottom: 170,
+        marginTop: deviceHeight/4 + 20,
         width: deviceWidth,
-    }
+        padding: 20
+    },
+    swiperDot: {
+        backgroundColor:'rgba(0,0,0,.8)', 
+        width: 8, 
+        height: 8,
+        borderRadius: 4, 
+        marginLeft: 3, 
+        marginRight: 3, 
+        marginTop: 3, 
+        marginBottom: 0,
+    },
+    swiperActiveDot: {
+        backgroundColor: '#fff', 
+        width: 8, 
+        height: 8, 
+        borderRadius: 4, 
+        marginLeft: 3, 
+        marginRight: 3, 
+        marginTop: 3, 
+        marginBottom: 0,
+    },
+    swiperContentBox: {
+        paddingTop: 20,
+        paddingBottom: 20,
+    },
 });

@@ -17,7 +17,7 @@ export default class SplashPage extends Component {
     }
     render () {
         return (
-            <Image source={require('../../../images/launchscreen.png')} style={{flex: 1, height: null, width: null}} />
+            <Image source={require('../../../images/launchImages/Default-Portrait-736h@3x.png')} style={{flex: 1, height: null, width: null}} />
 
 
         );

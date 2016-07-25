@@ -14,11 +14,19 @@ import theme from '../../themes/base-theme';
 import styles from './styles';
 
 class Channels extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            followingBtn: true,
+            popularBtn: false,
+            exploreBtn: false
+        };
 
+    }
     pushNewRoute(route) {
          this.props.pushNewRoute(route);
     }
-
+    
     render() {
         return (
             <Container theme={theme}>
@@ -35,27 +43,30 @@ class Channels extends Component {
                         </Button>    
                     </Header>
 
-                    <Content>
+                    
                         <View style={styles.bgHead}>
                             <Grid>
                                 <Col>
-                                    <Button transparent rounded block   style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}  textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900',marginTop: -5}} >
+                                    <Button transparent rounded block   style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}  textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900'}} >
                                         Following
                                     </Button>
                                     
                                 </Col>
                                 <Col>
-                                    <Button transparent block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                    <Button transparent rounded block style={this.state.popularBtn === true ? styles.ioschannelBtn1 : styles.na}  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
                                         Popular
                                     </Button>
                                 </Col>
                                 <Col>
-                                    <Button transparent block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                    <Button transparent rounded block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
                                         Explore
                                     </Button>
                                 </Col>
                             </Grid>
                         </View>
+
+
+                    <Content>    
                         <View>
                             <Grid>
                                 <Row>
@@ -102,6 +113,38 @@ class Channels extends Component {
                                         <TouchableOpacity onPress={() => this.pushNewRoute('channel')}>
                                             <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.channelImg}>
                                                 <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>ENVIRONMENT</Text>
+                                            </Image>
+                                        </TouchableOpacity>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <TouchableOpacity onPress={() => this.pushNewRoute('channel')}>
+                                            <Image source={require('../../../images/NewsIcons/11.png')} style={styles.channelImg}>
+                                                <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>SPORTS</Text>
+                                            </Image>
+                                        </TouchableOpacity>
+                                    </Col>
+                                    <Col>
+                                        <TouchableOpacity onPress={() => this.pushNewRoute('channel')}>
+                                            <Image source={require('../../../images/NewsIcons/12.jpg')} style={styles.channelImg}>
+                                                <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>ART</Text>
+                                            </Image>
+                                        </TouchableOpacity>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <TouchableOpacity onPress={() => this.pushNewRoute('channel')}>
+                                            <Image source={require('../../../images/NewsIcons/10.jpg')} style={styles.channelImg}>
+                                                <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>ANIMATION</Text>
+                                            </Image>
+                                        </TouchableOpacity>
+                                    </Col>
+                                    <Col>
+                                        <TouchableOpacity onPress={() => this.pushNewRoute('channel')}>
+                                            <Image source={require('../../../images/NewsIcons/13.jpg')} style={styles.channelImg}>
+                                                <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>EDUCATION</Text>
                                             </Image>
                                         </TouchableOpacity>
                                     </Col>
