@@ -52,7 +52,7 @@ class Feedback extends Component {
     render() {
         return (
             <Container theme={theme} contentOffset={this.state.offset} scrollEnabled={false} >
-                <Image source={require('../../../images/BG-signUp.png')} style={styles.container} >
+                <Image source={require('../../../images/sin.png')} style={styles.container} >
                     <Header>
                         <Button transparent onPress={this.props.openDrawer}  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
                             <Icon name="ios-menu" />

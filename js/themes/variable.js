@@ -1,26 +1,21 @@
-var Color = require("color")
 
-var primary = Color("#01cca1");		//theme background
-var secondary = Color("#00c497");	//header
-var info = Color("#5bc0de");
-var success = Color("#5cb85c");
-var danger = Color("#d9534f");
-var warning = Color("#f0ad4e");
-var sidebar = Color("#252932");
-var dark = Color("rgba(0,0,0,0.8)");
-var light = Color("rgba(255,255,255,0.8)");
 
-// var darken = secondary.darken(0.2).hexString().toString();
+var theme1 = "#01cca1";		//theme background
+var header1 = "#00c497";	//header
+
+// var theme2 = "#E74C3C";
+// var header2 ="#CB4335";
+
+// var theme3 = "#5DADE2";
+// var header3 = "#3498DB";
+
+// var theme4 = "#EB984E";
+// var header4 = "#E67E22";
+
+// var theme5 = "#5D6D7E";
+// var header5 = "#34495E";
 
 module.exports = {
-	brandPrimary : primary.hexString().toString(),
-	brandSecondary: secondary.hexString().toString(),
-	brandInfo: info.hexString().toString(),
-	brandSuccess: success.hexString().toString(),
-	brandDanger: danger.hexString().toString(),
-	brandWarning: warning.hexString().toString(),
-	brandSidebar: sidebar.hexString().toString(),
-	// darker: darken,
-	dark: dark.hexString().toString(),
-	light: light.hexString().toString()
+	brandPrimary : theme1,
+	brandSecondary: header1,
 }

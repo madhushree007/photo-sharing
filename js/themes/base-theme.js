@@ -10,11 +10,11 @@ var warning = require('./variable').brandWarning;
 var sidebar = require('./variable').brandSidebar;
 module.exports = {
     brandPrimary : primary,
-    brandInfo: info,
-    brandSuccess: success,
-    brandDanger: danger,
-    brandWarning: warning,
-    brandSidebar: sidebar,
+    brandInfo: "#5bc0de",
+    brandSuccess: "#5cb85c",
+    brandDanger: "#d9534f",
+    brandWarning: "#f0ad4e",
+    brandSidebar: "#252932",
 
     brandSecondary: secondary,   //new style
 

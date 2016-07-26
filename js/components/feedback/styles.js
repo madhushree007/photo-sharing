@@ -4,13 +4,14 @@
 import { StyleSheet } from "react-native";
 var React = require('react-native');
 var { Dimensions } = React;
-
+var primary = require('../../themes/variable').brandPrimary;
 var deviceHeight = Dimensions.get('window').height;
 module.exports = StyleSheet.create({
     container: {
         flex: 1,
         width: null,
         height: null,
+        backgroundColor: primary
     },
     aheaderIcon: {
 

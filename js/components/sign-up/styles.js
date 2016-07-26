@@ -4,7 +4,7 @@
 import { StyleSheet } from "react-native";
 var React = require('react-native');
 var { Dimensions } = React;
-
+var primary = require('../../themes/variable').brandPrimary;
 var deviceHeight = Dimensions.get('window').height;
 module.exports = StyleSheet.create({
     container: {
@@ -43,6 +43,7 @@ module.exports = StyleSheet.create({
         flex: 1,
         width: null,
         height:null,
+        backgroundColor: primary
     },
     iosInputGrp: {
         flexDirection: 'row',
@@ -75,13 +76,13 @@ module.exports = StyleSheet.create({
         height: 50, 
         marginTop: 20,
         borderWidth: 1,
-        borderColor: '#aaa'
+        borderColor: '#ddd'
     },
     termsText: {
         alignSelf: 'center',
         marginTop: 20,
         paddingBottom: 100, 
-        opacity: 0.75,
+        opacity: 0.8,
         fontSize: 14,
         fontWeight: 'bold'
     },

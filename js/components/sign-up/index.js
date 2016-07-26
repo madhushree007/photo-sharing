@@ -52,7 +52,7 @@ class SignUp extends Component {
             <Container>
                 <Content contentOffset={this.state.offset} scrollEnabled={false}>
                     <View theme={theme}>
-                        <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
+                        <Image source={require('../../../images/sin.png')} style={styles.background} >
                             <Content padder>
                                 <Text style={Platform.OS === 'android' ? styles.asignupHeader : styles.signupHeader}>CREATE ACCOUNT</Text>
                                 <View style={Platform.OS === 'android' ? styles.asignupContainer : styles.signupContainer}>

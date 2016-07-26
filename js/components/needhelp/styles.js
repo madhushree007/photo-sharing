@@ -44,11 +44,12 @@ module.exports = StyleSheet.create({
         flex: 1,
         width: null,
         height:deviceHeight,
+        backgroundColor: primary
     },
     iosInputGrp: {
         flexDirection: 'row',
         borderRadius: 25,
-        backgroundColor: 'rgba(255,255,255,0.2)',
+        backgroundColor: 'rgba(0,0,0,0.2)',
         marginBottom: 20,
         borderWidth: 0, 
         paddingLeft: 15,
@@ -56,7 +57,7 @@ module.exports = StyleSheet.create({
     inputGrp: {
         flexDirection: 'row',
         borderRadius: 25,
-        backgroundColor: 'rgba(255,255,255,0.2)',
+        backgroundColor: 'rgba(0,0,0,0.2)',
         marginBottom: 20,
         borderWidth: 0, 
         paddingLeft: 15,
@@ -76,13 +77,13 @@ module.exports = StyleSheet.create({
         height: 50, 
         marginTop: 20,
         borderWidth: 1,
-        borderColor: '#aaa'
+        borderColor: '#ddd'
     },
     termsText: {
         alignSelf: 'center',
         marginTop: 20,
         paddingBottom: 100, 
-        opacity: 0.75,
+        opacity: 0.8,
         fontSize: 14,
         fontWeight: 'bold'
     },

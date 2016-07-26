@@ -57,7 +57,7 @@ class Login extends Component {
             <Container>
                 <Content contentOffset={this.state.offset} scrollEnabled={false}>
                     <View theme={login} >
-                        <Image source={require('../../../images/BG.png')} style={styles.background} >
+                        <Image source={require('../../../images/log.png')} style={styles.background} >
                             <Image source={require('../../../images/logo.png')} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
 
 

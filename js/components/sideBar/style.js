@@ -2,7 +2,7 @@
 'use strict';
 
 import { StyleSheet } from "react-native";
-
+var primary = require('../../themes/variable').brandPrimary;
 module.exports = StyleSheet.create({
     links: {
         paddingTop: 10,
@@ -32,7 +32,7 @@ module.exports = StyleSheet.create({
         flex: 1,
         width: null,
         height:null,
-        backgroundColor: 'rgba(0,0,0,0.1)'
+        backgroundColor: primary
     },
     drawerContent: {
         paddingTop: 30,

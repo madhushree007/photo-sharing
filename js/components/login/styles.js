@@ -31,13 +31,13 @@ module.exports = StyleSheet.create({
     iosInputGrp: {
         flexDirection: 'row',
         borderRadius: 25,
-        backgroundColor: 'rgba(255,255,255,0.2)',
+        backgroundColor: 'rgba(255,255,255,0.3)',
         marginBottom: 20
     },
     inputGrp: {
         flexDirection: 'row',
         borderRadius: 25,
-        backgroundColor: 'rgba(255,255,255,0.2)',
+        backgroundColor: 'rgba(255,255,255,0.3)',
         marginBottom: 20
     },
     iosInputIcon: {
@@ -55,7 +55,7 @@ module.exports = StyleSheet.create({
         flex: 1,
         width: null,
         height:null,
-        backgroundColor: 'rgba(0,0,0,0.1)'
+        backgroundColor: primary,
     },
     bg: {
         flex: 1,
@@ -76,7 +76,7 @@ module.exports = StyleSheet.create({
         height: 50,
     },
     helpBtns: {
-        opacity: 0.7,
+        opacity: 0.9,
         fontSize: 14,
         fontWeight: 'bold',
     },

@@ -26,7 +26,7 @@ class SideBar extends Component {
     render(){
         return (
             <Container>
-                <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
+                <Image source={require('../../../images/sid.png')} style={styles.background} >
                     <Content style={Platform.OS === 'android' ? styles.adrawerContent : styles.drawerContent}>
                         <List  foregroundColor={"white"} >
                             <ListItem button onPress={() => this.navigateTo('home')} iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
