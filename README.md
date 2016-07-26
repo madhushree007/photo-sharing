@@ -1,4 +1,4 @@
-## React Native Flat App Theme
+## React Native Flat App Theme - Seed
 
 Thanks for purchasing the React Native Flat App Theme.
 
