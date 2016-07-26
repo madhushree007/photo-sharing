@@ -158,7 +158,6 @@ class AppNavigator extends Component {
                 <Component navigator={navigator} route={route} {...route.passProps} />
             );
         }
-        
         switch (route.id) {
             case 'splashscreen':
                 return <SplashPage navigator={navigator} />;

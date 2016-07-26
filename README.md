@@ -1,2 +1,10 @@
-# react-native-native-base-seed
-React Native Seed Project with NativeBase, Redux, CodePush, Router, Push Notification and other basic must-have libraries
+## React Native Flat App Theme
+
+Thanks for purchasing the React Native Flat App Theme.
+
+Follow the documentation to install and get started with the development:
+
+-   [Documentation](http://strapmobile.com/docs/react-native-flat-app-theme/master/)
+-   [Product Page](http://strapmobile.com/react-native-flat-app-theme/)
+
+Happy coding!

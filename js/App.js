@@ -26,7 +26,7 @@ let styles = StyleSheet.create({
     space: {
         marginTop: 10,
         marginBottom: 10,
-      justifyContent: 'center'
+        justifyContent: 'center'
     },
     modal: {
         justifyContent: 'center',
@@ -34,7 +34,7 @@ let styles = StyleSheet.create({
     },
     modal1: {
         height: 300,
-        width: 300,
+        width: 300
     }
 });
 
@@ -99,7 +99,7 @@ class App extends Component {
                                     </Text> :
                                     <View style={{flex:1, alignSelf: 'stretch', justifyContent: 'center', padding:20}}>
                                         <Text style={{color: theme.brandSecondary, textAlign: 'center',marginBottom: 15, fontSize: 15 }}>Downloading update... {parseInt(this.state.downloadProgress) + ' %'}</Text>
-                                        <ProgressBar color={theme.brandSuccess} progress={parseInt(this.state.downloadProgress)} />
+                                        <ProgressBar color={theme.brandSecondary} progress={parseInt(this.state.downloadProgress)} />
                                     </View>
                                 }
                             </View>

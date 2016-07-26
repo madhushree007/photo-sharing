@@ -78,7 +78,6 @@ class Login extends Component {
                                 </Button>
                             
                                 <View style={Platform.OS === 'android' ? styles.aOtherLinksContainer : styles.iosOtherLinksContainer}>
-
                                     <Grid>
                                         <Col>
                                             <Button transparent style={{alignSelf: 'flex-start'}} onPress={() => this.pushNewRoute('signUp')}>
@@ -119,4 +118,6 @@ function bindActions(dispatch){
     }
 }
 
+
 export default connect(null, bindActions)(Login);
+
