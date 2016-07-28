@@ -1,7 +1,3 @@
-/**
- * Created by kylefang on 4/28/16.
- * @flow
- */
 
 'use strict';
 import React, {Component} from 'react';
@@ -22,25 +18,25 @@ import { statusBarColor } from "./themes/base-theme";
 
 
 Navigator.prototype.replaceWithAnimation = function (route) {
-  const activeLength = this.state.presentedIndex + 1;
-  const activeStack = this.state.routeStack.slice(0, activeLength);
-  const activeAnimationConfigStack = this.state.sceneConfigStack.slice(0, activeLength);
-  const nextStack = activeStack.concat([route]);
-  const destIndex = nextStack.length - 1;
-  const nextSceneConfig = this.props.configureScene(route, nextStack);
-  const nextAnimationConfigStack = activeAnimationConfigStack.concat([nextSceneConfig]);
+    const activeLength = this.state.presentedIndex + 1;
+    const activeStack = this.state.routeStack.slice(0, activeLength);
+    const activeAnimationConfigStack = this.state.sceneConfigStack.slice(0, activeLength);
+    const nextStack = activeStack.concat([route]);
+    const destIndex = nextStack.length - 1;
+    const nextSceneConfig = this.props.configureScene(route, nextStack);
+    const nextAnimationConfigStack = activeAnimationConfigStack.concat([nextSceneConfig]);
 
-  const replacedStack = activeStack.slice(0, activeLength - 1).concat([route]);
-  this._emitWillFocus(nextStack[destIndex]);
-  this.setState({
-    routeStack: nextStack,
-    sceneConfigStack: nextAnimationConfigStack,
-  }, () => {
-    this._enableScene(destIndex);
-    this._transitionTo(destIndex, nextSceneConfig.defaultTransitionVelocity, null, () => {
-      this.immediatelyResetRouteStack(replacedStack);
+    const replacedStack = activeStack.slice(0, activeLength - 1).concat([route]);
+    this._emitWillFocus(nextStack[destIndex]);
+    this.setState({
+        routeStack: nextStack,
+        sceneConfigStack: nextAnimationConfigStack,
+    }, () => {
+        this._enableScene(destIndex);
+        this._transitionTo(destIndex, nextSceneConfig.defaultTransitionVelocity, null, () => {
+            this.immediatelyResetRouteStack(replacedStack);
+        });
     });
-  });
 };
 
 export var globalNav = {};
@@ -50,15 +46,13 @@ const searchResultRegexp = /^search\/(.*)$/;
 const reducerCreate = params=>{
     const defaultReducer = Reducer(params);
     return (state, action)=>{
-        // console.log("ACTION:", action);
         var currentState = state;
 
         if(currentState){
-          while (currentState.children){
-            currentState = currentState.children[currentState.index]
-          }
+            while (currentState.children){
+                currentState = currentState.children[currentState.index]
+            }
         }
-
         return defaultReducer(state, action);
     }
 };
@@ -72,10 +66,8 @@ class AppNavigator extends Component {
 
     componentDidMount() {
         globalNav.navigator = this._navigator;
-        // console.log(global.globalNav, "global nav");
 
         this.props.store.subscribe(() => {
-            // console.log("store changed", this.props.store.getState());
             if(this.props.store.getState().drawer.drawerState == 'opened')
                 this.openDrawer();
 
@@ -87,7 +79,6 @@ class AppNavigator extends Component {
             var routes = this._navigator.getCurrentRoutes();
 
             if(routes[routes.length - 1].id == 'home' || routes[routes.length - 1].id == 'login') {
-                // CLose the app
                 return false;
             }
             else {

@@ -1,8 +1,10 @@
+
 'use strict';
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Keyboard, Dimensions, Image, Platform} from 'react-native';
+
 import {pushNewRoute, replaceRoute} from '../../actions/route';
 
 import {Container, Content, Text, InputGroup, Input, Button, Icon, View} from 'native-base';

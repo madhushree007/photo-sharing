@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Image} from 'react-native';
+
 import {popRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
 
