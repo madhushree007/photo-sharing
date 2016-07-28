@@ -4,11 +4,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Image, View,Platform } from 'react-native';
-import ProgressBar from "./../loaders/ProgressBar";
+
 import {openDrawer} from '../../actions/drawer';
 
 import {Container, Header, Content, Text, Button, Icon} from 'native-base';
 import { Grid, Col, Row } from "react-native-easy-grid";
+import ProgressBar from "./../loaders/ProgressBar";
 
 import theme from '../../themes/base-theme';
 import styles from './styles';

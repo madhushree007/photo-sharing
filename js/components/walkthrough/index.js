@@ -4,10 +4,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Dimensions, Platform } from 'react-native';
-import Swiper from 'react-native-swiper';
+
 import {replaceRoute} from '../../actions/route';
 
 import {Container, Content, Text, Button, Icon, View } from 'native-base';
+import Swiper from 'react-native-swiper';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';

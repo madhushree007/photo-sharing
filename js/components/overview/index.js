@@ -4,15 +4,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Image, View,Platform } from 'react-native';
-import ProgressBar from "./../loaders/ProgressBar";
+
 import {openDrawer} from '../../actions/drawer';
 
 import {Container, Header, Content, Text, Button, Icon} from 'native-base';
 import { Grid, Col, Row } from "react-native-easy-grid";
+import ProgressBar from "./../loaders/ProgressBar";
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 var primary = require('../../themes/variable').brandPrimary;
+
 class Overview extends Component {
 
     render() {
@@ -35,10 +37,8 @@ class Overview extends Component {
                         <Text note  style={styles.overviewHead}>What you are reading the most</Text>
                     </View>
 
-
                     <Content >
                         <View style={styles.overviewContent}>
-
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
                                     <Col>
@@ -50,7 +50,6 @@ class Overview extends Component {
                                 </Grid>
                                 <ProgressBar color="#fff" progress={34} />
                             </View>
-
 
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
@@ -64,7 +63,6 @@ class Overview extends Component {
                                 <ProgressBar color="#fff" progress={28} />
                             </View>
 
-
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
                                     <Col>
@@ -76,7 +74,6 @@ class Overview extends Component {
                                 </Grid>
                                 <ProgressBar color="#fff" progress={12} />
                             </View>
-
 
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
@@ -90,7 +87,6 @@ class Overview extends Component {
                                 <ProgressBar color="#fff" progress={10} />
                             </View>
 
-
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
                                     <Col>
@@ -102,7 +98,6 @@ class Overview extends Component {
                                 </Grid>
                                 <ProgressBar color="#fff" progress={8} />
                             </View>
-
 
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
@@ -116,7 +111,6 @@ class Overview extends Component {
                                 <ProgressBar color="#fff" progress={5} />
                             </View>
 
-
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
                                     <Col>
@@ -128,7 +122,6 @@ class Overview extends Component {
                                 </Grid>
                                 <ProgressBar color="#fff" progress={3} />
                             </View>
-
 
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
@@ -142,7 +135,6 @@ class Overview extends Component {
                                 <ProgressBar color="#fff" progress={5} />
                             </View>
 
-
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
                                     <Col>
@@ -155,7 +147,6 @@ class Overview extends Component {
                                 <ProgressBar color="#fff" progress={3} />
                             </View>
 
-
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>
                                     <Col>
@@ -167,8 +158,6 @@ class Overview extends Component {
                                 </Grid>
                                 <ProgressBar color="#fff" progress={3} />
                             </View>
-
-
                         </View>
                     </Content>
                 </Image>

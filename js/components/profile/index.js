@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Image, View, TouchableOpacity, Platform } from 'react-native';
+
 import {replaceRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
 
@@ -36,43 +37,43 @@ class Profile extends Component {
                         </Button>    
                     </Header>
 
-                    
-                        <View style={styles.profileInfoContainer}>
-                            <TouchableOpacity style={{alignSelf: 'center'}}>
-                                <Thumbnail source={require('../../../images/contacts/sanket.png')} style={styles.profilePic} />
+                    <View style={styles.profileInfoContainer}>
+                        <TouchableOpacity style={{alignSelf: 'center'}}>
+                            <Thumbnail source={require('../../../images/contacts/sanket.png')} style={styles.profilePic} />
+                        </TouchableOpacity>
+                        <View style={styles.profileInfo}>
+                            <TouchableOpacity>
+                                <Text style={styles.profileUser}>Kumar Sanket</Text>
                             </TouchableOpacity>
-                            <View style={styles.profileInfo}>
-                                <TouchableOpacity>
-                                    <Text style={styles.profileUser}>Kumar Sanket</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity>
-                                    <Text note  style={styles.profileUserInfo}>CEO, GeekyAnts</Text>
-                                </TouchableOpacity>
-                            </View>
+                            <TouchableOpacity>
+                                <Text note  style={styles.profileUserInfo}>CEO, GeekyAnts</Text>
+                            </TouchableOpacity>
                         </View>
+                    </View>
 
-                        <View style={styles.linkTabs}>
-                            <Grid>
-                                <Col>
-                                    <TouchableOpacity  style={styles.linkTabs_header}>
-                                        <Text style={Platform.OS === 'android' ? styles.alinkTabs_tabCounts : styles.linkTabs_tabCounts}>13</Text>
-                                        <Text note style={styles.linkTabs_tabName}>Comments</Text>
-                                    </TouchableOpacity>
-                                </Col>
-                                <Col>
-                                    <TouchableOpacity  style={styles.linkTabs_header}>
-                                        <Text style={Platform.OS === 'android' ? styles.alinkTabs_tabCounts : styles.linkTabs_tabCounts}>12</Text>
-                                        <Text note style={styles.linkTabs_tabName}>Channels</Text>
-                                    </TouchableOpacity>
-                                </Col>
-                                <Col>
-                                    <TouchableOpacity  style={styles.linkTabs_header}>
-                                        <Text style={Platform.OS === 'android' ? styles.alinkTabs_tabCounts : styles.linkTabs_tabCounts}>52</Text>
-                                        <Text note style={styles.linkTabs_tabName}>Bookmarks</Text>
-                                    </TouchableOpacity>
-                                </Col>
-                            </Grid>
-                        </View>
+                    <View style={styles.linkTabs}>
+                        <Grid>
+                            <Col>
+                                <TouchableOpacity  style={styles.linkTabs_header}>
+                                    <Text style={Platform.OS === 'android' ? styles.alinkTabs_tabCounts : styles.linkTabs_tabCounts}>13</Text>
+                                    <Text note style={styles.linkTabs_tabName}>Comments</Text>
+                                </TouchableOpacity>
+                            </Col>
+                            <Col>
+                                <TouchableOpacity  style={styles.linkTabs_header}>
+                                    <Text style={Platform.OS === 'android' ? styles.alinkTabs_tabCounts : styles.linkTabs_tabCounts}>12</Text>
+                                    <Text note style={styles.linkTabs_tabName}>Channels</Text>
+                                </TouchableOpacity>
+                            </Col>
+                            <Col>
+                                <TouchableOpacity  style={styles.linkTabs_header}>
+                                    <Text style={Platform.OS === 'android' ? styles.alinkTabs_tabCounts : styles.linkTabs_tabCounts}>52</Text>
+                                    <Text note style={styles.linkTabs_tabName}>Bookmarks</Text>
+                                </TouchableOpacity>
+                            </Col>
+                        </Grid>
+                    </View>
+                    
                     <Content>
                         <View style={{backgroundColor: '#fff'}}>
                             <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>

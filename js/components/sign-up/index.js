@@ -4,9 +4,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Keyboard, Image, Platform, Dimensions, TouchableOpacity } from 'react-native';
+
 import {popRoute} from '../../actions/route';
 
 import {Container, Content, Text, Button, Icon, InputGroup, Input, View } from 'native-base';
+
 import theme from '../login/login-theme';
 import styles from './styles';
 
@@ -56,7 +58,6 @@ class SignUp extends Component {
                             <Content padder>
                                 <Text style={Platform.OS === 'android' ? styles.asignupHeader : styles.signupHeader}>CREATE ACCOUNT</Text>
                                 <View style={Platform.OS === 'android' ? styles.asignupContainer : styles.signupContainer}>
-
                                     <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
                                         <Icon name="ios-person-outline" />
                                         <Input placeholder="Username"  style={styles.input}/>

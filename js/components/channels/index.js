@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Image, View, TouchableOpacity,Platform } from 'react-native';
+
 import {pushNewRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
 
@@ -43,28 +44,26 @@ class Channels extends Component {
                         </Button>    
                     </Header>
 
-                    
-                        <View style={styles.bgHead}>
-                            <Grid>
-                                <Col>
-                                    <Button transparent rounded block   style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}  textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900'}} >
-                                        Following
-                                    </Button>
-                                    
-                                </Col>
-                                <Col>
-                                    <Button transparent rounded block style={this.state.popularBtn === true ? styles.ioschannelBtn1 : styles.na}  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
-                                        Popular
-                                    </Button>
-                                </Col>
-                                <Col>
-                                    <Button transparent rounded block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
-                                        Explore
-                                    </Button>
-                                </Col>
-                            </Grid>
-                        </View>
-
+                    <View style={styles.bgHead}>
+                        <Grid>
+                            <Col>
+                                <Button transparent rounded block   style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}  textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900'}} >
+                                    Following
+                                </Button>
+                                
+                            </Col>
+                            <Col>
+                                <Button transparent rounded block style={this.state.popularBtn === true ? styles.ioschannelBtn1 : styles.na}  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                    Popular
+                                </Button>
+                            </Col>
+                            <Col>
+                                <Button transparent rounded block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                    Explore
+                                </Button>
+                            </Col>
+                        </Grid>
+                    </View>
 
                     <Content>    
                         <View>

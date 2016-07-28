@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Image, View, Platform, Keyboard, Dimensions } from 'react-native';
+
 import {resetRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
 
@@ -108,8 +109,6 @@ class Feedback extends Component {
                                     <Icon name="ios-arrow-forward"  style={styles.forwardIcon} />
                                 </Col>
                             </Grid>
-
-
                         </View>
                     </Content>
                 </Image>

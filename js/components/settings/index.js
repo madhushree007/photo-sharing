@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Image, View, Switch, TouchableOpacity, Platform, Keyboard, Dimensions } from 'react-native';
+
 import {resetRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
 
@@ -75,40 +76,40 @@ class Settings extends Component {
 
                     <Content contentOffset={this.state.offset} scrollEnabled={true} >
                         <View  style={styles.bg}>
-                        <Text style={styles.signupHeader}>SETTINGS</Text>
-                        <View style={{marginTop: 20}}>
-                            <Grid>
-                                <Col>
-                                    <Button transparent style={styles.roundedButton}>
-                                        <Icon name="ios-cloud-upload-outline" style={Platform.OS === 'android' ? {} : {lineHeight: 0}} />
-                                    </Button>
-                                </Col>
-                                <Col>
-                                    <TouchableOpacity style={{alignSelf: 'center'}}>
-                                        <Thumbnail source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? styles.aProfilePic : styles.iosProfilePic} />
-                                    </TouchableOpacity>
-                                </Col>
-                                <Col>
-                                    <Button transparent style={styles.roundedButton}>
-                                        <Icon name="ios-cloud-download-outline" style={Platform.OS === 'android' ? {} : {lineHeight: 0}} />
-                                    </Button>
-                                </Col>
-                            </Grid>   
-                        </View>
-                        <View style={styles.signupContainer}>
-                            <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
-                                <Icon name="ios-person-outline" />
-                                <Input placeholder="Username"  style={styles.input}/>
-                            </InputGroup>
-                            <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
-                                <Icon name="ios-mail-open-outline" />
-                                <Input placeholder="Email"  style={styles.input}/>
-                            </InputGroup>
-                            <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
-                                <Icon name="ios-unlock-outline" />
-                                <Input placeholder="Password" secureTextEntry={true}  style={styles.input}/>
-                            </InputGroup>
-                        </View>
+                            <Text style={styles.signupHeader}>SETTINGS</Text>
+                            <View style={{marginTop: 20}}>
+                                <Grid>
+                                    <Col>
+                                        <Button transparent style={styles.roundedButton}>
+                                            <Icon name="ios-cloud-upload-outline" style={Platform.OS === 'android' ? {} : {lineHeight: 0}} />
+                                        </Button>
+                                    </Col>
+                                    <Col>
+                                        <TouchableOpacity style={{alignSelf: 'center'}}>
+                                            <Thumbnail source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? styles.aProfilePic : styles.iosProfilePic} />
+                                        </TouchableOpacity>
+                                    </Col>
+                                    <Col>
+                                        <Button transparent style={styles.roundedButton}>
+                                            <Icon name="ios-cloud-download-outline" style={Platform.OS === 'android' ? {} : {lineHeight: 0}} />
+                                        </Button>
+                                    </Col>
+                                </Grid>   
+                            </View>
+                            <View style={styles.signupContainer}>
+                                <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
+                                    <Icon name="ios-person-outline" />
+                                    <Input placeholder="Username"  style={styles.input}/>
+                                </InputGroup>
+                                <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
+                                    <Icon name="ios-mail-open-outline" />
+                                    <Input placeholder="Email"  style={styles.input}/>
+                                </InputGroup>
+                                <InputGroup borderType="rounded" style={Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp}>
+                                    <Icon name="ios-unlock-outline" />
+                                    <Input placeholder="Password" secureTextEntry={true}  style={styles.input}/>
+                                </InputGroup>
+                            </View>
                         </View>
                         <View style={styles.notificationSwitchContainer}>
                             <Text style={styles.notificationHeader}>EMAIL NOTIFICATIONS</Text>

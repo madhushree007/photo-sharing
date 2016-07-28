@@ -4,12 +4,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Image, View, TouchableOpacity,Platform } from 'react-native';
-import Swiper from 'react-native-swiper';
+
 import {pushNewRoute} from '../../actions/route';
 import {openDrawer} from '../../actions/drawer';
 
 import {Container, Header, Content, Text, Button, Icon, Card} from 'native-base';
 import { Grid, Col, Row } from "react-native-easy-grid";
+import Swiper from 'react-native-swiper';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
@@ -119,10 +120,6 @@ class Home extends Component {
                             </View>
                         </View>
 
-
-
-
-
                         <Card style={{backgroundColor: '#fff'}}>
                             <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
                                 <View style={styles.newsContent}>
@@ -145,7 +142,6 @@ class Home extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-
 
                             <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
                                 <View style={styles.newsContent}>
@@ -257,7 +253,6 @@ class Home extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-
                         </Card>
                     </Content>
                 </Image>

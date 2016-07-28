@@ -3,7 +3,8 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { Keyboard, Dimensions, Image, Platform} from 'react-native';
+import {Keyboard, Dimensions, Image, Platform} from 'react-native';
+
 import {pushNewRoute, replaceRoute} from '../../actions/route';
 
 import {Container, Content, Text, InputGroup, Input, Button, Icon, View } from 'native-base';
@@ -59,8 +60,6 @@ class Login extends Component {
                     <View theme={login} >
                         <Image source={require('../../../images/log.png')} style={styles.background} >
                             <Image source={require('../../../images/logo.png')} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
-
-
                             <View style={ Platform.OS === 'android' ? styles.abg : styles.bg}>
 
                                 <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
@@ -94,15 +93,9 @@ class Login extends Component {
                                             </Button>
                                         </Col>
                                     </Grid>
-
                                 </View>
-
-
                             </View>
-
-
                         </Image>
-                        
                     </View>
                 </Content>
             </Container>

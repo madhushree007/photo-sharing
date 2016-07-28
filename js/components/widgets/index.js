@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Image, View,Platform } from 'react-native';
+
 import {openDrawer} from '../../actions/drawer';
 
 import {Container, Header, Content, Text, Button, Icon} from 'native-base';

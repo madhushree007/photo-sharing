@@ -66,7 +66,6 @@ const reducerCreate = params=>{
                 currentState = currentState.children[currentState.index]
             }
         }
-
         return defaultReducer(state, action);
     }
 };
@@ -95,7 +94,6 @@ class AppNavigator extends Component {
             var routes = this._navigator.getCurrentRoutes();
 
             if(routes[routes.length - 1].id == 'home' || routes[routes.length - 1].id == 'login') {
-                // CLose the app
                 return false;
             }
             else {

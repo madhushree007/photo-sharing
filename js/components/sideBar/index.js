@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { TouchableOpacity, Image, Platform } from 'react-native';
+
 import {replaceOrPushRoute, resetRoute} from '../../actions/route';
 import {closeDrawer} from '../../actions/drawer';
 

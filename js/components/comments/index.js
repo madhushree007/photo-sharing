@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Keyboard, Dimensions,Image, View, TouchableOpacity,Platform } from 'react-native';
+
 import {popRoute} from '../../actions/route';
 
 import {Container, Header, Content, Text, Input, Button, Icon, Card, CardItem, Thumbnail } from 'native-base';
@@ -51,57 +52,56 @@ class Comments extends Component {
         return (
             <Container theme={theme}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
-                <Header>
-                  <Grid style={styles.headerContainer}>
-                    <Col style={styles.headerBtns}>
-                      <Button transparent onPress={() => this.popRoute()}>
-                        <Icon name="ios-arrow-back" style={styles.headerIcons} />
-                      </Button>
-                    </Col>
-                    <Col style={styles.headerBtns}>
-                      <Button transparent>
-                        <Icon name="ios-chatboxes-outline" style={styles.headerIcons} />
-                      </Button>
-                    </Col>
-                    <Col style={styles.headerBtns}>
-                      <Button transparent>
-                        <Text style={Platform.OS === 'android' ? styles.aheaderTextIcon : styles.iosheaderTextIcon}>Aa</Text>
-                      </Button>
-                    </Col>
-                    <Col style={styles.headerBtns} >
-                      <Button transparent>
-                        <Icon name="ios-bookmarks-outline"  style={styles.headerIcons} />
-                      </Button>
-                    </Col>
-                    <Col style={styles.headerBtns}>
-                      <Button transparent>
-                        <Icon name="ios-download-outline" style={styles.headerIcons} />
-                      </Button>
-                    </Col>
-                  </Grid>
-                </Header>
+                    <Header>
+                        <Grid style={styles.headerContainer}>
+                            <Col style={styles.headerBtns}>
+                                <Button transparent onPress={() => this.popRoute()}>
+                                    <Icon name="ios-arrow-back" style={styles.headerIcons} />
+                                </Button>
+                            </Col>
+                            <Col style={styles.headerBtns}>
+                                <Button transparent>
+                                    <Icon name="ios-chatboxes-outline" style={styles.headerIcons} />
+                                </Button>
+                            </Col>
+                            <Col style={styles.headerBtns}>
+                                <Button transparent>
+                                    <Text style={Platform.OS === 'android' ? styles.aheaderTextIcon : styles.iosheaderTextIcon}>Aa</Text>
+                                </Button>
+                            </Col>
+                            <Col style={styles.headerBtns} >
+                                <Button transparent>
+                                    <Icon name="ios-bookmarks-outline"  style={styles.headerIcons} />
+                                </Button>
+                            </Col>
+                            <Col style={styles.headerBtns}>
+                                <Button transparent>
+                                    <Icon name="ios-download-outline" style={styles.headerIcons} />
+                                </Button>
+                            </Col>
+                        </Grid>
+                    </Header>
 
-                    
-                        <View style={styles.commentHeadbg}>
-                            <Text style={styles.commentHeader}>23 COMMENTS</Text>
-                            <Grid>
-                                <Col>
-                                    <Button rounded primary block  style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}   textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900'}}>
-                                        Best
-                                    </Button>
-                                </Col>
-                                <Col>
-                                    <Button transparent block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
-                                        Newest
-                                    </Button>
-                                </Col>
-                                <Col>
-                                    <Button transparent block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
-                                        Oldest
-                                    </Button>
-                                </Col>
-                            </Grid>
-                        </View>
+                    <View style={styles.commentHeadbg}>
+                        <Text style={styles.commentHeader}>23 COMMENTS</Text>
+                        <Grid>
+                            <Col>
+                                <Button rounded primary block  style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}   textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900'}}>
+                                    Best
+                                </Button>
+                            </Col>
+                            <Col>
+                                <Button transparent block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                    Newest
+                                </Button>
+                            </Col>
+                            <Col>
+                                <Button transparent block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                    Oldest
+                                </Button>
+                            </Col>
+                        </Grid>
+                    </View>
                     <Content>
                         <Card foregroundColor="#222" style={styles.card}>
                             <CardItem style={styles.cardHeader}  header>
@@ -210,8 +210,6 @@ class Comments extends Component {
                             <Icon name="ios-arrow-forward"  style={styles.arrowForwardIcon} />
                         </TouchableOpacity>
                     </View>
-
-
                 </Image>
             </Container>
         )
