@@ -27,7 +27,7 @@ class Channels extends Component {
     pushNewRoute(route) {
          this.props.pushNewRoute(route);
     }
-    
+
     render() {
         return (
             <Container theme={theme}>
@@ -36,12 +36,12 @@ class Channels extends Component {
                         <Button transparent onPress={this.props.openDrawer}  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
                             <Icon name="ios-menu" />
                         </Button>
-                    
+
                         <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-                        
+
                         <Button transparent  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
                             <Icon name="ios-search" />
-                        </Button>    
+                        </Button>
                     </Header>
 
                     <View style={styles.bgHead}>
@@ -50,7 +50,7 @@ class Channels extends Component {
                                 <Button transparent rounded block   style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}  textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900'}} >
                                     Following
                                 </Button>
-                                
+
                             </Col>
                             <Col>
                                 <Button transparent rounded block style={this.state.popularBtn === true ? styles.ioschannelBtn1 : styles.na}  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
@@ -65,20 +65,20 @@ class Channels extends Component {
                         </Grid>
                     </View>
 
-                    <Content>    
+                    <Content>
                         <View>
                             <Grid>
                                 <Row>
                                     <Col>
                                         <TouchableOpacity onPress={() => this.pushNewRoute('channel')}>
                                             <Image source={require('../../../images/NewsIcons/9.jpg')} style={styles.channelImg}>
-                                                <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>FASHION</Text> 
-                                            </Image> 
-                                        </TouchableOpacity> 
+                                                <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>FASHION</Text>
+                                            </Image>
+                                        </TouchableOpacity>
                                     </Col>
                                     <Col>
                                         <TouchableOpacity onPress={() => this.pushNewRoute('channel')}>
-                                            <Image source={require('../../../images/NewsIcons/2.png')} style={styles.channelImg}>
+                                            <Image source={require('../../../images/NewsIcons/2.jpg')} style={styles.channelImg}>
                                                 <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>SCIENCE</Text>
                                             </Image>
                                         </TouchableOpacity>
@@ -119,7 +119,7 @@ class Channels extends Component {
                                 <Row>
                                     <Col>
                                         <TouchableOpacity onPress={() => this.pushNewRoute('channel')}>
-                                            <Image source={require('../../../images/NewsIcons/11.png')} style={styles.channelImg}>
+                                            <Image source={require('../../../images/NewsIcons/11.jpg')} style={styles.channelImg}>
                                                 <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>SPORTS</Text>
                                             </Image>
                                         </TouchableOpacity>

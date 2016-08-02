@@ -29,17 +29,17 @@ class Channel extends Component {
                         <Button transparent onPress={this.props.openDrawer}   style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
                             <Icon name="ios-menu" />
                         </Button>
-                    
+
                         <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-                        
+
                         <Button transparent   style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
                             <Icon name="ios-search" />
-                        </Button>    
+                        </Button>
                     </Header>
 
                     <Content>
                         <View>
-                            <Image source={require('../../../images/NewsIcons/2.png')} style={styles.newsPoster}>
+                            <Image source={require('../../../images/NewsIcons/2.jpg')} style={styles.newsPoster}>
                                 <View>
                                     <Text style={Platform.OS === 'android' ? styles.achanelHeader : styles.ioschanelHeader}>SCIENCE CHANNEL</Text>
                                     <Button rounded  style={styles.followBtn}  textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 13,fontWeight: '900',textAlign: 'center'} : {color: primary,fontSize: 13,fontWeight: '900'} }>

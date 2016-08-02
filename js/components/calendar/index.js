@@ -37,12 +37,12 @@ class Calendar extends Component {
                     <Button transparent onPress={this.props.openDrawer} style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon} >
                         <Icon name="ios-menu" />
                     </Button>
-                        
+
                     <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-                        
+
                     <Button transparent style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
                         <Icon name="ios-search" />
-                    </Button>    
+                    </Button>
                 </Header>
 
                 <Content>
@@ -114,7 +114,7 @@ class Calendar extends Component {
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity  style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
-                            <Image source={require('../../../images/NewsIcons/11.png')} style={styles.newsImage} />
+                            <Image source={require('../../../images/NewsIcons/11.jpg')} style={styles.newsImage} />
                             <View style={styles.newsContent}>
                                 <Text numberOfLines={2} style={styles.newsHeader}>
                                     Lorem Ipsum is simply dummy text of the printing
