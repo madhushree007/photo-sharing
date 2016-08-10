@@ -38,5 +38,5 @@
     "remote-redux-devtools": "^0.3.3",
     "remote-redux-devtools-on-debugger": "^0.4.6"
   },
-  "upstreamRepo": "git@github.com:GeekyAnts/react-native-native-base-seed.git"
+  "upstreamRepo": "git@github.com:GeekyAnts/react-native-native-base-seed.git#development"
 }
