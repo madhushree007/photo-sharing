@@ -1,13 +1,14 @@
-
 'use strict';
 
-import { StyleSheet } from "react-native";
+var React = require('react-native');
+
+var { StyleSheet } = React;
 
 module.exports = StyleSheet.create({
     links: {
         paddingTop: 10,
         paddingBottom: 10,
-        paddingLeft: 30,
+        paddingLeft: 10,
         borderBottomWidth: 0,
         borderBottomColor: 'transparent'
     },
@@ -17,16 +18,16 @@ module.exports = StyleSheet.create({
         borderBottomColor: 'transparent'
     },
     linkText: {
-        paddingLeft: 20,
+        paddingLeft: 20
     },
     logoutContainer: {
-        padding: 30,
+        padding: 30
     },
     logoutbtn: {
         paddingTop: 30,
         flexDirection: 'row',
         borderTopWidth: 1,
-        borderTopColor: '#797979',
+        borderTopColor: '#797979'
     },
     background: {
         flex: 1,
@@ -35,9 +36,9 @@ module.exports = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.1)'
     },
     drawerContent: {
-        paddingTop: 30,
+        paddingTop: 30
     },
     adrawerContent: {
-        paddingTop: 20,
+        paddingTop: 20
     }
 });

@@ -1,12 +1,12 @@
-
 'use strict';
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+
+import React, { Component } from 'react';
+import { BackAndroid, Platform, StatusBar } from 'react-native';
+import { connect } from 'react-redux';
 import _ from 'lodash/core';
-import {Drawer} from 'native-base';
-import {BackAndroid, Platform, StatusBar} from 'react-native';
-import {closeDrawer} from './actions/drawer';
-import {popRoute} from './actions/route';
+import { Drawer } from 'native-base';
+import { closeDrawer } from './actions/drawer';
+import { popRoute } from './actions/route';
 import Navigator from 'Navigator';
 
 import Login from './components/login/';
@@ -14,7 +14,7 @@ import Home from './components/home/';
 import BlankPage from './components/blankPage/';
 import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
-import { statusBarColor } from "./themes/base-theme";
+import { statusBarColor } from './themes/base-theme';
 
 
 Navigator.prototype.replaceWithAnimation = function (route) {
@@ -58,6 +58,7 @@ const reducerCreate = params=>{
 };
 
 const drawerStyle  = { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3};
+
 class AppNavigator extends Component {
     constructor(props){
         super(props);
@@ -85,7 +86,6 @@ class AppNavigator extends Component {
                 this.popRoute();
                 return true;
             }
-
         });
     }
 
@@ -108,7 +108,7 @@ class AppNavigator extends Component {
         return (
             <Drawer
                 ref={(ref) => this._drawer = ref}
-                type="overlay"
+                type='overlay'
                 content={<SideBar navigator={this._navigator} />}
                 tapToClose={true}
                 acceptPan={false}
@@ -118,7 +118,7 @@ class AppNavigator extends Component {
                 negotiatePan={true}>
                 <StatusBar
                     backgroundColor={statusBarColor}
-                    barStyle="light-content"
+                    barStyle='light-content'
                 />
                 <Navigator
                     ref={(ref) => this._navigator = ref}
@@ -128,7 +128,7 @@ class AppNavigator extends Component {
                             gestures: {}
                         };
                     }}
-                    initialRoute={{id: (Platform.OS === "android") ? 'splashscreen' : 'login', statusBarHidden: true}}
+                    initialRoute={{id: (Platform.OS === 'android') ? 'splashscreen' : 'login', statusBarHidden: true}}
                     renderScene={this.renderScene}
                   />
             </Drawer>
@@ -147,15 +147,15 @@ class AppNavigator extends Component {
 
         switch (route.id) {
             case 'splashscreen':
-                return <SplashPage navigator={navigator} />;
+                return <SplashPage navigator={navigator} {...route.passProps} />;
             case 'login':
-                return <Login navigator={navigator} />;
+                return <Login navigator={navigator} {...route.passProps} />;
             case 'home':
-                return <Home navigator={navigator} />;
+                return <Home navigator={navigator} {...route.passProps} />;
             case 'blankPage':
-                return <BlankPage navigator={navigator} />;
+                return <BlankPage navigator={navigator} {...route.passProps} />;
             default :
-                return <Login navigator={navigator}  />;
+                return <Login navigator={navigator} {...route.passProps}  />;
         }
     }
 }
@@ -168,9 +168,9 @@ function bindAction(dispatch) {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    drawerState: state.drawer.drawerState
-  }
+    return {
+        drawerState: state.drawer.drawerState
+    }
 }
 
 export default connect(mapStateToProps, bindAction) (AppNavigator);

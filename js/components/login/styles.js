@@ -1,38 +1,33 @@
-
 'use strict';
 
 var React = require('react-native');
-var primary = require('../../themes/variable').brandPrimary;
+
 var { StyleSheet, Dimensions } = React;
 
+var primary = require('../../themes/variable').brandPrimary;
 var deviceHeight = Dimensions.get('window').height;
 var deviceWidth = Dimensions.get('window').width;
+
 module.exports = StyleSheet.create({
     container: {
         flex: 1,
         width: null,
-        height: null,
+        height: null
     },
     iosShadow: {
         flex: 1,
-        width: (deviceWidth/4),
-        height:  (deviceHeight/4),
+        width: (deviceWidth/4)+12,
+        height:  (deviceHeight/100),
         alignSelf: 'center',
-        marginTop: (deviceHeight/5) ,
+        marginTop: (deviceHeight/5) 
     },
     aShadow: {
         flex: 1,
-        width:  (deviceWidth/4) + 2,
-        height: (deviceHeight/4) + 2,
+        width:  (deviceWidth/3),
+        height: (deviceHeight/20),
         padding: 20,
         alignSelf: 'center',
-        marginTop: (deviceHeight/5) - 40,
-    },
-    iosInputGrp: {
-        flexDirection: 'row',
-        borderRadius: 25,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 20
+        marginTop: (deviceHeight/5) - 40
     },
     inputGrp: {
         flexDirection: 'row',
@@ -54,7 +49,7 @@ module.exports = StyleSheet.create({
     background: {
         flex: 1,
         width: null,
-        height:null,
+        height: deviceHeight,
         backgroundColor: 'rgba(0,0,0,0.1)'
     },
     bg: {
@@ -73,18 +68,18 @@ module.exports = StyleSheet.create({
     },
     loginBtn: {
         marginTop: 10,
-        height: 50,
+        height: 50
     },
     helpBtns: {
         opacity: 0.7,
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     aOtherLinksContainer: {
         flexDirection: 'row',
-        marginTop: 10,
+        marginTop: 10
     },
     iosOtherLinksContainer: {
-        flexDirection: 'row',
-    },
+        flexDirection: 'row'
+    }
 });
