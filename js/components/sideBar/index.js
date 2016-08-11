@@ -1,17 +1,16 @@
-
 'use strict';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { TouchableOpacity, Image, Platform } from 'react-native';
+import React, { Component} from 'react';
+import { Image, Platform, TouchableOpacity, View } from 'react-native';
+import { connect } from 'react-redux';
 
-import {replaceOrPushRoute, resetRoute} from '../../actions/route';
-import {closeDrawer} from '../../actions/drawer';
+import { closeDrawer } from '../../actions/drawer';
+import { replaceOrPushRoute, resetRoute } from '../../actions/route';
 
-import {Container, Content, View, Text, Button, Icon, List, ListItem, Thumbnail} from 'native-base';
-import { Grid, Col, Row } from "react-native-easy-grid";
+import { Container, Content, Text, Icon, List, ListItem, Thumbnail } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 
-import styles from "./style";
+import styles from './style';
 
 class SideBar extends Component {
 
@@ -29,47 +28,47 @@ class SideBar extends Component {
             <Container>
                 <Image source={require('../../../images/sid.png')} style={styles.background} >
                     <Content style={Platform.OS === 'android' ? styles.adrawerContent : styles.drawerContent}>
-                        <List  foregroundColor={"white"} >
+                        <List  foregroundColor={'white'} >
                             <ListItem button onPress={() => this.navigateTo('home')} iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
-                                <Icon name="ios-grid-outline" />
+                                <Icon name='ios-grid-outline' />
                                 <Text style={styles.linkText} >NEWS</Text>
                             </ListItem>
                             <ListItem button onPress={() => this.navigateTo('channels')}  iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
-                                <Icon name="ios-keypad-outline" />
+                                <Icon name='ios-keypad-outline' />
                                 <Text style={styles.linkText}>CHANNELS</Text>
                             </ListItem>
                             <ListItem button onPress={() => this.navigateTo('overview')}  iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
-                              <Icon name="ios-stats" />
+                              <Icon name='ios-stats' />
                               <Text style={styles.linkText}> OVERVIEW</Text>
                             </ListItem>
                             <ListItem button onPress={() => this.navigateTo('calendar')}  iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
-                                <Icon name="ios-calendar-outline" />
+                                <Icon name='ios-calendar-outline' />
                                 <Text style={styles.linkText}>CALENDAR</Text>
                             </ListItem>
                             <ListItem button onPress={() => this.navigateTo('timeline')}  iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
-                                <Icon name="ios-timer-outline" />
+                                <Icon name='ios-timer-outline' />
                                 <Text style={styles.linkText}>TIMELINE</Text>
                             </ListItem>
                             <ListItem button onPress={() => this.navigateTo('profile')} iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
-                                <Icon name="ios-person-outline" />
+                                <Icon name='ios-person-outline' />
                                 <Text style={styles.linkText}> PROFILE</Text>
                             </ListItem>
                             <ListItem button onPress={() => this.navigateTo('widgets')}  iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
-                                <Icon name="ios-grid" />
+                                <Icon name='ios-grid' />
                                 <Text style={styles.linkText}>WIDGETS</Text>
                             </ListItem>
                             <ListItem button onPress={() => this.navigateTo('settings')} iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links}>
-                                <Icon name="ios-settings-outline" />
+                                <Icon name='ios-settings-outline' />
                                 <Text style={styles.linkText}>SETTINGS</Text>
                             </ListItem>
                             <ListItem button onPress={() => this.navigateTo('feedback')} iconLeft style={Platform.OS === 'android' ? styles.alinks : styles.links} >
-                                <Icon name="ios-paper-outline" />
+                                <Icon name='ios-paper-outline' />
                                 <Text style={styles.linkText}>FEEDBACK</Text>
                             </ListItem>
                         </List>
                  
                         <View style={styles.logoutContainer}>
-                            <View style={styles.logoutbtn}  foregroundColor={"white"}>
+                            <View style={styles.logoutbtn}  foregroundColor={'white'}>
                                 <Grid>
                                     <Col>
                                         <TouchableOpacity onPress={() => this.resetRoute('login')} style={{alignSelf: 'flex-start'}}>

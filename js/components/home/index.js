@@ -1,21 +1,25 @@
-
 'use strict';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { Image, View, TouchableOpacity,Platform } from 'react-native';
+import React, { Component } from 'react';
+import { Image, View, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 
-import {pushNewRoute} from '../../actions/route';
-import {openDrawer} from '../../actions/drawer';
+import { pushNewRoute } from '../../actions/route';
+import { openDrawer } from '../../actions/drawer';
 
-import {Container, Header, Content, Text, Button, Icon, Card} from 'native-base';
-import { Grid, Col, Row } from "react-native-easy-grid";
+import { Container, Header, Content, Text, Icon, Card } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 import Swiper from 'react-native-swiper';
+import HeaderContent from './../headerContent/';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
 class Home extends Component {
+
+    constructor(props) {
+        super(props);
+    }
 
     pushNewRoute(route) {
          this.props.pushNewRoute(route);
@@ -26,28 +30,22 @@ class Home extends Component {
             <Container theme={theme} style={{backgroundColor: '#fff'}}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
-                        <Button transparent onPress={this.props.openDrawer} style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon} >
-                            <Icon name="ios-menu" />
-                        </Button>
-                        
-                        <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-                        
-                        <Button transparent style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-search" />
-                        </Button>    
+                        <HeaderContent />
                     </Header>
 
                     <Content>
                         <View>
                             <View>
-                                <Swiper height={330} loop={true} 
+                                <Swiper 
+                                    height={330} 
+                                    loop={true} 
                                     dot={<View style={styles.swiperDot} />} 
                                     activeDot={<View style={styles.swiperActiveDot} 
-                                    showsButtons={true} />}  >
-
+                                    showsButtons={true} />}
+                                >
                                     <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
-                                             <View style={styles.swiperTextContent} >
+                                            <View style={styles.swiperTextContent} >
                                             <Text numberOfLines={2} style={styles.newsPosterHeader}>
                                                 Contrary to popular belief, Lorem Ipsum is not simply random text.
                                             </Text>
@@ -56,7 +54,7 @@ class Home extends Component {
                                                     <TouchableOpacity>
                                                         <Text style={styles.newsPosterLink}>SPACE.com</Text>
                                                     </TouchableOpacity>
-                                                    <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.aHeadertimeIcon : styles.iosHeadertimeIcon} />
+                                                    <Icon name='ios-time-outline' style={styles.headertimeIcon} />
                                                     <Text style={styles.newsPosterLink}>20m ago</Text>
                                                 </Col>
                                                 <Col>
@@ -72,48 +70,48 @@ class Home extends Component {
                                     <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
                                             <View  style={styles.swiperTextContent}>
-                                            <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                                                Lorem Ipsum is simply dummy text of the printing
-                                            </Text>
-                                            <Grid style={styles.swiperContentBox}>
-                                                <Col style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity>
-                                                        <Text style={styles.newsPosterLink}>CDC</Text>
-                                                    </TouchableOpacity>
-                                                    <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.aHeadertimeIcon : styles.iosHeadertimeIcon} />
-                                                    <Text style={styles.newsPosterLink}>2hr ago</Text>
-                                                </Col>
-                                                <Col>
-                                                    <TouchableOpacity style={styles.newsPosterTypeView}>
-                                                        <Text style={styles.newsPosterTypeText}>ENVIRONMENT</Text>
-                                                    </TouchableOpacity>
-                                                </Col>
-                                            </Grid>
-                                        </View>
+                                                <Text numberOfLines={2} style={styles.newsPosterHeader}>
+                                                    Lorem Ipsum is simply dummy text of the printing
+                                                </Text>
+                                                <Grid style={styles.swiperContentBox}>
+                                                    <Col style={{flexDirection:'row'}}>
+                                                        <TouchableOpacity>
+                                                            <Text style={styles.newsPosterLink}>CDC</Text>
+                                                        </TouchableOpacity>
+                                                        <Icon name='ios-time-outline' style={styles.headertimeIcon} />
+                                                        <Text style={styles.newsPosterLink}>2hr ago</Text>
+                                                    </Col>
+                                                    <Col>
+                                                        <TouchableOpacity style={styles.newsPosterTypeView}>
+                                                            <Text style={styles.newsPosterTypeText}>ENVIRONMENT</Text>
+                                                        </TouchableOpacity>
+                                                    </Col>
+                                                </Grid>
+                                            </View>
                                         </Image>
                                     </TouchableOpacity>
 
                                     <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
                                             <View  style={styles.swiperTextContent}>
-                                            <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                                                Lorem Ipsum is simply dummy text of the printing
-                                            </Text>
-                                            <Grid style={styles.swiperContentBox}>
-                                                <Col style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity>
-                                                        <Text style={styles.newsPosterLink}>SKY.com</Text>
-                                                    </TouchableOpacity>
-                                                    <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.aHeadertimeIcon : styles.iosHeadertimeIcon} />
-                                                    <Text style={styles.newsPosterLink}>1day ago</Text>
-                                                </Col>
-                                                <Col>
-                                                    <TouchableOpacity style={styles.newsPosterTypeView}>
-                                                        <Text style={styles.newsPosterTypeText}>WORLD</Text>
-                                                    </TouchableOpacity>
-                                                </Col>
-                                            </Grid>
-                                        </View>
+                                                <Text numberOfLines={2} style={styles.newsPosterHeader}>
+                                                    Lorem Ipsum is simply dummy text of the printing
+                                                </Text>
+                                                <Grid style={styles.swiperContentBox}>
+                                                    <Col style={{flexDirection:'row'}}>
+                                                        <TouchableOpacity>
+                                                            <Text style={styles.newsPosterLink}>SKY.com</Text>
+                                                        </TouchableOpacity>
+                                                        <Icon name='ios-time-outline' style={styles.headertimeIcon} />
+                                                        <Text style={styles.newsPosterLink}>1day ago</Text>
+                                                    </Col>
+                                                    <Col>
+                                                        <TouchableOpacity style={styles.newsPosterTypeView}>
+                                                            <Text style={styles.newsPosterTypeText}>WORLD</Text>
+                                                        </TouchableOpacity>
+                                                    </Col>
+                                                </Grid>
+                                            </View>
                                         </Image>
                                     </TouchableOpacity>
                                 </Swiper>
@@ -131,7 +129,7 @@ class Home extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>CDC</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>1h ago</Text>
                                         </Col>
                                         <Col>
@@ -153,7 +151,7 @@ class Home extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>SPACE.com</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>5h ago</Text>
                                         </Col>
                                         <Col>
@@ -175,7 +173,7 @@ class Home extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>SKY.com</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>2days ago</Text>
                                         </Col>
                                         <Col>
@@ -197,7 +195,7 @@ class Home extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>ESPN</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>12days ago</Text>
                                         </Col>
                                         <Col>
@@ -220,7 +218,7 @@ class Home extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>ART.com</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>23days ago</Text>
                                         </Col>
                                         <Col>
@@ -242,7 +240,7 @@ class Home extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>Money.com</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>2months ago</Text>
                                         </Col>
                                         <Col>
@@ -263,8 +261,8 @@ class Home extends Component {
 
 function bindAction(dispatch) {
     return {
-        openDrawer: ()=>dispatch(openDrawer()),
-        pushNewRoute:(route)=>dispatch(pushNewRoute(route))
+        openDrawer: () => dispatch(openDrawer()),
+        pushNewRoute:(route) => dispatch(pushNewRoute(route))
     }
 }
 

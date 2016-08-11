@@ -8,7 +8,8 @@ import { Image, View,Platform } from 'react-native';
 import {openDrawer} from '../../actions/drawer';
 
 import {Container, Header, Content, Text, Button, Icon} from 'native-base';
-import { Grid, Col, Row } from "react-native-easy-grid";
+import { Grid, Col, Row } from 'react-native-easy-grid';
+import HeaderContent from './../headerContent/';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
@@ -22,33 +23,38 @@ class Widgets extends Component {
             <Container theme={theme}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
-                        <Button transparent onPress={this.props.openDrawer}  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-menu" />
-                        </Button>
-                    
-                        <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-                        
-                        <Button transparent  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-add" />
-                        </Button>    
+                        <View style={styles.header} >
+                            <View style={styles.rowHeader}>
+                                <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
+                                    <Icon name='ios-menu' />
+                                </Button>
+
+                                <Image source={require('../../../images/Header-Logo.png')} style={styles.imageHeader}>
+                                </Image>
+                                
+                                <Button transparent style={styles.btnHeader}>
+                                    <Icon name='ios-add' />
+                                </Button>
+                            </View>
+                        </View>   
                     </Header>
 
                     <Content>
                         <View style={styles.overviewHeaderContainer}>
-                            <Text style={Platform.OS === 'android' ? styles.aoverviewHeader :styles.iosoverviewHeader}>WIDGETS</Text>
+                            <Text style={styles.overviewHeader}>WIDGETS</Text>
                         </View>
 
                         <Image source={require('../../../images/Widgets/widget1.png')} style={styles.mainWidget}>
                             <Grid style={styles.mainWidgetContainer}>
                                 <Col>
-                                    <Icon name="ios-cloud-outline" style={{fontSize: 40}} />
+                                    <Icon name='ios-cloud-outline' style={{fontSize: 40}} />
                                     <Text style={{fontWeight: '700'}}>Mostly Cloudy</Text>
                                     <Text style={{opacity: 0.7,fontWeight: '700'}}>New York</Text>
                                 </Col>
                                 <Col style={{alignItems: 'flex-end'}}>
                                     <View style={{flexDirection: 'row'}}>
-                                        <Text style={Platform.OS === 'android' ? styles.aWeather : styles.iosWeather}>76</Text>
-                                        <Icon name="ios-radio-button-off" style={{fontSize: 16,marginTop: 5}} />
+                                        <Text style={styles.weather}>76</Text>
+                                        <Icon name='ios-radio-button-off' style={{fontSize: 16,marginTop: 5}} />
                                     </View>
                                 </Col>
                             </Grid>
@@ -85,10 +91,18 @@ class Widgets extends Component {
                             <Col>
                                 <Image source={require('../../../images/Widgets/widget2.png')} style={styles.otherWidget}>
                                     <View style={styles.otherWidgetContainer}>
-                                        <Text style={styles.widgetName}>KUMAR SANKET</Text>
-                                        <Text style={[{color: 'blue'},Platform.OS === 'android' ? styles.aratingPerc :styles.iosratingPerc]}>+0.51%</Text>
+                                        <Text style={styles.widgetName}>
+                                            KUMAR SANKET
+                                        </Text>
+                                        <Text style={[{color: 'blue'},styles.ratingPerc]}>+0.51%</Text>
                                         <Text style={styles.ratingNum}>5,055.55</Text>
-                                        <Button rounded small style={styles.detailsBtn} textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} :{color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                        <Button 
+                                            rounded small 
+                                            style={styles.detailsBtn} 
+                                            textStyle={Platform.OS === 'android' ? 
+                                                {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} : 
+                                                {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}
+                                        >
                                             Details
                                         </Button>
                                     </View>
@@ -97,10 +111,18 @@ class Widgets extends Component {
                             <Col>
                                 <Image source={require('../../../images/Widgets/widget3.png')} style={styles.otherWidget}>
                                     <View  style={styles.otherWidgetContainer}>
-                                        <Text style={styles.widgetName}>KUMAR PRATIK</Text>
-                                        <Text style={[{color: 'red'},Platform.OS === 'android' ? styles.aratingPerc :styles.iosratingPerc]}>-0.31%</Text>
+                                        <Text style={styles.widgetName}>
+                                            KUMAR PRATIK
+                                        </Text>
+                                        <Text style={[{color: 'red'},styles.ratingPerc]}>-0.31%</Text>
                                         <Text style={styles.ratingNum}>4,567.00</Text>
-                                        <Button rounded small style={styles.detailsBtn} textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} :{color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                        <Button 
+                                            rounded small 
+                                            style={styles.detailsBtn} 
+                                            textStyle={Platform.OS === 'android' ? 
+                                                {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} : 
+                                                {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}
+                                        >
                                             Details
                                         </Button>
                                     </View>

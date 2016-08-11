@@ -1,32 +1,19 @@
-
 'use strict';
 
 var React = require('react-native');
-var primary = require('../../themes/variable').brandPrimary;
 var { StyleSheet, Dimensions } = React;
-module.exports = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: null,
-        height: null,
-    },
-    bg: {
-      backgroundColor: primary,
-    },
-    aheaderIcon: {
 
-    },
-    iosheaderIcon: {
-        paddingTop: 30,
-    },
-    logoHeader: {
-        width: 20,
-        height: 28,
-        alignSelf: 'center',
+var primary = require('../../themes/variable').brandPrimary;
+
+module.exports = StyleSheet.create({
+    bg: {
+      backgroundColor: primary
     },
     newsImage: {
         width: 100, 
-        height: 130
+        height: 70,
+        marginTop: 20,
+        marginBottom: 40
     },
     newsContent: {
         flexDirection: 'column',
@@ -57,5 +44,5 @@ module.exports = StyleSheet.create({
         fontSize: 12,
         fontWeight: 'bold',
         paddingBottom: 5
-    },
+    }
 });

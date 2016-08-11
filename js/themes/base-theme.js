@@ -21,6 +21,8 @@ module.exports = {
     inverseTextColor: "#fff",
     textColor: "#fff",
 
+    iconMargin: 7,
+
     fontSizeBase: 15,
     titleFontSize: 18,
 

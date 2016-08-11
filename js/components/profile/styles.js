@@ -2,26 +2,19 @@
 'use strict';
 
 var React = require('react-native');
-var primary = require('../../themes/variable').brandPrimary;
-var { StyleSheet, Dimensions } = React;
+var { StyleSheet, Platform } = React;
 
-var deviceHeight = Dimensions.get('window').height;
-var deviceWidth = Dimensions.get('window').width;
+var primary = require('../../themes/variable').brandPrimary;
+
 module.exports = StyleSheet.create({
     container: {
         flex: 1,
         width: null,
-        height: null,
+        height: null
     },
     profileInfoContainer: {
         backgroundColor: primary,
         paddingTop: 10
-    },
-    aheaderIcon: {
-
-    },
-    iosheaderIcon: {
-        paddingTop: 30,
     },
     profileUser: {
         alignSelf: 'center',
@@ -51,31 +44,22 @@ module.exports = StyleSheet.create({
         padding: 15,
         alignSelf: 'center'
     },
-    alinkTabs_tabCounts: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        color: primary,
-        alignSelf: 'center',
-        paddingBottom:3,
-    },
     linkTabs_tabCounts: {
         fontSize: 22,
         fontWeight: 'bold',
         color: primary,
         alignSelf: 'center',
+        paddingBottom: Platform.OS === 'android' ? 3 : 0
     },
     linkTabs_tabName: {
         color: '#444',
         fontWeight: 'bold'
     },
-    logoHeader: {
-        width: 20,
-        height: 28,
-        alignSelf: 'center',
-    },
     newsImage: {
         width: 100, 
-        height: 130
+        height: 70,
+        marginTop: 20,
+        marginBottom: 40
     },
     newsContent: {
         flexDirection: 'column',
@@ -106,5 +90,5 @@ module.exports = StyleSheet.create({
         fontSize: 12,
         fontWeight: 'bold',
         paddingBottom: 5
-    },
+    }
 });

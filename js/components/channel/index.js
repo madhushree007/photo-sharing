@@ -1,15 +1,15 @@
-
 'use strict';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { Image, View, TouchableOpacity,Platform } from 'react-native';
+import React, { Component } from 'react';
+import { Image, View, TouchableOpacity, Platform } from 'react-native';
+import { connect } from 'react-redux';
 
-import {replaceRoute} from '../../actions/route';
-import {openDrawer} from '../../actions/drawer';
+import { replaceRoute } from '../../actions/route';
+import { openDrawer } from '../../actions/drawer';
 
-import {Container, Header, Content, Text, Button, Icon} from 'native-base';
-import { Grid, Col, Row } from "react-native-easy-grid";
+import { Container, Header, Content, Text, Button, Icon } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
+import HeaderContent from './../headerContent/';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
@@ -26,23 +26,21 @@ class Channel extends Component {
             <Container theme={theme} >
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
-                        <Button transparent onPress={this.props.openDrawer}   style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-menu" />
-                        </Button>
-
-                        <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-
-                        <Button transparent   style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-search" />
-                        </Button>
+                        <HeaderContent />
                     </Header>
 
                     <Content>
                         <View>
                             <Image source={require('../../../images/NewsIcons/2.jpg')} style={styles.newsPoster}>
                                 <View>
-                                    <Text style={Platform.OS === 'android' ? styles.achanelHeader : styles.ioschanelHeader}>SCIENCE CHANNEL</Text>
-                                    <Button rounded  style={styles.followBtn}  textStyle={Platform.OS === 'android' ? {color: primary,fontSize: 13,fontWeight: '900',textAlign: 'center'} : {color: primary,fontSize: 13,fontWeight: '900'} }>
+                                    <Text style={Platform.OS === 'android' ? styles.achannelHeader : styles.ioschannelHeader}>SCIENCE CHANNEL</Text>
+                                    <Button 
+                                        rounded
+                                        style={styles.followBtn} 
+                                        textStyle={Platform.OS === 'android' ? 
+                                            {color: primary, fontSize: 13, fontWeight: '900', textAlign: 'center'} : 
+                                            {color: primary, fontSize: 13, fontWeight: '900'}}
+                                    >
                                         Following
                                     </Button>
                                     <TouchableOpacity style={{padding: 0}}>
@@ -52,7 +50,7 @@ class Channel extends Component {
                             </Image>
                         </View>
 
-                        <View  foregroundColor={"white"} style={{backgroundColor: '#fff'}}>
+                        <View  foregroundColor={'white'} style={{backgroundColor: '#fff'}}>
                             <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
@@ -63,7 +61,7 @@ class Channel extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>CNN</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>May 24,2016</Text>
                                         </Col>
                                     </Grid>
@@ -77,7 +75,7 @@ class Channel extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>SPACE.com</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>Apr 17,2016</Text>
                                         </Col>
                                     </Grid>
@@ -93,7 +91,7 @@ class Channel extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>CNN</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>Feb 3,2016</Text>
                                         </Col>
                                     </Grid>
@@ -107,7 +105,7 @@ class Channel extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>SKY.com</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>Dec 17,2015</Text>
                                         </Col>
                                     </Grid>
@@ -122,7 +120,7 @@ class Channel extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>SPACE.com</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>Apr 17,2016</Text>
                                         </Col>
                                     </Grid>
@@ -138,7 +136,7 @@ class Channel extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>CNN</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>Feb 3,2016</Text>
                                         </Col>
                                     </Grid>
@@ -152,7 +150,7 @@ class Channel extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>SKY.com</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>Dec 17,2015</Text>
                                         </Col>
                                     </Grid>
@@ -168,8 +166,8 @@ class Channel extends Component {
 
 function bindAction(dispatch) {
     return {
-        openDrawer: ()=>dispatch(openDrawer()),
-        replaceRoute:(route)=>dispatch(replaceRoute(route))
+        openDrawer: () => dispatch(openDrawer()),
+        replaceRoute:(route) => dispatch(replaceRoute(route))
     }
 }
 

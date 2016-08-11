@@ -2,16 +2,29 @@
 'use strict';
 
 var React = require('react-native');
-var primary = require('../../themes/variable').brandPrimary;
-var { StyleSheet, Dimensions } = React;
+var { StyleSheet, Platform } = React;
 
-var deviceHeight = Dimensions.get('window').height;
-var deviceWidth = Dimensions.get('window').width;
+var primary = require('../../themes/variable').brandPrimary;
+
 module.exports = StyleSheet.create({
     container: {
         width: null,
         height: null,
         flex: 1
+    },
+    headerContainer: {
+        marginTop: -5
+    },
+    headerBtns : {
+        padding: 10
+    },
+    headerIcons : {
+        paddingTop: 10
+    },
+    headerTextIcon: {
+        fontSize: 28,
+        paddingTop: 10,
+        marginTop: Platform.OS === 'android' ? -10 : 0
     },
     commentHeadbg: {
         backgroundColor: primary,
@@ -22,6 +35,10 @@ module.exports = StyleSheet.create({
         fontWeight: '900',
         fontSize: 20,
         paddingBottom: 20
+    },
+    channelBtn1: {
+        borderWidth: 1,
+        borderColor: Platform.OS === 'android' ? '#ddd' : 'rgba(255,255,255,0.5)'
     },
     card: {
         backgroundColor: '#fff',
@@ -38,61 +55,30 @@ module.exports = StyleSheet.create({
         paddingTop: 5,
         paddingLeft: 55
     },
-    adate: {
+    timeIcon: {
+        fontSize: 16,
+        paddingLeft: 15,
+        marginRight: -20,
+        color: '#666',
+        marginTop: Platform.OS === 'android' ? 2 : 5
+    },
+    date: {
         textAlign: 'right',
         fontWeight: '100',
         fontSize: 12,
-        marginTop: 5,
         color: '#666',
+        marginTop: Platform.OS === 'android' ? 5 : -5
     },
-    iosdate: {
-        textAlign: 'right',
-        fontWeight: '100',
-        fontSize: 12,
-        color: '#666',
-        marginTop: -5
-    },
-    iostimeIcon: {
+    likeIcon: {
         fontSize: 16,
-        paddingLeft: 15,
-        marginTop: 5,
         marginRight: -20,
-        color: '#666',
-    },
-    atimeIcon: {
-        fontSize: 16,
-        paddingLeft: 15,
-        marginTop: 2,
-        marginRight: -20,
-        color: '#666',
-    },
-    ioslikeIcon: {
-        fontSize: 16,
-        marginTop: 5,
-        marginRight: -20,
-        paddingLeft: 2
-    },
-    alikeIcon: {
-        fontSize: 16,
-        marginTop: 1,
-        marginRight: -20,
-        paddingLeft: 2
-    },
-    ioschannelBtn1: {
-        borderWidth: 1,
-        borderColor: 'rgba(255,255,255,0.5)',
-    },
-    achannelBtn1: {
-        borderWidth: 1,
-        borderColor: '#ddd',
-    },
-    input: {
-        color: '#222',
+        paddingLeft: 2,
+        marginTop: Platform.OS === 'android' ? 1 : 5
     },
     commentBox: {
         backgroundColor: '#fff',
         flexDirection: 'row',
-        height: 55,
+        height: 55
     },
     attachIconContainer: {
         padding: 20,
@@ -100,33 +86,17 @@ module.exports = StyleSheet.create({
     },
     attachIcon : {
         color: '#797979', 
-        fontSize: 27,
+        fontSize: 27
+    },
+    input: {
+        color: '#222'
     },
     arrowForwardIcon: {
         alignSelf: 'flex-end',
-        color: primary,
+        color: primary
     },
     arrowForwardIconContainer: {
         paddingRight: 20,
-        paddingTop: 5,
-    },
-    headerBtns : {
-        padding: 10,
-    },
-    headerIcons : {
-        paddingTop: 10,
-    },
-    aheaderTextIcon: {
-        fontSize: 28,
-        paddingTop: 10,
-        marginTop: -10,
-    },
-    iosheaderTextIcon: {
-        fontSize: 28,
-        paddingTop: 10,
-    },
-    headerContainer: {
-        marginTop: 10,
-    },
-
+        paddingTop: 5
+    }
 });

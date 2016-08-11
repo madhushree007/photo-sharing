@@ -2,39 +2,46 @@
 'use strict';
 
 var React = require('react-native');
-var primary = require('../../themes/variable').brandPrimary;
-var { StyleSheet, Dimensions } = React;
+var { StyleSheet, Dimensions, Platform } = React;
 
-var deviceHeight = Dimensions.get('window').height;
-var deviceWidth = Dimensions.get('window').width;
+var primary = require('../../themes/variable').brandPrimary;
+
 module.exports = StyleSheet.create({
+    header: {
+        width: Dimensions.get('window').width,
+        paddingLeft: 15,
+        paddingRight: 15
+    },
+    rowHeader: {
+        flex: 1,
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        alignSelf: 'stretch',
+        paddingTop: Platform.OS === 'android' ? 7 : 0
+    },
+    btnHeader: {
+        paddingTop: 10
+    },
+    imageHeader: {
+        height: 25, 
+        width: 95,
+        resizeMode: 'contain',
+        marginTop: 10
+    },
     container: {
         flex: 1,
         width: null,
-        height: null,
+        height: null
     },
     bg: {
-        backgroundColor: primary,
+        backgroundColor: primary
     },
-    aheaderIcon: {
-
-    },
-    iosheaderIcon: {
-        paddingTop: 30,
-    },
-    logoHeader: {
-        width: 20,
-        height: 28,
+    signupHeader: {
         alignSelf: 'center',
-        marginTop: 5,
-    },
-    mb20: {
-        marginBottom: 20,
-    },
-    signupContainer: {
-        marginTop: 30,
-        paddingLeft: 20,
-        paddingRight: 20,
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginTop: 20,
+        padding: 5
     },
     roundedButton: {
         alignSelf: 'center',
@@ -43,12 +50,35 @@ module.exports = StyleSheet.create({
         width: 60,
         height:60
     },
-    signupHeader: {
-        alignSelf: 'center',
-        fontSize: 22,
+    profilePic: {
+        width: 60, 
+        height: 60,
+        borderRadius: Platform.OS === 'android' ? 60 : 30
+    },
+    signupContainer: {
+        marginTop: 30,
+        paddingLeft: 20,
+        paddingRight: 20
+    },
+    inputGrp: {
+        flexDirection: 'row',
+        borderRadius: 25,
+        backgroundColor: 'rgba(0,0,0,0.2)',
+        marginBottom: 20,
+        borderWidth: 0, 
+        paddingLeft: 15
+    },
+    input: {
+        paddingLeft: 15
+    },
+    notificationSwitchContainer: {
+        backgroundColor: '#fff', 
+        padding: 20
+    },
+    notificationHeader: {
+        color: primary,
         fontWeight: 'bold',
-        marginTop: 20,
-        padding: 5
+        paddingBottom: 20
     },
     switchText: {
         color: '#222',
@@ -72,59 +102,8 @@ module.exports = StyleSheet.create({
     switch: {
         transform: [{scaleX: 0.75}, {scaleY: 0.75}],
         alignSelf: 'flex-end',
-        paddingTop: 10,
-        paddingBottom: 10,
-        marginTop: -5
-    },
-    aswitch: {
-        transform: [{scaleX: 0.75}, {scaleY: 0.75}],
-        alignSelf: 'flex-end',
-        marginTop: -3
-    },
-    iosInputGrp: {
-        flexDirection: 'row',
-        borderRadius: 25,
-        backgroundColor: 'rgba(0,0,0,0.2)',
-        marginBottom: 20,
-        borderWidth: 0, 
-        paddingLeft: 15,
-    },
-    inputGrp: {
-        flexDirection: 'row',
-        borderRadius: 25,
-        backgroundColor: 'rgba(0,0,0,0.2)',
-        marginBottom: 20,
-        borderWidth: 0, 
-        paddingLeft: 15,
-    },
-    iosInputIcon: {
-        alignSelf: 'center',
-        paddingLeft: 20,
-    },
-    inputIcon: {
-        alignSelf: 'center',
-        marginLeft: 20
-    },
-    input: {
-        paddingLeft: 15
-    },
-    notificationSwitchContainer: {
-        backgroundColor: '#fff', 
-        padding: 20
-    },
-    notificationHeader: {
-        color: primary,
-        fontWeight: 'bold',
-        paddingBottom: 20
-    },
-    aProfilePic: {
-        width: 60, 
-        height: 60,
-        borderRadius: 60,
-    },
-    iosProfilePic: {
-        width: 60, 
-        height: 60,
-        borderRadius: 30,
-    },
+        marginTop: Platform.OS === 'android' ? -3 : -5,
+        paddingTop: Platform.OS === 'android' ? 0 : 10,
+        paddingBottom: Platform.OS === 'android' ? 0 : 10
+    }
 });

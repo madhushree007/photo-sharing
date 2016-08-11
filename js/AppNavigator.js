@@ -1,13 +1,12 @@
-
 'use strict';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { BackAndroid, Platform, StatusBar } from 'react-native';
+import { connect } from 'react-redux';
 import _ from 'lodash/core';
-import {Drawer} from 'native-base';
-import {BackAndroid, Platform, StatusBar} from 'react-native';
-import {closeDrawer} from './actions/drawer';
-import {popRoute} from './actions/route';
+import { Drawer } from 'native-base';
+import { closeDrawer } from './actions/drawer';
+import { popRoute } from './actions/route';
 import Navigator from 'Navigator';
 
 import Login from './components/login/';
@@ -28,7 +27,8 @@ import Timeline from './components/timeline';
 import Widgets from './components/widgets';
 import NeedHelp from './components/needhelp';
 import SplashPage from './components/splashscreen/';
-import { statusBarColor } from "./themes/base-theme";
+import { statusBarColor } from './themes/base-theme';
+
 
 Navigator.prototype.replaceWithAnimation = function (route) {
     const activeLength = this.state.presentedIndex + 1;
@@ -122,7 +122,7 @@ class AppNavigator extends Component {
         return (
             <Drawer
                 ref={(ref) => this._drawer = ref}
-                type="overlay"
+                type='overlay'
                 content={<SideBar navigator={this._navigator} />}
                 tapToClose={true}
                 acceptPan={false}
@@ -132,7 +132,7 @@ class AppNavigator extends Component {
                 negotiatePan={true}>
                 <StatusBar
                     backgroundColor={statusBarColor}
-                    barStyle="light-content"
+                    barStyle='light-content'
                 />
                 <Navigator
                     ref={(ref) => this._navigator = ref}
@@ -142,7 +142,7 @@ class AppNavigator extends Component {
                             gestures: {}
                         };
                     }}
-                    initialRoute={{id: (Platform.OS === "android") ? 'splashscreen' : 'login', statusBarHidden: true}}
+                    initialRoute={{id: (Platform.OS === 'android') ? 'splashscreen' : 'login', statusBarHidden: true}}
                     renderScene={this.renderScene}
                   />
             </Drawer>
@@ -158,43 +158,43 @@ class AppNavigator extends Component {
         }
         switch (route.id) {
             case 'splashscreen':
-                return <SplashPage navigator={navigator} />;
+                return <SplashPage navigator={navigator} {...route.passProps} />;
             case 'login':
-                return <Login navigator={navigator} />;
+                return <Login navigator={navigator} {...route.passProps} />;
             case 'home':
-                return <Home navigator={navigator} />;
+                return <Home navigator={navigator} {...route.passProps} />;
             case 'feedback':
-                return <Feedback navigator={navigator} />;
+                return <Feedback navigator={navigator} {...route.passProps} />;
             case 'comments':
-                return <Comments navigator={navigator} />;
+                return <Comments navigator={navigator} {...route.passProps} />;
             case 'signUp':
-                return <SignUp navigator={navigator} />;
+                return <SignUp navigator={navigator} {...route.passProps} />;
             case 'profile':
-                return <Profile navigator={navigator} />;
+                return <Profile navigator={navigator} {...route.passProps} />;
             case 'walkthrough':
-                return <Walkthrough navigator={navigator} />;
+                return <Walkthrough navigator={navigator} {...route.passProps} />;
             case 'sideBar':
-                return <SideBar navigator={navigator} />;
+                return <SideBar navigator={navigator} {...route.passProps} />;
             case 'settings':
-                return <Settings navigator={navigator} />;
+                return <Settings navigator={navigator} {...route.passProps} />;
             case 'channel':
-                return <Channel navigator={navigator} />;
+                return <Channel navigator={navigator} {...route.passProps} />;
             case 'channels':
-                return <Channels navigator={navigator} />;
+                return <Channels navigator={navigator} {...route.passProps} />;
             case 'calendar':
-                return <Calendar navigator={navigator} />;
+                return <Calendar navigator={navigator} {...route.passProps} />;
             case 'overview':
-                return <Overview navigator={navigator} />;
+                return <Overview navigator={navigator} {...route.passProps} />;
             case 'story':
-                return <Story navigator={navigator} />;
+                return <Story navigator={navigator} {...route.passProps} />;
             case 'timeline':
-                return <Timeline navigator={navigator} />;
+                return <Timeline navigator={navigator} {...route.passProps} />;
             case 'widgets':
-                return <Widgets navigator={navigator} />;
+                return <Widgets navigator={navigator} {...route.passProps} />;
             case 'needhelp':
-                return <NeedHelp navigator={navigator} />;
+                return <NeedHelp navigator={navigator} {...route.passProps} />;
             default :
-                return <Login navigator={navigator}  />;
+                return <Login navigator={navigator} {...route.passProps}  />;
         }
     }
 }

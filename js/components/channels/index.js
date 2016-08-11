@@ -1,20 +1,21 @@
-
 'use strict';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { Image, View, TouchableOpacity,Platform } from 'react-native';
+import React, { Component } from 'react';
+import { Image, View, TouchableOpacity, Platform } from 'react-native';
+import { connect } from 'react-redux';
 
-import {pushNewRoute} from '../../actions/route';
-import {openDrawer} from '../../actions/drawer';
+import { pushNewRoute } from '../../actions/route';
+import { openDrawer } from '../../actions/drawer';
 
-import {Container, Header, Content, Text, Button, Icon} from 'native-base';
-import { Grid, Col, Row } from "react-native-easy-grid";
+import { Container, Header, Content, Text, Button, Icon } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
+import HeaderContent from './../headerContent/';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
 class Channels extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -22,8 +23,8 @@ class Channels extends Component {
             popularBtn: false,
             exploreBtn: false
         };
-
     }
+
     pushNewRoute(route) {
          this.props.pushNewRoute(route);
     }
@@ -33,32 +34,37 @@ class Channels extends Component {
             <Container theme={theme}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
-                        <Button transparent onPress={this.props.openDrawer}  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-menu" />
-                        </Button>
-
-                        <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-
-                        <Button transparent  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-search" />
-                        </Button>
+                        <HeaderContent />
                     </Header>
 
                     <View style={styles.bgHead}>
                         <Grid>
                             <Col>
-                                <Button transparent rounded block   style={Platform.OS === 'android' ? styles.achannelBtn1 : styles.ioschannelBtn1}  textStyle={Platform.OS === 'android' ? {fontSize: 12,fontWeight: '900',textAlign: 'center'} : {fontSize: 12,fontWeight: '900'}} >
+                                <Button 
+                                    transparent rounded block 
+                                    style={styles.channelBtn1} 
+                                    textStyle={Platform.OS === 'android' ? 
+                                        {fontSize: 12,fontWeight: '900',textAlign: 'center'} : 
+                                        {fontSize: 12,fontWeight: '900'}} 
+                                >
                                     Following
                                 </Button>
-
                             </Col>
                             <Col>
-                                <Button transparent rounded block style={this.state.popularBtn === true ? styles.ioschannelBtn1 : styles.na}  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                <Button 
+                                    transparent rounded block 
+                                    style={this.state.popularBtn === true ? 
+                                        styles.channelBtn1 : styles.na} 
+                                    textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}
+                                >
                                     Popular
                                 </Button>
                             </Col>
                             <Col>
-                                <Button transparent rounded block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                <Button 
+                                    transparent rounded block 
+                                    textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}
+                                >
                                     Explore
                                 </Button>
                             </Col>

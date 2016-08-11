@@ -1,15 +1,15 @@
-
 'use strict';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { Image, View,Platform } from 'react-native';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Image, View, Platform } from 'react-native';
 
-import {openDrawer} from '../../actions/drawer';
+import { openDrawer } from '../../actions/drawer';
 
-import {Container, Header, Content, Text, Button, Icon} from 'native-base';
-import { Grid, Col, Row } from "react-native-easy-grid";
-import ProgressBar from "./../loaders/ProgressBar";
+import { Container, Header, Content, Text } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
+import ProgressBar from './../loaders/ProgressBar';
+import HeaderContent from './../headerContent/';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
@@ -22,15 +22,7 @@ class Overview extends Component {
             <Container theme={theme} >
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
-                        <Button transparent onPress={this.props.openDrawer}  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-menu" />
-                        </Button>
-                    
-                        <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-                        
-                        <Button transparent  style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                            <Icon name="ios-search" />
-                        </Button>    
+                        <HeaderContent />    
                     </Header>
                     <View style={styles.overviewHeaderContainer}>
                         <Text style={styles.overviewHeader}>OVERVIEW</Text>
@@ -48,7 +40,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>26%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={34} />
+                                <ProgressBar color='#fff' progress={34} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -60,7 +52,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>20%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={28} />
+                                <ProgressBar color='#fff' progress={28} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -72,7 +64,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>15%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={12} />
+                                <ProgressBar color='#fff' progress={12} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -84,7 +76,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>12%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={10} />
+                                <ProgressBar color='#fff' progress={10} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -96,7 +88,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>9%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={8} />
+                                <ProgressBar color='#fff' progress={8} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -108,7 +100,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>7%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={5} />
+                                <ProgressBar color='#fff' progress={5} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -120,7 +112,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>5%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={3} />
+                                <ProgressBar color='#fff' progress={3} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -132,7 +124,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>3%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={5} />
+                                <ProgressBar color='#fff' progress={5} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -144,7 +136,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>2%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={3} />
+                                <ProgressBar color='#fff' progress={3} />
                             </View>
 
                             <View style={styles.overviewTopicsBox}>
@@ -156,7 +148,7 @@ class Overview extends Component {
                                         <Text style={styles.overviewInfoPerc}>1%</Text>
                                     </Col>
                                 </Grid>
-                                <ProgressBar color="#fff" progress={3} />
+                                <ProgressBar color='#fff' progress={3} />
                             </View>
                         </View>
                     </Content>
@@ -168,7 +160,7 @@ class Overview extends Component {
 
 function bindAction(dispatch) {
     return {
-        openDrawer: ()=>dispatch(openDrawer())
+        openDrawer: () => dispatch(openDrawer())
     }
 }
 

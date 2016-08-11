@@ -1,16 +1,16 @@
-
 'use strict';
 
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { Image, View, TouchableOpacity,Platform } from 'react-native';
+import { Image, View, TouchableOpacity, Platform } from 'react-native';
+import { connect } from 'react-redux';
 
-import {replaceRoute} from '../../actions/route';
-import {openDrawer} from '../../actions/drawer';
+import { replaceRoute } from '../../actions/route';
+import { openDrawer } from '../../actions/drawer';
 
-import {Container, Header, Content, Text, Button, Icon, Thumbnail} from 'native-base';
+import { Container, Header, Content, Text, Icon } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 import CalendarPicker from 'react-native-calendar-picker';
-import { Grid, Col, Row } from "react-native-easy-grid";
+import HeaderContent from './../headerContent/';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
@@ -27,29 +27,24 @@ class Calendar extends Component {
     onDateChange (date) {
         this.setState({ date: date });
     }
+
     replaceRoute(route) {
         this.props.replaceRoute(route);
     }
+
     render() {
         return (
             <Container theme={theme}>
                 <Header>
-                    <Button transparent onPress={this.props.openDrawer} style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon} >
-                        <Icon name="ios-menu" />
-                    </Button>
-
-                    <Image source={require('../../../images/Header-Logo.png')} style={styles.logoHeader} />
-
-                    <Button transparent style={Platform.OS === 'android' ? styles.aheaderIcon : styles.iosheaderIcon}>
-                        <Icon name="ios-search" />
-                    </Button>
+                    <HeaderContent />
                 </Header>
 
                 <Content>
                     <View style={styles.bg}>
                         <CalendarPicker
-                        selectedDate={this.state.date}
-                        onDateChange={this.onDateChange.bind(this)} />
+                            selectedDate={this.state.date}
+                            onDateChange={this.onDateChange.bind(this)} 
+                        />
                     </View>
 
                     <View style={{backgroundColor: '#fff'}}>
@@ -182,8 +177,8 @@ class Calendar extends Component {
 
 function bindAction(dispatch) {
     return {
-        openDrawer: ()=>dispatch(openDrawer()),
-        replaceRoute:(route)=>dispatch(replaceRoute(route)),
+        openDrawer: () => dispatch(openDrawer()),
+        replaceRoute:(route) => dispatch(replaceRoute(route)),
     }
 }
 

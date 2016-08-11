@@ -2,27 +2,44 @@
 'use strict';
 
 var React = require('react-native');
-var primary = require('../../themes/variable').brandPrimary;
-var { StyleSheet, Dimensions } = React;
+var { StyleSheet, Dimensions, Platform } = React;
 
+var primary = require('../../themes/variable').brandPrimary;
 var deviceHeight = Dimensions.get('window').height;
 var deviceWidth = Dimensions.get('window').width;
+
 module.exports = StyleSheet.create({
+    header: {
+        width: Dimensions.get('window').width,
+        paddingLeft: 15,
+        paddingRight: 15
+    },
+    rowHeader: {
+        flex: 1,
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        alignSelf: 'stretch',
+        paddingTop: Platform.OS === 'android' ? 7 : 0
+    },
+    btnHeader: {
+        paddingTop: 10
+    },
+    imageHeader: {
+        height: 25, 
+        width: 95,
+        resizeMode: 'contain',
+        marginTop: 10
+    },
     container: {
         flex: 1,
         width: null,
         height: null,
     },
-    logoHeader: {
-        width: 20,
-        height: 28,
-        alignSelf: 'center'
-    },
-    aheaderIcon: {
-
-    },
-    iosheaderIcon: {
-        paddingTop: 30,
+    overviewHeader: {
+        fontSize: 22,
+        fontWeight: '700',
+        alignSelf: 'center',
+        paddingBottom: Platform.OS === 'android' ? 10 : 0
     },
     overviewHeaderContainer: {
         padding: 30,
@@ -31,39 +48,27 @@ module.exports = StyleSheet.create({
         backgroundColor: primary,
         width: deviceWidth
     },
-    iosoverviewHeader: {
-        fontSize: 22,
-        fontWeight: '700',
-        alignSelf: 'center'
-    },
-    aoverviewHeader: {
-        fontSize: 22,
-        fontWeight: '700',
-        paddingBottom: 10,
-        alignSelf: 'center'
-    },
-    overviewHead: {
-        color: 'rgba(255,255,255,0.5)',
-        fontSize: 14,
-        fontWeight: 'bold'
-    },
-    overviewInfoHeader: {
-        alignSelf: 'flex-start',
-        fontSize: 14,
-        fontWeight: '900'
-    },
-    overviewInfoPerc: {
-        alignSelf: 'flex-end',
-        fontSize: 14,
-        fontWeight: '900'
-    },
     mainWidget: {
         height: (deviceHeight/2) - 70,
         width: null
     },
-    otherWidget: {
-        height: (deviceHeight/3) + 20,
-        width: deviceWidth/2
+    mainWidgetContainer: {
+        flex: 10,
+        flexDirection: 'row',
+        padding: 20
+    },
+    weather: {
+        fontWeight: '700',
+        fontSize: Platform.OS === 'android' ? 80 : 120,
+        lineHeight: Platform.OS === 'android' ? 0 : 120,
+        paddingBottom: Platform.OS === 'android' ? 70 : 0,
+        marginTop: Platform.OS === 'android' ? - 15 : 10
+    },
+    weatherInfoContainer: {
+        flex: 9,
+        padding: 20,
+        marginTop: 100,
+        alignItems: 'center'
     },
     weatherInfo: {
         fontWeight: '900',
@@ -72,13 +77,32 @@ module.exports = StyleSheet.create({
     weatherTime: {
         fontSize: 10,
         fontWeight: '700',
-        opacity: 0.8,
+        opacity: 0.8
     },
-    weatherInfoContainer: {
-        flex: 9,
+    otherWidget: {
+        height: (deviceHeight/3) + 20,
+        width: deviceWidth/2
+    },
+    widgetName: {
+        color: '#222',
+        fontWeight: '700',
+        fontSize: 12
+    },
+    otherWidgetContainer: {
+        flex: 2,
         padding: 20,
-        marginTop: 100,
-        alignItems: 'center'
+        paddingTop: 10
+    },
+    ratingPerc: {
+        fontSize: 32,
+        fontWeight: '800',
+        paddingTop: 10,
+        paddingBottom:10,
+        lineHeight: Platform.OS === 'android' ? 0 : 0
+    },
+    ratingNum: {
+        color: '#ccc',
+        fontWeight: '800'
     },
     detailsBtn: {
         backgroundColor: 'transparent',
@@ -86,51 +110,6 @@ module.exports = StyleSheet.create({
         borderColor: 'rgba(0,0,0,0.2)',
         alignSelf: 'center',
         marginTop: 80
-    },
-    iosratingPerc: {
-        fontSize: 32,
-        fontWeight: '800',
-        lineHeight: 0,
-        paddingTop: 10,
-        paddingBottom:10
-    },
-    aratingPerc: {
-        fontSize: 32,
-        fontWeight: '800',
-        paddingTop: 10,
-        paddingBottom:10
-    },
-    ratingNum: {
-        color: '#ccc',
-        fontWeight: '800',
-    },
-    
-    widgetName: {
-        color: '#222',
-        fontWeight: '700',
-        fontSize: 12
-    },
-    mainWidgetContainer: {
-        flex: 10,
-        flexDirection: 'row',
-        padding: 20,
-    },
-    aWeather: {
-        fontSize: 80,
-        paddingBottom: 70,
-        fontWeight: '700',
-        marginTop: - 15,
-    },
-    iosWeather: {
-        fontSize: 120,
-        lineHeight: 0,
-        fontWeight: '700',
-        marginTop: -20,
-    },
-    otherWidgetContainer: {
-        flex: 2,
-        padding: 20,
-        paddingTop: 10,
-    },
+    }
 });
 

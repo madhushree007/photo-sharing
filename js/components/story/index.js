@@ -1,15 +1,14 @@
-
 'use strict';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { Image, View, TouchableOpacity,Platform,Slider } from 'react-native';
+import React, { Component } from 'react';
+import { Image, View, TouchableOpacity, Platform, Slider } from 'react-native';
+import { connect } from 'react-redux';
 
-import {replaceRoute, popRoute} from '../../actions/route';
-import {openDrawer} from '../../actions/drawer';
+import { replaceRoute, popRoute } from '../../actions/route';
+import { openDrawer } from '../../actions/drawer';
 
-import {Container,Thumbnail, Header, Title, Content, Text, Button, Icon, List, ListItem} from 'native-base';
-import { Grid, Col, Row } from "react-native-easy-grid";
+import { Container, Header, Content, Text, Button, Icon } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 import Lightbox from 'react-native-lightbox';
 import Modal from 'react-native-simple-modal';
 import Swiper from 'react-native-swiper';
@@ -23,13 +22,17 @@ const renderPagination = (index, total, context) => {
     return (
         <View style={{position: 'absolute', bottom: -25, right: 10}}>
             <Text>
-                <Text style={{color: '#007aff', fontSize: 20}}>{index + 1}</Text>/{total}
+                <Text style={{color: '#007aff', fontSize: 20}}>
+                    {index + 1}
+                </Text>
+                /{total}
             </Text>
         </View>
     )
 }
 
 class Story extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -42,12 +45,15 @@ class Story extends Component {
     modalO() {
         this.setState({open: true});
     }
+
     modalX() {
         this.setState({open: false});
     }
+
     replaceRoute(route) {
         this.props.replaceRoute(route);
     }
+
     popRoute() {
         this.props.popRoute();
     }
@@ -60,27 +66,27 @@ class Story extends Component {
                         <Grid style={styles.headerContainer}>
                             <Col style={styles.headerBtns}>
                                 <Button transparent onPress={() => this.popRoute()}>
-                                    <Icon name="ios-arrow-back" style={styles.headerIcons} />
+                                    <Icon name='ios-arrow-back' style={styles.headerIcons} />
                                 </Button>
                             </Col>
                             <Col style={styles.headerBtns}>
                                 <Button transparent  onPress={() => this.replaceRoute('comments')}>
-                                    <Icon name="ios-chatboxes-outline" style={styles.headerIcons} />
+                                    <Icon name='ios-chatboxes-outline' style={styles.headerIcons} />
                                 </Button>
                             </Col>
                             <Col style={styles.headerBtns}>
                                 <Button transparent  onPress={() => this.modalO()}>
-                                    <Text style={Platform.OS === 'android' ? styles.aheaderTextIcon : styles.iosheaderTextIcon}>Aa</Text>
+                                    <Text style={styles.headerTextIcon}>Aa</Text>
                                 </Button>
                             </Col>
                             <Col style={styles.headerBtns} >
                                 <Button transparent>
-                                    <Icon name="ios-bookmarks-outline"  style={styles.headerIcons} />
+                                    <Icon name='ios-bookmarks-outline'  style={styles.headerIcons} />
                                 </Button>
                             </Col>
                             <Col style={styles.headerBtns}>
                                 <Button transparent>
-                                    <Icon name="ios-download-outline" style={styles.headerIcons} />
+                                    <Icon name='ios-download-outline' style={styles.headerIcons} />
                                 </Button>
                             </Col>
                         </Grid>
@@ -106,7 +112,7 @@ class Story extends Component {
                                             <TouchableOpacity>
                                                 <Text style={styles.newsLink}>CDC</Text>
                                             </TouchableOpacity>
-                                            <Icon name="ios-time-outline" style={ Platform.OS === 'android' ? styles.atimeIcon : styles.iostimeIcon} />
+                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
                                             <Text style={styles.newsLink}>1h ago</Text>
                                         </Col>
                                         <Col>
@@ -123,9 +129,9 @@ class Story extends Component {
                                 <View style={{padding: 20}}>
                                     <View style={styles.newsCommentContainer}>
                                         <Text  style={styles.newsComment}>
-                                            "It has roots in a piece of classical Latin literature from 45 BC, 
+                                            'It has roots in a piece of classical Latin literature from 45 BC, 
                                             making it over 2000 years old. Richard McClintock, a Latin professor 
-                                            at Hampden-Sydney College"
+                                            at Hampden-Sydney College'
                                         </Text>
                                         <Text style={styles.newsComment}>- JOHN</Text>
                                     </View>
@@ -145,8 +151,13 @@ class Story extends Component {
                                 </View>
                         
                                 <View style={styles.wrapper}>
-                                    <Swiper height={240} 
-                                     loop={true}  dot={<View style={styles.swiperDot} />} activeDot={<View style={styles.swiperActiveDot} showsButtons={true} />} >
+                                    <Swiper 
+                                        height={240} 
+                                        loop={true} 
+                                        dot={<View style={styles.swiperDot} />} 
+                                        activeDot={<View style={styles.swiperActiveDot} 
+                                        showsButtons={true} />} 
+                                    >
                                         <Lightbox  navigator={this.props.navigator}>
                                             <View style={styles.slide}>
                                                 <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} />
@@ -173,7 +184,7 @@ class Story extends Component {
                                 <View style={{alignSelf: 'center'}}>
                                     <Button transparent iconRight onPress={() => this.replaceRoute('home')} >
                                         <Text style={styles.nextStoryBtn}>NEXT STORY</Text>
-                                        <Icon name="ios-arrow-forward" style={styles.forwardBtn}/>
+                                        <Icon name='ios-arrow-forward' style={styles.forwardBtn}/>
                                     </Button>
                                 </View>
                             </View>
@@ -188,29 +199,45 @@ class Story extends Component {
                     style={styles.modal}>
                    
                         <View>
-                            <View style={Platform.OS === 'android' ? styles.aModalContentBox : styles.iosModalContentBox}>
+                            <View style={styles.modalContentBox}>
                                 <Grid style={{flex: 10,padding: 20}}>
                                     <Col style={{paddingLeft: 30}}>
                                         <Button transparent style={styles.dayButton}>
-                                            <Icon name="ios-sunny-outline" style={Platform.OS === 'android' ? {color: primary,fontSize: 26,marginTop: 5} : {color: primary,fontSize: 26} } />
+                                            <Icon 
+                                                name='ios-sunny-outline' 
+                                                style={Platform.OS === 'android' ? 
+                                                    {color: primary,fontSize: 26,marginTop: 5} : 
+                                                    {color: primary,fontSize: 26} } 
+                                            />
                                         </Button>
                                     </Col>
                                     <Col style={{paddingLeft: 80}}>
                                         <Button transparent style={styles.nightButton}>
-                                            <Icon name="ios-moon-outline" style={Platform.OS === 'android' ? {fontSize: 26,marginTop: 5} : {fontSize: 26} } />
+                                            <Icon 
+                                                name='ios-moon-outline' 
+                                                style={Platform.OS === 'android' ? 
+                                                    {fontSize: 26,marginTop: 5} : 
+                                                    {fontSize: 26} } 
+                                            />
                                         </Button>
                                     </Col>
                                 </Grid>
                             </View>
-                            <View style={Platform.OS === 'android' ? styles.aModalContentBox : styles.iosModalContentBox}>
+                            <View style={styles.modalContentBox}>
                                 <Grid style={{padding: 20,paddingBottom: 15}}>
                                     <Col>
-                                        <Text style={Platform.OS === 'android' ? {fontSize: 12,marginTop: 5} : {fontSize: 12}}>CHOOSE TYPESPACE</Text>
+                                        <Text 
+                                            style={Platform.OS === 'android' ? 
+                                                {fontSize: 12,marginTop: 5} : 
+                                                {fontSize: 12}}
+                                        >
+                                            CHOOSE TYPESPACE
+                                        </Text>
                                     </Col>
                                     <Col>
                                         <Button transparent iconRight style={{marginTop: -10}}> 
                                             <Text style={{fontWeight: '900'}}>SANS SERIF</Text>
-                                            <Icon name="ios-arrow-forward" style={{fontSize: 28}} />
+                                            <Icon name='ios-arrow-forward' style={{fontSize: 28}} />
                                         </Button>
                                     </Col>
                                 </Grid>
@@ -221,11 +248,11 @@ class Story extends Component {
                                         <Text style={styles.modalSmallText}>A</Text>
                                     </Col>
                                     <Col style={{alignSelf: 'flex-end'}}>
-                                        <Text style={Platform.OS === 'android' ? styles.aModalLargeText : styles.iosModalLargeText}>A</Text>
+                                        <Text style={styles.modalLargeText}>A</Text>
                                     </Col>
                                 </Grid>
                                 <Slider
-                                    {...this.props} minimumTrackTintColor="#fff"
+                                    {...this.props} minimumTrackTintColor='#fff'
                                     onValueChange={(value) => this.setState({value: value})} />
                             </View>
                         </View>
@@ -238,8 +265,8 @@ class Story extends Component {
 
 function bindAction(dispatch) {
     return {
-        openDrawer: ()=>dispatch(openDrawer()),
-        replaceRoute:(route)=>dispatch(replaceRoute(route)),
+        openDrawer: () => dispatch(openDrawer()),
+        replaceRoute:(route) => dispatch(replaceRoute(route)),
         popRoute: () => dispatch(popRoute())
     }
 }

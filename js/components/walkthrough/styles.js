@@ -1,23 +1,13 @@
-
 'use strict';
 
 var React = require('react-native');
-var primary = require('../../themes/variable').brandPrimary;
-var { StyleSheet, Dimensions } = React;
 
+var { StyleSheet, Dimensions, Platform } = React;
+
+var primary = require('../../themes/variable').brandPrimary;
 var deviceHeight = Dimensions.get('window').height;
-var deviceWidth = Dimensions.get('window').width;
+
 module.exports = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: null,
-        height: null,
-    },
-    background: {
-        flex: 1,
-        width: null,
-        height:null,
-    },
     slides: {
         flex: 1,
         justifyContent: 'center',
@@ -27,33 +17,33 @@ module.exports = StyleSheet.create({
     },
     iosText: {
         fontSize: 16,
-        lineHeight: 0,
         padding: 60,
         textAlign: 'center',
         fontWeight: 'bold',
+        lineHeight: 0
     },
     aText: {
         fontSize: 16,
         padding: 40,
-        margin: 40,
         textAlign: 'center',
         fontWeight: 'bold',
+        margin: 40
     },
     iospaginationText: {
         position: 'relative',
         top: -(deviceHeight/7),
         fontSize: 20,
         lineHeight: 0,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     apaginationText: {
         // position: 'relative',
         top: -(deviceHeight/9),
         fontSize: 20,
-        padding: 20,
-        textAlign: 'center',
         // lineHeight: 0,
         fontWeight: 'bold',
+        padding: 20,
+        textAlign: 'center'
     },
     swiperDot: {
         backgroundColor:'rgba(0,0,0,.2)', 
@@ -62,7 +52,7 @@ module.exports = StyleSheet.create({
         marginLeft: 3, 
         marginRight: 3, 
         marginTop: 3, 
-        marginBottom: 20,
+        marginBottom: 20
     },
     swiperActiveDot: {
         backgroundColor: '#fff', 
@@ -71,16 +61,13 @@ module.exports = StyleSheet.create({
         marginLeft: 3, 
         marginRight: 3, 
         marginTop: 3, 
-        marginBottom: 20,
+        marginBottom: 20
     },
     imageIcons: {
-        fontSize: 120,
+        fontSize: 120
     },
     Button: {
         alignSelf: 'center',
-        backgroundColor: 'rgba(0,0,0,0.2)',
-    },
-    iosButton: {
-
-    },
+        backgroundColor: 'rgba(0,0,0,0.2)'
+    }
 });

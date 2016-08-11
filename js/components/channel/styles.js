@@ -1,31 +1,48 @@
-
 'use strict';
 
-import { StyleSheet } from "react-native";
 var React = require('react-native');
-var { Dimensions } = React;
+var { StyleSheet, Dimensions, Platform } = React;
 
 var deviceHeight = Dimensions.get('window').height;
+
 module.exports = StyleSheet.create({
     container: {
         flex: 1,
         width: null,
-        height: null,
+        height: null
     },
-    logoHeader: {
-        width: 20,
-        height: 28,
+    newsPoster: {
+        height: (deviceHeight/4) + 10,
+        width: null,
+        position: 'relative'
+    },
+    ioschannelHeader: {
+        fontSize: 20,
+        fontWeight: '900',
         alignSelf: 'center',
+        padding: 20,
+        paddingTop: 30
     },
-    newsImage: {
-        width: 100, 
-        height: 130
+    achannelHeader: {
+        fontSize: 20,
+        fontWeight: '900',
+        alignSelf: 'center',
+        padding: 20,
+        marginTop: 20,
+        textAlign: 'center'
     },
-    aheaderIcon: {
-
+    followBtn: {
+        alignSelf: 'center',
+        backgroundColor: '#fff'
     },
-    iosheaderIcon: {
-        paddingTop: 30,
+    noOfFollowers: {
+        fontSize: 12,
+        fontWeight: '900',
+        alignSelf: 'center',
+        textAlign: 'center',
+        padding: 20,
+        paddingTop: 10,
+        marginTop: 10
     },
     newsContentWrap: {
         flexDirection: 'column',
@@ -36,13 +53,13 @@ module.exports = StyleSheet.create({
         borderTopWidth: 1,
         borderTopColor: '#ddd'
     },
-    newsContent: {
-        paddingTop: 20,
-        paddingBottom: 20
-    },
     newsHeader: {
         color: '#444',
         fontWeight: 'bold'
+    },
+    newsContent: {
+        paddingTop: 20,
+        paddingBottom: 20
     },
     newsLink: {
         color: '#666',
@@ -50,63 +67,13 @@ module.exports = StyleSheet.create({
         alignSelf: 'flex-start',
         fontWeight: 'bold'
     },
-    newsTypeView: {
-        borderBottomWidth: 1,
-        borderBottomColor: '#666',
-        alignSelf: 'flex-end'
-    },
-    newsTypeText: {
-        color: '#666',
-        fontSize: 12,
-        fontWeight: 'bold',
-        paddingBottom: 5
-    },
-    newsPoster: {
-        height: (deviceHeight/4) + 10,
-        width: null,
-        position: 'relative'
-    },
-    ioschanelHeader: {
+    timeIcon: {
         fontSize: 20,
-        fontWeight: '900',
-        alignSelf: 'center',
-        padding: 20,
-        paddingTop: 30
-    },
-    achanelHeader: {
-        fontSize: 20,
-        fontWeight: '900',
-        alignSelf: 'center',
-        padding: 20,
-        marginTop: 20,
-        textAlign: 'center',
-    },
-    followBtn: {
-        alignSelf: 'center',
-        backgroundColor: '#fff',
-    },
-    noOfFollowers: {
-        fontSize: 12,
-        fontWeight: '900',
-        alignSelf: 'center',
-        textAlign: 'center',
-        padding: 20,
-        paddingTop: 10,
-        marginTop: 10,
-    },
-    iostimeIcon: {
-        fontSize: 20,
-        paddingLeft: 20,
         paddingRight: 10,
-        marginTop: 5,
         color: '#666',
-    },
-    atimeIcon: {
-        fontSize: 20,
-        marginLeft: 15,
-        paddingRight: 10,
-        marginTop: -2,
-        color: '#666',
-    },
+        marginLeft: Platform.OS === 'android' ? 15 : 0,
+        paddingLeft: Platform.OS === 'android' ? 0 : 20,
+        marginTop: Platform.OS === 'android' ? -2 : 5
+    }
 });
 
