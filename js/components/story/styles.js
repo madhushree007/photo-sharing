@@ -112,7 +112,14 @@ module.exports = StyleSheet.create({
         paddingTop: 10
     },
     headerContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         marginTop: -5
+    },
+    headerBtns : {
+        padding: 10
     },
     headerTextIcon: {
         fontSize: 28,

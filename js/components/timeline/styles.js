@@ -80,7 +80,8 @@ module.exports = StyleSheet.create({
     timelineTextHeader: {
         color: '#222',
         fontSize: 14,
-        fontWeight: '700'
+        fontWeight: '700',
+        paddingTop: Platform.OS === 'android' ? 5 : 0
     },
     timelineTextComment: {
         color: '#aaa',

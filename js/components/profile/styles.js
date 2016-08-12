@@ -59,7 +59,7 @@ module.exports = StyleSheet.create({
         width: 100, 
         height: 70,
         marginTop: 20,
-        marginBottom: 40
+        marginBottom: Platform.OS === 'android' ? 35 : 40
     },
     newsContent: {
         flexDirection: 'column',

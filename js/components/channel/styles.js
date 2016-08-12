@@ -28,7 +28,7 @@ module.exports = StyleSheet.create({
         fontWeight: '900',
         alignSelf: 'center',
         padding: 20,
-        marginTop: 20,
+        marginTop: 10,
         textAlign: 'center'
     },
     followBtn: {
@@ -72,7 +72,7 @@ module.exports = StyleSheet.create({
         paddingRight: 10,
         color: '#666',
         marginLeft: Platform.OS === 'android' ? 15 : 0,
-        paddingLeft: Platform.OS === 'android' ? 0 : 20,
+        paddingLeft: Platform.OS === 'android' ? 15 : 20,
         marginTop: Platform.OS === 'android' ? -2 : 5
     }
 });

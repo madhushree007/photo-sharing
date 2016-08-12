@@ -39,11 +39,11 @@ module.exports = StyleSheet.create({
         fontSize: 22,
         fontWeight: '700',
         alignSelf: 'center',
-        paddingBottom: Platform.OS === 'android' ? 10 : 0
+        paddingBottom: Platform.OS === 'android' ? 5 : 0
     },
     overviewHeaderContainer: {
         padding: 30,
-        paddingTop: 40,
+        paddingTop: Platform.OS === 'android' ? 35 : 40,
         alignSelf: 'center',
         backgroundColor: primary,
         width: deviceWidth
