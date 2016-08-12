@@ -43,7 +43,9 @@ class Login extends Component {
                         <View style={ Platform.OS === 'android' ? styles.abg : styles.bg}>
                             <InputGroup borderType='rounded' style={[styles.inputGrp, {borderWidth: 0, paddingLeft: 15}]}>
                                 <Icon name='ios-person-outline' />
-                                <Input placeholder='Username' onChangeText={(username) => this.setState({username})}
+                                <Input 
+                                    placeholder='Username' 
+                                    onChangeText={(username) => this.setState({username})}
                                 />
                             </InputGroup>
 

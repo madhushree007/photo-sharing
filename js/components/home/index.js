@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { replaceRoute } from '../../actions/route';
 import { openDrawer } from '../../actions/drawer';
 
-import { Container, Header, Content, Text, Button, Icon, Title } from 'native-base';
+import { Container, Header, Content, Text, Button, Icon } from 'native-base';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
@@ -20,10 +20,6 @@ class Home extends Component {
 
     replaceRoute(route) {
         this.props.replaceRoute(route);
-    }
-    
-    componentDidMount() {
-        console.log(this.props);    
     }
 
     render() {
