@@ -44,8 +44,10 @@ module.exports = StyleSheet.create({
         paddingBottom: 5
     },
     newsPoster: {
-        height: (deviceHeight/2) + 10,
+        height: null,
         width: null,
+        resizeMode: 'cover',
+        flex: 1,
         position: 'relative'
     },
     newsPosterHeader: {
@@ -88,7 +90,7 @@ module.exports = StyleSheet.create({
         flex: 1,
         width: null,
         backgroundColor: 'transparent'
-    },  
+    },
     swiperTextContent: {
         // marginBottom: 170,
         marginTop: deviceHeight/4 + 20,
@@ -96,23 +98,23 @@ module.exports = StyleSheet.create({
         padding: 20
     },
     swiperDot: {
-        backgroundColor:'rgba(0,0,0,.8)', 
-        width: 8, 
+        backgroundColor:'rgba(0,0,0,.8)',
+        width: 8,
         height: 8,
-        borderRadius: 4, 
-        marginLeft: 3, 
-        marginRight: 3, 
-        marginTop: 3, 
+        borderRadius: 4,
+        marginLeft: 3,
+        marginRight: 3,
+        marginTop: 3,
         marginBottom: 0
     },
     swiperActiveDot: {
-        backgroundColor: '#fff', 
-        width: 8, 
-        height: 8, 
-        borderRadius: 4, 
-        marginLeft: 3, 
-        marginRight: 3, 
-        marginTop: 3, 
+        backgroundColor: '#fff',
+        width: 8,
+        height: 8,
+        borderRadius: 4,
+        marginLeft: 3,
+        marginRight: 3,
+        marginTop: 3,
         marginBottom: 0
     },
     swiperContentBox: {

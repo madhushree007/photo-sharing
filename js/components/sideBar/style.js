@@ -29,7 +29,7 @@ module.exports = StyleSheet.create({
         paddingTop: 30,
         flexDirection: 'row',
         borderTopWidth: 1,
-        borderTopColor: '#797979'
+        borderTopColor: 'rgba(236, 236, 236, 0.82)'
     },
     background: {
         flex: 1,
@@ -45,12 +45,12 @@ module.exports = StyleSheet.create({
     },
     aProfilePic: {
         height: 40,
-        width: 40, 
+        width: 40,
         borderRadius: 40
     },
     iosProfilePic: {
         height: 40,
-        width: 40, 
+        width: 40,
         borderRadius: 20
     }
 });

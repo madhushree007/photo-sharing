@@ -27,8 +27,7 @@ import Timeline from './components/timeline';
 import Widgets from './components/widgets';
 import NeedHelp from './components/needhelp';
 import SplashPage from './components/splashscreen/';
-import { statusBarColor } from './themes/base-theme';
-
+import { toolbarDefaultBg } from './themes/base-theme';
 
 Navigator.prototype.replaceWithAnimation = function (route) {
     const activeLength = this.state.presentedIndex + 1;
@@ -73,9 +72,9 @@ const reducerCreate = params=>{
 const drawerStyle  = { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3};
 
 class AppNavigator extends Component {
-    
+
     constructor(props){
-        
+
         super(props);
     }
 
@@ -131,7 +130,7 @@ class AppNavigator extends Component {
                 panCloseMask={0.2}
                 negotiatePan={true}>
                 <StatusBar
-                    backgroundColor={statusBarColor}
+                    backgroundColor={toolbarDefaultBg}
                     barStyle='light-content'
                 />
                 <Navigator

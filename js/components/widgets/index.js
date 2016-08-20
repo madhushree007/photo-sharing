@@ -26,17 +26,17 @@ class Widgets extends Component {
                         <View style={styles.header} >
                             <View style={styles.rowHeader}>
                                 <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
-                                    <Icon name='ios-menu' />
+                                    <Icon name='ios-menu' style={{fontSize: 32, lineHeight: 36}} />
                                 </Button>
 
                                 <Image source={require('../../../images/Header-Logo.png')} style={styles.imageHeader}>
                                 </Image>
-                                
+
                                 <Button transparent style={styles.btnHeader}>
-                                    <Icon name='ios-add' />
+                                    <Icon name='ios-add' style={{fontSize: 32, lineHeight: 36}} />
                                 </Button>
                             </View>
-                        </View>   
+                        </View>
                     </Header>
 
                     <Content>
@@ -61,32 +61,32 @@ class Widgets extends Component {
 
                             <Grid style={styles.weatherInfoContainer}>
                                 <Col style={{alignItems: 'center'}}>
-                                    <Text style={styles.weatherInfo}>65'</Text>
+                                    <Text style={styles.weatherInfo}>65</Text>
                                     <Text style={styles.weatherTime}>8 AM</Text>
                                 </Col>
                                 <Col style={{alignItems: 'center'}}>
-                                    <Text style={styles.weatherInfo}>86'</Text>
+                                    <Text style={styles.weatherInfo}>86</Text>
                                     <Text style={styles.weatherTime}>12 PM</Text>
                                 </Col>
                                 <Col style={{alignItems: 'center'}}>
-                                    <Text style={styles.weatherInfo}>79'</Text>
+                                    <Text style={styles.weatherInfo}>79</Text>
                                     <Text style={styles.weatherTime}>4 PM</Text>
                                 </Col>
                                 <Col style={{alignItems: 'center'}}>
-                                    <Text style={styles.weatherInfo}>62'</Text>
+                                    <Text style={styles.weatherInfo}>62</Text>
                                     <Text style={styles.weatherTime}>8 PM</Text>
                                 </Col>
                                 <Col style={{alignItems: 'center'}}>
-                                    <Text style={styles.weatherInfo}>59'</Text>
+                                    <Text style={styles.weatherInfo}>59</Text>
                                     <Text style={styles.weatherTime}>12 AM</Text>
                                 </Col>
                                 <Col style={{alignItems: 'center'}}>
-                                    <Text style={styles.weatherInfo}>52'</Text>
+                                    <Text style={styles.weatherInfo}>52</Text>
                                     <Text style={styles.weatherTime}>4 AM</Text>
                                 </Col>
                             </Grid>
                         </Image>
-                      
+
                         <Grid>
                             <Col>
                                 <Image source={require('../../../images/Widgets/widget2.png')} style={styles.otherWidget}>
@@ -96,11 +96,12 @@ class Widgets extends Component {
                                         </Text>
                                         <Text style={[{color: 'blue'},styles.ratingPerc]}>+0.51%</Text>
                                         <Text style={styles.ratingNum}>5,055.55</Text>
-                                        <Button 
-                                            rounded small 
-                                            style={styles.detailsBtn} 
-                                            textStyle={Platform.OS === 'android' ? 
-                                                {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} : 
+                                        <Button
+                                            transparent
+                                            rounded small
+                                            style={styles.detailsBtn}
+                                            textStyle={Platform.OS === 'android' ?
+                                                {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} :
                                                 {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}
                                         >
                                             Details
@@ -116,11 +117,12 @@ class Widgets extends Component {
                                         </Text>
                                         <Text style={[{color: 'red'},styles.ratingPerc]}>-0.31%</Text>
                                         <Text style={styles.ratingNum}>4,567.00</Text>
-                                        <Button 
-                                            rounded small 
-                                            style={styles.detailsBtn} 
-                                            textStyle={Platform.OS === 'android' ? 
-                                                {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} : 
+                                        <Button
+                                            transparent
+                                            rounded small
+                                            style={styles.detailsBtn}
+                                            textStyle={Platform.OS === 'android' ?
+                                                {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'} :
                                                 {color: primary,fontSize: 12,fontWeight: '900',textAlign: 'center'}}
                                         >
                                             Details

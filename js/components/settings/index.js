@@ -15,7 +15,7 @@ import styles from './styles';
 var primary = require('../../themes/variable').brandPrimary;
 
 class Settings extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -34,12 +34,12 @@ class Settings extends Component {
                y:0
         }
     };
-    
+
     this.constructor.childContextTypes = {
         theme: React.PropTypes.object,
        }
     }
-   
+
    resetRoute(route) {
         this.props.resetRoute(route);
     }
@@ -52,17 +52,17 @@ class Settings extends Component {
                         <View style={styles.header} >
                             <View style={styles.rowHeader}>
                                 <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
-                                    <Icon name='ios-menu' />
+                                    <Icon name='ios-menu' style={{fontSize: 32, lineHeight: 36}}  />
                                 </Button>
 
                                 <Image source={require('../../../images/Header-Logo.png')} style={styles.imageHeader}>
                                 </Image>
-                                
+
                                 <Button transparent style={styles.btnHeader} onPress={() => this.resetRoute('login')}>
-                                    <Icon name='ios-power' />
+                                    <Icon name='ios-power' style={{fontSize: 32, lineHeight: 36}}  />
                                 </Button>
                             </View>
-                        </View>   
+                        </View>
                     </Header>
 
                     <Content contentOffset={this.state.offset} scrollEnabled={true} >
@@ -85,7 +85,7 @@ class Settings extends Component {
                                             <Icon name='ios-cloud-download-outline' style={Platform.OS === 'android' ? {} : {lineHeight: 0}} />
                                         </Button>
                                     </Col>
-                                </Grid>   
+                                </Grid>
                             </View>
                             <View style={styles.signupContainer}>
                                 <InputGroup borderType='rounded' style={styles.inputGrp}>

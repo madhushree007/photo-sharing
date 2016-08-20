@@ -12,7 +12,7 @@ import theme from '../login/login-theme';
 import styles from './styles';
 
 class SignUp extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -25,11 +25,11 @@ class SignUp extends Component {
             theme: React.PropTypes.object,
         }
     }
-    
+
     popRoute() {
         this.props.popRoute();
     }
-    
+
     render() {
         return (
             <Container>
@@ -56,17 +56,14 @@ class SignUp extends Component {
                                         <Input placeholder='Password' secureTextEntry={true}  style={styles.input}/>
                                     </InputGroup>
 
-                                    <Button 
-                                        rounded transparent  block large 
+                                    <Button
+                                        rounded transparent  block
                                         onPress={() => this.popRoute()}
-                                        style={styles.signupBtn} 
-                                        textStyle={Platform.OS === 'android' ? 
-                                            {alignSelf: 'center',marginTop: 7,fontSize: 14,fontWeight: 'bold'} : 
-                                            {marginTop: -12,fontSize: 14,fontWeight: 'bold'}}
+                                        style={styles.signupBtn}
                                     >
                                         Continue
                                     </Button>
-                                    
+
                                     <TouchableOpacity>
                                         <Text style={styles.termsText}>Terms & Conditions</Text>
                                     </TouchableOpacity>
