@@ -2,23 +2,20 @@
 
 var React = require('react-native');
 
-var { StyleSheet } = React;
+var { StyleSheet, Platform } = React;
+
+var primary = require('../../themes/variable').brandPrimary;
 
 module.exports = StyleSheet.create({
     links: {
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        borderBottomWidth: 0,
-        borderBottomColor: 'transparent'
-    },
-    alinks: {
-        paddingTop: 8,
-        paddingBottom: 8,
+        paddingTop: Platform.OS === 'android' ? 8 : 10,
+        paddingBottom: Platform.OS === 'android' ? 8 : 10,
+        paddingLeft: Platform.OS === 'android' ? 0 : 10,
+        borderBottomWidth: Platform.OS === 'android' ? 0 : 0,
         borderBottomColor: 'transparent'
     },
     linkText: {
-        paddingLeft: 20
+        paddingLeft: 15
     },
     logoutContainer: {
         padding: 30
@@ -33,12 +30,14 @@ module.exports = StyleSheet.create({
         flex: 1,
         width: null,
         height:null,
-        backgroundColor: 'rgba(0,0,0,0.1)'
+        backgroundColor: primary
     },
     drawerContent: {
-        paddingTop: 30
+        paddingTop: Platform.OS === 'android' ? 20 : 30
     },
-    adrawerContent: {
-        paddingTop: 20
+    profilePic: {
+        height: 40,
+        width: 40, 
+        borderRadius: Platform.OS === 'android' ? 40 : 20
     }
 });

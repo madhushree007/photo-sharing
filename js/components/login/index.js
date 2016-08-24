@@ -40,7 +40,7 @@ class Login extends Component {
                     <Image source={require('../../../images/BG.png')} style={styles.background} >
                         <Image source={require('../../../images/logo.png')} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
                         
-                        <View style={ Platform.OS === 'android' ? styles.abg : styles.bg}>
+                        <View style={styles.bg}>
                             <InputGroup borderType='rounded' style={[styles.inputGrp, {borderWidth: 0, paddingLeft: 15}]}>
                                 <Icon name='ios-person-outline' />
                                 <Input 
@@ -68,7 +68,7 @@ class Login extends Component {
                                 Get Started
                             </Button>
                         
-                            <View style={Platform.OS === 'android' ? styles.aOtherLinksContainer : styles.iosOtherLinksContainer}>
+                            <View style={styles.otherLinksContainer}>
                                 <Grid>
                                     <Col>
                                         <Button transparent style={{alignSelf: 'flex-start'}}>

@@ -26,12 +26,12 @@ class SideBar extends Component {
         return (
         	<Container>
                 <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
-                    <Content style={Platform.OS === 'android' ? styles.adrawerContent : styles.drawerContent}>
+                    <Content style={styles.drawerContent}>
                         <List  foregroundColor={'white'} >
                             <ListItem 
                                 button iconLeft
                                 onPress={() => this.navigateTo('home')} 
-                                style={Platform.OS === 'android' ? styles.alinks : styles.links} 
+                                style={styles.links} 
                             >
                                 <Icon name='ios-grid-outline' />
                                 <Text style={styles.linkText} >HOME</Text>
@@ -40,7 +40,7 @@ class SideBar extends Component {
                             <ListItem 
                                 button iconLeft 
                                 onPress={() => this.navigateTo('blankPage')} 
-                                style={Platform.OS === 'android' ? styles.alinks : styles.links}
+                                style={styles.links}
                             >
                                 <Icon name='ios-keypad-outline' />
                                 <Text style={styles.linkText}>BLANK PAGE</Text>

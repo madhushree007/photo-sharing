@@ -2,7 +2,7 @@
 
 var React = require('react-native');
 
-var { StyleSheet, Dimensions } = React;
+var { StyleSheet, Dimensions, Platform } = React;
 
 var primary = require('../../themes/variable').brandPrimary;
 var deviceHeight = Dimensions.get('window').height;
@@ -54,17 +54,10 @@ module.exports = StyleSheet.create({
     },
     bg: {
         flex: 1,
-        marginTop: (deviceHeight/6) - 10,
         paddingLeft: 20,
         paddingRight: 20,
-        paddingBottom: 70
-    },
-    abg: {
-        flex: 1,
-        marginTop: (deviceHeight/6) - 35,
-        paddingLeft: 20,
-        paddingRight: 20,
-        paddingBottom: 70
+        paddingBottom: 70,
+        marginTop: Platform.OS === 'android' ? ((deviceHeight/6) - 35) : ((deviceHeight/6) - 10)
     },
     loginBtn: {
         marginTop: 10,
@@ -75,11 +68,8 @@ module.exports = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold'
     },
-    aOtherLinksContainer: {
+    otherLinksContainer: {
         flexDirection: 'row',
-        marginTop: 10
-    },
-    iosOtherLinksContainer: {
-        flexDirection: 'row'
+        marginTop: Platform.OS === 'android' ? 10 : 0
     }
 });
