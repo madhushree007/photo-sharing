@@ -82,17 +82,17 @@ class Feedback extends Component {
                         <View style={styles.feedbackContainer}>
                             <InputGroup borderType='rounded' style={styles.inputGrp}>
                                 <Icon name='ios-person-outline' />
-                                <Input placeholder='Username'  style={styles.input}/>
+                                <Input placeholder='Username' placeholderTextColor='#fff' style={styles.input}/>
                             </InputGroup>
                             <InputGroup borderType='rounded' style={styles.inputGrp}>
                                 <Icon name='ios-mail-outline' />
-                                <Input placeholder='Email'  style={styles.input}/>
+                                <Input placeholder='Email' placeholderTextColor='#fff' style={styles.input}/>
                             </InputGroup>
 
 
                             <Grid style={styles.feedbackInputBox}>
                                 <Col style={styles.inputBox}>
-                                    <Input placeholder='Write something...'  style={styles.input} />
+                                    <Input placeholder='Write something...' placeholderTextColor='#fff' style={styles.input} />
                                 </Col>
                                 <Col style={styles.inputBoxIcon}>
                                     <Icon name='ios-arrow-forward'  style={styles.forwardIcon} />

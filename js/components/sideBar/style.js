@@ -9,8 +9,8 @@ var primary = require('../../themes/variable').brandPrimary;
 module.exports = StyleSheet.create({
     links: {
         paddingTop: Platform.OS === 'android' ? 8 : 10,
-        paddingBottom: Platform.OS === 'android' ? ? 8 : 10,
-        paddingLeft: Platform.OS === 'android' ? ? 0 : 10,
+        paddingBottom: Platform.OS === 'android' ? 8 : 10,
+        paddingLeft: Platform.OS === 'android' ? 0 : 10,
         borderBottomWidth: Platform.OS === 'android' ? 0 : 0,
         borderBottomColor: 'transparent'
     },

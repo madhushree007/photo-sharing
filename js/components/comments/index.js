@@ -125,22 +125,6 @@ class Comments extends Component {
                                 </Text>
                             </CardItem>
                         </Card>
-                        
-                        <Card foregroundColor='#222' style={styles.card}>
-                            <CardItem style={styles.cardHeader}  header>
-                                <Thumbnail source={require('../../../images/contacts/megha.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
-                                <Text>Kumari Megha</Text>
-                                <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                <Text style={styles.date}>Apr 02, 7 PM</Text>
-                                <Icon name='ios-heart-outline' style={styles.likeIcon} />
-                                <Text style={styles.date}>8</Text>
-                            </CardItem>
-                            <CardItem style={styles.cardItem} >
-                                <Text>
-                                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-                                </Text>
-                            </CardItem>
-                        </Card>
                     
                         <Card foregroundColor='#222' style={styles.card}>
                             <CardItem style={styles.cardHeader}  header>

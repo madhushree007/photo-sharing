@@ -46,7 +46,7 @@ class Login extends Component {
                                 style={[styles.inputGrp, {borderWidth: 0, paddingLeft: 15}]}
                             >
                                 <Icon name='ios-person-outline' />
-                                <Input placeholder='Username' style={styles.input}/>
+                                <Input placeholder='Username' style={styles.input} onChangeText={(username) => this.setState({username})}/>
                             </InputGroup>
 
                             <InputGroup
@@ -67,7 +67,7 @@ class Login extends Component {
                                 style={styles.loginBtn} textStyle={{fontSize: 17}}  >
                                 Get Started
                             </Button>
-
+                            
                             <View style={styles.otherLinksContainer}>
                                 <Grid>
                                     <Col>
