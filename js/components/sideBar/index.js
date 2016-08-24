@@ -22,7 +22,7 @@ class SideBar extends Component {
         this.props.closeDrawer();
         this.props.resetRoute(route);
     }
-    
+
     render(){
         return (
             <Container>
@@ -66,14 +66,14 @@ class SideBar extends Component {
                                 <Text style={styles.linkText}>FEEDBACK</Text>
                             </ListItem>
                         </List>
-                 
+
                         <View style={styles.logoutContainer}>
                             <View style={styles.logoutbtn}  foregroundColor={'white'}>
                                 <Grid>
                                     <Col>
                                         <TouchableOpacity onPress={() => this.resetRoute('login')} style={{alignSelf: 'flex-start'}}>
-                                            <Text style={{fontWeight: 'bold'}}>LOG OUT</Text>
-                                            <Text note >Kumar Sanket</Text>
+                                            <Text style={{fontWeight: 'bold', color: '#fff'}}>LOG OUT</Text>
+                                            <Text note style={{color: '#fff'}} >Kumar Sanket</Text>
                                         </TouchableOpacity>
                                     </Col>
                                     <Col>

@@ -32,52 +32,48 @@ class Login extends Component {
     pushNewRoute(route, passProps) {
          this.props.pushNewRoute(route, passProps);
     }
-    
+
     render() {
         return (
             <Container>
                 <Content theme={login}>
                     <Image source={require('../../../images/BG.png')} style={styles.background} >
                         <Image source={require('../../../images/logo.png')} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
-                        
+
                         <View style={styles.bg}>
-                            <InputGroup 
-                                borderType='rounded' 
+                            <InputGroup
+                                borderType='rounded'
                                 style={[styles.inputGrp, {borderWidth: 0, paddingLeft: 15}]}
                             >
                                 <Icon name='ios-person-outline' />
                                 <Input placeholder='Username' style={styles.input}/>
                             </InputGroup>
 
-                            <InputGroup 
-                                borderType='rounded' 
+                            <InputGroup
+                                borderType='rounded'
                                 style={[styles.inputGrp, {borderWidth: 0, paddingLeft: 15}]}
                             >
                                 <Icon name='ios-unlock-outline' />
-                                <Input 
-                                    placeholder='Password' 
-                                    secureTextEntry={true} 
+                                <Input
+                                    placeholder='Password'
+                                    secureTextEntry={true}
                                     style={styles.input}
                                 />
                             </InputGroup>
-                        
-                            <Button 
-                                rounded primary block large 
+
+                            <Button
+                                rounded primary block
                                 onPress={() => this.replaceRoute('walkthrough')}
-                                style={styles.loginBtn}  
-                                textStyle={Platform.OS === 'android' ? 
-                                    {marginTop: 5, fontSize: 16} : 
-                                    {fontSize: 16, marginTop: -10, fontWeight: '900'}} 
-                            >
+                                style={styles.loginBtn} textStyle={{fontSize: 17}}  >
                                 Get Started
                             </Button>
-                        
+
                             <View style={styles.otherLinksContainer}>
                                 <Grid>
                                     <Col>
-                                        <Button 
-                                            transparent 
-                                            style={{alignSelf: 'flex-start'}} 
+                                        <Button
+                                            transparent
+                                            style={{alignSelf: 'flex-start'}}
                                             onPress={() => this.pushNewRoute('signUp')}
                                         >
                                             <Text style={styles.helpBtns}>
@@ -86,9 +82,9 @@ class Login extends Component {
                                         </Button>
                                     </Col>
                                     <Col>
-                                        <Button 
-                                            transparent 
-                                            style={{alignSelf: 'flex-end'}} 
+                                        <Button
+                                            transparent
+                                            style={{alignSelf: 'flex-end'}}
                                             onPress={() => this.pushNewRoute('needhelp')}
                                         >
                                             <Text style={styles.helpBtns}>
@@ -116,4 +112,3 @@ function bindActions(dispatch){
 
 
 export default connect(null, bindActions)(Login);
-

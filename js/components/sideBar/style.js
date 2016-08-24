@@ -24,7 +24,7 @@ module.exports = StyleSheet.create({
         paddingTop: 30,
         flexDirection: 'row',
         borderTopWidth: 1,
-        borderTopColor: '#797979'
+        borderTopColor: 'rgba(236, 236, 236, 0.82)'
     },
     background: {
         flex: 1,

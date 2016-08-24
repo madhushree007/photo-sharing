@@ -12,7 +12,7 @@ import theme from '../login/login-theme';
 import styles from './styles';
 
 class NeedHelp extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -25,18 +25,18 @@ class NeedHelp extends Component {
             theme: React.PropTypes.object,
         }
     }
-   
+
     popRoute() {
         this.props.popRoute();
     }
-    
+
     render() {
         return (
             <Container>
                 <Content contentOffset={this.state.offset} scrollEnabled={false}>
                     <View theme={theme}>
                         <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
-                            
+
                             <Content padder>
                                 <Text style={styles.signupHeader}>
                                     Forgot Your Password?
@@ -47,13 +47,10 @@ class NeedHelp extends Component {
                                         <Input placeholder='Email' style={styles.input}/>
                                     </InputGroup>
 
-                                    <Button 
-                                        rounded block transparent large 
+                                    <Button
+                                        rounded block transparent 
                                         onPress={() => this.popRoute()}
-                                        style={styles.signupBtn} 
-                                        textStyle={Platform.OS === 'android' ? 
-                                            {alignSelf: 'center',marginTop: 7, fontSize: 14, fontWeight: 'bold'} : 
-                                            {marginTop: -12, fontSize: 14, fontWeight: 'bold'}}
+                                        style={styles.signupBtn}
                                     >
                                         Send Email
                                     </Button>

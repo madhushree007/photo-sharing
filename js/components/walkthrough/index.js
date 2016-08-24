@@ -10,6 +10,7 @@ import { Container, Content, Text, Button, Icon, View } from 'native-base';
 import Swiper from 'react-native-swiper';
 
 import theme from '../../themes/base-theme';
+console.log('theme', theme.statusBarColor);
 import styles from './styles';
 
 class Walkthrough extends Component {
@@ -17,14 +18,14 @@ class Walkthrough extends Component {
     replaceRoute(route) {
         this.props.replaceRoute(route);
     }
-   
+
     render() {
         return (
             <Container>
                 <Content theme={theme}  scrollEnabled={false}>
-                    <Swiper 
-                        loop={false} 
-                        dot={<View style={styles.swiperDot} />} 
+                    <Swiper
+                        loop={false}
+                        dot={<View style={styles.swiperDot} />}
                         activeDot={<View style={styles.swiperActiveDot} />}
                     >
                         <View style={styles.slides}>
@@ -35,18 +36,14 @@ class Walkthrough extends Component {
                             <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>
                                 Explore the latest news from your mobile device
                             </Text>
-                            <Button 
-                                transparent rounded 
+                            <Button
+                                transparent rounded
                                 onPress={() => this.replaceRoute('home')}
-                                style={styles.Button} 
-                                textStyle={Platform.OS === 'android' ? 
-                                    {fontWeight: '900',textAlign: 'center',marginTop: -5} : 
-                                    {fontWeight: '900',textAlign: 'center'}} 
-                            > 
-                                Skip To App 
+                                style={styles.Button}  >
+                                Skip To App
                             </Button>
                         </View>
-        
+
                         <View style={styles.slides}>
                             <Text style={Platform.OS === 'android' ? styles.apaginationText : styles.iospaginationText}>
                                 2 of 3
@@ -55,18 +52,15 @@ class Walkthrough extends Component {
                             <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>
                                 Lorem Ipsum industry's standard dummy text
                             </Text>
-                            <Button 
-                                transparent rounded 
+                            <Button
+                                transparent rounded
                                 onPress={() => this.replaceRoute('home')}
-                                style={styles.Button} 
-                                textStyle={Platform.OS === 'android' ? 
-                                    {fontWeight: '900',textAlign: 'center',marginTop: -5} : 
-                                    {fontWeight: '900',textAlign: 'center'}} 
-                            > 
-                                Skip To App 
+                                style={styles.Button}
+                            >
+                                Skip To App
                             </Button>
                         </View>
-        
+
                         <View style={styles.slides}>
                             <Text style={Platform.OS === 'android' ? styles.apaginationText : styles.iospaginationText}>
                                 3 of 3
@@ -75,18 +69,15 @@ class Walkthrough extends Component {
                             <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>
                                 Lorem Ipsum is not simply random text
                             </Text>
-                            <Button 
-                                transparent rounded 
+                            <Button
+                                transparent rounded
                                 onPress={() => this.replaceRoute('home')}
-                                style={styles.Button} 
-                                textStyle={Platform.OS === 'android' ? 
-                                    {fontWeight: '900',textAlign: 'center',marginTop: -5} : 
-                                    {fontWeight: '900',textAlign: 'center'}} 
+                                style={styles.Button}
                             >
-                                Continue To App 
+                                Continue To App
                             </Button>
                         </View>
-                    </Swiper>  
+                    </Swiper>
                 </Content>
             </Container>
         )

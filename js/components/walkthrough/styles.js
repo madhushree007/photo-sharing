@@ -46,21 +46,21 @@ module.exports = StyleSheet.create({
         textAlign: 'center'
     },
     swiperDot: {
-        backgroundColor:'rgba(0,0,0,.2)', 
-        width: 50, 
-        height: 1, 
-        marginLeft: 3, 
-        marginRight: 3, 
-        marginTop: 3, 
+        backgroundColor:'rgba(0,0,0,.2)',
+        width: 50,
+        height: 1,
+        marginLeft: 3,
+        marginRight: 3,
+        marginTop: 3,
         marginBottom: 20
     },
     swiperActiveDot: {
-        backgroundColor: '#fff', 
-        width: 50, 
-        height: 1, 
-        marginLeft: 3, 
-        marginRight: 3, 
-        marginTop: 3, 
+        backgroundColor: '#fff',
+        width: 50,
+        height: 1,
+        marginLeft: 3,
+        marginRight: 3,
+        marginTop: 3,
         marginBottom: 20
     },
     imageIcons: {
@@ -68,6 +68,7 @@ module.exports = StyleSheet.create({
     },
     Button: {
         alignSelf: 'center',
+        paddingHorizontal: 20,
         backgroundColor: 'rgba(0,0,0,0.2)'
     }
 });
