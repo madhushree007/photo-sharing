@@ -33,7 +33,6 @@ class SignUp extends Component {
     render() {
         return (
             <Container>
-                <Content contentOffset={this.state.offset} scrollEnabled={false}>
                     <View theme={theme}>
                         <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
                             <Content padder>
@@ -71,7 +70,6 @@ class SignUp extends Component {
                             </Content>
                         </Image>
                     </View>
-                </Content>
             </Container>
         )
     }

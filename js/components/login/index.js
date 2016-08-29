@@ -39,7 +39,6 @@ class Login extends Component {
                 <Content theme={login}>
                     <Image source={require('../../../images/BG.png')} style={styles.background} >
                         <Image source={require('../../../images/logo.png')} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
-
                         <View style={styles.bg}>
                             <InputGroup
                                 borderType='rounded'

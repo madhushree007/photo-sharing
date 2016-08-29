@@ -65,7 +65,7 @@ class Settings extends Component {
                         </View>
                     </Header>
 
-                    <Content contentOffset={this.state.offset} scrollEnabled={true} >
+                    <Content >
                         <View  style={styles.bg}>
                             <Text style={styles.signupHeader}>SETTINGS</Text>
                             <View style={{marginTop: 20}}>

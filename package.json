@@ -10,9 +10,9 @@
     "dependencies": {
         "lodash": "^4.13.1",
         "moment": "^2.13.0",
-        "native-base": "0.5.5",
-        "react": "15.2.1",
-        "react-native": "0.31.0",
+        "native-base": "https://github.com/GeekyAnts/NativeBase",
+        "react": "15.3.1",
+        "react-native": "0.32.0",
         "react-native-animatable": "^0.6.1",
         "react-native-button": "^1.6.0",
         "react-native-code-push": "1.13.5-beta",
