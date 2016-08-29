@@ -28,7 +28,7 @@ var styles = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 15,
-        backgroundColor: secondary,
+        backgroundColor: '#01cca1',
         alignSelf: 'center'
     },
 

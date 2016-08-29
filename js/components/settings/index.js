@@ -90,15 +90,15 @@ class Settings extends Component {
                             <View style={styles.signupContainer}>
                                 <InputGroup borderType='rounded' style={styles.inputGrp}>
                                     <Icon name='ios-person-outline' />
-                                    <Input placeholder='Username'  style={styles.input}/>
+                                    <Input placeholder='Username' placeholderTextColor='#fff' style={styles.input}/>
                                 </InputGroup>
                                 <InputGroup borderType='rounded' style={styles.inputGrp}>
                                     <Icon name='ios-mail-open-outline' />
-                                    <Input placeholder='Email'  style={styles.input}/>
+                                    <Input placeholder='Email' placeholderTextColor='#fff' style={styles.input}/>
                                 </InputGroup>
                                 <InputGroup borderType='rounded' style={styles.inputGrp}>
                                     <Icon name='ios-unlock-outline' />
-                                    <Input placeholder='Password' secureTextEntry={true}  style={styles.input}/>
+                                    <Input placeholder='Password' placeholderTextColor='#fff'secureTextEntry={true}  style={styles.input}/>
                                 </InputGroup>
                             </View>
                         </View>
