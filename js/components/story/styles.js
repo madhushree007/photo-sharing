@@ -98,7 +98,8 @@ module.exports = StyleSheet.create({
         flex: 10,
         backgroundColor: primary,
         position: 'absolute',
-        width: deviceWidth
+        width: deviceWidth,
+        marginTop: (Platform.OS==='android') ? 40 : 0
     },
     slide: {
         flex: 1,
@@ -109,7 +110,7 @@ module.exports = StyleSheet.create({
         alignSelf: 'center'
     },
     headerIcons : {
-        paddingTop: 10
+        fontSize: 30
     },
     headerContainer: {
         flex: 1,
@@ -127,23 +128,23 @@ module.exports = StyleSheet.create({
         marginTop: Platform.OS === 'android' ? -10 : 0
     },
     swiperDot: {
-        backgroundColor:'rgba(0,0,0,.8)', 
-        width: 8, 
+        backgroundColor:'rgba(0,0,0,.8)',
+        width: 8,
         height: 8,
-        borderRadius: 4, 
-        marginLeft: 3, 
-        marginRight: 3, 
-        marginTop: 3, 
+        borderRadius: 4,
+        marginLeft: 3,
+        marginRight: 3,
+        marginTop: 3,
         marginBottom: 3
     },
     swiperActiveDot: {
-        backgroundColor: '#fff', 
-        width: 8, 
-        height: 8, 
-        borderRadius: 4, 
-        marginLeft: 3, 
-        marginRight: 3, 
-        marginTop: 3, 
+        backgroundColor: '#fff',
+        width: 8,
+        height: 8,
+        borderRadius: 4,
+        marginLeft: 3,
+        marginRight: 3,
+        marginTop: 3,
         marginBottom: 3
     },
     modalContentBox: {
@@ -158,8 +159,9 @@ module.exports = StyleSheet.create({
         alignSelf: 'flex-end',
         fontSize: 24,
         fontWeight: '700',
-        paddingBottom: Platform.OS === 'android' ? 10 : 0,
-        marginTop: Platform.OS === 'android' ? -10 : 0
+        lineHeight: 28
+        // paddingBottom: Platform.OS === 'android' ? 10 : 0,
+        // marginTop: Platform.OS === 'android' ? -10 : 0
     },
     nextStoryBtn: {
         color: primary,

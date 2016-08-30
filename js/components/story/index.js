@@ -41,7 +41,7 @@ class Story extends Component {
             value: 0,
         };
     }
-   
+
     modalO() {
         this.setState({open: true});
     }
@@ -79,12 +79,12 @@ class Story extends Component {
                                     <Text style={styles.headerTextIcon}>Aa</Text>
                                 </Button>
                             </Col>
-                            <Col style={styles.headerBtns} >
+                            <Col style={[styles.headerBtns, {alignItems: 'flex-end'}]} >
                                 <Button transparent>
                                     <Icon name='ios-bookmarks-outline'  style={styles.headerIcons} />
                                 </Button>
                             </Col>
-                            <Col style={styles.headerBtns}>
+                            <Col style={[styles.headerBtns, {alignItems: 'flex-end'}]}>
                                 <Button transparent>
                                     <Icon name='ios-download-outline' style={styles.headerIcons} />
                                 </Button>
@@ -129,9 +129,9 @@ class Story extends Component {
                                 <View style={{padding: 20}}>
                                     <View style={styles.newsCommentContainer}>
                                         <Text  style={styles.newsComment}>
-                                            'It has roots in a piece of classical Latin literature from 45 BC, 
-                                            making it over 2000 years old. Richard McClintock, a Latin professor 
-                                            at Hampden-Sydney College'
+                                            It has roots in a piece of classical Latin literature from 45 BC,
+                                            making it over 2000 years old. Richard McClintock, a Latin professor
+                                            at Hampden-Sydney College
                                         </Text>
                                         <Text style={styles.newsComment}>- JOHN</Text>
                                     </View>
@@ -149,14 +149,14 @@ class Story extends Component {
                                         </Text>
                                     </View>
                                 </View>
-                        
+
                                 <View style={styles.wrapper}>
-                                    <Swiper 
-                                        height={240} 
-                                        loop={true} 
-                                        dot={<View style={styles.swiperDot} />} 
-                                        activeDot={<View style={styles.swiperActiveDot} 
-                                        showsButtons={true} />} 
+                                    <Swiper
+                                        height={240}
+                                        loop={true}
+                                        dot={<View style={styles.swiperDot} />}
+                                        activeDot={<View style={styles.swiperActiveDot}
+                                        showsButtons={true} />}
                                     >
                                         <Lightbox  navigator={this.props.navigator}>
                                             <View style={styles.slide}>
@@ -183,7 +183,7 @@ class Story extends Component {
 
                                 <View style={{alignSelf: 'center'}}>
                                     <Button transparent iconRight onPress={() => this.replaceRoute('home')} >
-                                        <Text style={styles.nextStoryBtn}>NEXT STORY</Text>
+                                        NEXT STORY
                                         <Icon name='ios-arrow-forward' style={styles.forwardBtn}/>
                                     </Button>
                                 </View>
@@ -197,27 +197,23 @@ class Story extends Component {
                     modalDidOpen={() => console.log('modal did open')}
                     modalDidClose={() => this.setState({open: false})}
                     style={styles.modal}>
-                   
+
                         <View>
                             <View style={styles.modalContentBox}>
                                 <Grid style={{flex: 10,padding: 20}}>
                                     <Col style={{paddingLeft: 30}}>
                                         <Button transparent style={styles.dayButton}>
-                                            <Icon 
-                                                name='ios-sunny-outline' 
-                                                style={Platform.OS === 'android' ? 
-                                                    {color: primary,fontSize: 26,marginTop: 5} : 
-                                                    {color: primary,fontSize: 26} } 
+                                            <Icon
+                                                name='ios-sunny-outline'
+                                                style={{color: primary,fontSize: 26}}
                                             />
                                         </Button>
                                     </Col>
                                     <Col style={{paddingLeft: 80}}>
                                         <Button transparent style={styles.nightButton}>
-                                            <Icon 
-                                                name='ios-moon-outline' 
-                                                style={Platform.OS === 'android' ? 
-                                                    {fontSize: 26,marginTop: 5} : 
-                                                    {fontSize: 26} } 
+                                            <Icon
+                                                name='ios-moon-outline'
+                                                style={ {fontSize: 26} }
                                             />
                                         </Button>
                                     </Col>
@@ -226,23 +222,23 @@ class Story extends Component {
                             <View style={styles.modalContentBox}>
                                 <Grid style={{padding: 20,paddingBottom: 15}}>
                                     <Col>
-                                        <Text 
-                                            style={Platform.OS === 'android' ? 
-                                                {fontSize: 12,marginTop: 5} : 
+                                        <Text
+                                            style={Platform.OS === 'android' ?
+                                                {fontSize: 12,marginTop: 5} :
                                                 {fontSize: 12}}
                                         >
                                             CHOOSE TYPESPACE
                                         </Text>
                                     </Col>
                                     <Col>
-                                        <Button transparent iconRight style={{marginTop: -10}}> 
-                                            <Text style={{fontWeight: '900'}}>SANS SERIF</Text>
+                                        <Button transparent iconRight style={{marginTop: -5}}>
+                                            SANS SERIF
                                             <Icon name='ios-arrow-forward' style={{fontSize: 28}} />
                                         </Button>
                                     </Col>
                                 </Grid>
                             </View>
-                            <View> 
+                            <View>
                                 <Grid style={{flexDirection: 'row',paddingTop: 20}}>
                                     <Col>
                                         <Text style={styles.modalSmallText}>A</Text>

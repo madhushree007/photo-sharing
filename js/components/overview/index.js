@@ -22,7 +22,7 @@ class Overview extends Component {
             <Container theme={theme} >
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
-                        <HeaderContent />    
+                        <HeaderContent />
                     </Header>
                     <View style={styles.overviewHeaderContainer}>
                         <Text style={styles.overviewHeader}>OVERVIEW</Text>

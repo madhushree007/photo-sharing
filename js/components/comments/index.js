@@ -27,11 +27,11 @@ class Comments extends Component {
             theme: React.PropTypes.object,
         }
     }
-   
+
     popRoute() {
         this.props.popRoute();
     }
-    
+
     render() {
         return (
             <Container theme={theme}>
@@ -70,23 +70,23 @@ class Comments extends Component {
                         <Text style={styles.commentHeader}>23 COMMENTS</Text>
                         <Grid>
                             <Col>
-                                <Button 
-                                    rounded primary block 
-                                    style={styles.channelBtn1} 
-                                    textStyle={Platform.OS === 'android' ? 
-                                        {fontSize: 12,fontWeight: '900',textAlign: 'center'} : 
-                                        {fontSize: 12,fontWeight: '900'}}
+                                <Button
+                                    rounded primary block
+                                    style={styles.channelBtn1}
+                                    textStyle={Platform.OS === 'android' ?
+                                        {fontSize: 12, lineHeight:15, fontWeight: '900',textAlign: 'center'} :
+                                        {fontSize: 12, lineHeight:15, fontWeight: '900'}}
                                 >
                                     Best
                                 </Button>
                             </Col>
                             <Col>
-                                <Button transparent block textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                <Button transparent block textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center', lineHeight:15}}>
                                     Newest
                                 </Button>
                             </Col>
                             <Col>
-                                <Button transparent block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center'}}>
+                                <Button transparent block  textStyle={{fontSize: 12,fontWeight: '900',textAlign: 'center', lineHeight:15}}>
                                     Oldest
                                 </Button>
                             </Col>
@@ -105,7 +105,7 @@ class Comments extends Component {
 
                             <CardItem style={styles.cardItem} >
                                 <Text>
-                                    Contrary to popular belief, Lorem Ipsum is not simply random text. 
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text.
                                 </Text>
                             </CardItem>
                         </Card>
@@ -125,7 +125,7 @@ class Comments extends Component {
                                 </Text>
                             </CardItem>
                         </Card>
-                    
+
                         <Card foregroundColor='#222' style={styles.card}>
                             <CardItem style={styles.cardHeader}  header>
                                 <Thumbnail source={require('../../../images/contacts/saurav.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>

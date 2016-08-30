@@ -16,10 +16,11 @@ module.exports = StyleSheet.create({
         marginTop: -5
     },
     headerBtns : {
-        padding: 10
+        padding: 10,
+        alignSelf: 'center'
     },
     headerIcons : {
-        paddingTop: 10
+        fontSize: 30
     },
     headerTextIcon: {
         fontSize: 28,
@@ -57,8 +58,8 @@ module.exports = StyleSheet.create({
     },
     timeIcon: {
         fontSize: 16,
-        paddingLeft: 15,
-        marginRight: -20,
+        marginLeft: 15,
+        // marginRight: -15,
         color: '#666',
         marginTop: Platform.OS === 'android' ? 2 : 5
     },
@@ -67,25 +68,27 @@ module.exports = StyleSheet.create({
         fontWeight: '100',
         fontSize: 12,
         color: '#666',
-        marginTop: Platform.OS === 'android' ? 5 : -5
+        lineHeight: 16
+        // marginTop: Platform.OS === 'android' ? 5 : -5
     },
     likeIcon: {
         fontSize: 16,
-        marginRight: -20,
-        paddingLeft: 2,
+        marginRight: -15,
+        marginLeft: 10,
         marginTop: Platform.OS === 'android' ? 1 : 5
     },
     commentBox: {
         backgroundColor: '#fff',
         flexDirection: 'row',
-        height: 55
+        height: 55,
+        alignItems: 'center'
     },
     attachIconContainer: {
-        padding: 20,
-        paddingTop: 10
+        padding: 10,
+        // paddingTop: 10
     },
     attachIcon : {
-        color: '#797979', 
+        color: '#797979',
         fontSize: 27
     },
     input: {
