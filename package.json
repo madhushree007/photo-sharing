@@ -40,5 +40,5 @@
         "remote-redux-devtools-on-debugger": "^0.4.6"
     },
 
-    "upstreamRepo": "git@gitstrap.com:strapmobile/FlatApp-seed.git#development"
+    "upstreamRepo": "git@gitstrap.com:strapmobile/FlatApp-seed.git"
 }
