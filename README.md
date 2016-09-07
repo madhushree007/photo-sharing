@@ -1,4 +1,4 @@
-# React Native-NativeBase Seed v4.0.0
+# React Native Flat App Theme -  Seed v5.1.0
 
 Thanks for purchasing the React Native Flat App Theme.
 
