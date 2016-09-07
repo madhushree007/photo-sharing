@@ -23,8 +23,8 @@ class Timeline extends Component {
                         <HeaderContent />   
                     </Header>
                     <View style={styles.overviewHeaderContainer}>
-                        <Text style={styles.overviewHeader}>MONDAY</Text>
-                        <Text note  style={styles.overviewHead}>April 6, 2016</Text>
+                        <Text style={styles.overviewHeader}>Wednesday</Text>
+                        <Text note  style={styles.overviewHead}>September 07, 2016</Text>
                     </View>
 
                     <Content >
@@ -46,7 +46,7 @@ class Timeline extends Component {
                                     <Col>
                                         <View style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.time}>9:34am</Text>
+                                            <Text style={styles.time}>09:34am</Text>
                                         </View>
                                     </Col>
                                 </Grid>
@@ -111,7 +111,7 @@ class Timeline extends Component {
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.time}>5:36pm</Text>
+                                            <Text style={styles.time}>05:36pm</Text>
                                         </View>
                                     </Col>
                                 </Grid>
@@ -140,7 +140,7 @@ class Timeline extends Component {
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.time}>6:00pm</Text>
+                                            <Text style={styles.time}>06:00pm</Text>
                                         </View>
                                     </Col>
                                 </Grid>
@@ -172,7 +172,7 @@ class Timeline extends Component {
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.time}>9:13pm</Text>
+                                            <Text style={styles.time}>09:13pm</Text>
                                         </View>
                                     </Col>
                                 </Grid>

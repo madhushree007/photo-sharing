@@ -62,7 +62,7 @@ class Channel extends Component {
                                                 <Text style={styles.newsLink}>CNN</Text>
                                             </TouchableOpacity>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>May 24,2016</Text>
+                                            <Text style={styles.newsLink}>May 24, 2016</Text>
                                         </Col>
                                     </Grid>
                                 </View>
@@ -76,7 +76,7 @@ class Channel extends Component {
                                                 <Text style={styles.newsLink}>SPACE.com</Text>
                                             </TouchableOpacity>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>Apr 17,2016</Text>
+                                            <Text style={styles.newsLink}>Apr 17, 2016</Text>
                                         </Col>
                                     </Grid>
                                 </View>
@@ -92,7 +92,7 @@ class Channel extends Component {
                                                 <Text style={styles.newsLink}>CNN</Text>
                                             </TouchableOpacity>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>Feb 3,2016</Text>
+                                            <Text style={styles.newsLink}>Feb 03, 2016</Text>
                                         </Col>
                                     </Grid>
                                 </View>
@@ -106,7 +106,7 @@ class Channel extends Component {
                                                 <Text style={styles.newsLink}>SKY.com</Text>
                                             </TouchableOpacity>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>Dec 17,2015</Text>
+                                            <Text style={styles.newsLink}>Dec 17, 2015</Text>
                                         </Col>
                                     </Grid>
                                 </View>
@@ -121,7 +121,7 @@ class Channel extends Component {
                                                 <Text style={styles.newsLink}>SPACE.com</Text>
                                             </TouchableOpacity>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>Apr 17,2016</Text>
+                                            <Text style={styles.newsLink}>Apr 17, 2016</Text>
                                         </Col>
                                     </Grid>
                                 </View>
@@ -137,7 +137,7 @@ class Channel extends Component {
                                                 <Text style={styles.newsLink}>CNN</Text>
                                             </TouchableOpacity>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>Feb 3,2016</Text>
+                                            <Text style={styles.newsLink}>Feb 03, 2016</Text>
                                         </Col>
                                     </Grid>
                                 </View>
@@ -151,7 +151,7 @@ class Channel extends Component {
                                                 <Text style={styles.newsLink}>SKY.com</Text>
                                             </TouchableOpacity>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>Dec 17,2015</Text>
+                                            <Text style={styles.newsLink}>Dec 17, 2015</Text>
                                         </Col>
                                     </Grid>
                                 </View>

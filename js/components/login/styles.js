@@ -18,11 +18,11 @@ module.exports = StyleSheet.create({
     },
     aShadow: {
         flex: 1,
-        width:  (deviceWidth/3),
+        width:  (deviceWidth/3) + 8,
         height: (deviceHeight/20),
         padding: 20,
         alignSelf: 'center',
-        marginTop: (deviceHeight/5) - 40
+        marginTop: (deviceHeight/5) - 60
     },
     inputGrp: {
         flexDirection: 'row',
@@ -44,7 +44,7 @@ module.exports = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 20,
         paddingBottom: 70,
-        marginTop: Platform.OS === 'android' ? ((deviceHeight/6) - 35) : ((deviceHeight/6) - 10)
+        marginTop: Platform.OS === 'android' ? ((deviceHeight/6) - 45) : ((deviceHeight/6) - 10)
     },
     loginBtn: {
         marginTop: 10,
@@ -56,7 +56,6 @@ module.exports = StyleSheet.create({
         fontWeight: 'bold'
     },
     otherLinksContainer: {
-        flexDirection: 'row',
-        marginTop: Platform.OS === 'android' ? 10 : 0
+        flexDirection: 'row'
     }
 });

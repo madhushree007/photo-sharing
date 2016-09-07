@@ -98,7 +98,7 @@ class Comments extends Component {
                                 <Thumbnail source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? {borderRadius: 40} : {}} />
                                 <Text>Kumar Sanket</Text>
                                 <Icon name='ios-time-outline'  style={styles.timeIcon} />
-                                <Text style={styles.date}>May 24, 11 AM</Text>
+                                <Text style={styles.date}>May 24, 11:00 AM</Text>
                                 <Icon name='ios-heart-outline' style={styles.likeIcon} />
                                 <Text style={styles.date}>12</Text>
                             </CardItem>
@@ -115,7 +115,7 @@ class Comments extends Component {
                                 <Thumbnail source={require('../../../images/contacts/pratik.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
                                 <Text>Kumar Pratik</Text>
                                 <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                <Text style={styles.date}>May 24, 11 AM</Text>
+                                <Text style={styles.date}>May 24, 11:00 AM</Text>
                                 <Icon name='ios-heart-outline' style={styles.likeIcon} />
                                 <Text style={styles.date}>12</Text>
                             </CardItem>
@@ -131,7 +131,7 @@ class Comments extends Component {
                                 <Thumbnail source={require('../../../images/contacts/saurav.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
                                 <Text>Saurav Sahu</Text>
                                 <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                <Text style={styles.date}>Feb 17, 4:30 PM</Text>
+                                <Text style={styles.date}>Feb 17, 04:30 PM</Text>
                                 <Icon name='ios-heart-outline' style={styles.likeIcon} />
                                 <Text style={styles.date}>5</Text>
                             </CardItem>
@@ -147,7 +147,7 @@ class Comments extends Component {
                                 <Thumbnail source={require('../../../images/contacts/atul.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
                                 <Text>Atul Ranjan</Text>
                                 <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                <Text style={styles.date}>Feb 3, 1:00 PM</Text>
+                                <Text style={styles.date}>Feb 03, 01:00 PM</Text>
                                 <Icon name='ios-heart-outline' style={styles.likeIcon} />
                                 <Text style={styles.date}>5</Text>
                             </CardItem>
@@ -163,7 +163,7 @@ class Comments extends Component {
                                 <Thumbnail source={require('../../../images/contacts/varun.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
                                 <Text>Varun Sahu</Text>
                                 <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                <Text style={styles.date}>Jan 12, 9:30 PM</Text>
+                                <Text style={styles.date}>Jan 12, 09:30 PM</Text>
                                 <Icon name='ios-heart-outline' style={styles.likeIcon} />
                                 <Text style={styles.date}>4</Text>
                             </CardItem>

@@ -79,12 +79,12 @@ class Story extends Component {
                                     <Text style={styles.headerTextIcon}>Aa</Text>
                                 </Button>
                             </Col>
-                            <Col style={[styles.headerBtns, {alignItems: 'flex-end'}]} >
+                            <Col style={styles.headerBtns} >
                                 <Button transparent>
                                     <Icon name='ios-bookmarks-outline'  style={styles.headerIcons} />
                                 </Button>
                             </Col>
-                            <Col style={[styles.headerBtns, {alignItems: 'flex-end'}]}>
+                            <Col style={styles.headerBtns}>
                                 <Button transparent>
                                     <Icon name='ios-download-outline' style={styles.headerIcons} />
                                 </Button>
@@ -182,7 +182,7 @@ class Story extends Component {
                                 </View>
 
                                 <View style={{alignSelf: 'center'}}>
-                                    <Button transparent iconRight onPress={() => this.replaceRoute('home')} >
+                                    <Button transparent iconRight onPress={() => this.replaceRoute('home')} textStyle={{color: '#222', fontWeight: '700'}}>
                                         NEXT STORY
                                         <Icon name='ios-arrow-forward' style={styles.forwardBtn}/>
                                     </Button>
@@ -220,7 +220,7 @@ class Story extends Component {
                                 </Grid>
                             </View>
                             <View style={styles.modalContentBox}>
-                                <Grid style={{padding: 20,paddingBottom: 15}}>
+                                <Grid style={{padding: 20, paddingBottom: 15}}>
                                     <Col>
                                         <Text
                                             style={Platform.OS === 'android' ?

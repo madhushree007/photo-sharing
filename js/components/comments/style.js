@@ -54,12 +54,12 @@ module.exports = StyleSheet.create({
     cardItem: {
         backgroundColor: 'transparent',
         paddingTop: 5,
-        paddingLeft: 55
+        paddingLeft: 50
     },
     timeIcon: {
         fontSize: 16,
         marginLeft: 15,
-        // marginRight: -15,
+        marginRight: Platform.OS === 'android' ? -20 : -30,
         color: '#666',
         marginTop: Platform.OS === 'android' ? 2 : 5
     },
@@ -68,13 +68,14 @@ module.exports = StyleSheet.create({
         fontWeight: '100',
         fontSize: 12,
         color: '#666',
-        lineHeight: 16
+        lineHeight: 16,
+        marginLeft: Platform.OS === 'android' ? 10 : 0,
         // marginTop: Platform.OS === 'android' ? 5 : -5
     },
     likeIcon: {
         fontSize: 16,
-        marginRight: -15,
-        marginLeft: 10,
+        marginRight: -110,
+        marginLeft: 30,
         marginTop: Platform.OS === 'android' ? 1 : 5
     },
     commentBox: {
