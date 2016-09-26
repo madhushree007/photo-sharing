@@ -1,4 +1,3 @@
-'use strict';
 
 import React, { Component } from 'react';
 import { BackAndroid, Platform, StatusBar } from 'react-native';
@@ -68,14 +67,6 @@ class AppNavigator extends Component {
     componentDidMount() {
         globalNav.navigator = this._navigator;
 
-        this.props.store.subscribe(() => {
-            if(this.props.store.getState().drawer.drawerState == 'opened')
-                this.openDrawer();
-
-            if(this.props.store.getState().drawer.drawerState == 'closed')
-                this._drawer.close();
-        });
-
         BackAndroid.addEventListener('hardwareBackPress', () => {
             var routes = this._navigator.getCurrentRoutes();
 
@@ -89,6 +80,17 @@ class AppNavigator extends Component {
         });
     }
 
+    componentDidUpdate() {
+    // console.log(this.props.routes, 'wdwdwd');
+    if (this.props.drawerState === 'opened') {
+      this.openDrawer();
+    }
+
+    if (this.props.drawerState === 'closed') {
+      this._drawer.close();
+    }
+  }
+
     popRoute() {
         this.props.popRoute();
     }
@@ -98,7 +100,7 @@ class AppNavigator extends Component {
     }
 
     closeDrawer() {
-        if(this.props.store.getState().drawer.drawerState == 'opened') {
+        if(this.props.drawerState == 'opened') {
             this._drawer.close();
             this.props.closeDrawer();
         }

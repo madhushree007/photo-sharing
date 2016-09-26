@@ -1,3 +1,4 @@
+
 'use strict';
 
 import { createStore, applyMiddleware, compose } from 'redux'
@@ -16,9 +17,9 @@ export default function configureStore(onCompletion:()=>void):any {
 	      name: 'flatapp', realtime: true
 	    }),
 	);
-	
+
 	let store = createStore(reducer, enhancer);
 	persistStore(store, {storage: AsyncStorage}, onCompletion);
-	
+
 	return store
 }
