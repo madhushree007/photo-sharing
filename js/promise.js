@@ -1,8 +1,6 @@
-'use strict';
 
 function warn(error) {
-	throw error; // To let the caller handle the rejection
-
+  throw error; // To let the caller handle the rejection
 }
 
 module.exports = () => next => action => (
