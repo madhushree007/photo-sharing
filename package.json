@@ -46,5 +46,5 @@
     "eslint-plugin-react-native": "^2.0.0",
     "mocha": "^2.5.3"
   },
-  "upstreamRepo": "git@github.com:GeekyAnts/react-native-native-base-seed.git#development"
+  "upstreamRepo": "git@github.com:GeekyAnts/react-native-native-base-seed.git"
 }
