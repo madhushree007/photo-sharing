@@ -1,14 +1,10 @@
 
-
 import React, { Component } from 'react';
-import { Image } from 'react-native';
 import { connect } from 'react-redux';
+import { Image } from 'react-native';
 import { Container, Content, Text, Icon, List, ListItem } from 'native-base';
 
-import { closeDrawer } from '../../actions/drawer';
-import { replaceOrPushRoute } from '../../actions/route';
-
-
+import navigateTo from '../../actions/sideBarNav';
 import styles from './style';
 
 const singUp = require('../../../images/BG-signUp.png');
@@ -16,19 +12,11 @@ const singUp = require('../../../images/BG-signUp.png');
 class SideBar extends Component {
 
   static propTypes = {
-    closeDrawer: React.PropTypes.func,
-    replaceOrPushRoute: React.PropTypes.func,
-    resetRoute: React.PropTypes.func,
+    navigateTo: React.PropTypes.func,
   }
 
   navigateTo(route) {
-    this.props.closeDrawer();
-    this.props.replaceOrPushRoute(route);
-  }
-
-  resetRoute(route) {
-    this.props.closeDrawer();
-    this.props.resetRoute(route);
+    this.props.navigateTo(route, 'home');
   }
 
   render() {
@@ -64,9 +52,12 @@ class SideBar extends Component {
 
 function bindAction(dispatch) {
   return {
-    closeDrawer: () => dispatch(closeDrawer()),
-    replaceOrPushRoute: route => dispatch(replaceOrPushRoute(route)),
+    navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
   };
 }
 
-export default connect(null, bindAction)(SideBar);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(SideBar);

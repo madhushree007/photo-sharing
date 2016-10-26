@@ -2,29 +2,29 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
+import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Content, Text, Button, Icon } from 'native-base';
 
-import { replaceRoute } from '../../actions/route';
 import { openDrawer } from '../../actions/drawer';
-
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
+const {
+  reset,
+} = actions;
+
 const signUp = require('../../../images/BG-signUp.png');
 const headerLogo = require('../../../images/Header-Logo.png');
 
-class Home extends Component {
+class Home extends Component {  // eslint-disable-line
 
   static propTypes = {
-    replaceRoute: React.PropTypes.func,
     openDrawer: React.PropTypes.func,
-    username: React.PropTypes.string,
-    password: React.PropTypes.string,
-  }
-
-  replaceRoute(route) {
-    this.props.replaceRoute(route);
+    reset: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
   }
 
   render() {
@@ -34,7 +34,11 @@ class Home extends Component {
           <Header>
             <View style={styles.header} >
               <View style={styles.rowHeader}>
-                <Button transparent style={styles.btnHeader} onPress={() => this.replaceRoute('login')}>
+                <Button
+                  transparent
+                  style={styles.btnHeader}
+                  onPress={() => this.props.reset(this.props.navigation.key)}
+                >
                   <Icon name="ios-power" />
                 </Button>
 
@@ -48,8 +52,7 @@ class Home extends Component {
           </Header>
 
           <Content padder>
-            <Text style={styles.text}>Username: {this.props.username}</Text>
-            <Text style={styles.text}>Password: {this.props.password}</Text>
+            <Text style={styles.text}>Create something awesome . . .</Text>
           </Content>
         </Image>
       </Container>
@@ -60,8 +63,12 @@ class Home extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    replaceRoute: route => dispatch(replaceRoute(route)),
+    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
   };
 }
 
-export default connect(null, bindAction)(Home);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(Home);

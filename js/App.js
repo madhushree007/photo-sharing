@@ -1,15 +1,12 @@
 
-
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Image } from 'react-native';
 import CodePush from 'react-native-code-push';
-
-import { Container, Text, View } from 'native-base';
 import Modal from 'react-native-modalbox';
+import { Container, Text, View } from 'native-base';
 
 import AppNavigator from './AppNavigator';
 import ProgressBar from './components/loaders/ProgressBar';
-
 import theme from './themes/base-theme';
 
 const glow2 = require('../images/glow2.png');
@@ -38,11 +35,11 @@ const styles = StyleSheet.create({
   },
   modal1: {
     height: 300,
-    width: 300,
   },
 });
 
 class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -68,6 +65,7 @@ class App extends Component {
                   this.setState({ showDownloadingModal: false });
                   break;
                 default:
+                  break;
               }
             },
             ({ receivedBytes, totalBytes }) => {
@@ -91,7 +89,8 @@ class App extends Component {
                 {this.state.showInstalling ?
                   <Text style={{ color: theme.brandSecondary, textAlign: 'center', marginBottom: 15, fontSize: 15 }}>
                       Installing update...
-                  </Text> :
+                  </Text>
+                :
                   <View style={{ flex: 1, alignSelf: 'stretch', justifyContent: 'center', padding: 20 }}>
                     <Text
                       style={{ color: theme.brandSecondary, textAlign: 'center', marginBottom: 15, fontSize: 15 }}
@@ -109,9 +108,7 @@ class App extends Component {
         </Container>
       );
     }
-    return (
-      <AppNavigator />
-      );
+    return <AppNavigator />;
   }
 }
 

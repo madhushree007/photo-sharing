@@ -20,8 +20,6 @@
     <string>????</string>
     <key>CFBundleVersion</key>
     <string>1</string>
-    <key>CodePushDeploymentKey</key>
-    <string>deployment-key-here</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSAppTransportSecurity</key>
@@ -37,6 +35,20 @@
     </dict>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string/>
+    <key>UIRequiredDeviceCapabilities</key>
+    <array>
+      <string>armv7</string>
+    </array>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
+    <key>CodePushDeploymentKey</key>
+    <string>deployment-key-here</string>
     <key>UIAppFonts</key>
     <array>
       <string>Andale Mono.ttf</string>
@@ -60,17 +72,5 @@
       <string>Octicons.ttf</string>
       <string>Zocial.ttf</string>
     </array>
-    <key>UIRequiredDeviceCapabilities</key>
-    <array>
-      <string>armv7</string>
-    </array>
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationLandscapeLeft</string>
-      <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    <key>UIViewControllerBasedStatusBarAppearance</key>
-    <false/>
   </dict>
 </plist>

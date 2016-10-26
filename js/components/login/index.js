@@ -1,16 +1,17 @@
 
-
 import React, { Component } from 'react';
 import { Image, Platform } from 'react-native';
 import { connect } from 'react-redux';
+import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, Text, InputGroup, Input, Button, Icon, View } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 
-import { pushNewRoute, replaceRoute } from '../../actions/route';
-
-
 import login from './login-theme';
 import styles from './styles';
+
+const {
+  replaceAt,
+} = actions;
 
 const bg = require('../../../images/BG.png');
 const logo = require('../../../images/logo.png');
@@ -18,8 +19,10 @@ const logo = require('../../../images/logo.png');
 class Login extends Component {
 
   static propTypes = {
-    replaceRoute: React.PropTypes.func,
-    pushNewRoute: React.PropTypes.func,
+    replaceAt: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
   }
 
   constructor(props) {
@@ -33,13 +36,8 @@ class Login extends Component {
     };
   }
 
-
-  replaceRoute(route, passProps) {
-    this.props.replaceRoute(route, passProps);
-  }
-
-  pushNewRoute(route, passProps) {
-    this.props.pushNewRoute(route, passProps);
+  replaceRoute(route) {
+    this.props.replaceAt('login', { key: route }, this.props.navigation.key);
   }
 
   render() {
@@ -71,7 +69,7 @@ class Login extends Component {
               <Button
                 rounded primary block large
                 style={styles.loginBtn}
-                textStyle={Platform.OS === 'android' ? { marginTop: 5, fontSize: 16 } : { fontSize: 16, marginTop: -10, fontWeight: '900' }}
+                textStyle={Platform.OS === 'android' ? { marginTop: 5, fontSize: 16 } : { fontSize: 16, marginTop: -5, fontWeight: '900' }}
                 onPress={() => this.replaceRoute('home', { username: this.state.username, password: this.state.password })}
               >
                   Get Started
@@ -106,9 +104,12 @@ class Login extends Component {
 
 function bindActions(dispatch) {
   return {
-    replaceRoute: (route, passprops) => dispatch(replaceRoute(route, passprops)),
-    pushNewRoute: (route, passprops) => dispatch(pushNewRoute(route, passprops)),
+    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
   };
 }
 
-export default connect(null, bindActions)(Login);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindActions)(Login);

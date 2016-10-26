@@ -22,6 +22,7 @@ module.exports = StyleSheet.create({
   },
   header: {
     width: Dimensions.get('window').width,
+    flexDirection: 'row',
     paddingLeft: 15,
     paddingRight: 15,
   },
@@ -39,6 +40,6 @@ module.exports = StyleSheet.create({
     height: 25,
     width: 95,
     resizeMode: 'contain',
-    marginTop: 10,
+    marginTop: 5,
   },
 });

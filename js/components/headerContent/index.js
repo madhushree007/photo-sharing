@@ -2,13 +2,15 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { connect } from 'react-redux';
+import { actions } from 'react-native-navigation-redux-helpers';
 import { Icon, View, Button } from 'native-base';
 
-import { openDrawer, closeDrawer } from '../../actions/drawer';
-import { popRoute } from '../../actions/route';
-
-
+import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
+
+const {
+  popRoute,
+} = actions;
 
 const headerLogo = require('../../../images/Header-Logo.png');
 
@@ -16,17 +18,14 @@ class HeaderContent extends Component {
 
   static propTypes = {
     popRoute: React.PropTypes.func,
-    closeDrawer: React.PropTypes.func,
     openDrawer: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
   }
-
-  navigateTo() {
-    this.props.closeDrawer();
-  }
-
 
   popRoute() {
-    this.props.popRoute();
+    this.props.popRoute(this.props.navigation.key);
   }
 
   render() {
@@ -50,9 +49,12 @@ class HeaderContent extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    closeDrawer: () => dispatch(closeDrawer()),
-    popRoute: () => dispatch(popRoute()),
+    popRoute: key => dispatch(popRoute(key)),
   };
 }
 
-export default connect(null, bindAction)(HeaderContent);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(HeaderContent);
