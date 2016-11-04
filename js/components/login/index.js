@@ -69,7 +69,7 @@ class Login extends Component {
               <Button
                 rounded primary block large
                 style={styles.loginBtn}
-                textStyle={Platform.OS === 'android' ? { marginTop: 5, fontSize: 16 } : { fontSize: 16, marginTop: -5, fontWeight: '900' }}
+                textStyle={Platform.OS === 'android' ? { marginTop: -5, fontSize: 16 } : { fontSize: 16, marginTop: -5, fontWeight: '900' }}
                 onPress={() => this.replaceRoute('home', { username: this.state.username, password: this.state.password })}
               >
                   Get Started
@@ -94,7 +94,9 @@ class Login extends Component {
                 </Grid>
               </View>
             </View>
+
           </Image>
+
         </Content>
       </Container>
     );

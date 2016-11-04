@@ -39,7 +39,7 @@ class Home extends Component {  // eslint-disable-line
                   style={styles.btnHeader}
                   onPress={() => this.props.reset(this.props.navigation.key)}
                 >
-                  <Icon name="ios-power" />
+                  <Icon name="ios-power" style={{lineHeight: 30}} />
                 </Button>
 
                 <Image source={headerLogo} style={styles.imageHeader} />

@@ -42,5 +42,6 @@ module.exports = StyleSheet.create({
     flexDirection: 'row',
     paddingLeft: 15,
     paddingRight: 15,
+    marginLeft: (Platform.OS === 'ios') ? undefined : -30
   },
 });
