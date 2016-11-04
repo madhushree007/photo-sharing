@@ -29,9 +29,6 @@ var header1 = "#00c497";	//header
 // var header5 = "#34495E";
 
 module.exports = {
-	brandPrimary : theme1,
-	brandSecondary: header1,
-}
   brandPrimary: primary.hexString().toString(),
   brandSecondary: secondary.hexString().toString(),
   brandInfo: info.hexString().toString(),

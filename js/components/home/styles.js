@@ -115,7 +115,7 @@ module.exports = StyleSheet.create({
     swiperContentBox: {
         paddingTop: 20,
         paddingBottom: 20
-    }
+    },
   container: {
     flex: 1,
     width: null,
