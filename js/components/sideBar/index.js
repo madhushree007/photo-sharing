@@ -1,4 +1,3 @@
-'use strict';
 
 import React, { Component} from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
@@ -10,18 +9,20 @@ import { replaceOrPushRoute, resetRoute } from '../../actions/route';
 import { Container, Content, Text, Icon, List, ListItem, Thumbnail } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 
+import navigateTo from '../../actions/sideBarNav';
 import styles from './style';
+
+const singUp = require('../../../images/BG-signUp.png');
 
 class SideBar extends Component {
 
-    navigateTo(route) {
-        this.props.closeDrawer();
-        this.props.replaceOrPushRoute(route);
-    }
-    resetRoute(route) {
-        this.props.closeDrawer();
-        this.props.resetRoute(route);
-    }
+  static propTypes = {
+    navigateTo: React.PropTypes.func,
+  }
+
+  navigateTo(route) {
+    this.props.navigateTo(route, 'home');
+  }
 
     render(){
         return (
@@ -92,11 +93,13 @@ class SideBar extends Component {
 }
 
 function bindAction(dispatch) {
-    return {
-        closeDrawer: ()=>dispatch(closeDrawer()),
-        replaceOrPushRoute:(route)=>dispatch(replaceOrPushRoute(route)),
-        resetRoute:(route)=>dispatch(resetRoute(route))
-    }
+  return {
+    navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
+  };
 }
 
-export default connect(null, bindAction)(SideBar);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(SideBar);

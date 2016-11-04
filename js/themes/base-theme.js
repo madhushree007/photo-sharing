@@ -1,184 +1,232 @@
-import Color from 'color';
+import color from 'color';
 
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
+
+const primary = require('./variable').brandPrimary;
+const secondary = require('./variable').brandSecondary;
+const info = require('./variable').brandInfo;
+const success = require('./variable').brandSuccess;
+const danger = require('./variable').brandDanger;
+const warning = require('./variable').brandWarning;
+const sidebar = require('./variable').brandSidebar;
 
 export default {
-    brandPrimary : '#01cca1',
-    brandInfo: '#5bc0de',
-    brandSuccess: '#5cb85c',
-    brandDanger: '#d9534f',
-    brandWarning: '#f0ad4e',
-    brandSidebar: '#252932',
 
-    fontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto',
-    btnFontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto_medium',
-    iconFamily: 'Ionicons',
+    // Badge
+  badgeBg: '#ED1727',
+  badgeColor: '#fff',
 
-    inverseTextColor: "#fff",
-    textColor: "#fff",
+  // Button
+  btnFontFamily: (Platform.OS === 'ios') ? 'HelveticaNeue' : 'Roboto_medium',
+  btnDisabledBg: '#b5b5b5',
+  btnDisabledClr: '#f1f1f1',
 
-    subtitleColor: '#8e8e93',
+  get btnPrimaryBg() {
+    return this.brandPrimary;
+  },
+  get btnPrimaryColor() {
+    return this.inverseTextColor;
+  },
+  get btnInfoBg() {
+    return this.brandInfo;
+  },
+  get btnInfoColor() {
+    return this.inverseTextColor;
+  },
+  get btnSuccessBg() {
+    return this.brandSuccess;
+  },
+  get btnSuccessColor() {
+    return this.inverseTextColor;
+  },
+  get btnDangerBg() {
+    return this.brandDanger;
+  },
+  get btnDangerColor() {
+    return this.inverseTextColor;
+  },
+  get btnWarningBg() {
+    return this.brandWarning;
+  },
+  get btnWarningColor() {
+    return this.inverseTextColor;
+  },
+  get btnTextSize() {
+    return (Platform.OS === 'ios') ? this.fontSizeBase * 1.1 :
+      this.fontSizeBase - 1;
+  },
+  get btnTextSizeLarge() {
+    return this.fontSizeBase * 1.5;
+  },
+  get btnTextSizeSmall() {
+    return this.fontSizeBase * 0.8;
+  },
+  get borderRadiusLarge() {
+    return this.fontSizeBase * 3.8;
+  },
 
-    fontSizeBase: 15,
-    titleFontSize: (Platform.OS === 'ios' ) ? 17 : 19,
-    subTitleFontSize: (Platform.OS === 'ios' ) ? 12 : 14,
+  buttonPadding: 6,
 
-    inputFontSize: 15,
-    inputLineHeight: 24,
+  get iconSizeLarge() {
+    return this.iconFontSize * 1.4;
+  },
+  get iconSizeSmall() {
+    return this.iconFontSize * 0.6;
+  },
 
-    get fontSizeH1 () {
-        return this.fontSizeBase*1.8;
-    },
-    get fontSizeH2 () {
-        return this.fontSizeBase* 1.6;
-    },
-    get fontSizeH3 () {
-        return this.fontSizeBase* 1.4;
-    },
-    get btnTextSize () {
-        return (Platform.OS==='ios') ? this.fontSizeBase* 1.1 :
-        this.fontSizeBase-1;
-    },
-    get btnTextSizeLarge () {
-        return this.fontSizeBase* 1.5;
-    },
-    get btnTextSizeSmall () {
-        return this.fontSizeBase* .8;
-    },
-    get iconSizeLarge () {
-        return this.iconFontSize* 1.5;
-    },
-    get iconSizeSmall () {
-        return this.iconFontSize* .6;
-    },
 
-    buttonPadding: 6,
+  // Card
+  cardDefaultBg: '#fff',
 
-    borderRadiusBase: (Platform.OS === 'ios' ) ? 5 : 2,
 
-    get borderRadiusLarge () {
-        return this.fontSizeBase* 3.8;
-    },
+  // Check Box
+  checkboxBgColor: '#039BE5',
+  checkboxSize: 23,
+  checkboxTickColor: '#fff',
 
-    footerHeight: 55,
-    toolbarHeight: (Platform.OS === 'ios' ) ? 64 : 56,
-    toolbarDefaultBg: '#00c497',
-    toolbarInverseBg: '#222',
 
-    iosToolbarBtnColor: '#007aff',
+  // Color
+  brandPrimary: primary,
+  brandInfo: info,
+  brandSuccess: success,
+  brandDanger: danger,
+  brandWarning: warning,
+  brandSidebar: sidebar,
 
-    toolbarTextColor: (Platform.OS==='ios') ? '#000' : '#fff',
+  brandSecondary: secondary,   // new style
 
-    checkboxBgColor: '#039BE5',
-    checkboxTickColor: '#fff',
+  // Font
+  fontFamily: (Platform.OS === 'ios') ? 'HelveticaNeue' : 'Roboto',
+  fontSizeBase: 15,
 
-    checkboxSize: 23,
+  get fontSizeH1() {
+    return this.fontSizeBase * 1.8;
+  },
+  get fontSizeH2() {
+    return this.fontSizeBase * 1.6;
+  },
+  get fontSizeH3() {
+    return this.fontSizeBase * 1.4;
+  },
 
-    radioColor: '#7e7e7e',
 
-    get statusBarColor() {
-        return Color(this.toolbarDefaultBg).darken(0.2).hexString();
-    },
+  // Footer
+  footerHeight: 55,
+  footerDefaultBg: (Platform.OS === 'ios') ? '#F8F8F8' : '#4179F7',
 
-    get radioSelectedColor() {
-        return Color(this.radioColor).darken(0.2).hexString();
-    },
 
-    radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
+  // FooterTab
+  tabBarTextColor: (Platform.OS === 'ios') ? '#6b6b6b' : '#b3c7f9',
+  tabBarActiveTextColor: (Platform.OS === 'ios') ? '#007aff' : '#fff',
+  tabActiveBgColor: (Platform.OS === 'ios') ? '#cde1f9' : undefined,
 
-    tabBgColor: '#F8F8F8',
-    tabFontSize: 15,
-    tabTextColor: '#fff',
 
-    btnDisabledBg: '#b5b5b5',
-    btnDisabledClr: '#f1f1f1',
+  // Header
+  iosToolbarBtnColor: '#007aff',
+  toolbarDefaultBg: secondary,
+  toolbarHeight: (Platform.OS === 'ios') ? 70 : 55,
+  toolbarIconSize: (Platform.OS === 'ios') ? 20 : 22,
+  toolbarInputColor: '#CECDD2',
+  toolbarInverseBg: '#222',
+  toolbarTextColor: (Platform.OS === 'ios') ? '#000' : '#fff',
+  get statusBarColor() {
+    return color(this.toolbarDefaultBg).darken(0.2).hexString();
+  },
 
-    cardDefaultBg: '#fff',
 
-    get darkenHeader() {
-        return Color(this.tabBgColor).darken(0.03).hexString();
-    },
-    get btnPrimaryBg () {
-        return this.brandPrimary;
-    },
-    get btnPrimaryColor () {
-        return this.inverseTextColor;
-    },
-    get btnSuccessBg () {
-        return this.brandSuccess;
-    },
-    get btnSuccessColor () {
-        return this.inverseTextColor;
-    },
-    get btnDangerBg () {
-        return this.brandDanger;
-    },
-    get btnDangerColor () {
-        return this.inverseTextColor;
-    },
-    get btnInfoBg () {
-        return this.brandInfo;
-    },
-    get btnInfoColor () {
-        return this.inverseTextColor;
-    },
-    get btnWarningBg () {
-        return this.brandWarning;
-    },
-    get btnWarningColor () {
-        return this.inverseTextColor;
-    },
+  // Icon
+  iconFamily: 'Ionicons',
+  iconFontSize: (Platform.OS === 'ios') ? 37 : 35,
+  iconMargin: 7,
 
-    borderWidth: 1,
-    iconMargin: 7,
 
-    get inputColor () {
-        return this.textColor;
-    },
-    get inputColorPlaceholder () {
-        return '#575757';
-    },
-    inputBorderColor: '#D9D5DC',
-    inputSuccessBorderColor: '#2b8339',
-    inputErrorBorderColor: '#ed2f2f',
-    inputHeightBase: 40,
-    inputGroupMarginBottom: 10,
-    inputPaddingLeft: 5,
-    get inputPaddingLeftIcon () {
-        return this.inputPaddingLeft* 8;
-    },
+  // InputGroup
+  inputFontSize: 15,
+  inputBorderColor: '#fff',
+  inputSuccessBorderColor: '#2b8339',
+  inputErrorBorderColor: '#ed2f2f',
 
-    btnLineHeight: 19,
+  get inputColor() {
+    return this.textColor;
+  },
+  get inputColorPlaceholder() {
+    return 'rgba(255, 255, 255, 1.0)';
+  },
 
-    dropdownBg: '#000',
-    dropdownLinkColor: '#414142',
+  inputGroupMarginBottom: 10,
+  inputHeightBase: 50,
+  inputPaddingLeft: 5,
 
-    jumbotronPadding: 30,
-    jumbotronBg: '#C9C9CE',
+  get inputPaddingLeftIcon() {
+    return this.inputPaddingLeft * 8;
+  },
 
-    contentPadding: 10,
+  // Line Height
+  btnLineHeight: 19,
+  lineHeightH1: 32,
+  lineHeightH2: 27,
+  lineHeightH3: 22,
+  iconLineHeight: (Platform.OS === 'ios') ? 37 : 30,
+  lineHeight: (Platform.OS === 'ios') ? 20 : 24,
 
-    listBorderColor: '#ddd',
-    listDividerBg: '#ddd',
-    listItemPadding: 9,
-    listNoteColor: '#808080',
-    listNoteSize: 13,
 
-    iconFontSize: (Platform.OS === 'ios' ) ? 30 : 28,
+  // List
+  listBorderColor: 'rgba(181, 181, 181, 0.34)',
+  listDividerBg: '#f2f2f2',
+  listItemHeight: 45,
+  listItemPadding: 15,
+  listNoteColor: '#ddd',
+  listNoteSize: 13,
 
-    badgeColor: '#fff',
-    badgeBg: '#ED1727',
 
-    lineHeight: (Platform.OS === 'ios' ) ? 20 : 24,
-    iconLineHeight: (Platform.OS === 'ios' ) ? 37 : 30,
+  // Progress Bar
+  defaultProgressColor: '#E4202D',
+  inverseProgressColor: '#1A191B',
 
-    toolbarIconSize: (Platform.OS === 'ios' ) ? 20 : 22,
 
-    toolbarInputColor: '#CECDD2',
+  // Radio Button
+  radioBtnSize: (Platform.OS === 'ios') ? 25 : 23,
+  radioColor: '#7e7e7e',
 
-    defaultSpinnerColor: '#45D56E',
-    inverseSpinnerColor: '#1A191B',
+  get radioSelectedColor() {
+    return color(this.radioColor).darken(0.2).hexString();
+  },
 
-    defaultProgressColor: '#E4202D',
-    inverseProgressColor: '#1A191B'
-}
+
+  // Spinner
+  defaultSpinnerColor: '#45D56E',
+  inverseSpinnerColor: '#1A191B',
+
+
+  // Tabs
+  tabBgColor: '#F8F8F8',
+  tabFontSize: 15,
+  tabTextColor: '#fff',
+
+
+  // Text
+  textColor: '#fff',
+  inverseTextColor: '#fff',
+
+
+  // Title
+  titleFontSize: (Platform.OS === 'ios') ? 18 : 19,
+  subTitleFontSize: (Platform.OS === 'ios') ? 12 : 14,
+  subtitleColor: '#8e8e93',
+
+
+  // Other
+  borderRadiusBase: (Platform.OS === 'ios') ? 5 : 2,
+  borderWidth: 1,
+  contentPadding: 10,
+
+  get darkenHeader() {
+    return color(this.tabBgColor).darken(0.03).hexString();
+  },
+
+  dropdownBg: '#000',
+  dropdownLinkColor: '#414142',
+  inputLineHeight: 24,
+  jumbotronBg: '#C9C9CE',
+  jumbotronPadding: 30,
+};

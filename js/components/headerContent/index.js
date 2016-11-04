@@ -1,53 +1,60 @@
-'use strict';
 
 import React, { Component } from 'react';
-import { TouchableOpacity, Image } from 'react-native';
+import { Image } from 'react-native';
 import { connect } from 'react-redux';
+import { actions } from 'react-native-navigation-redux-helpers';
+import { Icon, View, Button } from 'native-base';
 
-import { openDrawer, closeDrawer } from '../../actions/drawer';
-import { popRoute } from '../../actions/route';
-
-import { Icon, View, Text, Button, InputGroup, Input } from 'native-base';
-
-import theme from '../../themes/base-theme';
+import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
+
+const {
+  popRoute,
+} = actions;
+
+const headerLogo = require('../../../images/Header-Logo.png');
 
 class HeaderContent extends Component {
 
-	navigateTo(route) {
-        this.props.closeDrawer();
-    }
+  static propTypes = {
+    popRoute: React.PropTypes.func,
+    openDrawer: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
 
-    popRoute() {
-        this.props.popRoute();
-    }
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
+  }
 
-	render() {
-		return (
-			<View style={styles.header} >
-				<View style={styles.rowHeader}>
-                    <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
-                        <Icon name='ios-menu' style={{fontSize: 32, lineHeight: 36}} />
-                    </Button>
+  render() {
+    return (
+      <View style={styles.header} >
+        <View style={styles.rowHeader}>
+          <Button transparent style={styles.btnHeader} onPress={() => this.popRoute()}>
+            <Icon name="ios-arrow-back" />
+          </Button>
 
-                    <Image source={require('../../../images/Header-Logo.png')} style={styles.imageHeader}>
-                    </Image>
-
-                    <Button transparent style={styles.btnHeader} onPress={() => this.popRoute()}>
-                        <Icon name='ios-search' style={{fontSize: 32, lineHeight: 36}} />
-                    </Button>
-				</View>
-			</View>
-		);
-	}
+          <Image source={headerLogo} style={styles.imageHeader} />
+          <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
+            <Icon name="ios-menu" />
+          </Button>
+        </View>
+      </View>
+    );
+  }
 }
 
 function bindAction(dispatch) {
-    return {
-		openDrawer: ()=>dispatch(openDrawer()),
-		closeDrawer: ()=>dispatch(closeDrawer()),
-        popRoute:()=>dispatch(popRoute())
-    }
+  return {
+    openDrawer: () => dispatch(openDrawer()),
+    popRoute: key => dispatch(popRoute(key)),
+  };
 }
 
-export default connect(null, bindAction)(HeaderContent);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(HeaderContent);

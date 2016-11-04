@@ -1,46 +1,68 @@
-'use strict';
 
 import React, { Component } from 'react';
 import { Image, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import { actions } from 'react-native-navigation-redux-helpers';
+import { Container, Header, Content, Text, Button, Icon,Card } from 'native-base';
 
-import { pushNewRoute } from '../../actions/route';
-import { openDrawer } from '../../actions/drawer';
-
-import { Container, Header, Content, Text, Icon, Card } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import Swiper from 'react-native-swiper';
-import HeaderContent from './../headerContent/';
+import { openDrawer } from '../../actions/drawer';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
+const {
+  reset,
+} = actions;
+
+const signUp = require('../../../images/BG-signUp.png');
+const headerLogo = require('../../../images/Header-Logo.png');
+
+
+
 class Home extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
-    pushNewRoute(route) {
-         this.props.pushNewRoute(route);
-    }
+  static propTypes = {
+    openDrawer: React.PropTypes.func,
+    reset: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
 
     render() {
         return (
             <Container theme={theme} style={{backgroundColor: '#fff'}}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
-                    <Header>
-                        <HeaderContent />
-                    </Header>
+                <Header>
+                  <View style={styles.header} >
+                    <View style={styles.rowHeader}>
+                      <Button
+                        transparent
+                        style={styles.btnHeader}
+                        onPress={() => this.props.reset(this.props.navigation.key)}
+                      >
+                        <Icon name="ios-power" style={{lineHeight: 30}} />
+                      </Button>
+
+                      <Image source={headerLogo} style={styles.imageHeader} />
+
+                      <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
+                        <Icon name="ios-menu" />
+                      </Button>
+                    </View>
+                  </View>
+                </Header>
 
                     <Content>
                         <View>
                             <View>
-                                <Swiper 
-                                    height={330} 
-                                    loop={true} 
-                                    dot={<View style={styles.swiperDot} />} 
-                                    activeDot={<View style={styles.swiperActiveDot} 
+                                <Swiper
+                                    height={330}
+                                    loop={true}
+                                    dot={<View style={styles.swiperDot} />}
+                                    activeDot={<View style={styles.swiperActiveDot}
                                     showsButtons={true} />}
                                 >
                                     <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
@@ -259,11 +281,16 @@ class Home extends Component {
     }
 }
 
+
 function bindAction(dispatch) {
-    return {
-        openDrawer: () => dispatch(openDrawer()),
-        pushNewRoute:(route) => dispatch(pushNewRoute(route))
-    }
+  return {
+    openDrawer: () => dispatch(openDrawer()),
+    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
+  };
 }
 
-export default connect(null, bindAction)(Home);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(Home);
