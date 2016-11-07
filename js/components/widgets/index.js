@@ -39,7 +39,7 @@ class Widgets extends Component {
                         </View>
                     </Header>
 
-                    <Content>
+                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
                         <View style={styles.overviewHeaderContainer}>
                             <Text style={styles.overviewHeader}>WIDGETS</Text>
                         </View>

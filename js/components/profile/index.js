@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, View, TouchableOpacity, Platform } from 'react-native';
 
-import { replaceRoute } from '../../actions/route';
+import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
-
+import navigateTo from '../../actions/sideBarNav';
 import { Container, Header, Content, Text, Icon, Thumbnail } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import HeaderContent from './../headerContent/';
@@ -15,10 +15,22 @@ import theme from '../../themes/base-theme';
 import styles from './styles';
 
 
+const {
+  pushRoute
+} = actions;
+
 class Profile extends Component {
 
-    replaceRoute(route) {
-        this.props.replaceRoute(route);
+    static propTypes = {
+      navigateTo: React.PropTypes.func,
+      navigation: React.PropTypes.shape({
+        key: React.PropTypes.string,
+      }),
+    }
+
+
+    navigateTo(route) {
+      this.props.navigateTo(route, 'home');
     }
 
     render() {
@@ -26,7 +38,7 @@ class Profile extends Component {
             <Container theme={theme}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
-                        <HeaderContent />   
+                        <HeaderContent />
                     </Header>
 
                     <View style={styles.profileInfoContainer}>
@@ -65,10 +77,10 @@ class Profile extends Component {
                             </Col>
                         </Grid>
                     </View>
-                    
-                    <Content>
+
+                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
                         <View style={{backgroundColor: '#fff'}}>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.navigateTo('home')}>
                                 <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.newsImage} />
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
@@ -88,7 +100,7 @@ class Profile extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.navigateTo('home')}>
                                 <Image source={require('../../../images/NewsIcons/3.jpg')} style={styles.newsImage} />
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
@@ -108,7 +120,7 @@ class Profile extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.navigateTo('home')}>
                                 <Image source={require('../../../images/NewsIcons/4.jpg')} style={styles.newsImage} />
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>It has survived not only five centuries</Text>
@@ -127,7 +139,7 @@ class Profile extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.navigateTo('home')}>
                                 <Image source={require('../../../images/NewsIcons/10.jpg')} style={styles.newsImage} />
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
@@ -147,7 +159,7 @@ class Profile extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.navigateTo('home')}>
                                 <Image source={require('../../../images/NewsIcons/9.jpg')} style={styles.newsImage} />
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
@@ -167,7 +179,7 @@ class Profile extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.navigateTo('home')}>
                                 <Image source={require('../../../images/NewsIcons/12.jpg')} style={styles.newsImage} />
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>It has survived not only five centuries</Text>
@@ -196,8 +208,12 @@ class Profile extends Component {
 function bindAction(dispatch) {
     return {
         openDrawer: ()=>dispatch(openDrawer()),
-        replaceRoute:(route)=>dispatch(replaceRoute(route))
+        navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute))
     }
 }
 
-export default connect(null, bindAction)(Profile);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(Profile);

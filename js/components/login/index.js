@@ -11,6 +11,7 @@ import styles from './styles';
 
 const {
   replaceAt,
+  pushRoute
 } = actions;
 
 const bg = require('../../../images/BG.png');
@@ -20,6 +21,7 @@ class Login extends Component {
 
   static propTypes = {
     replaceAt: React.PropTypes.func,
+    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -40,10 +42,14 @@ class Login extends Component {
     this.props.replaceAt('login', { key: route }, this.props.navigation.key);
   }
 
+  pushRoute(route) {
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+  }
+
   render() {
     return (
       <Container>
-        <Content theme={login}>
+        <Content theme={login} scrollEnabled={false}>
           <Image source={bg} style={styles.background} >
             <Image source={logo} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
 
@@ -78,14 +84,14 @@ class Login extends Component {
               <View style={styles.otherLinksContainer}>
                 <Grid>
                   <Col>
-                    <Button transparent style={{ alignSelf: 'flex-start' }}>
+                    <Button transparent style={{ alignSelf: 'flex-start' }} onPress={() => this.pushRoute('signUp')}>
                       <Text style={styles.helpBtns}>
                           Create Account
                       </Text>
                     </Button>
                   </Col>
                   <Col>
-                    <Button transparent style={{ alignSelf: 'flex-end' }}>
+                    <Button transparent style={{ alignSelf: 'flex-end' }} onPress={() => this.pushRoute('needhelp')}>
                       <Text style={styles.helpBtns}>
                           Need Help?
                       </Text>
@@ -107,6 +113,7 @@ class Login extends Component {
 function bindActions(dispatch) {
   return {
     replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
+    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 

@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity } from 'react-native';
+import { Image, View, TouchableOpacity,Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Content, Text, Button, Icon,Card } from 'native-base';
@@ -14,6 +14,7 @@ import styles from './styles';
 
 const {
   reset,
+  pushRoute
 } = actions;
 
 const signUp = require('../../../images/BG-signUp.png');
@@ -26,10 +27,15 @@ class Home extends Component {
   static propTypes = {
     openDrawer: React.PropTypes.func,
     reset: React.PropTypes.func,
+    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
   }
+
+    pushRoute(route) {
+      this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+    }
 
     render() {
         return (
@@ -55,7 +61,7 @@ class Home extends Component {
                   </View>
                 </Header>
 
-                    <Content>
+                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
                         <View>
                             <View>
                                 <Swiper
@@ -65,7 +71,7 @@ class Home extends Component {
                                     activeDot={<View style={styles.swiperActiveDot}
                                     showsButtons={true} />}
                                 >
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
                                             <View style={styles.swiperTextContent} >
                                             <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -89,7 +95,7 @@ class Home extends Component {
                                         </Image>
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
                                             <View  style={styles.swiperTextContent}>
                                                 <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -113,7 +119,7 @@ class Home extends Component {
                                         </Image>
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
                                             <View  style={styles.swiperTextContent}>
                                                 <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -141,7 +147,7 @@ class Home extends Component {
                         </View>
 
                         <Card style={{backgroundColor: '#fff'}}>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         Lorem Ipsum is simply dummy text of the printing
@@ -163,7 +169,7 @@ class Home extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         Contrary to popular belief, Lorem Ipsum is not simply random text.
@@ -185,7 +191,7 @@ class Home extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         It has survived not only five centuries
@@ -207,7 +213,7 @@ class Home extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages
@@ -230,7 +236,7 @@ class Home extends Component {
                             </TouchableOpacity>
 
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested
@@ -252,7 +258,7 @@ class Home extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         There are many variations of passages of Lorem Ipsum available
@@ -286,6 +292,7 @@ function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
     reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
+    pushRoute: (route, key) => dispatch(pushRoute(route, key))
   };
 }
 

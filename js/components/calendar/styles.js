@@ -10,9 +10,10 @@ module.exports = StyleSheet.create({
       backgroundColor: primary
     },
     newsImage: {
-        width: 100, 
+        width: 100,
         height: 70,
         marginTop: 20,
+        resizeMode: 'contain',
         marginBottom: Platform.OS === 'android' ? 35 : 40
     },
     newsContent: {

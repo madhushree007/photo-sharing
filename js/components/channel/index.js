@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
 
-import { replaceRoute } from '../../actions/route';
+import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
 
 import { Container, Header, Content, Text, Button, Icon } from 'native-base';
@@ -15,11 +15,27 @@ import theme from '../../themes/base-theme';
 import styles from './styles';
 var primary = require('../../themes/variable').brandPrimary;
 
+const {
+  popRoute,
+  pushRoute
+} = actions;
 class Channel extends Component {
 
-    replaceRoute(route) {
-        this.props.replaceRoute(route);
-    }
+  static propTypes = {
+    popRoute: React.PropTypes.func,
+    pushRoute: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
+
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
+  }
+
+  pushRoute(route) {
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+  }
 
     render() {
         return (
@@ -29,16 +45,16 @@ class Channel extends Component {
                         <HeaderContent />
                     </Header>
 
-                    <Content>
+                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
                         <View>
                             <Image source={require('../../../images/NewsIcons/2.jpg')} style={styles.newsPoster}>
                                 <View>
                                     <Text style={Platform.OS === 'android' ? styles.achannelHeader : styles.ioschannelHeader}>SCIENCE CHANNEL</Text>
-                                    <Button 
+                                    <Button
                                         rounded
-                                        style={styles.followBtn} 
-                                        textStyle={Platform.OS === 'android' ? 
-                                            {color: primary, fontSize: 13, fontWeight: '900', textAlign: 'center'} : 
+                                        style={styles.followBtn}
+                                        textStyle={Platform.OS === 'android' ?
+                                            {color: primary, fontSize: 13, fontWeight: '900', textAlign: 'center'} :
                                             {color: primary, fontSize: 13, fontWeight: '900'}}
                                     >
                                         Following
@@ -51,7 +67,7 @@ class Channel extends Component {
                         </View>
 
                         <View  foregroundColor={'white'} style={{backgroundColor: '#fff'}}>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         Lorem Ipsum is simply dummy text of the printing
@@ -67,7 +83,7 @@ class Channel extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>Contrary to popular belief, Lorem Ipsum is not simply random text.</Text>
                                     <Grid style={styles.newsContent}>
@@ -81,7 +97,7 @@ class Channel extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         It has survived not only five centuries
@@ -97,7 +113,7 @@ class Channel extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>It has survived not only five centuries</Text>
                                     <Grid style={styles.newsContent}>
@@ -112,7 +128,7 @@ class Channel extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>Contrary to popular belief, Lorem Ipsum is not simply random text.</Text>
                                     <Grid style={styles.newsContent}>
@@ -126,7 +142,7 @@ class Channel extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         It has survived not only five centuries
@@ -142,7 +158,7 @@ class Channel extends Component {
                                     </Grid>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContentWrap}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>It has survived not only five centuries</Text>
                                     <Grid style={styles.newsContent}>
@@ -167,8 +183,12 @@ class Channel extends Component {
 function bindAction(dispatch) {
     return {
         openDrawer: () => dispatch(openDrawer()),
-        replaceRoute:(route) => dispatch(replaceRoute(route))
+        popRoute: key => dispatch(popRoute(key)),
+        pushRoute: (route, key) => dispatch(pushRoute(route, key))
     }
 }
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
 
-export default connect(null, bindAction)(Channel);
+export default connect(mapStateToProps, bindAction)(Channel);

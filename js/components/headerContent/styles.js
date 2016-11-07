@@ -8,6 +8,8 @@ module.exports = StyleSheet.create({
     width: Dimensions.get('window').width,
     paddingLeft: 15,
     paddingRight: 15,
+    marginTop: 5,
+    marginLeft: (Platform.OS === 'ios') ? undefined : -30
   },
   rowHeader: {
     flex: 1,
@@ -17,7 +19,7 @@ module.exports = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? 7 : 0,
   },
   btnHeader: {
-    paddingTop: 10,
+    alignSelf: 'center'
   },
   imageHeader: {
     height: 25,

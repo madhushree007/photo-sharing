@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform, Slider } from 'react-native';
 import { connect } from 'react-redux';
 
-import { replaceRoute, popRoute } from '../../actions/route';
+import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
 
 import { Container, Header, Content, Text, Button, Icon } from 'native-base';
@@ -18,6 +18,10 @@ import styles from './styles';
 import * as Animatable from 'react-native-animatable';
 var primary = require('../../themes/variable').brandPrimary;
 
+const {
+  popRoute,
+  pushRoute
+} = actions;
 const renderPagination = (index, total, context) => {
     return (
         <View style={{position: 'absolute', bottom: -25, right: 10}}>
@@ -33,6 +37,13 @@ const renderPagination = (index, total, context) => {
 
 class Story extends Component {
 
+  static propTypes = {
+    popRoute: React.PropTypes.func,
+    pushRoute: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
     constructor(props) {
         super(props);
         this.state = {
@@ -50,12 +61,12 @@ class Story extends Component {
         this.setState({open: false});
     }
 
-    replaceRoute(route) {
-        this.props.replaceRoute(route);
+    popRoute() {
+      this.props.popRoute(this.props.navigation.key);
     }
 
-    popRoute() {
-        this.props.popRoute();
+    pushRoute(route) {
+      this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
     }
 
     render() {
@@ -70,7 +81,7 @@ class Story extends Component {
                                 </Button>
                             </Col>
                             <Col style={styles.headerBtns}>
-                                <Button transparent  onPress={() => this.replaceRoute('comments')}>
+                                <Button transparent  onPress={() => this.pushRoute('comments')}>
                                     <Icon name='ios-chatboxes-outline' style={styles.headerIcons} />
                                 </Button>
                             </Col>
@@ -122,7 +133,7 @@ class Story extends Component {
                                         </Col>
                                     </Grid>
                                     <Text  style={styles.newsHeader}>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                                     </Text>
                                 </View>
 
@@ -182,7 +193,7 @@ class Story extends Component {
                                 </View>
 
                                 <View style={{alignSelf: 'center'}}>
-                                    <Button transparent iconRight onPress={() => this.replaceRoute('home')} textStyle={{color: '#222', fontWeight: '700'}}>
+                                    <Button transparent iconRight onPress={() => this.popRoute('home')} textStyle={{color: '#222', fontWeight: '700'}}>
                                         NEXT STORY
                                         <Icon name='ios-arrow-forward' style={styles.forwardBtn}/>
                                     </Button>
@@ -196,6 +207,7 @@ class Story extends Component {
                     open={this.state.open}
                     modalDidOpen={() => console.log('modal did open')}
                     modalDidClose={() => this.setState({open: false})}
+                    onRequestClose={() => this.setState({open: false})}
                     style={styles.modal}>
 
                         <View>
@@ -262,9 +274,13 @@ class Story extends Component {
 function bindAction(dispatch) {
     return {
         openDrawer: () => dispatch(openDrawer()),
-        replaceRoute:(route) => dispatch(replaceRoute(route)),
-        popRoute: () => dispatch(popRoute())
+        popRoute: key => dispatch(popRoute(key)),
+        pushRoute: (route, key) => dispatch(pushRoute(route, key))
     }
 }
 
-export default connect(null, bindAction)(Story);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(Story);

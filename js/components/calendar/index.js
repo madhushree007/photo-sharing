@@ -3,8 +3,8 @@
 import React, {Component} from 'react';
 import { Image, View, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
+import { actions } from 'react-native-navigation-redux-helpers';
 
-import { replaceRoute } from '../../actions/route';
 import { openDrawer } from '../../actions/drawer';
 
 import { Container, Header, Content, Text, Icon } from 'native-base';
@@ -15,6 +15,10 @@ import HeaderContent from './../headerContent/';
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
+const {
+  popRoute,
+  pushRoute
+} = actions;
 class Calendar extends Component {
 
     constructor(props) {
@@ -24,12 +28,24 @@ class Calendar extends Component {
         };
     }
 
+    static propTypes = {
+      popRoute: React.PropTypes.func,
+      pushRoute: React.PropTypes.func,
+      navigation: React.PropTypes.shape({
+        key: React.PropTypes.string,
+      }),
+    }
+
     onDateChange (date) {
         this.setState({ date: date });
     }
 
-    replaceRoute(route) {
-        this.props.replaceRoute(route);
+    popRoute() {
+      this.props.popRoute(this.props.navigation.key);
+    }
+
+    pushRoute(route) {
+      this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
     }
 
     render() {
@@ -39,16 +55,16 @@ class Calendar extends Component {
                     <HeaderContent />
                 </Header>
 
-                <Content>
+                <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : 0}}>
                     <View style={styles.bg}>
                         <CalendarPicker
                             selectedDate={this.state.date}
-                            onDateChange={this.onDateChange.bind(this)} 
+                            onDateChange={this.onDateChange.bind(this)}
                         />
                     </View>
 
                     <View style={{backgroundColor: '#fff'}}>
-                        <TouchableOpacity  style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                        <TouchableOpacity  style={{flexDirection: 'row'}} onPress={() => this.popRoute()}>
                             <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.newsImage} />
                             <View style={styles.newsContent}>
                                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -68,7 +84,7 @@ class Calendar extends Component {
                                 </Grid>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.popRoute()}>
                             <Image source={require('../../../images/NewsIcons/3.jpg')} style={styles.newsImage} />
                             <View style={styles.newsContent}>
                                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -88,7 +104,7 @@ class Calendar extends Component {
                                 </Grid>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.popRoute()}>
                             <Image source={require('../../../images/NewsIcons/4.jpg')} style={styles.newsImage} />
                             <View style={styles.newsContent}>
                                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -108,7 +124,7 @@ class Calendar extends Component {
                                 </Grid>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity  style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                        <TouchableOpacity  style={{flexDirection: 'row'}} onPress={() => this.popRoute()}>
                             <Image source={require('../../../images/NewsIcons/11.jpg')} style={styles.newsImage} />
                             <View style={styles.newsContent}>
                                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -128,7 +144,7 @@ class Calendar extends Component {
                                 </Grid>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.popRoute()}>
                             <Image source={require('../../../images/NewsIcons/13.jpg')} style={styles.newsImage} />
                             <View style={styles.newsContent}>
                                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -148,7 +164,7 @@ class Calendar extends Component {
                                 </Grid>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.replaceRoute('home')}>
+                        <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.popRoute()}>
                             <Image source={require('../../../images/NewsIcons/12.jpg')} style={styles.newsImage} />
                             <View style={styles.newsContent}>
                                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -178,8 +194,13 @@ class Calendar extends Component {
 function bindAction(dispatch) {
     return {
         openDrawer: () => dispatch(openDrawer()),
-        replaceRoute:(route) => dispatch(replaceRoute(route)),
+        popRoute: key => dispatch(popRoute(key)),
+        pushRoute: (route, key) => dispatch(pushRoute(route, key)),
     }
 }
 
-export default connect(null, bindAction)(Calendar);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(Calendar);

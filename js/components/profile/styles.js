@@ -2,8 +2,10 @@
 'use strict';
 
 var React = require('react-native');
-var { StyleSheet, Platform } = React;
+var { StyleSheet, Platform,Dimensions } = React;
 
+var deviceHeight = Dimensions.get('window').height;
+var deviceWidth = Dimensions.get('window').width;
 var primary = require('../../themes/variable').brandPrimary;
 
 module.exports = StyleSheet.create({
@@ -28,7 +30,7 @@ module.exports = StyleSheet.create({
         fontWeight: 'bold'
     },
     profilePic: {
-        width: 80, 
+        width: 80,
         height: 80,
         borderRadius: 40
     },
@@ -53,10 +55,11 @@ module.exports = StyleSheet.create({
     },
     linkTabs_tabName: {
         color: '#444',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: (deviceWidth < 330) ? 13 : 15
     },
     newsImage: {
-        width: 100, 
+        width: 100,
         height: 70,
         marginTop: 20,
         marginBottom: Platform.OS === 'android' ? 35 : 40

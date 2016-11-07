@@ -29,7 +29,7 @@ class Overview extends Component {
                         <Text note  style={styles.overviewHead}>What you are reading the most</Text>
                     </View>
 
-                    <Content >
+                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}} >
                         <View style={styles.overviewContent}>
                             <View style={styles.overviewTopicsBox}>
                                 <Grid style={Platform.OS === 'android' ? {paddingBottom: 0} : {paddingBottom: 15}}>

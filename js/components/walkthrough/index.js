@@ -4,21 +4,31 @@ import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import { connect } from 'react-redux';
 
-import { replaceRoute } from '../../actions/route';
+import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Container, Content, Text, Button, Icon, View } from 'native-base';
 import Swiper from 'react-native-swiper';
 
 import theme from '../../themes/base-theme';
-console.log('theme', theme.statusBarColor);
 import styles from './styles';
 
+const {
+  replaceAt,
+  pushRoute
+} = actions;
 class Walkthrough extends Component {
 
-    replaceRoute(route) {
-        this.props.replaceRoute(route);
-    }
+  static propTypes = {
+    replaceAt: React.PropTypes.func,
+    pushRoute: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
 
+    replaceRoute(route) {
+      this.props.replaceAt('login', { key: route }, this.props.navigation.key);
+    }
     render() {
         return (
             <Container>
@@ -38,7 +48,7 @@ class Walkthrough extends Component {
                             </Text>
                             <Button
                                 transparent rounded
-                                onPress={() => this.replaceRoute('home')}
+                                onPress={() => this.replaceRoute('login')}
                                 style={styles.Button}  >
                                 Skip To App
                             </Button>
@@ -50,11 +60,11 @@ class Walkthrough extends Component {
                             </Text>
                             <Icon name='ios-information-circle-outline' style={styles.imageIcons} />
                             <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>
-                                Lorem Ipsum industry's standard dummy text
+                                Lorem Ipsum industrys standard dummy text
                             </Text>
                             <Button
                                 transparent rounded
-                                onPress={() => this.replaceRoute('home')}
+                                onPress={() => this.replaceRoute('login')}
                                 style={styles.Button}
                             >
                                 Skip To App
@@ -71,7 +81,7 @@ class Walkthrough extends Component {
                             </Text>
                             <Button
                                 transparent rounded
-                                onPress={() => this.replaceRoute('home')}
+                                onPress={() => this.replaceRoute('login')}
                                 style={styles.Button}
                             >
                                 Continue To App
@@ -84,10 +94,15 @@ class Walkthrough extends Component {
     }
 }
 
-function bindAction(dispatch) {
-    return {
-        replaceRoute:(route) => dispatch(replaceRoute(route))
-    }
+function bindActions(dispatch) {
+  return {
+    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
+    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
+  };
 }
 
-export default connect(null, bindAction)(Walkthrough);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindActions)(Walkthrough);

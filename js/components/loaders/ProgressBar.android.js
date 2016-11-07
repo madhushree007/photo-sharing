@@ -1,7 +1,5 @@
-/* @flow */
-
 import React from 'react';
-import ProgressBarAndroid from 'react-native';
+import { ProgressBarAndroid } from 'react-native';
 import NativeBaseComponent from 'native-base/Components/Base/NativeBaseComponent';
 import computeProps from 'native-base/Utils/computeProps';
 

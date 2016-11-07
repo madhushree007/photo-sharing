@@ -125,7 +125,7 @@ class AppNavigator extends Component {
     case 'needhelp':
         return <NeedHelp />;
     default :
-        return <Login  />;
+        return <Walkthrough  />;
     }
   }
 

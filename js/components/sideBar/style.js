@@ -34,6 +34,7 @@ module.exports = StyleSheet.create({
   },
   drawerContent: {
     paddingTop: Platform.OS === 'android' ? 20 : 30,
+    marginBottom:(Platform.OS === 'ios') ? -50 : -10
   },
   profilePic: {
     height: 40,

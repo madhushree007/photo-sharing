@@ -15,7 +15,7 @@ module.exports = StyleSheet.create({
     },
     bgHead: {
         backgroundColor: primary,
-        padding: 20
+        flex: 1
     },
     channelBtn1: {
         borderWidth: 1,

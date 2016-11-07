@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Image, View, Switch, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
 
-import { resetRoute } from '../../actions/route';
+import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
 
 import { Container, Header, Content, Text, Button, Icon, Thumbnail, InputGroup, Input } from 'native-base';
@@ -14,7 +14,18 @@ import theme from '../../themes/base-theme';
 import styles from './styles';
 var primary = require('../../themes/variable').brandPrimary;
 
+const {
+  reset,
+} = actions;
+
 class Settings extends Component {
+
+  static propTypes = {
+    reset: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
 
     constructor(props) {
         super(props);
@@ -58,14 +69,14 @@ class Settings extends Component {
                                 <Image source={require('../../../images/Header-Logo.png')} style={styles.imageHeader}>
                                 </Image>
 
-                                <Button transparent style={styles.btnHeader} onPress={() => this.resetRoute('login')}>
+                                <Button transparent style={styles.btnHeader} onPress={() => this.props.reset(this.props.navigation.key)}>
                                     <Icon name='ios-power' style={{fontSize: 32, lineHeight: 36}}  />
                                 </Button>
                             </View>
                         </View>
                     </Header>
 
-                    <Content >
+                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
                         <View  style={styles.bg}>
                             <Text style={styles.signupHeader}>SETTINGS</Text>
                             <View style={{marginTop: 20}}>
@@ -215,8 +226,12 @@ class Settings extends Component {
 function bindAction(dispatch) {
     return {
         openDrawer: () => dispatch(openDrawer()),
-        resetRoute:(route) => dispatch(resetRoute(route))
+        reset: key => dispatch(reset([{ key: 'login' }], key, 0))
     }
 }
 
-export default connect(null, bindAction)(Settings);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(Settings);

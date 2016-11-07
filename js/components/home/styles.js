@@ -70,7 +70,7 @@ module.exports = StyleSheet.create({
         marginLeft: Platform.OS === 'android' ? 15 : 0,
         paddingLeft: Platform.OS === 'android' ? 0 : 20,
         paddingRight: 10,
-        marginTop: Platform.OS === 'android' ? -2 : 5,
+        marginTop: Platform.OS === 'android' ? 5 : 0,
         color: '#666'
     },
     headertimeIcon: {
@@ -78,7 +78,7 @@ module.exports = StyleSheet.create({
         marginLeft: Platform.OS === 'android' ? 15 : 0,
         paddingLeft: Platform.OS === 'android' ? 0 : 20,
         paddingRight: 10,
-        marginTop: Platform.OS === 'android' ? -2 : 5,
+        marginTop: Platform.OS === 'android' ? 5 : 0,
         color: '#fff'
     },
     slide: {
@@ -143,7 +143,7 @@ module.exports = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignSelf: 'stretch',
-    paddingTop: Platform.OS === 'android' ? 7 : 0,
+    paddingTop: Platform.OS === 'android' ? 0 : 0,
   },
   btnHeader: {
     paddingTop: 10,
