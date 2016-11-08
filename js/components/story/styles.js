@@ -99,7 +99,7 @@ module.exports = StyleSheet.create({
         backgroundColor: primary,
         position: 'absolute',
         width: deviceWidth,
-        marginTop: (Platform.OS==='android') ? 40 : 0
+        marginTop: (Platform.OS === 'android') ? 40 : 10
     },
     slide: {
         flex: 1,
@@ -119,7 +119,8 @@ module.exports = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: -5
+        marginTop: -5,
+        marginLeft: (Platform.OS === 'android') ? -5 : undefined
     },
     headerBtns : {
         padding: 10

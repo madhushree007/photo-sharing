@@ -63,9 +63,9 @@ module.exports = StyleSheet.create({
     weather: {
         fontWeight: '700',
         fontSize: Platform.OS === 'android' ? 80 : 120,
-        lineHeight: Platform.OS === 'android' ? 0 : 120,
+        lineHeight: Platform.OS === 'android' ? 120 : 120,
         paddingBottom: Platform.OS === 'android' ? 70 : 0,
-        marginTop: Platform.OS === 'android' ? - 15 : 10
+        marginTop: Platform.OS === 'android' ? -30 : 10
     },
     weatherInfoContainer: {
         flex: 9,

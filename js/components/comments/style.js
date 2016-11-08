@@ -15,7 +15,8 @@ module.exports = StyleSheet.create({
         flex: 1
     },
     headerContainer: {
-      marginTop: (Platform.OS === 'android') ? -5 : undefined
+      marginTop: (Platform.OS === 'android') ? -5 : undefined,
+      marginLeft: (Platform.OS === 'android') ? -5 : undefined
     },
     headerBtns : {
         padding: 10,
@@ -77,9 +78,9 @@ module.exports = StyleSheet.create({
     },
     likeIcon: {
         fontSize: 16,
-        marginRight: -110,
+        marginRight: (deviceWidth < 330) ? -75 : -110,
         marginLeft: 20,
-        marginTop: Platform.OS === 'android' ? 1 : 1
+        marginTop: Platform.OS === 'android' ? 0 : 1
     },
     commentBox: {
         backgroundColor: '#EEE',
@@ -105,5 +106,8 @@ module.exports = StyleSheet.create({
     arrowForwardIconContainer: {
         paddingRight: 20,
         paddingTop: 5
+    },
+    cmtName: {
+      fontSize: (deviceWidth < 330) ? 15 : 17
     }
 });

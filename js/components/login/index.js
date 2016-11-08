@@ -59,6 +59,7 @@ class Login extends Component {
                 <Input
                   placeholder="Username"
                   onChangeText={username => this.setState({ username })}
+                  style={styles.input}
                 />
               </InputGroup>
 

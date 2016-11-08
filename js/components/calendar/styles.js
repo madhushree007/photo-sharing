@@ -11,10 +11,7 @@ module.exports = StyleSheet.create({
     },
     newsImage: {
         width: 100,
-        height: 70,
-        marginTop: 20,
-        resizeMode: 'contain',
-        marginBottom: Platform.OS === 'android' ? 35 : 40
+        height: 120
     },
     newsContent: {
         flexDirection: 'column',

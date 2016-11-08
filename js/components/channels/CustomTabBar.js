@@ -34,7 +34,7 @@ class CustomTabBar extends Component {
     var isTabActive = this.props.activeTab === page;
 
     return (
-      <TouchableOpacity key={name} onPress={() => this.props.goToPage(page)} style={[styles.tab,{borderWidth: isTabActive ? 1 : 0,borderColor: isTabActive ? '#FFF' : 'transparent',borderRadius: isTabActive ? 30 : undefined}]}>
+      <TouchableOpacity key={name} onPress={() => this.props.goToPage(page)} style={[styles.tab,{borderWidth: isTabActive ? 2 : 0,borderColor: isTabActive ? '#FFF' : 'transparent',borderRadius: isTabActive ? 30 : undefined}]}>
         <Text style={{color: '#fff', fontWeight: isTabActive ? '900' : '500'}}>{name}</Text>
       </TouchableOpacity>
     );

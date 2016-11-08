@@ -40,7 +40,7 @@ class TabThree extends Component {
             <Card foregroundColor='#222' style={styles.card}>
                 <CardItem style={styles.cardHeader}  header>
                     <Thumbnail source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? {borderRadius: 40} : {}} />
-                    <Text>Kumar Sanket</Text>
+                    <Text style={styles.cmtName}>Kumar Sanket</Text>
                     <Icon name='ios-time-outline'  style={styles.timeIcon} />
                     <Text style={styles.date}>May 24, 11:00 AM</Text>
                     <Icon name='ios-heart-outline' style={styles.likeIcon} />
@@ -54,26 +54,11 @@ class TabThree extends Component {
                 </CardItem>
             </Card>
 
-            <Card foregroundColor='#222' style={styles.card}>
-                <CardItem style={styles.cardHeader}  header>
-                    <Thumbnail source={require('../../../images/contacts/pratik.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
-                    <Text>Kumar Pratik</Text>
-                    <Icon name='ios-time-outline' style={styles.timeIcon} />
-                    <Text style={styles.date}>May 24, 11:00 AM</Text>
-                    <Icon name='ios-heart-outline' style={styles.likeIcon} />
-                    <Text style={styles.date}>12</Text>
-                </CardItem>
-                <CardItem style={styles.cardItem} >
-                    <Text>
-                        It is a long established fact that a reader will be distracted by the readable content.
-                    </Text>
-                </CardItem>
-            </Card>
 
             <Card foregroundColor='#222' style={styles.card}>
                 <CardItem style={styles.cardHeader}  header>
                     <Thumbnail source={require('../../../images/contacts/saurav.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
-                    <Text>Saurav Sahu</Text>
+                    <Text style={styles.cmtName}>Saurav Sahu</Text>
                     <Icon name='ios-time-outline' style={styles.timeIcon} />
                     <Text style={styles.date}>Feb 17, 04:30 PM</Text>
                     <Icon name='ios-heart-outline' style={styles.likeIcon} />
@@ -89,7 +74,7 @@ class TabThree extends Component {
             <Card foregroundColor='#222' style={styles.card}>
                 <CardItem style={styles.cardHeader}  header>
                     <Thumbnail source={require('../../../images/contacts/atul.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
-                    <Text>Atul Ranjan</Text>
+                    <Text style={styles.cmtName}>Atul Ranjan</Text>
                     <Icon name='ios-time-outline' style={styles.timeIcon} />
                     <Text style={styles.date}>Feb 03, 01:00 PM</Text>
                     <Icon name='ios-heart-outline' style={styles.likeIcon} />
@@ -105,7 +90,7 @@ class TabThree extends Component {
             <Card foregroundColor='#222' style={styles.card}>
                 <CardItem style={styles.cardHeader}  header>
                     <Thumbnail source={require('../../../images/contacts/varun.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
-                    <Text>Varun Sahu</Text>
+                    <Text style={styles.cmtName}>Varun Sahu</Text>
                     <Icon name='ios-time-outline' style={styles.timeIcon} />
                     <Text style={styles.date}>Jan 12, 09:30 PM</Text>
                     <Icon name='ios-heart-outline' style={styles.likeIcon} />
