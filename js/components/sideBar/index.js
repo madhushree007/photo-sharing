@@ -1,27 +1,39 @@
-'use strict';
 
 import React, { Component} from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { closeDrawer } from '../../actions/drawer';
-import { replaceOrPushRoute, resetRoute } from '../../actions/route';
+import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Container, Content, Text, Icon, List, ListItem, Thumbnail } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 
+import navigateTo from '../../actions/sideBarNav';
 import styles from './style';
+
+const singUp = require('../../../images/BG-signUp.png');
+
+const {
+  reset,
+} = actions;
 
 class SideBar extends Component {
 
-    navigateTo(route) {
-        this.props.closeDrawer();
-        this.props.replaceOrPushRoute(route);
-    }
-    resetRoute(route) {
-        this.props.closeDrawer();
-        this.props.resetRoute(route);
-    }
+  static propTypes = {
+    reset: React.PropTypes.func,
+    navigateTo: React.PropTypes.func,
+    closeDrawer: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
+  navigateTo(route) {
+    this.props.navigateTo(route, 'home');
+  }
+  reset() {
+    this.props.reset(this.props.navigation.key);
+  }
 
     render(){
         return (
@@ -71,7 +83,7 @@ class SideBar extends Component {
                             <View style={styles.logoutbtn}  foregroundColor={'white'}>
                                 <Grid>
                                     <Col>
-                                        <TouchableOpacity onPress={() => this.resetRoute('login')} style={{alignSelf: 'flex-start'}}>
+                                        <TouchableOpacity onPress={() => this.navigateTo('login')} style={{alignSelf: 'flex-start'}}>
                                             <Text style={{fontWeight: 'bold', color: '#fff'}}>LOG OUT</Text>
                                             <Text note style={{color: '#fff'}} >Kumar Sanket</Text>
                                         </TouchableOpacity>
@@ -92,11 +104,14 @@ class SideBar extends Component {
 }
 
 function bindAction(dispatch) {
-    return {
-        closeDrawer: ()=>dispatch(closeDrawer()),
-        replaceOrPushRoute:(route)=>dispatch(replaceOrPushRoute(route)),
-        resetRoute:(route)=>dispatch(resetRoute(route))
-    }
+  return {
+    navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
+    reset: key => dispatch(closeDrawer(),reset([{ key: 'login' }], key, 0))
+  };
 }
 
-export default connect(null, bindAction)(SideBar);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(SideBar);

@@ -1,18 +1,13 @@
-'use strict';
 
-var React = require('react-native');
 
-var { StyleSheet, Dimensions, Platform } = React;
+const React = require('react-native');
+
+const { StyleSheet, Dimensions, Platform } = React;
 
 var deviceHeight = Dimensions.get('window').height;
 var deviceWidth = Dimensions.get('window').width;
 
 module.exports = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: null,
-        height: null
-    },
     newsContent: {
         flexDirection: 'column',
         paddingTop: 20,
@@ -75,7 +70,7 @@ module.exports = StyleSheet.create({
         marginLeft: Platform.OS === 'android' ? 15 : 0,
         paddingLeft: Platform.OS === 'android' ? 0 : 20,
         paddingRight: 10,
-        marginTop: Platform.OS === 'android' ? -2 : 5,
+        marginTop: Platform.OS === 'android' ? 5 : 0,
         color: '#666'
     },
     headertimeIcon: {
@@ -83,7 +78,7 @@ module.exports = StyleSheet.create({
         marginLeft: Platform.OS === 'android' ? 15 : 0,
         paddingLeft: Platform.OS === 'android' ? 0 : 20,
         paddingRight: 10,
-        marginTop: Platform.OS === 'android' ? -2 : 5,
+        marginTop: Platform.OS === 'android' ? 5 : 0,
         color: '#fff'
     },
     slide: {
@@ -120,5 +115,43 @@ module.exports = StyleSheet.create({
     swiperContentBox: {
         paddingTop: 20,
         paddingBottom: 20
-    }
+    },
+  container: {
+    flex: 1,
+    width: null,
+    height: null,
+  },
+  logoHeader: {
+    width: 20,
+    height: 28,
+    alignSelf: 'center',
+  },
+  text: {
+    fontSize: 15,
+    color: '#000',
+    marginBottom: 10,
+  },
+  header: {
+    width: Dimensions.get('window').width,
+    flexDirection: 'row',
+    paddingLeft: 15,
+    paddingRight: 15,
+    marginLeft: (Platform.OS === 'ios') ? undefined : -30
+  },
+  rowHeader: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignSelf: 'stretch',
+    paddingTop: Platform.OS === 'android' ? 0 : 0,
+  },
+  btnHeader: {
+    paddingTop: 10,
+  },
+  imageHeader: {
+    height: 25,
+    width: 95,
+    resizeMode: 'contain',
+    marginTop: (Platform.OS === 'android') ? 7 : 5,
+  },
 });

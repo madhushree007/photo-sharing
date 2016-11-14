@@ -34,7 +34,7 @@ module.exports = StyleSheet.create({
     },
     timelineView: {
         paddingLeft: 30,
-        backgroundColor: '#fff' 
+        backgroundColor: '#fff'
     },
     timelineContent: {
         paddingLeft: 35,
@@ -69,7 +69,7 @@ module.exports = StyleSheet.create({
         color: '#666',
         marginLeft: Platform.OS === 'android' ? 15 : 0,
         paddingLeft: Platform.OS === 'android' ? 0 : 20,
-        marginTop: Platform.OS === 'android' ? -2 : 5
+        marginTop: Platform.OS === 'android' ? 5 : 0
     },
     time: {
         color: '#666',

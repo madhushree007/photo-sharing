@@ -12,14 +12,16 @@ module.exports = StyleSheet.create({
     header: {
         width: Dimensions.get('window').width,
         paddingLeft: 15,
-        paddingRight: 15
+        paddingRight: 15,
+        alignItems: 'center',
+        marginLeft: (Platform.OS === 'ios') ? undefined : -30
     },
     rowHeader: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignSelf: 'stretch',
-        paddingTop: Platform.OS === 'android' ? 7 : 0
+        paddingTop: Platform.OS === 'android' ? 7 : 10
     },
     btnHeader: {
         paddingTop: 10
@@ -28,7 +30,7 @@ module.exports = StyleSheet.create({
         height: 25,
         width: 95,
         resizeMode: 'contain',
-        marginTop: 10
+        marginTop: 7
     },
     container: {
         flex: 1,
@@ -50,7 +52,8 @@ module.exports = StyleSheet.create({
     },
     mainWidget: {
         height: (deviceHeight/2) - 70,
-        width: null
+        width: null,
+        paddingBottom: 10
     },
     mainWidgetContainer: {
         flex: 10,
@@ -60,9 +63,9 @@ module.exports = StyleSheet.create({
     weather: {
         fontWeight: '700',
         fontSize: Platform.OS === 'android' ? 80 : 120,
-        lineHeight: Platform.OS === 'android' ? 0 : 120,
+        lineHeight: Platform.OS === 'android' ? 120 : 120,
         paddingBottom: Platform.OS === 'android' ? 70 : 0,
-        marginTop: Platform.OS === 'android' ? - 15 : 10
+        marginTop: Platform.OS === 'android' ? -30 : 10
     },
     weatherInfoContainer: {
         flex: 9,
@@ -81,7 +84,8 @@ module.exports = StyleSheet.create({
     },
     otherWidget: {
         height: (deviceHeight/3) + 20,
-        width: deviceWidth/2
+        width: deviceWidth/2,
+        flex: 1
     },
     widgetName: {
         color: '#222',
@@ -109,6 +113,6 @@ module.exports = StyleSheet.create({
         borderWidth: 2,
         borderColor: 'rgba(0,0,0,0.2)',
         alignSelf: 'center',
-        marginTop: 80
+        marginTop: deviceHeight / 10
     }
 });

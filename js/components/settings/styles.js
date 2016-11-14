@@ -10,23 +10,24 @@ module.exports = StyleSheet.create({
     header: {
         width: Dimensions.get('window').width,
         paddingLeft: 15,
-        paddingRight: 15
+        paddingRight: 15,
+        marginLeft: (Platform.OS === 'ios') ? undefined : -30
     },
     rowHeader: {
         flex: 1,
-        flexDirection: 'row', 
-        justifyContent: 'space-between', 
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignSelf: 'stretch',
-        paddingTop: Platform.OS === 'android' ? 7 : 0
+        paddingTop: Platform.OS === 'android' ? 0 : 0
     },
     btnHeader: {
-        paddingTop: 10
+      alignSelf: 'center'
     },
     imageHeader: {
-        height: 25, 
+        height: 25,
         width: 95,
         resizeMode: 'contain',
-        marginTop: 10
+        marginTop: (Platform.OS === 'ios')? 12 : 15
     },
     container: {
         flex: 1,
@@ -51,7 +52,7 @@ module.exports = StyleSheet.create({
         height:60
     },
     profilePic: {
-        width: 60, 
+        width: 60,
         height: 60,
         borderRadius: Platform.OS === 'android' ? 60 : 30
     },
@@ -65,14 +66,14 @@ module.exports = StyleSheet.create({
         borderRadius: 25,
         backgroundColor: 'rgba(0,0,0,0.2)',
         marginBottom: 20,
-        borderWidth: 0, 
+        borderWidth: 0,
         paddingLeft: 15
     },
     input: {
         paddingLeft: 15
     },
     notificationSwitchContainer: {
-        backgroundColor: '#fff', 
+        backgroundColor: '#fff',
         padding: 20
     },
     notificationHeader: {
@@ -82,14 +83,14 @@ module.exports = StyleSheet.create({
     },
     switchText: {
         color: '#222',
-        fontWeight: 'bold', 
+        fontWeight: 'bold',
         paddingTop: 10,
         paddingBottom: 10,
         alignSelf: 'flex-start'
     },
     aswitchText: {
         color: '#222',
-        fontWeight: 'bold', 
+        fontWeight: 'bold',
         paddingTop: 10,
         paddingBottom: 10
     },
@@ -102,8 +103,8 @@ module.exports = StyleSheet.create({
     switch: {
         transform: [{scaleX: 0.75}, {scaleY: 0.75}],
         alignSelf: 'flex-end',
-        marginTop: Platform.OS === 'android' ? -3 : -5,
-        paddingTop: Platform.OS === 'android' ? 0 : 10,
+        marginTop: Platform.OS === 'android' ? -2 : -5,
+        paddingTop: Platform.OS === 'android' ? 25 : 10,
         paddingBottom: Platform.OS === 'android' ? 0 : 10
     }
 });

@@ -9,23 +9,24 @@ module.exports = StyleSheet.create({
     header: {
         width: Dimensions.get('window').width,
         paddingLeft: 15,
-        paddingRight: 15
+        paddingRight: 15,
+        marginLeft: (Platform.OS === 'ios') ? undefined : -30
     },
     rowHeader: {
         flex: 1,
-        flexDirection: 'row', 
-        justifyContent: 'space-between', 
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignSelf: 'stretch',
         paddingTop: Platform.OS === 'android' ? 7 : 0
     },
     btnHeader: {
-        paddingTop: 10
+      alignSelf: 'center'
     },
     imageHeader: {
-        height: 25, 
+        height: 25,
         width: 95,
         resizeMode: 'contain',
-        marginTop: 10
+        alignSelf: 'center'
     },
     container: {
         flex: 1,
@@ -81,7 +82,7 @@ module.exports = StyleSheet.create({
         borderRadius: 25,
         backgroundColor: 'rgba(0,0,0,0.2)',
         marginBottom: 20,
-        borderWidth: 0, 
+        borderWidth: 0,
         paddingLeft: 25
     },
     feedbackInputBox : {

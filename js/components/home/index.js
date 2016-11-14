@@ -1,49 +1,77 @@
-'use strict';
 
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity } from 'react-native';
+import { Image, View, TouchableOpacity,Platform } from 'react-native';
 import { connect } from 'react-redux';
+import { actions } from 'react-native-navigation-redux-helpers';
+import { Container, Header, Content, Text, Button, Icon,Card } from 'native-base';
 
-import { pushNewRoute } from '../../actions/route';
-import { openDrawer } from '../../actions/drawer';
-
-import { Container, Header, Content, Text, Icon, Card } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import Swiper from 'react-native-swiper';
-import HeaderContent from './../headerContent/';
+import { openDrawer } from '../../actions/drawer';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
+const {
+  reset,
+  pushRoute
+} = actions;
+
+const signUp = require('../../../images/BG-signUp.png');
+const headerLogo = require('../../../images/Header-Logo.png');
+
+
+
 class Home extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+  static propTypes = {
+    openDrawer: React.PropTypes.func,
+    reset: React.PropTypes.func,
+    pushRoute: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
 
-    pushNewRoute(route) {
-         this.props.pushNewRoute(route);
+    pushRoute(route) {
+      this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
     }
 
     render() {
         return (
             <Container theme={theme} style={{backgroundColor: '#fff'}}>
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
-                    <Header>
-                        <HeaderContent />
-                    </Header>
+                <Header>
+                  <View style={styles.header} >
+                    <View style={styles.rowHeader}>
+                      <Button
+                        transparent
+                        style={styles.btnHeader}
+                        onPress={() => this.props.reset(this.props.navigation.key)}
+                      >
+                        <Icon name="ios-power" style={{lineHeight: 30}} />
+                      </Button>
 
-                    <Content>
+                      <Image source={headerLogo} style={styles.imageHeader} />
+
+                      <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
+                        <Icon name="ios-menu" />
+                      </Button>
+                    </View>
+                  </View>
+                </Header>
+
+                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
                         <View>
                             <View>
-                                <Swiper 
-                                    height={330} 
-                                    loop={true} 
-                                    dot={<View style={styles.swiperDot} />} 
-                                    activeDot={<View style={styles.swiperActiveDot} 
+                                <Swiper
+                                    height={330}
+                                    loop={true}
+                                    dot={<View style={styles.swiperDot} />}
+                                    activeDot={<View style={styles.swiperActiveDot}
                                     showsButtons={true} />}
                                 >
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
                                             <View style={styles.swiperTextContent} >
                                             <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -67,7 +95,7 @@ class Home extends Component {
                                         </Image>
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
                                             <View  style={styles.swiperTextContent}>
                                                 <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -91,7 +119,7 @@ class Home extends Component {
                                         </Image>
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity  onPress={() => this.pushNewRoute('story')} style={styles.slide}>
+                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
                                         <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
                                             <View  style={styles.swiperTextContent}>
                                                 <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -119,7 +147,7 @@ class Home extends Component {
                         </View>
 
                         <Card style={{backgroundColor: '#fff'}}>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         Lorem Ipsum is simply dummy text of the printing
@@ -141,7 +169,7 @@ class Home extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         Contrary to popular belief, Lorem Ipsum is not simply random text.
@@ -163,7 +191,7 @@ class Home extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         It has survived not only five centuries
@@ -185,7 +213,7 @@ class Home extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages
@@ -208,7 +236,7 @@ class Home extends Component {
                             </TouchableOpacity>
 
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested
@@ -230,7 +258,7 @@ class Home extends Component {
                                 </View>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushNewRoute('story')}>
+                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
                                 <View style={styles.newsContent}>
                                     <Text numberOfLines={2} style={styles.newsHeader}>
                                         There are many variations of passages of Lorem Ipsum available
@@ -259,11 +287,17 @@ class Home extends Component {
     }
 }
 
+
 function bindAction(dispatch) {
-    return {
-        openDrawer: () => dispatch(openDrawer()),
-        pushNewRoute:(route) => dispatch(pushNewRoute(route))
-    }
+  return {
+    openDrawer: () => dispatch(openDrawer()),
+    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
+    pushRoute: (route, key) => dispatch(pushRoute(route, key))
+  };
 }
 
-export default connect(null, bindAction)(Home);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(Home);

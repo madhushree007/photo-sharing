@@ -11,7 +11,7 @@ module.exports = StyleSheet.create({
     signupContainer: {
         paddingLeft: 20,
         paddingRight: 20,
-        marginTop: Platform.OS === 'android' ? (deviceHeight / 4) : ((deviceHeight / 4) - 10)
+        marginTop: Platform.OS === 'android' ? (deviceHeight / 4) : ((deviceHeight / 4) - 20)
     },
     signupHeader: {
         alignSelf: 'center',
@@ -31,14 +31,14 @@ module.exports = StyleSheet.create({
         borderRadius: 25,
         backgroundColor: 'rgba(0,0,0,0.2)',
         marginBottom: 20,
-        borderWidth: 0, 
+        borderWidth: 0,
         paddingLeft: 15
     },
     input: {
         paddingLeft: 15
     },
     signupBtn: {
-        height: 50, 
+        height: 50,
         marginTop: 20,
         borderWidth: 1,
         borderColor: '#ddd'
@@ -46,7 +46,7 @@ module.exports = StyleSheet.create({
     termsText: {
         alignSelf: 'center',
         marginTop: 20,
-        paddingBottom: 100, 
+        paddingBottom: 100,
         opacity: 0.8,
         fontSize: 14,
         fontWeight: 'bold'

@@ -4,14 +4,26 @@ import React, { Component } from 'react';
 import { Image, Platform, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-import { popRoute } from '../../actions/route';
+import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Container, Content, Text, Button, Icon, InputGroup, Input, View } from 'native-base';
 
 import theme from '../login/login-theme';
 import styles from './styles';
 
+const {
+  reset,
+} = actions;
+
 class SignUp extends Component {
+
+
+    static propTypes = {
+      reset: React.PropTypes.func,
+      navigation: React.PropTypes.shape({
+        key: React.PropTypes.string,
+      }),
+    }
 
     constructor(props) {
         super(props);
@@ -26,16 +38,16 @@ class SignUp extends Component {
         }
     }
 
-    popRoute() {
-        this.props.popRoute();
-    }
+       resetRoute(route) {
+            this.props.resetRoute(route);
+        }
 
     render() {
         return (
             <Container>
                     <View theme={theme}>
                         <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
-                            <Content padder>
+                            <Content padder scrollEnabled={false}>
                                 <Text style={styles.signupHeader}>
                                     CREATE ACCOUNT
                                 </Text>
@@ -57,7 +69,7 @@ class SignUp extends Component {
 
                                     <Button
                                         rounded transparent  block
-                                        onPress={() => this.popRoute()}
+                                        onPress={() => this.props.reset(this.props.navigation.key)}
                                         style={styles.signupBtn}
                                     >
                                         Continue
@@ -75,10 +87,15 @@ class SignUp extends Component {
     }
 }
 
+
 function bindAction(dispatch) {
     return {
-        popRoute: () => dispatch(popRoute())
+        reset: key => dispatch(reset([{ key: 'login' }], key, 0))
     }
 }
 
-export default connect(null, bindAction)(SignUp);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(SignUp);

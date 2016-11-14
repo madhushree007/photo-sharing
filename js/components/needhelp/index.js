@@ -4,15 +4,24 @@ import React, { Component } from 'react';
 import { Image, Platform, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-import { popRoute } from '../../actions/route';
+import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Container, Content, Text, Button, Icon, InputGroup, Input, View } from 'native-base';
 
 import theme from '../login/login-theme';
 import styles from './styles';
 
+const {
+  popRoute
+} = actions;
 class NeedHelp extends Component {
 
+    static propTypes = {
+      popRoute: React.PropTypes.func,
+      navigation: React.PropTypes.shape({
+        key: React.PropTypes.string,
+      }),
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +36,7 @@ class NeedHelp extends Component {
     }
 
     popRoute() {
-        this.props.popRoute();
+      this.props.popRoute(this.props.navigation.key);
     }
 
     render() {
@@ -37,7 +46,7 @@ class NeedHelp extends Component {
                     <View theme={theme}>
                         <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
 
-                            <Content padder>
+                            <Content padder scrollEnabled={false}>
                                 <Text style={styles.signupHeader}>
                                     Forgot Your Password?
                                 </Text>
@@ -48,7 +57,7 @@ class NeedHelp extends Component {
                                     </InputGroup>
 
                                     <Button
-                                        rounded block transparent 
+                                        rounded block transparent
                                         onPress={() => this.popRoute()}
                                         style={styles.signupBtn}
                                     >
@@ -70,8 +79,12 @@ class NeedHelp extends Component {
 
 function bindAction(dispatch) {
     return {
-        popRoute: () => dispatch(popRoute())
+        popRoute: key => dispatch(popRoute(key))
     }
 }
 
-export default connect(null, bindAction)(NeedHelp);
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(NeedHelp);

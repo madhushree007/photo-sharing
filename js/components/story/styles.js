@@ -79,7 +79,7 @@ module.exports = StyleSheet.create({
         marginLeft: Platform.OS === 'android' ? 15 : 0,
         paddingLeft: Platform.OS === 'android' ? 0 : 20,
         paddingRight: 10,
-        marginTop: Platform.OS === 'android' ? -2 : 5,
+        marginTop: Platform.OS === 'android' ? 5 : 0,
         color: '#666'
     },
     nightButton: {
@@ -99,7 +99,7 @@ module.exports = StyleSheet.create({
         backgroundColor: primary,
         position: 'absolute',
         width: deviceWidth,
-        marginTop: (Platform.OS==='android') ? 40 : 0
+        marginTop: (Platform.OS === 'android') ? 40 : 10
     },
     slide: {
         flex: 1,
@@ -110,14 +110,17 @@ module.exports = StyleSheet.create({
         alignSelf: 'center'
     },
     headerIcons : {
-        fontSize: 30
+        fontSize: 30,
+        backgroundColor: 'transparent',
+        paddingTop: (Platform.OS === 'android') ? 10 : undefined
     },
     headerContainer: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: -5
+        marginTop: -5,
+        marginLeft: (Platform.OS === 'android') ? -5 : undefined
     },
     headerBtns : {
         padding: 10

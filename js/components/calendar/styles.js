@@ -10,10 +10,8 @@ module.exports = StyleSheet.create({
       backgroundColor: primary
     },
     newsImage: {
-        width: 100, 
-        height: 70,
-        marginTop: 20,
-        marginBottom: Platform.OS === 'android' ? 35 : 40
+        width: 100,
+        height: 120
     },
     newsContent: {
         flexDirection: 'column',

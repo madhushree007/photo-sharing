@@ -20,14 +20,14 @@ class Timeline extends Component {
             <Container theme={theme} style={styles.bg} >
                 <Image source={require('../../../images/glow2.png')} style={styles.container} >
                     <Header>
-                        <HeaderContent />   
+                        <HeaderContent />
                     </Header>
                     <View style={styles.overviewHeaderContainer}>
                         <Text style={styles.overviewHeader}>Wednesday</Text>
                         <Text note  style={styles.overviewHead}>September 07, 2016</Text>
                     </View>
 
-                    <Content >
+                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
                         <View>
                             <View style={styles.timelineView}>
                                 <View style={styles.timelineContent}>
@@ -42,7 +42,7 @@ class Timeline extends Component {
                                         <View  style={{paddingLeft: 27}}>
                                             <Text style={styles.timelineContentHeading}>BOOKMARKED</Text>
                                         </View>
-                                    </Col>   
+                                    </Col>
                                     <Col>
                                         <View style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
@@ -73,7 +73,7 @@ class Timeline extends Component {
                                         <View style={{paddingLeft: 18}}>
                                             <Text style={styles.timelineContentHeading}>COMMENTED</Text>
                                         </View>
-                                    </Col>   
+                                    </Col>
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
@@ -107,7 +107,7 @@ class Timeline extends Component {
                                         <View style={{paddingLeft: 30}}>
                                             <Text style={styles.timelineContentHeading}>FOLLOWED</Text>
                                         </View>
-                                    </Col>   
+                                    </Col>
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
@@ -136,7 +136,7 @@ class Timeline extends Component {
                                         <View style={{paddingLeft: 25}}>
                                             <Text style={styles.timelineContentHeading}>SHARED</Text>
                                         </View>
-                                    </Col>   
+                                    </Col>
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
@@ -168,7 +168,7 @@ class Timeline extends Component {
                                         <View style={{paddingLeft: 25}}>
                                             <Text style={styles.timelineContentHeading}>LIKED</Text>
                                         </View>
-                                    </Col>   
+                                    </Col>
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
@@ -200,7 +200,7 @@ class Timeline extends Component {
                                         <View style={{paddingLeft: 25}}>
                                             <Text style={styles.timelineContentHeading}>SAVED</Text>
                                         </View>
-                                    </Col>   
+                                    </Col>
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
@@ -231,7 +231,7 @@ class Timeline extends Component {
                                         <View style={{paddingLeft: 25}}>
                                             <Text style={styles.timelineContentHeading}>ARCHIVED</Text>
                                         </View>
-                                    </Col>   
+                                    </Col>
                                     <Col>
                                         <View  style={styles.newsTypeView}>
                                             <Icon name='ios-time-outline' style={styles.timeIcon} />
