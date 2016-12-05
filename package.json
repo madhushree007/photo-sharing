@@ -18,7 +18,7 @@
     "react-native-animatable": "^0.6.1",
     "react-native-button": "^1.6.0",
     "react-native-code-push": "1.15.0-beta",
-    "react-native-easy-grid": "^0.1.6",
+    "react-native-easy-grid": "0.1.6",
     "react-native-gifted-spinner": "0.0.4",
     "react-native-lightbox": "^0.6.0",
     "react-native-list-popover": "^1.0.5",
