@@ -9,7 +9,7 @@ const { StyleSheet, Dimensions, Platform } = React;
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
-module.exports = StyleSheet.create({
+export default {
   iosShadow: {
     flex: 1,
     width: (deviceHeight < 500) ? 80 : (deviceWidth / 4) + 12,
@@ -32,9 +32,11 @@ module.exports = StyleSheet.create({
     borderRadius: 25,
     backgroundColor: 'rgba(255,255,255,0.3)',
     marginBottom: 20,
+    borderWidth: 0,
   },
   input: {
-    paddingLeft: 15,
+    paddingLeft: 10,
+    color: '#FFF'
   },
   background: {
     flex: 1,
@@ -57,8 +59,9 @@ module.exports = StyleSheet.create({
     opacity: 0.9,
     fontSize: 14,
     fontWeight: 'bold',
+    color: '#FFF'
   },
   otherLinksContainer: {
     flexDirection: 'row',
   },
-});
+}

@@ -3,15 +3,14 @@ import React, { Component } from 'react';
 import { Image, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Content, Text, InputGroup, Input, Button, Icon, View } from 'native-base';
+import { Container, Content, Text, Item, Input, Button, Icon, View } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 
-import login from './login-theme';
 import styles from './styles';
 
 const {
   replaceAt,
-  pushRoute
+  pushRoute,
 } = actions;
 
 const bg = require('../../../images/BG.png');
@@ -49,37 +48,38 @@ class Login extends Component {
   render() {
     return (
       <Container>
-        <Content theme={login} scrollEnabled={false}>
+        <Content scrollEnabled={false} style={{ flex: 1 }} >
           <Image source={bg} style={styles.background} >
             <Image source={logo} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
 
             <View style={styles.bg}>
-              <InputGroup borderType="rounded" style={[styles.inputGrp, { borderWidth: 0, paddingLeft: 15 }]}>
-                <Icon name="ios-person-outline" />
+              <Item rounded style={styles.inputGrp}>
+                <Icon name="person" />
                 <Input
                   placeholder="Username"
                   onChangeText={username => this.setState({ username })}
+                  placeholderTextColor="#FFF"
                   style={styles.input}
                 />
-              </InputGroup>
+              </Item>
 
-              <InputGroup borderType="rounded" style={[styles.inputGrp, { borderWidth: 0, paddingLeft: 15 }]}>
-                <Icon name="ios-unlock-outline" />
+              <Item rounded style={styles.inputGrp}>
+                <Icon name="unlock" />
                 <Input
                   placeholder="Password"
                   secureTextEntry
+                  placeholderTextColor="#FFF"
                   onChangeText={password => this.setState({ password })}
                   style={styles.input}
                 />
-              </InputGroup>
+              </Item>
 
               <Button
                 rounded primary block large
                 style={styles.loginBtn}
-                textStyle={Platform.OS === 'android' ? { marginTop: -5, fontSize: 16 } : { fontSize: 16, marginTop: -5, fontWeight: '900' }}
-                onPress={() => this.replaceRoute('home', { username: this.state.username, password: this.state.password })}
+                onPress={() => this.replaceRoute('walkthrough', { username: this.state.username, password: this.state.password })}
               >
-                  Get Started
+                <Text style={Platform.OS === 'android' ? { fontSize: 16 } : { fontSize: 16, fontWeight: '900' }}>Get Started</Text>
               </Button>
 
               <View style={styles.otherLinksContainer}>
