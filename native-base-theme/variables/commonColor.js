@@ -2,6 +2,8 @@ import color from 'color';
 
 import { Platform, Dimensions, PixelRatio } from 'react-native';
 
+const primary = require('../../js/themes/variable').brandPrimary;
+
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 const platform = Platform.OS;
@@ -104,7 +106,7 @@ export default {
 
 
       // Color
-  brandPrimary: '#01cca1',
+  brandPrimary: primary,
   brandInfo: '#62B1F6',
   brandSuccess: '#5cb85c',
   brandDanger: '#d9534f',
@@ -151,7 +153,7 @@ export default {
 
     // Header
   toolbarBtnColor: '#fff',
-  toolbarDefaultBg: '#01cca1',
+  toolbarDefaultBg: primary,
   toolbarHeight: (platform === 'ios') ? 64 : 56,
   toolbarIconSize: (platform === 'ios') ? 20 : 22,
   toolbarSearchIconSize: (platform === 'ios') ? 20 : 23,
@@ -208,7 +210,7 @@ export default {
   listBorderColor: '#c9c9c9',
   listDividerBg: '#f4f4f4',
   listItemHeight: 45,
-  listBtnUnderlayColor: '#01cca1',
+  listBtnUnderlayColor: primary,
 
     // Card
   cardBorderColor: '#ccc',
@@ -272,7 +274,7 @@ export default {
   contentPadding: 10,
 
   get darkenHeader() {
-    return color(this.tabBgColor).darken(0.03).hexString();
+    return color(this.toolbarDefaultBg).darken(0.03).hexString();
   },
 
   dropdownBg: '#000',

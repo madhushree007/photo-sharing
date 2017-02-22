@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity, Platform } from 'react-native';
+import { Image, View, TouchableOpacity, Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Content, Text, Button, Icon, Card, Left, Body, Right } from 'native-base';
@@ -9,7 +9,7 @@ import { Grid, Col } from 'react-native-easy-grid';
 import Swiper from 'react-native-swiper';
 import { openDrawer } from '../../actions/drawer';
 
-import theme from '../../themes/base-theme';
+
 import styles from './styles';
 
 const {
@@ -17,6 +17,7 @@ const {
   pushRoute,
 } = actions;
 
+const deviceWidth = Dimensions.get('window').width;
 const headerLogo = require('../../../images/Header-Logo.png');
 
 
@@ -63,6 +64,7 @@ class Home extends Component {
             <View>
               <Swiper
                 height={330}
+                width={deviceWidth + 3}
                 loop
                 dot={<View style={styles.swiperDot} />}
                 activeDot={<View
@@ -145,7 +147,7 @@ class Home extends Component {
             </View>
           </View>
 
-          <Card style={{ backgroundColor: '#fff' }}>
+          <Card style={{ backgroundColor: '#fff', marginTop: 0, marginRight: 0 }}>
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>

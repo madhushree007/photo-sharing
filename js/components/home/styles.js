@@ -70,7 +70,7 @@ export default {
     marginLeft: Platform.OS === 'android' ? 15 : 0,
     paddingLeft: Platform.OS === 'android' ? 0 : 20,
     paddingRight: 10,
-    marginTop: Platform.OS === 'android' ? 5 : -3,
+    marginTop: Platform.OS === 'android' ? -1 : -3,
     color: '#666',
   },
   headertimeIcon: {
@@ -78,7 +78,7 @@ export default {
     marginLeft: Platform.OS === 'android' ? 15 : 0,
     paddingLeft: Platform.OS === 'android' ? 0 : 20,
     paddingRight: 10,
-    marginTop: Platform.OS === 'android' ? 5 : 0,
+    marginTop: Platform.OS === 'android' ? -1 : 0,
     color: '#fff',
   },
   slide: {

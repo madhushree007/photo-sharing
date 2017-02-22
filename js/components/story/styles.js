@@ -58,7 +58,6 @@ export default {
     paddingBottom: 5,
   },
   newsPoster: {
-    height: (deviceHeight / 2) - 30,
     width: null,
     position: 'relative',
   },
@@ -78,7 +77,7 @@ export default {
     marginLeft: Platform.OS === 'android' ? 15 : 0,
     paddingLeft: Platform.OS === 'android' ? 0 : 20,
     paddingRight: 10,
-    marginTop: Platform.OS === 'android' ? 5 : 0,
+    marginTop: Platform.OS === 'android' ? -1 : -3,
     color: '#666',
   },
   nightButton: {
@@ -102,7 +101,6 @@ export default {
   },
   slide: {
     flex: 1,
-    justifyContent: 'center',
     backgroundColor: 'transparent',
   },
   wrapper: {
@@ -111,7 +109,6 @@ export default {
   headerIcons: {
     fontSize: 30,
     backgroundColor: 'transparent',
-    paddingTop: (Platform.OS === 'android') ? 10 : undefined,
   },
   headerContainer: {
     flex: 1,

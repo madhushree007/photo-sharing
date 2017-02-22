@@ -29,10 +29,10 @@ export default {
   },
   inputGrp: {
     flexDirection: 'row',
-    borderRadius: 25,
     backgroundColor: 'rgba(255,255,255,0.3)',
     marginBottom: 20,
     borderWidth: 0,
+    borderColor: 'transparent',
   },
   input: {
     paddingLeft: 10,
@@ -54,6 +54,7 @@ export default {
   loginBtn: {
     marginTop: 10,
     height: 50,
+    alignItems: 'center',
   },
   helpBtns: {
     opacity: 0.9,

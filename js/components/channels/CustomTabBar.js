@@ -12,7 +12,6 @@ import { Text, View } from 'native-base';
 const deviceWidth = require('Dimensions').get('window').width;
 const TAB_UNDERLINE_REF = 'TAB_UNDERLINE';
 const {
-  replaceAt,
   pushRoute,
 } = actions;
 class CustomTabBar extends Component {
@@ -22,7 +21,6 @@ class CustomTabBar extends Component {
    tabs: React.PropTypes.array
  }
   static propTypes = {
-    replaceAt: React.PropTypes.func,
     pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
@@ -38,9 +36,6 @@ class CustomTabBar extends Component {
     );
   }
 
-  replaceRoute(route) {
-    this.props.replaceAt('login', { key: route }, this.props.navigation.key);
-  }
   render() {
     const numberOfTabs = this.props.tabs.length;
     const tabUnderlineStyle = {
@@ -60,7 +55,6 @@ class CustomTabBar extends Component {
 
 function bindActions(dispatch) {
   return {
-    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }

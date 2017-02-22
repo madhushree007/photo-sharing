@@ -35,6 +35,7 @@ export default {
     backgroundColor: 'rgba(255,255,255,0.2)',
     marginBottom: 20,
     borderWidth: 0,
+    borderColor: 'transparent',
   },
   input: {
     paddingLeft: 10,
@@ -47,8 +48,6 @@ export default {
   },
   termsText: {
     alignSelf: 'center',
-    marginTop: 20,
-    paddingBottom: 100,
     opacity: 0.8,
     fontSize: 14,
     fontWeight: 'bold',

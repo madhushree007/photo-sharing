@@ -8,7 +8,6 @@ import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
 
-import theme from '../login/login-theme';
 import styles from './styles';
 
 const {
@@ -43,7 +42,7 @@ class NeedHelp extends Component {
     return (
       <Container>
         <Content contentOffset={this.state.offset} scrollEnabled={false}>
-          <View theme={theme}>
+          <View>
             <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
 
               <Content padder scrollEnabled={false}>
@@ -60,7 +59,7 @@ class NeedHelp extends Component {
                   </Item>
 
                   <Button
-                    rounded block transparent
+                    rounded block bordered
                     onPress={() => this.popRoute()}
                     style={styles.signupBtn}
                   >

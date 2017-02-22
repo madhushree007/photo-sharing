@@ -12,7 +12,7 @@ export default {
     height: null,
   },
   newsPoster: {
-    height: (deviceHeight / 4) + 10,
+    height: (deviceHeight / 4) + 20,
     width: null,
     position: 'relative',
   },
@@ -73,7 +73,7 @@ export default {
     color: '#666',
     marginLeft: Platform.OS === 'android' ? 15 : 0,
     paddingLeft: Platform.OS === 'android' ? 15 : 20,
-    marginTop: Platform.OS === 'android' ? 5 : -3,
+    marginTop: Platform.OS === 'android' ? -1 : -3,
   },
   imageHeader: {
     height: 25,

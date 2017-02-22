@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import { Image, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Content, Text, Item, Input, Button, Icon, View } from 'native-base';
-import { Grid, Col } from 'react-native-easy-grid';
+import { Container, Content, Text, Item, Input, Button, Icon, View, Left, Right } from 'native-base';
 
 import styles from './styles';
 
 const {
-  replaceAt,
+  replaceAtIndex,
   pushRoute,
 } = actions;
 
@@ -19,7 +18,7 @@ const logo = require('../../../images/logo.png');
 class Login extends Component {
 
   static propTypes = {
-    replaceAt: React.PropTypes.func,
+    replaceAtIndex: React.PropTypes.func,
     pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
@@ -38,7 +37,8 @@ class Login extends Component {
   }
 
   replaceRoute(route) {
-    this.props.replaceAt('login', { key: route }, this.props.navigation.key);
+    const navigation = this.props.navigation;
+    this.props.replaceAtIndex(navigation.index, { key: route }, navigation.key);
   }
 
   pushRoute(route) {
@@ -48,7 +48,7 @@ class Login extends Component {
   render() {
     return (
       <Container>
-        <Content scrollEnabled={false} style={{ flex: 1 }} >
+        <Content scrollEnabled={false}>
           <Image source={bg} style={styles.background} >
             <Image source={logo} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
 
@@ -79,26 +79,24 @@ class Login extends Component {
                 style={styles.loginBtn}
                 onPress={() => this.replaceRoute('walkthrough', { username: this.state.username, password: this.state.password })}
               >
-                <Text style={Platform.OS === 'android' ? { fontSize: 16 } : { fontSize: 16, fontWeight: '900' }}>Get Started</Text>
+                <Text style={Platform.OS === 'android' ? { fontSize: 16, textAlign: 'center', top: -5 } : { fontSize: 16, fontWeight: '900' }}>Get Started</Text>
               </Button>
 
               <View style={styles.otherLinksContainer}>
-                <Grid>
-                  <Col>
-                    <Button transparent style={{ alignSelf: 'flex-start' }} onPress={() => this.pushRoute('signUp')}>
-                      <Text style={styles.helpBtns}>
+                <Left>
+                  <Button transparent style={{ alignSelf: 'flex-start' }} onPress={() => this.pushRoute('signUp')}>
+                    <Text style={styles.helpBtns}>
                           Create Account
                       </Text>
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button transparent style={{ alignSelf: 'flex-end' }} onPress={() => this.pushRoute('needhelp')}>
-                      <Text style={styles.helpBtns}>
+                  </Button>
+                </Left>
+                <Right>
+                  <Button transparent style={{ alignSelf: 'flex-end' }} onPress={() => this.pushRoute('needhelp')}>
+                    <Text style={styles.helpBtns}>
                           Need Help?
                       </Text>
-                    </Button>
-                  </Col>
-                </Grid>
+                  </Button>
+                </Right>
               </View>
             </View>
 
@@ -113,7 +111,7 @@ class Login extends Component {
 
 function bindActions(dispatch) {
   return {
-    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
+    replaceAtIndex: (index, route, key) => dispatch(replaceAtIndex(index, route, key)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }

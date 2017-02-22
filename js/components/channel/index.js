@@ -44,7 +44,7 @@ class Channel extends Component {
           <Header>
             <Left>
               <Button transparent onPress={() => this.popRoute()}>
-                <Icon name="ios-arrow-back" />
+                <Icon active name="arrow-back" />
               </Button>
             </Left>
             <Body>
@@ -52,7 +52,7 @@ class Channel extends Component {
             </Body>
             <Right>
               <Button transparent onPress={this.props.openDrawer} >
-                <Icon name="ios-menu" />
+                <Icon active name="menu" />
               </Button>
             </Right>
           </Header>

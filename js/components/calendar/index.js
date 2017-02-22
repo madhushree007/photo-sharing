@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 
 
-import { Container, Header, Content, Text } from 'native-base';
+import { Container, Header, Content, Text, Left, Right, Body, Button, Icon } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 import CalendarPicker from 'react-native-calendar-picker';
 
@@ -20,6 +20,10 @@ const {
   popRoute,
   pushRoute,
 } = actions;
+
+
+const headerLogo = require('../../../images/Header-Logo.png');
+
 class Calendar extends Component {
 
   constructor(props) {
@@ -53,10 +57,22 @@ class Calendar extends Component {
     return (
       <Container theme={theme}>
         <Header>
-          <HeaderContent />
+          <Left>
+            <Button transparent style={styles.btnHeader} onPress={() => this.popRoute()}>
+              <Icon active name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Image source={headerLogo} style={styles.imageHeader} />
+          </Body>
+          <Right>
+            <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
+              <Icon active name="menu" />
+            </Button>
+          </Right>
         </Header>
 
-        <Content style={{ marginBottom: (Platform.OS === 'ios') ? -50 : 0 }}>
+        <Content showsVerticalScrollIndicator={false}>
           <View style={styles.bg}>
             <CalendarPicker
               selectedDate={this.state.date}

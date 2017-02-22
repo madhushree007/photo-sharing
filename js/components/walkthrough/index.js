@@ -32,7 +32,7 @@ class Walkthrough extends Component {
         <Content scrollEnabled={false}>
           <Swiper
             loop={false}
-            width={deviceWidth}
+            width={deviceWidth + 3}
             dot={<View style={styles.swiperDot} />}
             activeDot={<View style={styles.swiperActiveDot} />}
           >

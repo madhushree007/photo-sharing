@@ -29,10 +29,10 @@ export default {
   },
   inputGrp: {
     flexDirection: 'row',
-    borderRadius: 25,
     backgroundColor: 'rgba(0,0,0,0.2)',
     marginBottom: 20,
     borderWidth: 0,
+    borderColor: 'transparent',
   },
   input: {
     paddingLeft: 10,

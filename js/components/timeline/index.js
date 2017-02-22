@@ -1,98 +1,93 @@
-'use strict';
-
 import React, { Component } from 'react';
 import { Image, View, Platform } from 'react-native';
 import { connect } from 'react-redux';
 
-import { openDrawer } from '../../actions/drawer';
+import { Container, Content, Text, Icon } from 'native-base';
+import { Grid, Col } from 'react-native-easy-grid';
 
-import { Container, Header, Content, Text, Icon } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid';
+import { openDrawer } from '../../actions/drawer';
 import HeaderContent from './../headerContent/';
 
-import theme from '../../themes/base-theme';
 import styles from './styles';
 
 class Timeline extends Component {
 
-    render() {
-        return (
-            <Container theme={theme} style={styles.bg} >
-                <Image source={require('../../../images/glow2.png')} style={styles.container} >
-                    <Header>
-                        <HeaderContent />
-                    </Header>
-                    <View style={styles.overviewHeaderContainer}>
-                        <Text style={styles.overviewHeader}>Wednesday</Text>
-                        <Text note  style={styles.overviewHead}>September 07, 2016</Text>
+  render() {
+    return (
+      <Container style={styles.bg} >
+        <Image source={require('../../../images/glow2.png')} style={styles.container} >
+          <HeaderContent />
+          <View style={styles.overviewHeaderContainer}>
+            <Text style={styles.overviewHeader}>Wednesday</Text>
+            <Text note style={styles.overviewHead}>September 07, 2016</Text>
+          </View>
+
+          <Content showsVerticalScrollIndicator={false}>
+            <View>
+              <View style={styles.timelineView}>
+                <View style={styles.timelineContent}>
+                  <Text />
+                </View>
+              </View>
+
+              <View style={styles.contentContainer}>
+                <Grid>
+                  <Col style={{ flexDirection: 'row' }}>
+                    <Icon name="ios-bookmark" style={{ color: '#999', marginLeft: 2 }} />
+                    <View style={{ paddingLeft: 27 }}>
+                      <Text style={styles.timelineContentHeading}>BOOKMARKED</Text>
                     </View>
+                  </Col>
+                  <Col>
+                    <View style={styles.newsTypeView}>
+                      <Icon name="ios-time-outline" style={styles.timeIcon} />
+                      <Text style={styles.time}>09:34am</Text>
+                    </View>
+                  </Col>
+                </Grid>
+              </View>
+              <View style={styles.timelineView}>
+                <View style={styles.timelineContent}>
+                  <Text style={styles.timelineTextHeader}>
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  </Text>
+                </View>
+              </View>
+            </View>
 
-                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
-                        <View>
-                            <View style={styles.timelineView}>
-                                <View style={styles.timelineContent}>
-                                    <Text></Text>
-                                </View>
+            <View>
+              <View style={styles.timelineView}>
+                <View style={styles.timelineContent}>
+                  <Text />
+                </View>
+              </View>
+              <View style={styles.contentContainer}>
+                <Grid>
+                        <Col style={{flexDirection: 'row' }}>
+                            <Icon name='ios-chatboxes-outline' style={styles.timelineIcon} />
+                            <View style={{paddingLeft: 18}}>
+                                <Text style={styles.timelineContentHeading}>COMMENTED</Text>
                             </View>
-
-                            <View style={styles.contentContainer}>
-                                <Grid>
-                                    <Col style={{flexDirection:'row'}}>
-                                        <Icon name='ios-bookmark'  style={[styles.timelineIcon,{marginLeft: 2}]} />
-                                        <View  style={{paddingLeft: 27}}>
-                                            <Text style={styles.timelineContentHeading}>BOOKMARKED</Text>
-                                        </View>
-                                    </Col>
-                                    <Col>
-                                        <View style={styles.newsTypeView}>
-                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.time}>09:34am</Text>
-                                        </View>
-                                    </Col>
-                                </Grid>
+                        </Col>
+                        <Col>
+                            <View  style={styles.newsTypeView}>
+                                <Icon name='ios-time-outline' style={styles.timeIcon} />
+                                <Text style={styles.time}>10:05am</Text>
                             </View>
-                            <View style={styles.timelineView}>
-                                <View style={styles.timelineContent}>
-                                    <Text style={styles.timelineTextHeader}>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    </Text>
-                                </View>
-                            </View>
-                        </View>
-
-                        <View>
-                            <View style={styles.timelineView}>
-                                <View style={styles.timelineContent}>
-                                    <Text></Text>
-                                </View>
-                            </View>
-                            <View style={styles.contentContainer}>
-                                <Grid>
-                                    <Col style={{flexDirection:'row'}}>
-                                        <Icon name='ios-chatboxes-outline' style={styles.timelineIcon} />
-                                        <View style={{paddingLeft: 18}}>
-                                            <Text style={styles.timelineContentHeading}>COMMENTED</Text>
-                                        </View>
-                                    </Col>
-                                    <Col>
-                                        <View  style={styles.newsTypeView}>
-                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.time}>10:05am</Text>
-                                        </View>
-                                    </Col>
-                                </Grid>
-                            </View>
-                            <View style={styles.timelineView}>
-                                <View style={styles.timelineContent}>
-                                    <Text  style={styles.timelineTextHeader}>
-                                        It has roots in a piece of classical Latin literature from 45 BC.
-                                    </Text>
-                                    <Text numberOfLines={2} style={styles.timelineTextComment}>
-                                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
-                                    </Text>
-                                </View>
-                            </View>
-                        </View>
+                        </Col>
+                    </Grid>
+                </View>
+                <View style={styles.timelineView}>
+                    <View style={styles.timelineContent}>
+                        <Text  style={styles.timelineTextHeader}>
+                            It has roots in a piece of classical Latin literature from 45 BC.
+                        </Text>
+                        <Text numberOfLines={2} style={styles.timelineTextComment}>
+                            'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
+                        </Text>
+                    </View>
+                </View>
+            </View>
 
                         <View>
                             <View style={styles.timelineView}>

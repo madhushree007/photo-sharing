@@ -70,26 +70,26 @@ class Story extends Component {
       <Container theme={theme} style={{ backgroundColor: '#fff' }}>
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
-            <Body style={{ flexDirection: 'row' }}>
-                <Button transparent onPress={() => this.popRoute()}>
-                  <Icon name="ios-arrow-back" style={styles.headerIcons} />
-                </Button>
-                <Button transparent onPress={() => this.pushRoute('comments')}>
-                  <Icon name="ios-chatboxes-outline" style={styles.headerIcons} />
-                </Button>
-                <Button transparent onPress={() => this.modalO()}>
-                  <Text style={styles.headerTextIcon}>Aa</Text>
-                </Button>
-                <Button transparent>
-                  <Icon name="ios-bookmarks-outline" style={styles.headerIcons} />
-                </Button>
-                <Button transparent>
-                  <Icon name="ios-download-outline" style={styles.headerIcons} />
-                </Button>
+            <Body style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+              <Button transparent onPress={() => this.popRoute()}>
+                <Icon active name="arrow-back" style={styles.headerIcons} />
+              </Button>
+              <Button transparent onPress={() => this.pushRoute('comments')}>
+                <Icon name="chatboxes" style={styles.headerIcons} />
+              </Button>
+              <Button transparent onPress={() => this.modalO()}>
+                <Text style={styles.headerTextIcon}>Aa</Text>
+              </Button>
+              <Button transparent>
+                <Icon name="bookmarks" style={styles.headerIcons} />
+              </Button>
+              <Button transparent>
+                <Icon name="download" style={styles.headerIcons} />
+              </Button>
             </Body>
           </Header>
 
-          <Content>
+          <Content showsVerticalScrollIndicator={false}>
             <View style={{ flex: 1 }}>
               <View >
                 <Image source={require('../../../images/NewsIcons/5.jpg')} style={styles.newsPoster}>
@@ -136,7 +136,7 @@ class Story extends Component {
                     </Text>
                     <Text style={styles.newsComment}>- JOHN</Text>
                   </View>
-                  <Text style={[styles.newsHeader, { paddingBottom: 20, paddingTop: 20, fontWeight: '700' }]}>
+                  <Text style={styles.newsHeader}>
                       So, is Lorem Ipsum, dummy text of the printing and
                       typesetting industry helpfull?
                   </Text>
@@ -163,7 +163,7 @@ class Story extends Component {
 
                 <View style={styles.wrapper}>
                   <Swiper
-                    height={240}
+                    height={230}
                     loop
                     dot={<View style={styles.swiperDot} />}
                     activeDot={<View
@@ -228,26 +228,26 @@ class Story extends Component {
                     <Button transparent style={styles.nightButton}>
                       <Icon
                         name="ios-moon-outline"
-                        style={{ fontSize: 26 }}
+                        style={{ fontSize: 26, color: '#fff' }}
                       />
                     </Button>
                   </Col>
                 </Grid>
               </View>
               <View style={styles.modalContentBox}>
-                <Grid style={{ padding: 20, paddingBottom: 15 }}>
+                <Grid style={{ padding: 20, paddingBottom: 15, justifyContent: 'center' }}>
                   <Col>
                     <Text
                       style={Platform.OS === 'android' ?
-                                                { fontSize: 12, marginTop: 5 } :
-                                                { fontSize: 12 }}
+                                                { fontSize: 12, marginTop: 8 } :
+                                                { fontSize: 12, marginTop: 8 }}
                     >
                                             CHOOSE TYPESPACE
                                         </Text>
                   </Col>
                   <Col>
                     <Button transparent iconRight style={{ marginTop: -5 }}>
-                      <Text>SANS SERIF</Text>
+                      <Text style={{ color: '#FFF' }}>SANS SERIF</Text>
                       <Icon name="ios-arrow-forward" style={{ fontSize: 28 }} />
                     </Button>
                   </Col>

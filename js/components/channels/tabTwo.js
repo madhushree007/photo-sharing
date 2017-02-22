@@ -129,7 +129,6 @@ class TabTwo extends Component {
 
 function bindActions(dispatch) {
   return {
-    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }

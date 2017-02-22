@@ -75,16 +75,16 @@ class SignUp extends Component {
               </Item>
 
               <Button
-                rounded transparent block
+                rounded bordered block
                 onPress={() => this.props.reset(this.props.navigation.key)}
                 style={styles.signupBtn}
               >
                 <Text style={{ color: '#FFF' }}>Continue</Text>
               </Button>
 
-              <TouchableOpacity>
+              <Button block transparent style={{ marginTop: 10 }}>
                 <Text style={styles.termsText}>Terms & Conditions</Text>
-              </TouchableOpacity>
+              </Button>
             </View>
           </Content>
         </Image>
