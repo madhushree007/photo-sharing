@@ -118,7 +118,7 @@ class Settings extends Component {
           <View style={styles.notificationSwitchContainer}>
             <Text style={styles.notificationHeader}>EMAIL NOTIFICATIONS</Text>
             <View>
-              <Grid>
+              <Grid style={{ marginBottom: 10 }}>
                 <Col>
                   <Text style={Platform.OS === 'android' ? styles.aswitchText : styles.switchText}>Monday</Text>
                 </Col>
@@ -133,7 +133,7 @@ class Settings extends Component {
                   />
                 </Col>
               </Grid>
-              <Grid>
+              <Grid style={{ marginBottom: 10 }}>
                 <Col>
                   <Text style={Platform.OS === 'android' ? styles.aswitchText : styles.switchText}>Tuesday</Text>
                 </Col>
@@ -148,7 +148,7 @@ class Settings extends Component {
                   />
                 </Col>
               </Grid>
-              <Grid>
+              <Grid style={{ marginBottom: 10 }}>
                 <Col>
                   <Text style={Platform.OS === 'android' ? styles.aswitchText : styles.switchText}>Wednesday</Text>
                 </Col>
@@ -163,7 +163,7 @@ class Settings extends Component {
                   />
                 </Col>
               </Grid>
-              <Grid>
+              <Grid style={{ marginBottom: 10 }}>
                 <Col>
                   <Text style={Platform.OS === 'android' ? styles.aswitchText : styles.switchText}>Thursday</Text>
                 </Col>
@@ -178,7 +178,7 @@ class Settings extends Component {
                   />
                 </Col>
               </Grid>
-              <Grid>
+              <Grid style={{ marginBottom: 10 }}>
                 <Col>
                   <Text style={Platform.OS === 'android' ? styles.aswitchText : styles.switchText}>Friday</Text>
                 </Col>
@@ -193,7 +193,7 @@ class Settings extends Component {
                   />
                 </Col>
               </Grid>
-              <Grid>
+              <Grid style={{ marginBottom: 10 }}>
                 <Col>
                   <Text style={Platform.OS === 'android' ? styles.aswitchText : styles.switchText}>Saturday</Text>
                 </Col>
@@ -208,7 +208,7 @@ class Settings extends Component {
                   />
                 </Col>
               </Grid>
-              <Grid>
+              <Grid style={{ marginBottom: 10 }}>
                 <Col>
                   <Text style={Platform.OS === 'android' ? styles.aswitchText : styles.switchText}>Sunday</Text>
                 </Col>
