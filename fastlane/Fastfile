@@ -114,7 +114,7 @@ platform :android do
 
 
   desc "Deploy a new version to the Google Play Store"
-  lane :alpha do
+  lane :release do
     supply(
       json_key: "./key.json",
       package_name: "io.market.nativebase.geekyants.flatappui",
@@ -136,7 +136,7 @@ platform :android do
         },
         {
           title: "Product",
-          value: "Strap Flat App",
+          value: "Strap Flat App #{ENV['VERSION']}",
           short: true
         },
         {
@@ -161,7 +161,7 @@ platform :android do
         },
         {
           title: "Product",
-          value: "Strap Flat App",
+          value: "Strap Flat App #{ENV['VERSION']}",
           short: true
         }]
       },
