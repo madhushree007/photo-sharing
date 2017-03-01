@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Icon, View, Button } from 'native-base';
+import { Icon, Button, Left, Right, Body, Header } from 'native-base';
 
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
@@ -30,18 +30,21 @@ class HeaderContent extends Component {
 
   render() {
     return (
-      <View style={styles.header} >
-        <View style={styles.rowHeader}>
-          <Button transparent style={styles.btnHeader} onPress={() => this.popRoute()}>
-            <Icon name="ios-arrow-back" />
+      <Header>
+        <Left>
+          <Button transparent onPress={() => this.popRoute()}>
+            <Icon active name="arrow-back" />
           </Button>
-
+        </Left>
+        <Body>
           <Image source={headerLogo} style={styles.imageHeader} />
-          <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
-            <Icon name="ios-menu" />
+        </Body>
+        <Right>
+          <Button transparent onPress={this.props.openDrawer} >
+            <Icon active name="menu" />
           </Button>
-        </View>
-      </View>
+        </Right>
+      </Header>
     );
   }
 }

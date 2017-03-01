@@ -25,6 +25,5 @@ module.exports = StyleSheet.create({
     height: 25,
     width: 95,
     resizeMode: 'contain',
-    marginTop: (Platform.OS === 'android') ? 7 : 5,
   },
 });

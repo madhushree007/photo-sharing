@@ -1,7 +1,6 @@
 
-import _ from 'lodash/core';
 import React, { Component } from 'react';
-import { BackAndroid, StatusBar, NavigationExperimental,Platform } from 'react-native';
+import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
 import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
 import { actions } from 'react-native-navigation-redux-helpers';
@@ -26,7 +25,7 @@ import Timeline from './components/timeline';
 import Widgets from './components/widgets';
 import NeedHelp from './components/needhelp';
 import SplashPage from './components/splashscreen/';
-import { statusBarColor } from "./themes/base-theme";
+import { statusBarColor } from './themes/base-theme';
 
 const {
   popRoute,
@@ -68,7 +67,7 @@ class AppNavigator extends Component {
     }
 
     if (this.props.drawerState === 'closed') {
-      this._drawer.close();
+      this._drawer._root.close();
     }
   }
 
@@ -77,7 +76,7 @@ class AppNavigator extends Component {
   }
 
   openDrawer() {
-    this._drawer.open();
+    this._drawer._root.open();
   }
 
   closeDrawer() {
@@ -94,38 +93,38 @@ class AppNavigator extends Component {
         return <Login />;
       case 'home':
         return <Home />;
-    case 'feedback':
+      case 'feedback':
         return <Feedback />;
-    case 'comments':
+      case 'comments':
         return <Comments />;
-    case 'signUp':
+      case 'signUp':
         return <SignUp />;
-    case 'profile':
+      case 'profile':
         return <Profile />;
-    case 'walkthrough':
+      case 'walkthrough':
         return <Walkthrough />;
-    case 'sideBar':
+      case 'sideBar':
         return <SideBar />;
-    case 'settings':
+      case 'settings':
         return <Settings />;
-    case 'channel':
+      case 'channel':
         return <Channel />;
-    case 'channels':
+      case 'channels':
         return <Channels />;
-    case 'calendar':
+      case 'calendar':
         return <Calendar />;
-    case 'overview':
+      case 'overview':
         return <Overview />;
-    case 'story':
+      case 'story':
         return <Story />;
-    case 'timeline':
+      case 'timeline':
         return <Timeline />;
-    case 'widgets':
+      case 'widgets':
         return <Widgets />;
-    case 'needhelp':
+      case 'needhelp':
         return <NeedHelp />;
-    default :
-        return <Walkthrough  />;
+      default :
+        return <Walkthrough />;
     }
   }
 
@@ -175,7 +174,7 @@ class AppNavigator extends Component {
 function bindAction(dispatch) {
   return {
     closeDrawer: () => dispatch(closeDrawer()),
-    popRoute: (key) => dispatch(popRoute(key)),
+    popRoute: key => dispatch(popRoute(key)),
   };
 }
 

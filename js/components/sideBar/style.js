@@ -1,11 +1,11 @@
 
 const React = require('react-native');
 
-const { StyleSheet, Platform } = React;
+const { Platform } = React;
 
 const primary = require('../../themes/variable').brandPrimary;
 
-module.exports = StyleSheet.create({
+export default {
 
   links: {
     paddingTop: Platform.OS === 'android' ? 8 : 10,
@@ -34,11 +34,11 @@ module.exports = StyleSheet.create({
   },
   drawerContent: {
     paddingTop: Platform.OS === 'android' ? 20 : 30,
-    marginBottom:(Platform.OS === 'ios') ? -50 : -10
+    marginBottom: (Platform.OS === 'ios') ? -50 : -10,
   },
   profilePic: {
     height: 40,
     width: 40,
     borderRadius: Platform.OS === 'android' ? 40 : 20,
   },
-});
+};
