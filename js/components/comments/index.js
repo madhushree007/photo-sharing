@@ -64,7 +64,7 @@ class Comments extends Component {
               <Button transparent onPress={() => this.pushRoute('comments')}>
                 <Icon name="chatboxes" style={styles.headerIcons} />
               </Button>
-              <Button transparent onPress={() => this.modalO()}>
+              <Button transparent>
                 <Text style={styles.headerTextIcon}>Aa</Text>
               </Button>
               <Button transparent>
