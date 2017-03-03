@@ -6,9 +6,9 @@ archive_project_testflight:
   stage: testflight
   script:
     - npm install
-    # - fastlane ios certificate
-    # - fastlane ios testflight
-    - fastlane android testflight
+    - fastlane ios certificate
+    - fastlane ios testflight
+    # - fastlane android testflight
   only:
     - development
   tags:
