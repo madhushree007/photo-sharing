@@ -96,7 +96,7 @@ class Widgets extends Component {
                     <Text style={styles.blueRatingPerc}>+0.51%</Text>
                     <Text style={styles.ratingNum}>5,055.55</Text>
                     <Button
-                      transparent
+                      bordered
                       rounded small
                       style={styles.detailsBtn}
                       textStyle={Platform.OS === 'android' ?
@@ -117,7 +117,7 @@ class Widgets extends Component {
                     <Text style={styles.redRatingPerc}>-0.31%</Text>
                     <Text style={styles.ratingNum}>4,567.00</Text>
                     <Button
-                      transparent
+                      bordered
                       rounded small
                       style={styles.detailsBtn}
                     >

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity, Platform, Slider } from 'react-native';
+import { Image, View, TouchableOpacity, Platform, Slider, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
@@ -14,6 +14,7 @@ import { openDrawer } from '../../actions/drawer';
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
+const deviceWidth = Dimensions.get('window').width;
 const primary = require('../../themes/variable').brandPrimary;
 
 const {
@@ -164,6 +165,7 @@ class Story extends Component {
                 <View style={styles.wrapper}>
                   <Swiper
                     height={230}
+                    width={deviceWidth + 5}
                     loop
                     dot={<View style={styles.swiperDot} />}
                     activeDot={<View
@@ -171,26 +173,18 @@ class Story extends Component {
                       showsButtons
                     />}
                   >
-                    <Lightbox navigator={this.props.navigator}>
-                      <View style={styles.slide}>
-                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} />
-                      </View>
-                    </Lightbox>
-                    <Lightbox navigator={this.props.navigator}>
-                      <View style={styles.slide}>
-                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')} />
-                      </View>
-                    </Lightbox>
-                    <Lightbox navigator={this.props.navigator}>
-                      <View style={styles.slide}>
-                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')} />
-                      </View>
-                    </Lightbox>
-                    <Lightbox navigator={this.props.navigator}>
-                      <View style={styles.slide}>
-                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/5.jpg')} />
-                      </View>
-                    </Lightbox>
+                    <View style={styles.slide}>
+                      <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} />
+                    </View>
+                    <View style={styles.slide}>
+                      <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')} />
+                    </View>
+                    <View style={styles.slide}>
+                      <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')} />
+                    </View>
+                    <View style={styles.slide}>
+                      <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/5.jpg')} />
+                    </View>
                   </Swiper>
                 </View>
 

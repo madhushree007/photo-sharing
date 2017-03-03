@@ -59,7 +59,7 @@ export default {
   },
   newsPoster: {
     width: null,
-    position: 'relative',
+    flex: 1,
   },
   newsPosterHeader: {
     fontWeight: '900',
@@ -104,7 +104,7 @@ export default {
     backgroundColor: 'transparent',
   },
   wrapper: {
-    alignSelf: 'center',
+    flex: 1,
   },
   headerIcons: {
     fontSize: 30,
