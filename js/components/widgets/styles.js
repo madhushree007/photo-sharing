@@ -60,9 +60,9 @@ export default {
   weather: {
     fontWeight: '700',
     fontSize: Platform.OS === 'android' ? 80 : 120,
-    lineHeight: Platform.OS === 'android' ? 120 : 120,
-    paddingBottom: Platform.OS === 'android' ? 70 : 0,
-    marginTop: Platform.OS === 'android' ? -30 : 10,
+    lineHeight: Platform.OS === 'android' ? 80 : 120,
+    paddingBottom: Platform.OS === 'android' ? 0 : 0,
+    marginTop: Platform.OS === 'android' ? -10 : 10,
   },
   weatherInfoContainer: {
     flex: 9,
@@ -99,7 +99,7 @@ export default {
     fontWeight: '800',
     paddingTop: 10,
     paddingBottom: 10,
-    lineHeight: Platform.OS === 'android' ? 0 : 0,
+    lineHeight: Platform.OS === 'android' ? 30 : 0,
     color: 'blue',
   },
   redRatingPerc: {
@@ -107,7 +107,7 @@ export default {
     fontWeight: '800',
     paddingTop: 10,
     paddingBottom: 10,
-    lineHeight: Platform.OS === 'android' ? 0 : 0,
+    lineHeight: Platform.OS === 'android' ? 30 : 0,
     color: 'red',
   },
   ratingNum: {
