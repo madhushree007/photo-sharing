@@ -1,4 +1,5 @@
 
+import {Platform} from 'react-native';
 import { cardStackReducer } from 'react-native-navigation-redux-helpers';
 
 const initialState = {
@@ -6,7 +7,7 @@ const initialState = {
   index: 0,
   routes: [
     {
-      key: 'login',
+      key: (Platform.OS === 'ios') ? 'login' : 'splashscreen',
       index: 0,
     },
   ],
