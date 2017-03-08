@@ -5,17 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: git config --global user.name" time="0.006964">
+      <testcase classname="fastlane.lanes" name="0: git config --global user.name" time="0.008411">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: ./generate-apk.sh" time="161.398327">
+      <testcase classname="fastlane.lanes" name="1: /usr/libexec/PlistBuddy -c 'Print:CFBundleShortVersionString' ../ios/StrapFlatApp/Info.plist" time="0.017375">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: slack" time="72.611256">
+      <testcase classname="fastlane.lanes" name="2: latest_testflight_build_number" time="14.621197">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="1.747319">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: gym" time="146.322481">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: pilot" time="298.417899">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: latest_testflight_build_number" time="12.00264">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: slack" time="2347.318409">
         
       </testcase>
     
