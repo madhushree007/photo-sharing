@@ -69,7 +69,7 @@ export default {
     color: '#666',
     marginLeft: Platform.OS === 'android' ? 15 : 0,
     paddingLeft: Platform.OS === 'android' ? 0 : 20,
-    marginTop: Platform.OS === 'android' ? 5 : -3,
+    marginTop: Platform.OS === 'android' ? -2 : -3,
   },
   time: {
     color: '#666',
@@ -87,6 +87,6 @@ export default {
     color: '#aaa',
     fontSize: 12,
     fontWeight: '700',
-    paddingLeft: 30,
+    paddingLeft: 10,
   },
 };
