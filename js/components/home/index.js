@@ -72,7 +72,7 @@ class Home extends Component {
                   showsButtons
                 />}
               >
-                <TouchableOpacity onPress={() => this.pushRoute('story')} style={styles.slide}>
+                <TouchableOpacity activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
                     <View style={styles.swiperTextContent} >
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -96,7 +96,7 @@ class Home extends Component {
                   </Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this.pushRoute('story')} style={styles.slide}>
+                <TouchableOpacity  activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
                     <View style={styles.swiperTextContent}>
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -120,7 +120,7 @@ class Home extends Component {
                   </Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this.pushRoute('story')} style={styles.slide}>
+                <TouchableOpacity activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
                     <View style={styles.swiperTextContent}>
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
