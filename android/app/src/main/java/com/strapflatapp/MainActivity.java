@@ -1,4 +1,4 @@
-package com.strapflatapp;
+package io.market.nativebase.geekyants.flatappui;
 
 import com.facebook.react.ReactActivity;
 
