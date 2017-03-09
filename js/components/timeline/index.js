@@ -18,8 +18,8 @@ class Timeline extends Component {
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <HeaderContent />
           <View style={styles.overviewHeaderContainer}>
-            <Text style={styles.overviewHeader}>Wednesday</Text>
-            <Text note style={styles.overviewHead}>September 07, 2016</Text>
+            <Text style={styles.overviewHeader}>Thursday</Text>
+            <Text note style={styles.overviewHead}>March 09, 2017</Text>
           </View>
 
           <Content showsVerticalScrollIndicator={false}>

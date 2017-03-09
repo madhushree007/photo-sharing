@@ -35,7 +35,7 @@ class TabTwo extends Component {
 
               <CardItem style={styles.cardItem} >
                 <Text style={{ color: '#000', paddingLeft: 10 }}>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text.
+                        Life is one time offer! Use it well
                     </Text>
               </CardItem>
             </Card>
@@ -54,7 +54,7 @@ class TabTwo extends Component {
               </CardItem>
               <CardItem style={styles.cardItem} >
                 <Text style={{ color: '#000', paddingLeft: 10 }}>
-                        There are many variations of passages of Lorem Ipsum available.
+                        Failure is the stepping stone for success.
                     </Text>
               </CardItem>
             </Card>
@@ -72,7 +72,7 @@ class TabTwo extends Component {
               </CardItem>
               <CardItem style={styles.cardItem} >
                 <Text style={{ color: '#000', paddingLeft: 10 }}>
-                        The generated Lorem Ipsum is therefore always free from repetition
+                        Difficult road always lead to a beautiful destination.
                     </Text>
               </CardItem>
             </Card>
@@ -90,7 +90,7 @@ class TabTwo extends Component {
               </CardItem>
               <CardItem style={styles.cardItem} >
                 <Text style={{ color: '#000', paddingLeft: 10 }}>
-                         Various versions have evolved over the years, sometimes by accident
+                         Wish I had a Time machine.
                     </Text>
               </CardItem>
             </Card>
