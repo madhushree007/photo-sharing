@@ -13,8 +13,8 @@ const sidebar = color('#252932');
 const dark = color('rgba(0,0,0,0.8)');
 const light = color('rgba(255,255,255,0.8)');
 
-var theme1 = "#01cca1";		//theme background
-var header1 = "#00c497";	//header
+const theme1 = '#01cca1';		// theme background
+const header1 = '#00c497';	// header
 
 // var theme2 = "#E74C3C";
 // var header2 ="#CB4335";

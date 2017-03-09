@@ -1,25 +1,24 @@
 
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity,Platform } from 'react-native';
+import { Image, View, TouchableOpacity, Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Content, Text, Button, Icon,Card } from 'native-base';
+import { Container, Header, Content, Text, Button, Icon, Card, Left, Body, Right } from 'native-base';
 
-import { Grid, Col, Row } from 'react-native-easy-grid';
+import { Grid, Col } from 'react-native-easy-grid';
 import Swiper from 'react-native-swiper';
 import { openDrawer } from '../../actions/drawer';
 
-import theme from '../../themes/base-theme';
+
 import styles from './styles';
 
 const {
   reset,
-  pushRoute
+  pushRoute,
 } = actions;
 
-const signUp = require('../../../images/BG-signUp.png');
+const deviceWidth = Dimensions.get('window').width;
 const headerLogo = require('../../../images/Header-Logo.png');
-
 
 
 class Home extends Component {
@@ -33,266 +32,266 @@ class Home extends Component {
     }),
   }
 
-    pushRoute(route) {
-      this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
-    }
+  pushRoute(route) {
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+  }
 
-    render() {
-        return (
-            <Container theme={theme} style={{backgroundColor: '#fff'}}>
-                <Image source={require('../../../images/glow2.png')} style={styles.container} >
-                <Header>
-                  <View style={styles.header} >
-                    <View style={styles.rowHeader}>
-                      <Button
-                        transparent
-                        style={styles.btnHeader}
-                        onPress={() => this.props.reset(this.props.navigation.key)}
-                      >
-                        <Icon name="ios-power" style={{lineHeight: 30}} />
-                      </Button>
+  render() {
+    return (
+      <Container style={{ backgroundColor: '#fff' }}>
+        <Header>
+          <Left>
+            <Button
+              transparent
+              style={styles.btnHeader}
+              onPress={() => this.props.reset(this.props.navigation.key)}
+            >
+              <Icon active name="power" />
+            </Button>
+          </Left>
+          <Body>
+            <Image source={headerLogo} style={styles.imageHeader} />
+          </Body>
+          <Right>
+            <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
+              <Icon active name="menu" />
+            </Button>
+          </Right>
+        </Header>
 
-                      <Image source={headerLogo} style={styles.imageHeader} />
-
-                      <Button transparent style={styles.btnHeader} onPress={this.props.openDrawer} >
-                        <Icon name="ios-menu" />
-                      </Button>
+        <Content showsVerticalScrollIndicator={false}>
+          <View>
+            <View>
+              <Swiper
+                height={330}
+                width={deviceWidth + 3}
+                loop
+                dot={<View style={styles.swiperDot} />}
+                activeDot={<View
+                  style={styles.swiperActiveDot}
+                  showsButtons
+                />}
+              >
+                <TouchableOpacity activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
+                  <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
+                    <View style={styles.swiperTextContent} >
+                      <Text numberOfLines={2} style={styles.newsPosterHeader}>
+                          Flat App is a style of interface design emphasizing minimal use of stylistic elements.
+                        </Text>
+                      <Grid style={styles.swiperContentBox}>
+                        <Col style={{ flexDirection: 'row' }}>
+                          <TouchableOpacity>
+                            <Text style={styles.newsPosterLink}>SPACE.com</Text>
+                          </TouchableOpacity>
+                          <Icon name="ios-time-outline" style={styles.headertimeIcon} />
+                          <Text style={styles.newsPosterLink}>20m ago</Text>
+                        </Col>
+                        <Col>
+                          <TouchableOpacity style={styles.newsPosterTypeView}>
+                            <Text style={styles.newsPosterTypeText}>SCIENCE</Text>
+                          </TouchableOpacity>
+                        </Col>
+                      </Grid>
                     </View>
-                  </View>
-                </Header>
+                  </Image>
+                </TouchableOpacity>
 
-                    <Content style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
-                        <View>
-                            <View>
-                                <Swiper
-                                    height={330}
-                                    loop={true}
-                                    dot={<View style={styles.swiperDot} />}
-                                    activeDot={<View style={styles.swiperActiveDot}
-                                    showsButtons={true} />}
-                                >
-                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
-                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
-                                            <View style={styles.swiperTextContent} >
-                                            <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                                                Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                            </Text>
-                                            <Grid style={styles.swiperContentBox}>
-                                                <Col style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity>
-                                                        <Text style={styles.newsPosterLink}>SPACE.com</Text>
-                                                    </TouchableOpacity>
-                                                    <Icon name='ios-time-outline' style={styles.headertimeIcon} />
-                                                    <Text style={styles.newsPosterLink}>20m ago</Text>
-                                                </Col>
-                                                <Col>
-                                                    <TouchableOpacity style={styles.newsPosterTypeView}>
-                                                        <Text style={styles.newsPosterTypeText}>SCIENCE</Text>
-                                                    </TouchableOpacity>
-                                                </Col>
-                                            </Grid>
-                                        </View>
-                                        </Image>
-                                    </TouchableOpacity>
+                <TouchableOpacity  activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
+                  <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
+                    <View style={styles.swiperTextContent}>
+                      <Text numberOfLines={2} style={styles.newsPosterHeader}>
+                            So that the applications are able to load faster and resize easily.
+                        </Text>
+                      <Grid style={styles.swiperContentBox}>
+                        <Col style={{ flexDirection: 'row' }}>
+                          <TouchableOpacity>
+                            <Text style={styles.newsPosterLink}>CDC</Text>
+                          </TouchableOpacity>
+                          <Icon name="ios-time-outline" style={styles.headertimeIcon} />
+                          <Text style={styles.newsPosterLink}>2hr ago</Text>
+                        </Col>
+                        <Col>
+                          <TouchableOpacity style={styles.newsPosterTypeView}>
+                            <Text style={styles.newsPosterTypeText}>ENVIRONMENT</Text>
+                          </TouchableOpacity>
+                        </Col>
+                      </Grid>
+                    </View>
+                  </Image>
+                </TouchableOpacity>
 
-                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
-                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
-                                            <View  style={styles.swiperTextContent}>
-                                                <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                                                    Lorem Ipsum is simply dummy text of the printing
-                                                </Text>
-                                                <Grid style={styles.swiperContentBox}>
-                                                    <Col style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity>
-                                                            <Text style={styles.newsPosterLink}>CDC</Text>
-                                                        </TouchableOpacity>
-                                                        <Icon name='ios-time-outline' style={styles.headertimeIcon} />
-                                                        <Text style={styles.newsPosterLink}>2hr ago</Text>
-                                                    </Col>
-                                                    <Col>
-                                                        <TouchableOpacity style={styles.newsPosterTypeView}>
-                                                            <Text style={styles.newsPosterTypeText}>ENVIRONMENT</Text>
-                                                        </TouchableOpacity>
-                                                    </Col>
-                                                </Grid>
-                                            </View>
-                                        </Image>
-                                    </TouchableOpacity>
+                <TouchableOpacity activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
+                  <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
+                    <View style={styles.swiperTextContent}>
+                      <Text numberOfLines={2} style={styles.newsPosterHeader}>
+                            But still look sharp on high-definition screens. 
+                        </Text>
+                      <Grid style={styles.swiperContentBox}>
+                        <Col style={{ flexDirection: 'row' }}>
+                          <TouchableOpacity>
+                            <Text style={styles.newsPosterLink}>SKY.com</Text>
+                          </TouchableOpacity>
+                          <Icon name="ios-time-outline" style={styles.headertimeIcon} />
+                          <Text style={styles.newsPosterLink}>1day ago</Text>
+                        </Col>
+                        <Col>
+                          <TouchableOpacity style={styles.newsPosterTypeView}>
+                            <Text style={styles.newsPosterTypeText}>WORLD</Text>
+                          </TouchableOpacity>
+                        </Col>
+                      </Grid>
+                    </View>
+                  </Image>
+                </TouchableOpacity>
+              </Swiper>
+            </View>
+          </View>
 
-                                    <TouchableOpacity  onPress={() => this.pushRoute('story')} style={styles.slide}>
-                                        <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
-                                            <View  style={styles.swiperTextContent}>
-                                                <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                                                    Lorem Ipsum is simply dummy text of the printing
-                                                </Text>
-                                                <Grid style={styles.swiperContentBox}>
-                                                    <Col style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity>
-                                                            <Text style={styles.newsPosterLink}>SKY.com</Text>
-                                                        </TouchableOpacity>
-                                                        <Icon name='ios-time-outline' style={styles.headertimeIcon} />
-                                                        <Text style={styles.newsPosterLink}>1day ago</Text>
-                                                    </Col>
-                                                    <Col>
-                                                        <TouchableOpacity style={styles.newsPosterTypeView}>
-                                                            <Text style={styles.newsPosterTypeText}>WORLD</Text>
-                                                        </TouchableOpacity>
-                                                    </Col>
-                                                </Grid>
-                                            </View>
-                                        </Image>
-                                    </TouchableOpacity>
-                                </Swiper>
-                            </View>
-                        </View>
+          <Card style={{ backgroundColor: '#fff', marginTop: 0, marginRight: 0 }}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <View style={styles.newsContent}>
+                <Text numberOfLines={2} style={styles.newsHeader}>
+                      Flat App is focused on a minimal use of simple elements, typography and flat colors.
+                  </Text>
+                <Grid style={styles.swiperContentBox}>
+                  <Col style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity>
+                      <Text style={styles.newsLink}>CDC</Text>
+                    </TouchableOpacity>
+                    <Icon name="ios-time-outline" style={styles.timeIcon} />
+                    <Text style={styles.newsLink}>1h ago</Text>
+                  </Col>
+                  <Col>
+                    <TouchableOpacity style={styles.newsTypeView}>
+                      <Text style={styles.newsTypeText}>ENVIRONMENT</Text>
+                    </TouchableOpacity>
+                  </Col>
+                </Grid>
+              </View>
+            </TouchableOpacity>
 
-                        <Card style={{backgroundColor: '#fff'}}>
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
-                                <View style={styles.newsContent}>
-                                    <Text numberOfLines={2} style={styles.newsHeader}>
-                                        Lorem Ipsum is simply dummy text of the printing
-                                    </Text>
-                                    <Grid style={styles.swiperContentBox}>
-                                        <Col style={{flexDirection:'row'}}>
-                                            <TouchableOpacity>
-                                                <Text style={styles.newsLink}>CDC</Text>
-                                            </TouchableOpacity>
-                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>1h ago</Text>
-                                        </Col>
-                                        <Col>
-                                            <TouchableOpacity style={styles.newsTypeView}>
-                                                <Text style={styles.newsTypeText}>ENVIRONMENT</Text>
-                                            </TouchableOpacity>
-                                        </Col>
-                                    </Grid>
-                                </View>
-                            </TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <View style={styles.newsContent}>
+                <Text numberOfLines={2} style={styles.newsHeader}>
+                      Highly customizable widgets are part of our never ending mission.
+                  </Text>
+                <Grid style={styles.swiperContentBox}>
+                  <Col style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity>
+                      <Text style={styles.newsLink}>SPACE.com</Text>
+                    </TouchableOpacity>
+                    <Icon name="ios-time-outline" style={styles.timeIcon} />
+                    <Text style={styles.newsLink}>5h ago</Text>
+                  </Col>
+                  <Col>
+                    <TouchableOpacity style={styles.newsTypeView}>
+                      <Text style={styles.newsTypeText}>SCIENCE</Text>
+                    </TouchableOpacity>
+                  </Col>
+                </Grid>
+              </View>
+            </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
-                                <View style={styles.newsContent}>
-                                    <Text numberOfLines={2} style={styles.newsHeader}>
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                    </Text>
-                                    <Grid style={styles.swiperContentBox}>
-                                        <Col style={{flexDirection:'row'}}>
-                                            <TouchableOpacity>
-                                                <Text style={styles.newsLink}>SPACE.com</Text>
-                                            </TouchableOpacity>
-                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>5h ago</Text>
-                                        </Col>
-                                        <Col>
-                                            <TouchableOpacity style={styles.newsTypeView}>
-                                                <Text style={styles.newsTypeText}>SCIENCE</Text>
-                                            </TouchableOpacity>
-                                        </Col>
-                                    </Grid>
-                                </View>
-                            </TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <View style={styles.newsContent}>
+                <Text numberOfLines={2} style={styles.newsHeader}>
+                      Ready to use components built using NativeBase.
+                  </Text>
+                <Grid style={styles.swiperContentBox}>
+                  <Col style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity>
+                      <Text style={styles.newsLink}>SKY.com</Text>
+                    </TouchableOpacity>
+                    <Icon name="ios-time-outline" style={styles.timeIcon} />
+                    <Text style={styles.newsLink}>2days ago</Text>
+                  </Col>
+                  <Col>
+                    <TouchableOpacity style={styles.newsTypeView}>
+                      <Text style={styles.newsTypeText}>WORLD</Text>
+                    </TouchableOpacity>
+                  </Col>
+                </Grid>
+              </View>
+            </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
-                                <View style={styles.newsContent}>
-                                    <Text numberOfLines={2} style={styles.newsHeader}>
-                                        It has survived not only five centuries
-                                    </Text>
-                                    <Grid style={styles.swiperContentBox}>
-                                        <Col style={{flexDirection:'row'}}>
-                                            <TouchableOpacity>
-                                                <Text style={styles.newsLink}>SKY.com</Text>
-                                            </TouchableOpacity>
-                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>2days ago</Text>
-                                        </Col>
-                                        <Col>
-                                            <TouchableOpacity style={styles.newsTypeView}>
-                                                <Text style={styles.newsTypeText}>WORLD</Text>
-                                            </TouchableOpacity>
-                                        </Col>
-                                    </Grid>
-                                </View>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
-                                <View style={styles.newsContent}>
-                                    <Text numberOfLines={2} style={styles.newsHeader}>
-                                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages
-                                    </Text>
-                                    <Grid style={styles.swiperContentBox}>
-                                        <Col style={{flexDirection:'row'}}>
-                                            <TouchableOpacity>
-                                                <Text style={styles.newsLink}>ESPN</Text>
-                                            </TouchableOpacity>
-                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>12days ago</Text>
-                                        </Col>
-                                        <Col>
-                                            <TouchableOpacity style={styles.newsTypeView}>
-                                                <Text style={styles.newsTypeText}>SPORTS</Text>
-                                            </TouchableOpacity>
-                                        </Col>
-                                    </Grid>
-                                </View>
-                            </TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <View style={styles.newsContent}>
+                <Text numberOfLines={2} style={styles.newsHeader}>
+                      Theme your app with one single file.
+                  </Text>
+                <Grid style={styles.swiperContentBox}>
+                  <Col style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity>
+                      <Text style={styles.newsLink}>ESPN</Text>
+                    </TouchableOpacity>
+                    <Icon name="ios-time-outline" style={styles.timeIcon} />
+                    <Text style={styles.newsLink}>12days ago</Text>
+                  </Col>
+                  <Col>
+                    <TouchableOpacity style={styles.newsTypeView}>
+                      <Text style={styles.newsTypeText}>SPORTS</Text>
+                    </TouchableOpacity>
+                  </Col>
+                </Grid>
+              </View>
+            </TouchableOpacity>
 
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
-                                <View style={styles.newsContent}>
-                                    <Text numberOfLines={2} style={styles.newsHeader}>
-                                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested
-                                    </Text>
-                                    <Grid style={styles.swiperContentBox}>
-                                        <Col style={{flexDirection:'row'}}>
-                                            <TouchableOpacity>
-                                                <Text style={styles.newsLink}>ART.com</Text>
-                                            </TouchableOpacity>
-                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>23days ago</Text>
-                                        </Col>
-                                        <Col>
-                                            <TouchableOpacity style={styles.newsTypeView}>
-                                                <Text style={styles.newsTypeText}>ART</Text>
-                                            </TouchableOpacity>
-                                        </Col>
-                                    </Grid>
-                                </View>
-                            </TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <View style={styles.newsContent}>
+                <Text numberOfLines={2} style={styles.newsHeader}>
+                      It is easier with Flat App design to quickly convey information while still looking visually appealing and approachable.
+                  </Text>
+                <Grid style={styles.swiperContentBox}>
+                  <Col style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity>
+                      <Text style={styles.newsLink}>ART.com</Text>
+                    </TouchableOpacity>
+                    <Icon name="ios-time-outline" style={styles.timeIcon} />
+                    <Text style={styles.newsLink}>23days ago</Text>
+                  </Col>
+                  <Col>
+                    <TouchableOpacity style={styles.newsTypeView}>
+                      <Text style={styles.newsTypeText}>ART</Text>
+                    </TouchableOpacity>
+                  </Col>
+                </Grid>
+              </View>
+            </TouchableOpacity>
 
-                            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => this.pushRoute('story')}>
-                                <View style={styles.newsContent}>
-                                    <Text numberOfLines={2} style={styles.newsHeader}>
-                                        There are many variations of passages of Lorem Ipsum available
-                                    </Text>
-                                    <Grid style={styles.swiperContentBox}>
-                                        <Col style={{flexDirection:'row'}}>
-                                            <TouchableOpacity>
-                                                <Text style={styles.newsLink}>Money.com</Text>
-                                            </TouchableOpacity>
-                                            <Icon name='ios-time-outline' style={styles.timeIcon} />
-                                            <Text style={styles.newsLink}>2months ago</Text>
-                                        </Col>
-                                        <Col>
-                                            <TouchableOpacity style={styles.newsTypeView}>
-                                                <Text style={styles.newsTypeText}>FINANCE</Text>
-                                            </TouchableOpacity>
-                                        </Col>
-                                    </Grid>
-                                </View>
-                            </TouchableOpacity>
-                        </Card>
-                    </Content>
-                </Image>
-            </Container>
-        )
-    }
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <View style={styles.newsContent}>
+                <Text numberOfLines={2} style={styles.newsHeader}>
+                      NativeBase builds a layer on top of React Native that provides, basic set of components for mobile application development.
+                  </Text>
+                <Grid style={styles.swiperContentBox}>
+                  <Col style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity>
+                      <Text style={styles.newsLink}>Money.com</Text>
+                    </TouchableOpacity>
+                    <Icon name="ios-time-outline" style={styles.timeIcon} />
+                    <Text style={styles.newsLink}>2months ago</Text>
+                  </Col>
+                  <Col>
+                    <TouchableOpacity style={styles.newsTypeView}>
+                      <Text style={styles.newsTypeText}>FINANCE</Text>
+                    </TouchableOpacity>
+                  </Col>
+                </Grid>
+              </View>
+            </TouchableOpacity>
+          </Card>
+        </Content>
+      </Container>
+    );
+  }
 }
-
 
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
     reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key))
+    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 

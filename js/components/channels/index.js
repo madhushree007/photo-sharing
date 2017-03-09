@@ -1,17 +1,13 @@
-'use strict';
+
 
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity, Platform } from 'react-native';
+import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
-
+import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { actions } from 'react-native-navigation-redux-helpers';
+import { Container, Header, Left, Body, Right, Button, Icon } from 'native-base';
 import { openDrawer } from '../../actions/drawer';
 
-import { Container, Header, Content, Text, Button, Icon, Tabs } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid';
-import HeaderContent from './../headerContent/';
-
-import theme from '../../themes/base-theme';
 import styles from './styles';
 
 import TabOne from './tabOne';
@@ -20,54 +16,68 @@ import TabThree from './tabThree';
 
 import CustomTabBar from './CustomTabBar';
 
+const headerLogo = require('../../../images/Header-Logo.png');
+
 const {
   popRoute,
-  pushRoute
+  pushRoute,
 } = actions;
 class Channels extends Component {
 
 
-      static propTypes = {
-        popRoute: React.PropTypes.func,
-        pushRoute: React.PropTypes.func,
-        navigation: React.PropTypes.shape({
-          key: React.PropTypes.string,
-        }),
-      }
+  static propTypes = {
+    popRoute: React.PropTypes.func,
+    pushRoute: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
 
-      popRoute() {
-        this.props.popRoute(this.props.navigation.key);
-      }
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
+  }
 
-      pushRoute(route) {
-        this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
-      }
+  pushRoute(route) {
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+  }
 
-    render() {
-        return (
-            <Container theme={theme}>
-                    <Header>
-                        <HeaderContent />
-                    </Header>
-                    <View style={styles.bgHead}>
+  render() {
+    return (
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => this.popRoute()}>
+              <Icon active name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Image source={headerLogo} style={styles.imageHeader} />
+          </Body>
+          <Right>
+            <Button transparent onPress={this.props.openDrawer} >
+              <Icon active name="menu" />
+            </Button>
+          </Right>
+        </Header>
+        <View style={styles.bgHead}>
 
-                                        <Tabs renderTabBar={() => <CustomTabBar someProp={'here'} />}>
-                                            <TabOne tabLabel='Following' />
-                                            <TabTwo tabLabel='Popular' />
-                                            <TabThree tabLabel='Explore' />
-                                        </Tabs>
-                    </View>
-            </Container>
-        )
-    }
+          <ScrollableTabView renderTabBar={() => <CustomTabBar someProp={'here'} />}>
+            <TabOne tabLabel="Following" />
+            <TabTwo tabLabel="Popular" />
+            <TabThree tabLabel="Explore" />
+          </ScrollableTabView>
+        </View>
+      </Container>
+    );
+  }
 }
 
 function bindAction(dispatch) {
-    return {
-        openDrawer: ()=>dispatch(openDrawer()),
-        popRoute: key => dispatch(popRoute(key)),
-        pushRoute: (route, key) => dispatch(pushRoute(route, key))
-    }
+  return {
+    openDrawer: () => dispatch(openDrawer()),
+    popRoute: key => dispatch(popRoute(key)),
+    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
+  };
 }
 
 const mapStateToProps = state => ({

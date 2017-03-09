@@ -3,7 +3,7 @@ import { actions } from 'react-native-navigation-redux-helpers';
 import { closeDrawer } from './drawer';
 
 const {
-  replaceAt,
+  replaceAtIndex,
   popRoute,
   pushRoute,
   reset,
@@ -17,11 +17,11 @@ export default function navigateTo(route, homeRoute) {
     if (homeRoute === 'home' && route === 'login') {
       dispatch(reset([{ key: 'login' }], navigation.key, 0));
     } else if (currentRouteKey !== homeRoute && route !== homeRoute) {
-      dispatch(replaceAt(currentRouteKey, { key: route, index: 1 }, navigation.key));
+      dispatch(replaceAtIndex(navigation.index, { key: route }, navigation.key));
     } else if (currentRouteKey !== homeRoute && route === homeRoute) {
       dispatch(popRoute(navigation.key));
     } else if (currentRouteKey === homeRoute && route !== homeRoute) {
-      dispatch(pushRoute({ key: route, index: 1 }, navigation.key));
+      dispatch(pushRoute({ key: route }, navigation.key));
     }
   };
 }

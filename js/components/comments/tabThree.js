@@ -1,123 +1,109 @@
-'use strict';
+
 
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity, Platform } from 'react-native';
+import { View, Platform, Text } from 'react-native';
 import { connect } from 'react-redux';
 
-import { actions } from 'react-native-navigation-redux-helpers';
-import { openDrawer } from '../../actions/drawer';
+import { Container, Content, Icon, Card, CardItem, Thumbnail, Body, Right } from 'native-base';
 
-import { Container, Header, Content, Text, Button, Icon, Tabs, Card, CardItem,Thumbnail } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid';
-import HeaderContent from './../headerContent/';
-
-import theme from '../../themes/base-theme';
 import styles from './style';
 
-const {
-  replaceAt,
-  pushRoute
-} = actions;
 class TabThree extends Component {
 
-          static propTypes = {
-            popRoute: React.PropTypes.func,
-            pushRoute: React.PropTypes.func,
-            navigation: React.PropTypes.shape({
-              key: React.PropTypes.string,
-            }),
-          }
+  static propTypes = {
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
 
+  render() {
+    return (
+      <Container>
+        <Content showsVerticalScrollIndicator={false}>
+          <View style={{ backgroundColor: '#FFF' }}>
+            <Card foregroundColor="#222" style={styles.card}>
+              <CardItem style={styles.cardHeader} header>
+                <Thumbnail small source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
+                <Text style={styles.cmtName}>Kumar Sanket</Text>
+                <View style={{ flexDirection: 'row', position: 'absolute', right: 0, top: 27 }}>
+                  <Icon name="ios-time-outline" style={styles.timeIcon} />
+                  <Text style={styles.date}>May 24, 11:00 AM</Text>
+                  <Icon name="ios-heart-outline" style={styles.likeIcon} />
+                  <Text style={styles.date}>12</Text>
+                </View>
+              </CardItem>
 
-          pushRoute(route) {
-            this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
-          }
-    render() {
-        return (
-            <Container>
-            <Content theme={theme} style={{marginBottom:(Platform.OS === 'ios') ? -50 : -10}}>
-            <View>
-            <Card foregroundColor='#222' style={styles.card}>
-                <CardItem style={styles.cardHeader}  header>
-                    <Thumbnail source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? {borderRadius: 40} : {}} />
-                    <Text style={styles.cmtName}>Kumar Sanket</Text>
-                    <Icon name='ios-time-outline'  style={styles.timeIcon} />
-                    <Text style={styles.date}>May 24, 11:00 AM</Text>
-                    <Icon name='ios-heart-outline' style={styles.likeIcon} />
-                    <Text style={styles.date}>12</Text>
-                </CardItem>
-
-                <CardItem style={styles.cardItem} >
-                    <Text>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text.
+              <CardItem style={styles.cardItem} >
+                <Text style={{ color: '#000', paddingLeft: 10 }}>
+                        Life is one time offer! Use it well
                     </Text>
-                </CardItem>
+              </CardItem>
             </Card>
 
 
-            <Card foregroundColor='#222' style={styles.card}>
-                <CardItem style={styles.cardHeader}  header>
-                    <Thumbnail source={require('../../../images/contacts/saurav.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
-                    <Text style={styles.cmtName}>Saurav Sahu</Text>
-                    <Icon name='ios-time-outline' style={styles.timeIcon} />
-                    <Text style={styles.date}>Feb 17, 04:30 PM</Text>
-                    <Icon name='ios-heart-outline' style={styles.likeIcon} />
-                    <Text style={styles.date}>5</Text>
-                </CardItem>
-                <CardItem style={styles.cardItem} >
-                    <Text>
-                        There are many variations of passages of Lorem Ipsum available.
+            <Card foregroundColor="#222" style={styles.card}>
+              <CardItem style={styles.cardHeader} header>
+                <Thumbnail small source={require('../../../images/contacts/saurav.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
+                <Text style={styles.cmtName}>Saurav Sahu</Text>
+                <View style={{ flexDirection: 'row', position: 'absolute', right: 0, top: 27 }}>
+                  <Icon name="ios-time-outline" style={styles.timeIcon} />
+                  <Text style={styles.date}>Feb 17, 04:30 PM</Text>
+                  <Icon name="ios-heart-outline" style={styles.likeIcon} />
+                  <Text style={styles.date}>5</Text>
+                </View>
+              </CardItem>
+              <CardItem style={styles.cardItem} >
+                <Text style={{ color: '#000', paddingLeft: 10 }}>
+                        Failure is the stepping stone for success.
                     </Text>
-                </CardItem>
+              </CardItem>
             </Card>
 
-            <Card foregroundColor='#222' style={styles.card}>
-                <CardItem style={styles.cardHeader}  header>
-                    <Thumbnail source={require('../../../images/contacts/atul.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
-                    <Text style={styles.cmtName}>Atul Ranjan</Text>
-                    <Icon name='ios-time-outline' style={styles.timeIcon} />
-                    <Text style={styles.date}>Feb 03, 01:00 PM</Text>
-                    <Icon name='ios-heart-outline' style={styles.likeIcon} />
-                    <Text style={styles.date}>5</Text>
-                </CardItem>
-                <CardItem style={styles.cardItem} >
-                    <Text>
-                        The generated Lorem Ipsum is therefore always free from repetition
+            <Card foregroundColor="#222" style={styles.card}>
+              <CardItem style={styles.cardHeader} header>
+                <Thumbnail small source={require('../../../images/contacts/atul.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
+                <Text style={styles.cmtName}>Atul Ranjan</Text>
+                <View style={{ flexDirection: 'row', position: 'absolute', right: 0, top: 27 }}>
+                  <Icon name="ios-time-outline" style={styles.timeIcon} />
+                  <Text style={styles.date}>Feb 03, 01:00 PM</Text>
+                  <Icon name="ios-heart-outline" style={styles.likeIcon} />
+                  <Text style={styles.date}>5</Text>
+                </View>
+              </CardItem>
+              <CardItem style={styles.cardItem} >
+                <Text style={{ color: '#000', paddingLeft: 10 }}>
+                        Difficult road always lead to a beautiful destination.
                     </Text>
-                </CardItem>
+              </CardItem>
             </Card>
 
-            <Card foregroundColor='#222' style={styles.card}>
-                <CardItem style={styles.cardHeader}  header>
-                    <Thumbnail source={require('../../../images/contacts/varun.png')}  style={Platform.OS === 'android' ? {borderRadius: 40} : {}}/>
-                    <Text style={styles.cmtName}>Varun Sahu</Text>
-                    <Icon name='ios-time-outline' style={styles.timeIcon} />
-                    <Text style={styles.date}>Jan 12, 09:30 PM</Text>
-                    <Icon name='ios-heart-outline' style={styles.likeIcon} />
-                    <Text style={styles.date}>4</Text>
-                </CardItem>
-                <CardItem style={styles.cardItem} >
-                    <Text>
-                         Various versions have evolved over the years, sometimes by accident
+            <Card foregroundColor="#222" style={styles.card}>
+              <CardItem style={styles.cardHeader} header>
+                <Thumbnail small source={require('../../../images/contacts/varun.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
+                <Text style={styles.cmtName}>Varun Sahu</Text>
+                <View style={{ flexDirection: 'row', position: 'absolute', right: 0, top: 27 }}>
+                  <Icon name="ios-time-outline" style={styles.timeIcon} />
+                  <Text style={styles.date}>Jan 12, 09:30 PM</Text>
+                  <Icon name="ios-heart-outline" style={styles.likeIcon} />
+                  <Text style={styles.date}>4</Text>
+                </View>
+              </CardItem>
+              <CardItem style={styles.cardItem} >
+                <Text style={{ color: '#000', paddingLeft: 10 }}>
+                         Wish I had a Time machine.
                     </Text>
-                </CardItem>
+              </CardItem>
             </Card>
-            </View>
-            </Content>
-            </Container>
-        )
-    }
+          </View>
+        </Content>
+      </Container>
+    );
+  }
 }
 
-function bindActions(dispatch) {
-  return {
-    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-  };
-}
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindActions)(TabThree);
+export default connect(mapStateToProps)(TabThree);
