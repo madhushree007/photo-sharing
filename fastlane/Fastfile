@@ -8,7 +8,7 @@ ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"]="-t DAV"
 
 platform :ios do
   before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     ENV["USER_NAME"] = sh "git config --global user.name"
     ENV["VERSION"] = sh "/usr/libexec/PlistBuddy -c 'Print:CFBundleShortVersionString' ../ios/StrapFlatApp/Info.plist"
   end
@@ -35,14 +35,13 @@ platform :ios do
 
   desc "Deploy a new version to the App Store"
   lane :release do
-    # deliver(
-    #   force: true,
-    #   build_number: latest_testflight_build_number.to_s,
-    #   submit_for_review: true,
-    #   automatic_release: true
-    # )
-    # ENV["SLACK_MESSAGE"]="Submitted Flat App on App Store - Build Version: #{latest_testflight_build_number}"
-    ENV["SLACK_MESSAGE"]="This lane is not funcational"
+    deliver(
+      force: true,
+      build_number: latest_testflight_build_number.to_s,
+      submit_for_review: true,
+      automatic_release: true
+    )
+    ENV["SLACK_MESSAGE"]="Submitted Flat App on App Store - Build Version: #{latest_testflight_build_number}"
   end
 
 

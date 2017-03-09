@@ -262,7 +262,7 @@ class Home extends Component {
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                      There are many variations of passages of Lorem Ipsum available
+                      NativeBase builds a layer on top of React Native that provides, basic set of components for mobile application development.
                   </Text>
                 <Grid style={styles.swiperContentBox}>
                   <Col style={{ flexDirection: 'row' }}>
