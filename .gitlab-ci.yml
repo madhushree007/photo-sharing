@@ -10,7 +10,7 @@ archive_project_testflight:
     - fastlane ios testflight
     # - fastlane android testflight
   only:
-    - development
+    # - development
   tags:
     - ios
     - android

@@ -97,7 +97,7 @@ class Story extends Component {
                   <TouchableOpacity>
                     <View style={styles.newsPosterContent}>
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                          Contrary to popular belief, Lorem Ipsum is not simply random text.
+                          Flat App Theme
                       </Text>
                     </View>
                   </TouchableOpacity>
@@ -120,44 +120,28 @@ class Story extends Component {
                     </Col>
                   </Grid>
                   <Text style={styles.newsHeader}>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting
-                      industry. Lorem Ipsum has been the industrys standard dummy
-                      text ever since the 1500s,
-                      when an unknown printer took a galley of type and scrambled
-                      it to make a type specimen book.
+                      React Native Flat App Theme, a fascinating React Native starter kit with flat UI design, Redux and NativeBase components for your application. 
                   </Text>
                 </View>
 
                 <View style={{ padding: 20 }}>
                   <View style={styles.newsCommentContainer}>
                     <Text style={styles.newsComment}>
-                        It has roots in a piece of classical Latin literature from 45 BC,
-                        making it over 2000 years old. Richard McClintock, a Latin professor
-                        at Hampden-Sydney College
+                        It’s a responsive theme with clean and modern look highly focussed on efficiency. The flat design enables resizing the contents easily to fit various screen devices. Eye soothing color makes the React Native Flat app theme simple yet eye catchy and smooth running.
                     </Text>
-                    <Text style={styles.newsComment}>- JOHN</Text>
+                    <Text style={styles.newsComment}>- StrapMobile</Text>
                   </View>
                   <Text style={styles.newsHeader}>
-                      So, is Lorem Ipsum, dummy text of the printing and
-                      typesetting industry helpfull?
+                      The flat UI design adds an aesthetic touch to the native look and feel of React Native apps.
                   </Text>
                   <View style={{ paddingBottom: 20 }}>
                     <Text style={styles.newsHeader}>
-                      There are many variations of passages of Lorem
-                      Ipsum available, but the majority have suffered alteration
-                      in some form, by injected humour, or randomised words which
-                      don't look even slightly believable. If you are going to use a
-                      passage of Lorem Ipsum, you need to be sure there isn't
-                      anything embarrassing hidden in the middle of text.
+                      NativeBase is a free and open source framework that enables developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6.
                   </Text>
                   </View>
                   <View style={{ paddingBottom: 20, paddingTop: 10 }}>
                     <Text style={styles.newsHeader}>
-                        All the Lorem Ipsum generators on the Internet
-                        tend to repeat predefined chunks as necessary, making this
-                        the first true generator on the Internet. It uses a dictionary
-                        of over 200 Latin words, combined with a handful of
-                        model sentence structures, to generate Lorem Ipsum which looks reasonable.
+                        NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development. This helps you to build world-class application experiences on native platforms.
                     </Text>
                   </View>
                 </View>

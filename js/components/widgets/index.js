@@ -48,11 +48,11 @@ class Widgets extends Component {
                 <Col>
                   <Icon name="ios-cloud-outline" style={{ fontSize: 40 }} />
                   <Text style={{ fontWeight: '700' }}>Mostly Cloudy</Text>
-                  <Text style={{ opacity: 0.7, fontWeight: '700' }}>New York</Text>
+                  <Text style={{ opacity: 0.7, fontWeight: '700' }}>Bangalore</Text>
                 </Col>
                 <Col style={{ alignItems: 'flex-end' }}>
                   <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.weather}>76</Text>
+                    <Text style={styles.weather}>38</Text>
                     <Icon name="ios-radio-button-off" style={{ fontSize: 16, marginTop: 5 }} />
                   </View>
                 </Col>
@@ -60,27 +60,27 @@ class Widgets extends Component {
 
               <Grid style={styles.weatherInfoContainer}>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>65</Text>
+                  <Text style={styles.weatherInfo}>30</Text>
                   <Text style={styles.weatherTime}>8 AM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>86</Text>
+                  <Text style={styles.weatherInfo}>43</Text>
                   <Text style={styles.weatherTime}>12 PM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>79</Text>
+                  <Text style={styles.weatherInfo}>39</Text>
                   <Text style={styles.weatherTime}>4 PM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>62</Text>
+                  <Text style={styles.weatherInfo}>37</Text>
                   <Text style={styles.weatherTime}>8 PM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>59</Text>
+                  <Text style={styles.weatherInfo}>34</Text>
                   <Text style={styles.weatherTime}>12 AM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>52</Text>
+                  <Text style={styles.weatherInfo}>28</Text>
                   <Text style={styles.weatherTime}>4 AM</Text>
                 </Col>
               </Grid>

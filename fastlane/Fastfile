@@ -8,7 +8,7 @@ ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"]="-t DAV"
 
 platform :ios do
   before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     ENV["USER_NAME"] = sh "git config --global user.name"
     ENV["VERSION"] = sh "/usr/libexec/PlistBuddy -c 'Print:CFBundleShortVersionString' ../ios/StrapFlatApp/Info.plist"
   end
@@ -101,7 +101,7 @@ end
 platform :android do
 
   before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     ENV["USER_NAME"] = sh "git config --global user.name"
   end
 
