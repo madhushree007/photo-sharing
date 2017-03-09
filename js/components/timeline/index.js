@@ -49,7 +49,7 @@ class Timeline extends Component {
               <View style={styles.timelineView}>
                 <View style={styles.timelineContent}>
                   <Text style={styles.timelineTextHeader}>
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Earth formed around 4.54 billion years ago by accretion from the solar nebula.
                   </Text>
                 </View>
               </View>
@@ -80,10 +80,10 @@ class Timeline extends Component {
                 <View style={styles.timelineView}>
                     <View style={styles.timelineContent}>
                         <Text  style={styles.timelineTextHeader}>
-                            It has roots in a piece of classical Latin literature from 45 BC.
+                            A "giant impact" collision is thought to have been responsible for forming the Moon.
                         </Text>
                         <Text numberOfLines={2} style={styles.timelineTextComment}>
-                            'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
+                            'The giant-impact hypothesis, sometimes called the Big Splash, or the Theia Impact.'
                         </Text>
                     </View>
                 </View>
@@ -143,7 +143,7 @@ class Timeline extends Component {
                             <View style={styles.timelineView}>
                                 <View style={styles.timelineContent}>
                                     <Text style={styles.timelineTextHeader}>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Living forms derived from photosynthesis appeared between 3.2 and 2.4 billion years ago.
                                     </Text>
                                 </View>
                             </View>
@@ -175,7 +175,7 @@ class Timeline extends Component {
                             <View style={styles.timelineView}>
                                 <View style={styles.timelineContent}>
                                     <Text  style={styles.timelineTextHeader}>
-                                        Various versions have evolved over the years, sometimes by accident
+                                        Life remained mostly small and microscopic until about 580 million years ago.
                                     </Text>
                                 </View>
                             </View>
@@ -207,7 +207,7 @@ class Timeline extends Component {
                             <View style={styles.timelineView}>
                                 <View style={styles.timelineContent}>
                                     <Text  style={styles.timelineTextHeader}>
-                                        Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc
+                                        The history of Earth is divided into four great eons.
                                     </Text>
                                 </View>
                             </View>
@@ -238,7 +238,7 @@ class Timeline extends Component {
                             <View style={styles.timelineView}>
                                 <View style={styles.timelineContent}>
                                     <Text  style={styles.timelineTextHeader}>
-                                        There are many variations of passages of Lorem Ipsum available
+                                        The Earth and Moon have the same oxygen isotopic signature.
                                     </Text>
                                 </View>
                             </View>

@@ -76,7 +76,7 @@ class Home extends Component {
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
                     <View style={styles.swiperTextContent} >
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                          Contrary to popular belief, Lorem Ipsum is not simply random text.
+                          Flat App is a style of interface design emphasizing minimal use of stylistic elements.
                         </Text>
                       <Grid style={styles.swiperContentBox}>
                         <Col style={{ flexDirection: 'row' }}>
@@ -100,7 +100,7 @@ class Home extends Component {
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
                     <View style={styles.swiperTextContent}>
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                            Lorem Ipsum is simply dummy text of the printing
+                            So that the applications are able to load faster and resize easily.
                         </Text>
                       <Grid style={styles.swiperContentBox}>
                         <Col style={{ flexDirection: 'row' }}>
@@ -124,7 +124,7 @@ class Home extends Component {
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
                     <View style={styles.swiperTextContent}>
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                            Lorem Ipsum is simply dummy text of the printing
+                            But still look sharp on high-definition screens. 
                         </Text>
                       <Grid style={styles.swiperContentBox}>
                         <Col style={{ flexDirection: 'row' }}>
@@ -151,7 +151,7 @@ class Home extends Component {
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                      Lorem Ipsum is simply dummy text of the printing
+                      Flat App is focused on a minimal use of simple elements, typography and flat colors.
                   </Text>
                 <Grid style={styles.swiperContentBox}>
                   <Col style={{ flexDirection: 'row' }}>
@@ -173,7 +173,7 @@ class Home extends Component {
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                      Contrary to popular belief, Lorem Ipsum is not simply random text.
+                      Highly customizable widgets are part of our never ending mission.
                   </Text>
                 <Grid style={styles.swiperContentBox}>
                   <Col style={{ flexDirection: 'row' }}>
@@ -195,7 +195,7 @@ class Home extends Component {
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                      It has survived not only five centuries
+                      Ready to use components built using NativeBase.
                   </Text>
                 <Grid style={styles.swiperContentBox}>
                   <Col style={{ flexDirection: 'row' }}>
@@ -217,7 +217,7 @@ class Home extends Component {
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                      It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages
+                      Theme your app with one single file.
                   </Text>
                 <Grid style={styles.swiperContentBox}>
                   <Col style={{ flexDirection: 'row' }}>
@@ -240,8 +240,7 @@ class Home extends Component {
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                      The standard chunk of Lorem Ipsum used since the 1500s
-                      is reproduced below for those interested
+                      It is easier with Flat App design to quickly convey information while still looking visually appealing and approachable.
                   </Text>
                 <Grid style={styles.swiperContentBox}>
                   <Col style={{ flexDirection: 'row' }}>

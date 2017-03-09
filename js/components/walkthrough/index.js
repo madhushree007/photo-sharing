@@ -59,7 +59,7 @@ class Walkthrough extends Component {
                             </Text>
               <Icon name="ios-information-circle-outline" style={styles.imageIcons} />
               <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>
-                                Lorem Ipsum industrys standard dummy text
+                                Get News Feed of variuos domains at one place
                             </Text>
               <Button
                 transparent rounded
@@ -76,7 +76,7 @@ class Walkthrough extends Component {
                             </Text>
               <Icon name="ios-volume-up-outline" style={styles.imageIcons} />
               <Text numberOfLines={2} style={Platform.OS === 'android' ? styles.aText : styles.iosText}>
-                                Lorem Ipsum is not simply random text
+                                Get going with the React Native Flat App Theme
                             </Text>
               <Button
                 transparent rounded

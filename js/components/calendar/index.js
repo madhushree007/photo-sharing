@@ -85,7 +85,7 @@ class Calendar extends Component {
               <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                                    Lorem Ipsum is simply dummy text of the printing
+                                    Flat App is focussed on a minimal use of simple elements.
                                 </Text>
                 <Grid style={{ marginTop: 25 }}>
                   <Col>
@@ -105,7 +105,7 @@ class Calendar extends Component {
               <Image source={require('../../../images/NewsIcons/3.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                                    Contrary to popular belief, Lorem Ipsum is not simply random text.
+                                    So that the applications are able to load faster and reaize easily.
                                 </Text>
                 <Grid style={{ marginTop: 25 }}>
                   <Col>
@@ -125,7 +125,7 @@ class Calendar extends Component {
               <Image source={require('../../../images/NewsIcons/4.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                                    It has survived not only five centuries
+                                    But still look sharp on high-definition screens.
                                 </Text>
                 <Grid style={{ marginTop: 25 }}>
                   <Col>
@@ -145,7 +145,7 @@ class Calendar extends Component {
               <Image source={require('../../../images/NewsIcons/11.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                                    Lorem Ipsum is simply dummy text of the printing
+                                    Highly customizable widgets are part of our never ending mission.
                                 </Text>
                 <Grid style={{ marginTop: 25 }}>
                   <Col>
@@ -165,7 +165,7 @@ class Calendar extends Component {
               <Image source={require('../../../images/NewsIcons/13.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                                    Contrary to popular belief, Lorem Ipsum is not simply random text.
+                                    Ready to use components built using NativeBase.
                                 </Text>
                 <Grid style={{ marginTop: 25 }}>
                   <Col>
@@ -185,7 +185,7 @@ class Calendar extends Component {
               <Image source={require('../../../images/NewsIcons/12.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                                    It has survived not only five centuries
+                                    Theme your app with one single file.
                                 </Text>
                 <Grid style={{ marginTop: 25 }}>
                   <Col>
