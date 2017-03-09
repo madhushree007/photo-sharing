@@ -217,7 +217,7 @@ class Home extends Component {
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
-                      Theme your app with one single file.
+                      Theme your app with one single file
                   </Text>
                 <Grid style={styles.swiperContentBox}>
                   <Col style={{ flexDirection: 'row' }}>
