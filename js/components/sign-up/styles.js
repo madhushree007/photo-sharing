@@ -39,6 +39,7 @@ export default {
   },
   input: {
     paddingLeft: 10,
+    color: '#FFF',
   },
   signupBtn: {
     height: 50,
