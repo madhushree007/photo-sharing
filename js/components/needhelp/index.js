@@ -5,6 +5,7 @@ import { Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
+import { Actions } from 'react-native-router-flux';
 
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
 
@@ -66,7 +67,7 @@ class NeedHelp extends Component {
                     <Text style={{ color: '#FFF' }}>Send Email</Text>
                   </Button>
 
-                  <TouchableOpacity onPress={() => this.popRoute()}>
+                  <TouchableOpacity onPress={() => Actions.pop()}>
                     <Text style={styles.termsText}>Back To Login</Text>
                   </TouchableOpacity>
                 </View>

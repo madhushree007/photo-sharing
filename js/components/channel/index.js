@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
 
@@ -43,7 +44,7 @@ class Channel extends Component {
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
             <Left>
-              <Button transparent onPress={() => this.popRoute()}>
+              <Button transparent onPress={() => Actions.pop()}>
                 <Icon active name="arrow-back" />
               </Button>
             </Left>
@@ -80,10 +81,10 @@ class Channel extends Component {
             </View>
 
             <View foregroundColor={'white'} style={{ backgroundColor: '#fff' }}>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
                 <View style={styles.newsContentWrap}>
                   <Text numberOfLines={2} style={styles.newsHeader}>
-                                        Earth formed around 4.54 billion years ago by accretion from the solar nebula. 
+                                        Earth formed around 4.54 billion years ago by accretion from the solar nebula.
                                     </Text>
                   <Grid style={styles.newsContent}>
                     <Col style={{ flexDirection: 'row' }}>
@@ -96,7 +97,7 @@ class Channel extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
                 <View style={styles.newsContentWrap}>
                   <Text numberOfLines={2} style={styles.newsHeader}> A "giant impact" collision is thought to have been responsible for forming the Moon.</Text>
                   <Grid style={styles.newsContent}>
@@ -110,7 +111,7 @@ class Channel extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
                 <View style={styles.newsContentWrap}>
                   <Text numberOfLines={2} style={styles.newsHeader}>
                                         Living forms derived from photosynthesis appeared between 3.2 and 2.4 billion years ago.
@@ -126,7 +127,7 @@ class Channel extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
                 <View style={styles.newsContentWrap}>
                   <Text numberOfLines={2} style={styles.newsHeader}>Life remained mostly small and microscopic until about 580 million years ago.</Text>
                   <Grid style={styles.newsContent}>
@@ -141,7 +142,7 @@ class Channel extends Component {
                 </View>
               </TouchableOpacity>
 
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
                 <View style={styles.newsContentWrap}>
                   <Text numberOfLines={2} style={styles.newsHeader}>The history of Earth is divided into four great eons.</Text>
                   <Grid style={styles.newsContent}>
@@ -155,7 +156,7 @@ class Channel extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
                 <View style={styles.newsContentWrap}>
                   <Text numberOfLines={2} style={styles.newsHeader}>
                                         The Earth and Moon have the same oxygen isotopic signature.
@@ -171,7 +172,7 @@ class Channel extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
                 <View style={styles.newsContentWrap}>
                   <Text numberOfLines={2} style={styles.newsHeader}>Ice might have covered the oceans 3 billion years ago.</Text>
                   <Grid style={styles.newsContent}>

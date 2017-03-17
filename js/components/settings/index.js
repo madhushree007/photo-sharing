@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Image, View, Switch, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
 
+import { Actions, ActionConst } from 'react-native-router-flux';
 import { Container, Header, Content, Text, Button, Icon, Thumbnail, Item, Input, Left, Right, Body } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 
@@ -71,7 +72,7 @@ class Settings extends Component {
           <Right>
             <Button
               transparent
-              onPress={() => this.props.reset(this.props.navigation.key)}
+              onPress={() => Actions.login({ type: ActionConst.RESET  })}
             >
               <Icon active name="power" />
             </Button>

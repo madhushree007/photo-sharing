@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { View, Platform, Text } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 import { Container, Content, Icon, Card, CardItem, Thumbnail, Body, Right } from 'native-base';
 

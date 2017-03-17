@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
@@ -39,14 +40,14 @@ class TabOne extends Component {
             <Grid>
               <Row>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/9.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>FASHION</Text>
                     </Image>
                   </TouchableOpacity>
                 </Col>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/2.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>SCIENCE</Text>
                     </Image>
@@ -55,14 +56,14 @@ class TabOne extends Component {
               </Row>
               <Row>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/8.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>AUTO</Text>
                     </Image>
                   </TouchableOpacity>
                 </Col>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/7.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>TECHNOLOGY</Text>
                     </Image>
@@ -71,14 +72,14 @@ class TabOne extends Component {
               </Row>
               <Row>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/6.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>FINANCES</Text>
                     </Image>
                   </TouchableOpacity>
                 </Col>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>ENVIRONMENT</Text>
                     </Image>
@@ -87,14 +88,14 @@ class TabOne extends Component {
               </Row>
               <Row>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/11.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>SPORTS</Text>
                     </Image>
                   </TouchableOpacity>
                 </Col>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/12.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>ART</Text>
                     </Image>
@@ -103,14 +104,14 @@ class TabOne extends Component {
               </Row>
               <Row>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/10.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>ANIMATION</Text>
                     </Image>
                   </TouchableOpacity>
                 </Col>
                 <Col>
-                  <TouchableOpacity onPress={() => this.pushRoute('channel')}>
+                  <TouchableOpacity onPress={() => Actions.channel()}>
                     <Image source={require('../../../images/NewsIcons/13.jpg')} style={styles.channelImg}>
                       <Text style={Platform.OS === 'android' ? styles.achannelImgText : styles.ioschannelImgText}>EDUCATION</Text>
                     </Image>

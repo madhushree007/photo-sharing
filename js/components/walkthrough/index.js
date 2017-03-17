@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 import { actions } from 'react-native-navigation-redux-helpers';
 
@@ -46,7 +47,7 @@ class Walkthrough extends Component {
                             </Text>
               <Button
                 transparent rounded
-                onPress={() => this.replaceRoute('home')}
+                onPress={() => Actions.home()}
                 style={styles.Button}
               >
                 <Text style={{ color: '#FFF', fontWeight: '600' }}>Skip To App</Text>
@@ -63,7 +64,7 @@ class Walkthrough extends Component {
                             </Text>
               <Button
                 transparent rounded
-                onPress={() => this.replaceRoute('home')}
+                onPress={() => Actions.home()}
                 style={styles.Button}
               >
                 <Text style={{ color: '#FFF', fontWeight: '600' }}>Skip To App</Text>
@@ -80,7 +81,7 @@ class Walkthrough extends Component {
                             </Text>
               <Button
                 transparent rounded
-                onPress={() => this.replaceRoute('home')}
+                onPress={() => Actions.home()}
                 style={styles.Button}
               >
                 <Text style={{ color: '#FFF', fontWeight: '600' }}>Continue To App</Text>

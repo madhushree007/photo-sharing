@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform, Slider, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 
+import { Actions } from 'react-native-router-flux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Content, Text, Button, Icon, Body } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
@@ -72,10 +73,10 @@ class Story extends Component {
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
             <Body style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-              <Button transparent onPress={() => this.popRoute()}>
+              <Button transparent onPress={() => Actions.pop()}>
                 <Icon active name="arrow-back" style={styles.headerIcons} />
               </Button>
-              <Button transparent onPress={() => this.pushRoute('comments')}>
+              <Button transparent onPress={() => Actions.comments()}>
                 <Icon name="chatboxes" style={styles.headerIcons} />
               </Button>
               <Button transparent onPress={() => this.modalO()}>
@@ -120,7 +121,7 @@ class Story extends Component {
                     </Col>
                   </Grid>
                   <Text style={styles.newsHeader}>
-                      React Native Flat App Theme, a fascinating React Native starter kit with flat UI design, Redux and NativeBase components for your application. 
+                      React Native Flat App Theme, a fascinating React Native starter kit with flat UI design, Redux and NativeBase components for your application.
                   </Text>
                 </View>
 
@@ -173,7 +174,7 @@ class Story extends Component {
                 </View>
 
                 <View style={{ alignSelf: 'center' }}>
-                  <Button transparent iconRight onPress={() => this.popRoute('home')} textStyle={{ color: '#222', fontWeight: '700' }}>
+                  <Button transparent iconRight onPress={() => Actions.popTo('home')} textStyle={{ color: '#222', fontWeight: '700' }}>
                     <Text>NEXT STORY</Text>
                     <Icon name="ios-arrow-forward" style={styles.forwardBtn} />
                   </Button>

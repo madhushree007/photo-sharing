@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 
+import { Actions, ActionConst } from 'react-native-router-flux';
 
 import { Container, Header, Content, Text, Button, Icon, Item, Input, Left, Right, Body } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
@@ -55,7 +56,7 @@ class Feedback extends Component {
               <Image source={require('../../../images/Header-Logo.png')} style={styles.imageHeader} />
             </Body>
             <Right>
-              <Button transparent onPress={() => this.props.reset(this.props.navigation.key)}>
+              <Button transparent onPress={() => Actions.login({ type: ActionConst.RESET  })}>
                 <Icon active name="power" />
               </Button>
             </Right>

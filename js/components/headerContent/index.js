@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Icon, Button, Left, Right, Body, Header } from 'native-base';
 
@@ -32,7 +33,7 @@ class HeaderContent extends Component {
     return (
       <Header>
         <Left>
-          <Button transparent onPress={() => this.popRoute()}>
+          <Button transparent onPress={() => Actions.popTo('home')}>
             <Icon active name="arrow-back" />
           </Button>
         </Left>

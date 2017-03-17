@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Left, Body, Right, Button, Icon } from 'native-base';
@@ -46,7 +47,7 @@ class Channels extends Component {
       <Container>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.popRoute()}>
+            <Button transparent onPress={() => Actions.pop()}>
               <Icon active name="arrow-back" />
             </Button>
           </Left>

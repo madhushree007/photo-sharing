@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Image, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
+import { Actions } from 'react-native-router-flux';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { actions } from 'react-native-navigation-redux-helpers';
 
@@ -58,10 +59,10 @@ class Comments extends Component {
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
             <Body style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-              <Button transparent onPress={() => this.popRoute()}>
+              <Button transparent onPress={() => Actions.pop()}>
                 <Icon active name="arrow-back" style={styles.headerIcons} />
               </Button>
-              <Button transparent onPress={() => this.pushRoute('comments')}>
+              <Button transparent onPress={() => Actions.comments()}>
                 <Icon name="chatboxes" style={styles.headerIcons} />
               </Button>
               <Button transparent>

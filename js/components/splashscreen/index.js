@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import {connect} from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { actions } from 'react-native-navigation-redux-helpers'
 const launchscreen = require('../../../images/launchscreen.png');
 
@@ -22,7 +23,7 @@ const {
   componentWillMount() {
     const navigator = this.props.navigator;
     setTimeout (() => {
-           this.props.replaceAt('splashscreen', { key: 'login' }, this.props.navigation.key);
+           Actions.replace('splashscreen', { key: 'login' }, this.props.navigation.key);
        }, 1500);
   }
 

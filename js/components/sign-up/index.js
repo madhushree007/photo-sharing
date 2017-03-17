@@ -4,21 +4,16 @@ import React, { Component } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-import { actions } from 'react-native-navigation-redux-helpers';
+import { Actions } from 'react-native-router-flux';
 
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
 
 import styles from './styles';
 
-const {
-  reset,
-} = actions;
-
 class SignUp extends Component {
 
 
   static propTypes = {
-    reset: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -37,9 +32,6 @@ class SignUp extends Component {
     };
   }
 
-  resetRoute(route) {
-    this.props.resetRoute(route);
-  }
 
   render() {
     return (
@@ -76,7 +68,7 @@ class SignUp extends Component {
 
               <Button
                 rounded bordered block
-                onPress={() => this.props.reset(this.props.navigation.key)}
+                onPress={() => Actions.pop()}
                 style={styles.signupBtn}
               >
                 <Text style={{ color: '#FFF' }}>Continue</Text>
@@ -96,7 +88,6 @@ class SignUp extends Component {
 
 function bindAction(dispatch) {
   return {
-    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
   };
 }
 

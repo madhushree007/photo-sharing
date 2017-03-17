@@ -4,6 +4,7 @@ import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
 import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
 import { actions } from 'react-native-navigation-redux-helpers';
+import { Router, Scene } from 'react-native-router-flux';
 
 import { closeDrawer } from './actions/drawer';
 
@@ -30,6 +31,8 @@ import { statusBarColor } from './themes/base-theme';
 const {
   popRoute,
 } = actions;
+
+const RouterWithRedux = connect()(Router);
 
 const {
   CardStack: NavigationCardStack,
@@ -85,48 +88,6 @@ class AppNavigator extends Component {
     }
   }
 
-  _renderScene(props) { // eslint-disable-line class-methods-use-this
-    switch (props.scene.route.key) {
-      case 'splashscreen':
-        return <SplashPage />;
-      case 'login':
-        return <Login />;
-      case 'home':
-        return <Home />;
-      case 'feedback':
-        return <Feedback />;
-      case 'comments':
-        return <Comments />;
-      case 'signUp':
-        return <SignUp />;
-      case 'profile':
-        return <Profile />;
-      case 'walkthrough':
-        return <Walkthrough />;
-      case 'sideBar':
-        return <SideBar />;
-      case 'settings':
-        return <Settings />;
-      case 'channel':
-        return <Channel />;
-      case 'channels':
-        return <Channels />;
-      case 'calendar':
-        return <Calendar />;
-      case 'overview':
-        return <Overview />;
-      case 'story':
-        return <Story />;
-      case 'timeline':
-        return <Timeline />;
-      case 'widgets':
-        return <Widgets />;
-      case 'needhelp':
-        return <NeedHelp />;
-      default :
-        return <Walkthrough />;
-    }
-  }
 
   render() {  // eslint-disable-line class-methods-use-this
     return (
@@ -161,11 +122,28 @@ class AppNavigator extends Component {
           backgroundColor={statusBarColor}
           barStyle="light-content"
         />
-        <NavigationCardStack
-          navigationState={this.props.navigation}
-          renderOverlay={this._renderOverlay}
-          renderScene={this._renderScene}
-        />
+        <RouterWithRedux>
+          <Scene key="root">
+            <Scene key="login" component={Login} hideNavBar initial={true} />
+            <Scene key="signUp" component={SignUp} />
+            <Scene key="needhelp" component={NeedHelp} />
+            <Scene key="splashscreen" component={SplashPage} />
+            <Scene key="home" component={Home} />
+            <Scene key="feedback" component={Feedback} />
+            <Scene key="comments" component={Comments} />
+            <Scene key="profile" component={Profile} />
+            <Scene key="walkthrough" component={Walkthrough} />
+            <Scene key="sideBar" component={SideBar} />
+            <Scene key="settings" component={Settings} />
+            <Scene key="channel" component={Channel} />
+            <Scene key="channels" component={Channels} />
+            <Scene key="calendar" component={Calendar} />
+            <Scene key="overview" component={Overview} />
+            <Scene key="story" component={Story} />
+            <Scene key="timeline" component={Timeline} />
+            <Scene key="widgets" component={Widgets} />
+          </Scene>
+        </RouterWithRedux>
       </Drawer>
     );
   }
