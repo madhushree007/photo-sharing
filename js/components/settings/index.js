@@ -8,21 +8,15 @@ import { Actions, ActionConst } from 'react-native-router-flux';
 import { Container, Header, Content, Text, Button, Icon, Thumbnail, Item, Input, Left, Right, Body } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 
-import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
 
 import styles from './styles';
 
 const primary = require('../../themes/variable').brandPrimary;
 
-const {
-  reset,
-} = actions;
-
 class Settings extends Component {
 
   static propTypes = {
-    reset: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -52,9 +46,6 @@ class Settings extends Component {
     };
   }
 
-  resetRoute(route) {
-    this.props.resetRoute(route);
-  }
 
   render() {
     return (
@@ -235,7 +226,6 @@ class Settings extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
   };
 }
 

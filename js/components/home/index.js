@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions, ActionConst } from 'react-native-router-flux';
-import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Content, Text, Button, Icon, Card, Left, Body, Right } from 'native-base';
 
 import { Grid, Col } from 'react-native-easy-grid';
@@ -13,11 +12,6 @@ import { openDrawer } from '../../actions/drawer';
 
 import styles from './styles';
 
-const {
-  reset,
-  pushRoute,
-} = actions;
-
 const deviceWidth = Dimensions.get('window').width;
 const headerLogo = require('../../../images/Header-Logo.png');
 
@@ -26,15 +20,9 @@ class Home extends Component {
 
   static propTypes = {
     openDrawer: React.PropTypes.func,
-    reset: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
@@ -291,8 +279,6 @@ class Home extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 

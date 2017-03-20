@@ -2,36 +2,23 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, View, TouchableOpacity, Platform } from 'react-native';
+import { Image, View, TouchableOpacity } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { openDrawer } from '../../actions/drawer';
-import navigateTo from '../../actions/sideBarNav';
-import { Container, Header, Content, Text, Icon, Thumbnail } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid';
+import { Container, Content, Text, Thumbnail } from 'native-base';
+import { Grid, Col } from 'react-native-easy-grid';
 import HeaderContent from './../headerContent/';
+import { openDrawer } from '../../actions/drawer';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
-
-const {
-  pushRoute,
-} = actions;
-
 class Profile extends Component {
 
   static propTypes = {
-    navigateTo: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
-
-
-  navigateTo(route) {
-    this.props.navigateTo(route, 'home');
   }
 
   render() {
@@ -206,7 +193,6 @@ class Profile extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
   };
 }
 

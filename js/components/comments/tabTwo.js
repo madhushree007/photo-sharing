@@ -94,6 +94,44 @@ class TabTwo extends Component {
                     </Text>
               </CardItem>
             </Card>
+
+            <Card foregroundColor="#222" style={styles.card}>
+              <CardItem style={styles.cardHeader} header>
+                <Thumbnail small source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
+                <Text style={styles.cmtName}>Kumar Sanket</Text>
+                <View style={{ flexDirection: 'row', position: 'absolute', right: 0, top: 27 }}>
+                  <Icon name="ios-time-outline" style={styles.timeIcon} />
+                  <Text style={styles.date}>May 24, 11:00 AM</Text>
+                  <Icon name="ios-heart-outline" style={styles.likeIcon} />
+                  <Text style={styles.date}>12</Text>
+                </View>
+              </CardItem>
+
+              <CardItem style={styles.cardItem} >
+                <Text style={{ color: '#000', paddingLeft: 10 }}>
+                        Life is one time offer! Use it well
+                    </Text>
+              </CardItem>
+            </Card>
+
+
+            <Card foregroundColor="#222" style={styles.card}>
+              <CardItem style={styles.cardHeader} header>
+                <Thumbnail small source={require('../../../images/contacts/saurav.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
+                <Text style={styles.cmtName}>Saurav Sahu</Text>
+                <View style={{ flexDirection: 'row', position: 'absolute', right: 0, top: 27 }}>
+                  <Icon name="ios-time-outline" style={styles.timeIcon} />
+                  <Text style={styles.date}>Feb 17, 04:30 PM</Text>
+                  <Icon name="ios-heart-outline" style={styles.likeIcon} />
+                  <Text style={styles.date}>5</Text>
+                </View>
+              </CardItem>
+              <CardItem style={styles.cardItem} >
+                <Text style={{ color: '#000', paddingLeft: 10 }}>
+                        Failure is the stepping stone for success.
+                    </Text>
+              </CardItem>
+            </Card>
           </View>
         </Content>
       </Container>

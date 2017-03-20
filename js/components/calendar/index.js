@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Actions } from 'react-native-router-flux';
 
@@ -17,12 +16,6 @@ import HeaderContent from './../headerContent/';
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
-const {
-  popRoute,
-  pushRoute,
-} = actions;
-
-
 const headerLogo = require('../../../images/Header-Logo.png');
 
 class Calendar extends Component {
@@ -35,8 +28,6 @@ class Calendar extends Component {
   }
 
   static propTypes = {
-    popRoute: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -44,14 +35,6 @@ class Calendar extends Component {
 
   onDateChange(date) {
     this.setState({ date });
-  }
-
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
@@ -212,8 +195,6 @@ class Calendar extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 

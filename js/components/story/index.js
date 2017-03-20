@@ -3,7 +3,6 @@ import { Image, View, TouchableOpacity, Platform, Slider, Dimensions } from 'rea
 import { connect } from 'react-redux';
 
 import { Actions } from 'react-native-router-flux';
-import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Content, Text, Button, Icon, Body } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 
@@ -18,10 +17,6 @@ import styles from './styles';
 const deviceWidth = Dimensions.get('window').width;
 const primary = require('../../themes/variable').brandPrimary;
 
-const {
-  popRoute,
-  pushRoute,
-} = actions;
 const renderPagination = (index, total, context) => (
   <View style={{ position: 'absolute', bottom: -25, right: 10 }}>
     <Text>
@@ -36,8 +31,6 @@ const renderPagination = (index, total, context) => (
 class Story extends Component {
 
   static propTypes = {
-    popRoute: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -57,14 +50,6 @@ class Story extends Component {
 
   modalX() {
     this.setState({ open: false });
-  }
-
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
@@ -257,8 +242,6 @@ class Story extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 

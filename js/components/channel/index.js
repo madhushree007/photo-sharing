@@ -5,8 +5,6 @@ import { Image, View, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import { actions } from 'react-native-navigation-redux-helpers';
-
 import { Container, Header, Content, Text, Button, Icon, Left, Right, Body } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 import { openDrawer } from '../../actions/drawer';
@@ -16,26 +14,12 @@ import styles from './styles';
 const headerLogo = require('../../../images/Header-Logo.png');
 const primary = require('../../themes/variable').brandPrimary;
 
-const {
-  popRoute,
-  pushRoute,
-} = actions;
 class Channel extends Component {
 
   static propTypes = {
-    popRoute: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
-
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
@@ -197,8 +181,6 @@ class Channel extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 const mapStateToProps = state => ({

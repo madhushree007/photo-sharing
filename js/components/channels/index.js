@@ -5,7 +5,6 @@ import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Left, Body, Right, Button, Icon } from 'native-base';
 import { openDrawer } from '../../actions/drawer';
 
@@ -19,27 +18,13 @@ import CustomTabBar from './CustomTabBar';
 
 const headerLogo = require('../../../images/Header-Logo.png');
 
-const {
-  popRoute,
-  pushRoute,
-} = actions;
 class Channels extends Component {
 
 
   static propTypes = {
-    popRoute: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
-
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
@@ -76,8 +61,6 @@ class Channels extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 

@@ -4,34 +4,20 @@ import { Image, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Actions, ActionConst } from 'react-native-router-flux';
-import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, Text, Icon, List, ListItem, Thumbnail } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 import { closeDrawer } from '../../actions/drawer';
 
 
-import navigateTo from '../../actions/sideBarNav';
 import styles from './style';
 
-
-const {
-  reset,
-} = actions;
 
 class SideBar extends Component {
 
   static propTypes = {
-    reset: React.PropTypes.func,
-    navigateTo: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
-  navigateTo(route) {
-    this.props.navigateTo(route, 'home');
-  }
-  reset() {
-    this.props.reset(this.props.navigation.key);
   }
 
   render() {
@@ -102,8 +88,6 @@ class SideBar extends Component {
 
 function bindAction(dispatch) {
   return {
-    navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
-    reset: key => dispatch(closeDrawer(), reset([{ key: 'login' }], key, 0)),
     closeDrawer: () => dispatch(closeDrawer()),
   };
 }

@@ -5,32 +5,19 @@ import { Image, View, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Actions } from 'react-native-router-flux';
-import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
 
-import { Container, Header, Content, Text, Button, Icon, Tabs } from 'native-base';
+import { Container, Content, Text } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
-import HeaderContent from './../headerContent/';
 
-import theme from '../../themes/base-theme';
 import styles from './styles';
 
-const {
-  pushRoute,
-} = actions;
 class TabTwo extends Component {
 
   static propTypes = {
-    popRoute: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
-
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
@@ -128,14 +115,9 @@ class TabTwo extends Component {
   }
 }
 
-function bindActions(dispatch) {
-  return {
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-  };
-}
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindActions)(TabTwo);
+export default connect(mapStateToProps)(TabTwo);
