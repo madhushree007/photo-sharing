@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
-import { actions } from 'react-native-navigation-redux-helpers';
 import { Router, Scene } from 'react-native-router-flux';
 
 import { closeDrawer } from './actions/drawer';
@@ -28,9 +27,6 @@ import NeedHelp from './components/needhelp';
 import SplashPage from './components/splashscreen/';
 import { statusBarColor } from './themes/base-theme';
 
-const {
-  popRoute,
-} = actions;
 
 const RouterWithRedux = connect()(Router);
 
@@ -52,10 +48,6 @@ class AppNavigator extends Component {
     if (this.props.drawerState === 'closed') {
       this._drawer._root.close();
     }
-  }
-
-  popRoute() {
-    this.props.popRoute();
   }
 
   openDrawer() {

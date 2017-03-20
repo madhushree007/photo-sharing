@@ -15,9 +15,8 @@ class SplashPage extends Component {
   }
 
   componentWillMount() {
-    const navigator = this.props.navigator;
     setTimeout(() => {
-      Actions.replace('splashscreen', { key: 'login' }, this.props.navigation.key);
+      Actions.replace('splashscreen', { key: 'login' });
     }, 1500);
   }
 
