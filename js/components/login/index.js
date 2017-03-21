@@ -32,7 +32,7 @@ class Login extends Component {
   render() {
     return (
       <Container>
-        <Content scrollEnabled={false}>
+        <Content scrollEnabled={true} bounces={false}>
           <Image source={bg} style={styles.background} >
             <Image source={logo} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
 

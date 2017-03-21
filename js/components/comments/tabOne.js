@@ -22,7 +22,7 @@ class TabOne extends Component {
       <Container>
         <Content showsVerticalScrollIndicator={false}>
           <View style={{ backgroundColor: '#FFF' }}>
-            <Card foregroundColor="#222" style={styles.card}>
+            <Card style={styles.card}>
               <CardItem style={styles.cardHeader} header>
                 <Thumbnail small source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
                 <Text style={styles.cmtName}>Kumar Sanket</Text>
@@ -42,7 +42,7 @@ class TabOne extends Component {
             </Card>
 
 
-            <Card foregroundColor="#222" style={styles.card}>
+            <Card style={styles.card}>
               <CardItem style={styles.cardHeader} header>
                 <Thumbnail small source={require('../../../images/contacts/saurav.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
                 <Text style={styles.cmtName}>Saurav Sahu</Text>
@@ -60,7 +60,7 @@ class TabOne extends Component {
               </CardItem>
             </Card>
 
-            <Card foregroundColor="#222" style={styles.card}>
+            <Card style={styles.card}>
               <CardItem style={styles.cardHeader} header>
                 <Thumbnail small source={require('../../../images/contacts/atul.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
                 <Text style={styles.cmtName}>Atul Ranjan</Text>
@@ -78,7 +78,7 @@ class TabOne extends Component {
               </CardItem>
             </Card>
 
-            <Card foregroundColor="#222" style={styles.card}>
+            <Card style={styles.card}>
               <CardItem style={styles.cardHeader} header>
                 <Thumbnail small source={require('../../../images/contacts/varun.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
                 <Text style={styles.cmtName}>Varun Sahu</Text>
@@ -96,7 +96,7 @@ class TabOne extends Component {
               </CardItem>
             </Card>
 
-            <Card foregroundColor="#222" style={styles.card}>
+            <Card style={styles.card}>
               <CardItem style={styles.cardHeader} header>
                 <Thumbnail small source={require('../../../images/contacts/sanket.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
                 <Text style={styles.cmtName}>Kumar Sanket</Text>
@@ -116,7 +116,7 @@ class TabOne extends Component {
             </Card>
 
 
-            <Card foregroundColor="#222" style={styles.card}>
+            <Card style={styles.card}>
               <CardItem style={styles.cardHeader} header>
                 <Thumbnail small source={require('../../../images/contacts/saurav.png')} style={Platform.OS === 'android' ? { borderRadius: 40 } : {}} />
                 <Text style={styles.cmtName}>Saurav Sahu</Text>
@@ -133,7 +133,7 @@ class TabOne extends Component {
                     </Text>
               </CardItem>
             </Card>
-            
+
           </View>
         </Content>
       </Container>

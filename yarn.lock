@@ -9,9 +9,9 @@
     hoist-non-react-statics "^1.2.0"
     lodash "^4.15.0"
 
-"@shoutem/theme@git+https://github.com/GeekyAnts/theme.git":
+"@shoutem/theme@git+https://github.com/GeekyAnts/theme.git#caching":
   version "0.8.8"
-  resolved "git+https://github.com/GeekyAnts/theme.git#7e04afd0c28f35bb1b9811cb9ef4ae24e1b2f524"
+  resolved "git+https://github.com/GeekyAnts/theme.git#0d37534daf5dbe7841b28adf9aa529f908669bdb"
   dependencies:
     hoist-non-react-statics "^1.0.5"
     lodash "^4.10.1"
@@ -3611,12 +3611,12 @@ mute-stream@0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.6.tgz#48962b19e169fd1dfc240b3f1e7317627bbc47db"
 
-native-base@2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.0.8.tgz#5b096a32bc8619d3f84dd3e290f2af0abdc8692e"
+native-base@2.1.0-rc.2:
+  version "2.1.0-rc.2"
+  resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.1.0-rc.2.tgz#d2b169109eb9057b29ae4d0aeeade0f87d65dac1"
   dependencies:
     "@shoutem/animation" "^0.8.9"
-    "@shoutem/theme" "git+https://github.com/GeekyAnts/theme.git"
+    "@shoutem/theme" "https://github.com/GeekyAnts/theme#caching"
     blueimp-md5 "^2.5.0"
     clamp "^1.0.1"
     color "~0.11.1"
