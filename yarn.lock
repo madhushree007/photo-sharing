@@ -11,7 +11,7 @@
 
 "@shoutem/theme@git+https://github.com/GeekyAnts/theme.git#caching":
   version "0.8.8"
-  resolved "git+https://github.com/GeekyAnts/theme.git#0d37534daf5dbe7841b28adf9aa529f908669bdb"
+  resolved "git+https://github.com/GeekyAnts/theme.git#28b7a2376f72df20aa462f7161098842490c06f7"
   dependencies:
     hoist-non-react-statics "^1.0.5"
     lodash "^4.10.1"
@@ -4127,6 +4127,10 @@ react-native-scrollable-tab-view@^0.7.1, react-native-scrollable-tab-view@^0.7.2
   resolved "https://registry.yarnpkg.com/react-native-scrollable-tab-view/-/react-native-scrollable-tab-view-0.7.2.tgz#8d35bfdcd922d22beb8cbb079be277e09e86978a"
   dependencies:
     react-timer-mixin "^0.13.3"
+
+react-native-search-bar@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-search-bar/-/react-native-search-bar-3.0.0.tgz#973b38276d06e1731ed52121e94f54b9aed2bfab"
 
 react-native-swiper@^1.5.4:
   version "1.5.4"
