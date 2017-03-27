@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.market.nativebase.geekyants.flatappui"
+    package="com.strapflatapp"
     android:versionCode="1"
     android:versionName="1.0">
 
