@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
 import { Router, Scene } from 'react-native-router-flux';
@@ -96,10 +96,10 @@ class AppNavigator extends Component {
         />
         <RouterWithRedux>
           <Scene key="root">
-            <Scene key="login" component={Login} hideNavBar initial={true} />
+            <Scene key="login" component={Login} hideNavBar initial={(Platform.OS === 'ios') ? true : false} />
             <Scene key="signUp" component={SignUp} />
             <Scene key="needhelp" component={NeedHelp} />
-            <Scene key="splashscreen" component={SplashPage} />
+            <Scene key="splashscreen" component={SplashPage} hideNavBar initial={(Platform.OS === 'android') ? true : false} />
             <Scene key="home" component={Home} />
             <Scene key="feedback" component={Feedback} />
             <Scene key="comments" component={Comments} />

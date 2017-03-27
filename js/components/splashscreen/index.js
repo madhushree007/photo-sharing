@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 
 const launchscreen = require('../../../images/launchscreen.png');
 
@@ -17,8 +17,8 @@ class SplashPage extends Component {
 
   componentWillMount() {
     setTimeout(() => {
-      Actions.login();
-    }, 1000);
+      Actions.login({ type: ActionConst.REPLACE });
+    }, 1500);
   }
 
   render() { // eslint-disable-line class-methods-use-this
