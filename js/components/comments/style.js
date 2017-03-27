@@ -45,10 +45,10 @@ export default {
   },
   card: {
     backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderColor: '#DDD',
-    margin: 0,
-    marginBottom: 1,
+    marginTop: null,
+    marginBottom: null,
+    marginLeft: null,
+    marginRight: null,
   },
   cardHeader: {
     backgroundColor: 'transparent',

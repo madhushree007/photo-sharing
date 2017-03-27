@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
-import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Container, Content, Text, Button, Icon, View } from 'native-base';
 import Swiper from 'react-native-swiper';
@@ -10,22 +10,14 @@ import Swiper from 'react-native-swiper';
 import styles from './styles';
 
 const deviceWidth = Dimensions.get('window').width;
-const {
-  replaceAt,
-  pushRoute,
-} = actions;
 class Walkthrough extends Component {
 
   static propTypes = {
-    replaceAt: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
   }
 
-  replaceRoute(route) {
-    this.props.replaceAt('walkthrough', { key: route }, this.props.navigation.key);
-  }
   render() {
     return (
       <Container>
@@ -46,7 +38,7 @@ class Walkthrough extends Component {
                             </Text>
               <Button
                 transparent rounded
-                onPress={() => this.replaceRoute('home')}
+                onPress={() => Actions.home()}
                 style={styles.Button}
               >
                 <Text style={{ color: '#FFF', fontWeight: '600' }}>Skip To App</Text>
@@ -63,7 +55,7 @@ class Walkthrough extends Component {
                             </Text>
               <Button
                 transparent rounded
-                onPress={() => this.replaceRoute('home')}
+                onPress={() => Actions.home()}
                 style={styles.Button}
               >
                 <Text style={{ color: '#FFF', fontWeight: '600' }}>Skip To App</Text>
@@ -80,7 +72,7 @@ class Walkthrough extends Component {
                             </Text>
               <Button
                 transparent rounded
-                onPress={() => this.replaceRoute('home')}
+                onPress={() => Actions.home()}
                 style={styles.Button}
               >
                 <Text style={{ color: '#FFF', fontWeight: '600' }}>Continue To App</Text>
@@ -93,15 +85,9 @@ class Walkthrough extends Component {
   }
 }
 
-function bindActions(dispatch) {
-  return {
-    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-  };
-}
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindActions)(Walkthrough);
+export default connect(mapStateToProps)(Walkthrough);

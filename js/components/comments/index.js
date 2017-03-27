@@ -1,11 +1,11 @@
 
 
 import React, { Component } from 'react';
-import { Image, View, TouchableOpacity } from 'react-native';
+import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 
+import { Actions } from 'react-native-router-flux';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Container, Header, Text, Input, Button, Icon, Body, Item } from 'native-base';
 
@@ -17,15 +17,9 @@ import TabOne from './tabOne';
 import TabTwo from './tabTwo';
 import TabThree from './tabThree';
 
-const {
-  popRoute,
-  pushRoute,
-} = actions;
 class Comments extends Component {
 
   static propTypes = {
-    popRoute: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -44,24 +38,16 @@ class Comments extends Component {
     };
   }
 
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
-  }
-
   render() {
     return (
       <Container>
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
             <Body style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-              <Button transparent onPress={() => this.popRoute()}>
+              <Button transparent onPress={() => Actions.pop()}>
                 <Icon active name="arrow-back" style={styles.headerIcons} />
               </Button>
-              <Button transparent onPress={() => this.pushRoute('comments')}>
+              <Button transparent onPress={() => Actions.comments()}>
                 <Icon name="chatboxes" style={styles.headerIcons} />
               </Button>
               <Button transparent>
@@ -98,15 +84,8 @@ class Comments extends Component {
   }
 }
 
-function bindAction(dispatch) {
-  return {
-    popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-  };
-}
-
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindAction)(Comments);
+export default connect(mapStateToProps)(Comments);

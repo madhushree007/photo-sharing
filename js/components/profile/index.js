@@ -2,35 +2,23 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, View, TouchableOpacity, Platform } from 'react-native';
+import { Image, View, TouchableOpacity } from 'react-native';
 
-import { actions } from 'react-native-navigation-redux-helpers';
-import { openDrawer } from '../../actions/drawer';
-import navigateTo from '../../actions/sideBarNav';
-import { Container, Header, Content, Text, Icon, Thumbnail } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid';
+import { Actions } from 'react-native-router-flux';
+import { Container, Content, Text, Thumbnail } from 'native-base';
+import { Grid, Col } from 'react-native-easy-grid';
 import HeaderContent from './../headerContent/';
+import { openDrawer } from '../../actions/drawer';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
 
-
-const {
-  pushRoute,
-} = actions;
-
 class Profile extends Component {
 
   static propTypes = {
-    navigateTo: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
-
-
-  navigateTo(route) {
-    this.props.navigateTo(route, 'home');
   }
 
   render() {
@@ -77,7 +65,7 @@ class Profile extends Component {
               </Grid>
             </View>
             <View style={{ backgroundColor: '#fff' }}>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.navigateTo('home')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
                 <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.newsImage} />
                 <View style={styles.newsContent}>
                   <Text numberOfLines={2} style={styles.newsHeader}>
@@ -97,7 +85,7 @@ class Profile extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.navigateTo('home')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
                 <Image source={require('../../../images/NewsIcons/3.jpg')} style={styles.newsImage} />
                 <View style={styles.newsContent}>
                   <Text numberOfLines={2} style={styles.newsHeader}>
@@ -117,7 +105,7 @@ class Profile extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.navigateTo('home')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
                 <Image source={require('../../../images/NewsIcons/4.jpg')} style={styles.newsImage} />
                 <View style={styles.newsContent}>
                   <Text numberOfLines={2} style={styles.newsHeader}>But still look sharp on high-definition screens.</Text>
@@ -136,7 +124,7 @@ class Profile extends Component {
                 </View>
               </TouchableOpacity>
 
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.navigateTo('home')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
                 <Image source={require('../../../images/NewsIcons/10.jpg')} style={styles.newsImage} />
                 <View style={styles.newsContent}>
                   <Text numberOfLines={2} style={styles.newsHeader}>
@@ -156,7 +144,7 @@ class Profile extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.navigateTo('home')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
                 <Image source={require('../../../images/NewsIcons/9.jpg')} style={styles.newsImage} />
                 <View style={styles.newsContent}>
                   <Text numberOfLines={2} style={styles.newsHeader}>
@@ -176,7 +164,7 @@ class Profile extends Component {
                   </Grid>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.navigateTo('home')}>
+              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
                 <Image source={require('../../../images/NewsIcons/12.jpg')} style={styles.newsImage} />
                 <View style={styles.newsContent}>
                   <Text numberOfLines={2} style={styles.newsHeader}>Theme your app with one single file.</Text>
@@ -205,7 +193,6 @@ class Profile extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
   };
 }
 

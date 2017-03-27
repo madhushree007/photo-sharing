@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 
+import { Actions, ActionConst } from 'react-native-router-flux';
 
 import { Container, Header, Content, Text, Button, Icon, Item, Input, Left, Right, Body } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
-import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
 
 import theme from '../../themes/base-theme';
@@ -15,13 +15,9 @@ import styles from './styles';
 
 const primary = require('../../themes/variable').brandPrimary;
 
-const {
-  reset,
-} = actions;
 class Feedback extends Component {
 
   static propTypes = {
-    reset: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -55,7 +51,7 @@ class Feedback extends Component {
               <Image source={require('../../../images/Header-Logo.png')} style={styles.imageHeader} />
             </Body>
             <Right>
-              <Button transparent onPress={() => this.props.reset(this.props.navigation.key)}>
+              <Button transparent onPress={() => Actions.login({ type: ActionConst.RESET  })}>
                 <Icon active name="power" />
               </Button>
             </Right>
@@ -113,7 +109,6 @@ class Feedback extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
   };
 }
 

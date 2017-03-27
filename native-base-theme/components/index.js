@@ -25,6 +25,7 @@ import tabBarTheme from './TabBar';
 import viewTheme from './View';
 import tabHeadingTheme from './TabHeading';
 import iconTheme from './Icon';
+import inputTheme from './Input';
 import spinnerTheme from './Spinner';
 import cardItemTheme from './CardItem';
 import listItemTheme from './ListItem';
@@ -213,7 +214,9 @@ export default (variables = variable) => {
     'NativeBase.Separator': {
       ...separatorTheme(variables),
     },
-    'NativeBase.Tabs': {
+
+    'NativeBase.Input': {
+      ...inputTheme(variables),
     },
     'NativeBase.Thumbnail': {
       '.square': {
