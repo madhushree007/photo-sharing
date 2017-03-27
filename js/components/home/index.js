@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
+import { Actions, ActionConst } from 'react-native-router-flux';
 import { Container, Header, Content, Text, Button, Icon, Card, Left, Body, Right } from 'native-base';
 
 import { Grid, Col } from 'react-native-easy-grid';
@@ -12,11 +12,6 @@ import { openDrawer } from '../../actions/drawer';
 
 import styles from './styles';
 
-const {
-  reset,
-  pushRoute,
-} = actions;
-
 const deviceWidth = Dimensions.get('window').width;
 const headerLogo = require('../../../images/Header-Logo.png');
 
@@ -25,15 +20,9 @@ class Home extends Component {
 
   static propTypes = {
     openDrawer: React.PropTypes.func,
-    reset: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
-  }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
@@ -44,7 +33,7 @@ class Home extends Component {
             <Button
               transparent
               style={styles.btnHeader}
-              onPress={() => this.props.reset(this.props.navigation.key)}
+              onPress={() => Actions.login({ type: ActionConst.RESET  })}
             >
               <Icon active name="power" />
             </Button>
@@ -72,7 +61,7 @@ class Home extends Component {
                   showsButtons
                 />}
               >
-                <TouchableOpacity activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
+                <TouchableOpacity activeOpacity={1} onPress={() => Actions.story()} style={styles.slide}>
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/1.jpg')} >
                     <View style={styles.swiperTextContent} >
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -96,7 +85,7 @@ class Home extends Component {
                   </Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity  activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
+                <TouchableOpacity  activeOpacity={1} onPress={() => Actions.story()} style={styles.slide}>
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/3.jpg')}>
                     <View style={styles.swiperTextContent}>
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
@@ -120,11 +109,11 @@ class Home extends Component {
                   </Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity activeOpacity={1} onPress={() => this.pushRoute('story')} style={styles.slide}>
+                <TouchableOpacity activeOpacity={1} onPress={() => Actions.story()} style={styles.slide}>
                   <Image style={styles.newsPoster} source={require('../../../images/NewsIcons/4.jpg')}>
                     <View style={styles.swiperTextContent}>
                       <Text numberOfLines={2} style={styles.newsPosterHeader}>
-                            But still look sharp on high-definition screens. 
+                            But still look sharp on high-definition screens.
                         </Text>
                       <Grid style={styles.swiperContentBox}>
                         <Col style={{ flexDirection: 'row' }}>
@@ -148,7 +137,7 @@ class Home extends Component {
           </View>
 
           <Card style={{ backgroundColor: '#fff', marginTop: 0, marginRight: 0 }}>
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
                       Flat App is focused on a minimal use of simple elements, typography and flat colors.
@@ -170,7 +159,7 @@ class Home extends Component {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
                       Highly customizable widgets are part of our never ending mission.
@@ -192,7 +181,7 @@ class Home extends Component {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
                       Ready to use components built using NativeBase.
@@ -214,7 +203,7 @@ class Home extends Component {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
                       Theme your app with one single file.
@@ -237,7 +226,7 @@ class Home extends Component {
             </TouchableOpacity>
 
 
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
                       It is easier with Flat App design to quickly convey information while still looking visually appealing and approachable.
@@ -259,7 +248,7 @@ class Home extends Component {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.pushRoute('story')}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.story()}>
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
                       NativeBase builds a layer on top of React Native that provides, basic set of components for mobile application development.
@@ -290,8 +279,6 @@ class Home extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    reset: key => dispatch(reset([{ key: 'login' }], key, 0)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 

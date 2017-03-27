@@ -4,16 +4,12 @@ import React, { Component } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-import { actions } from 'react-native-navigation-redux-helpers';
 
 import { Text, View } from 'native-base';
 
 
 const deviceWidth = require('Dimensions').get('window').width;
 const TAB_UNDERLINE_REF = 'TAB_UNDERLINE';
-const {
-  pushRoute,
-} = actions;
 class CustomTabBar extends Component {
   propTypes: {
    goToPage: React.PropTypes.func,
@@ -21,7 +17,6 @@ class CustomTabBar extends Component {
    tabs: React.PropTypes.array
  }
   static propTypes = {
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -53,11 +48,6 @@ class CustomTabBar extends Component {
   }
 }
 
-function bindActions(dispatch) {
-  return {
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
-  };
-}
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
@@ -85,4 +75,4 @@ const styles = {
   },
 };
 
-export default connect(mapStateToProps, bindActions)(CustomTabBar);
+export default connect(mapStateToProps)(CustomTabBar);

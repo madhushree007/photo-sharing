@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, Platform } from 'react-native';
 
+import { Actions } from 'react-native-router-flux';
 import { Container, Header, Content, Text, Left, Right, Body, Button, Icon, View } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 
@@ -24,7 +25,7 @@ class Overview extends Component {
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
             <Left>
-              <Button transparent style={styles.btnHeader}>
+              <Button transparent style={styles.btnHeader} onPress={() => Actions.pop()}>
                 <Icon active name="arrow-back" />
               </Button>
             </Left>

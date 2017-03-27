@@ -4,19 +4,15 @@ import React, { Component } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-import { actions } from 'react-native-navigation-redux-helpers';
+import { Actions } from 'react-native-router-flux';
 
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
 
 import styles from './styles';
 
-const {
-  popRoute,
-} = actions;
 class NeedHelp extends Component {
 
   static propTypes = {
-    popRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -32,10 +28,6 @@ class NeedHelp extends Component {
     this.constructor.childContextTypes = {
       theme: React.PropTypes.object,
     };
-  }
-
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
   }
 
   render() {
@@ -60,13 +52,13 @@ class NeedHelp extends Component {
 
                   <Button
                     rounded block bordered
-                    onPress={() => this.popRoute()}
+                    onPress={() => Actions.pop()}
                     style={styles.signupBtn}
                   >
                     <Text style={{ color: '#FFF' }}>Send Email</Text>
                   </Button>
 
-                  <TouchableOpacity onPress={() => this.popRoute()}>
+                  <TouchableOpacity onPress={() => Actions.pop()}>
                     <Text style={styles.termsText}>Back To Login</Text>
                   </TouchableOpacity>
                 </View>
@@ -79,14 +71,9 @@ class NeedHelp extends Component {
   }
 }
 
-function bindAction(dispatch) {
-  return {
-    popRoute: key => dispatch(popRoute(key)),
-  };
-}
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindAction)(NeedHelp);
+export default connect(mapStateToProps)(NeedHelp);

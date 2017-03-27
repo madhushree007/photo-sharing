@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import { Image, View, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
 
+import { Actions } from 'react-native-router-flux';
 
 import { Container, Header, Content, Text, Left, Right, Body, Button, Icon } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
@@ -15,12 +15,6 @@ import HeaderContent from './../headerContent/';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
-
-const {
-  popRoute,
-  pushRoute,
-} = actions;
-
 
 const headerLogo = require('../../../images/Header-Logo.png');
 
@@ -34,8 +28,6 @@ class Calendar extends Component {
   }
 
   static propTypes = {
-    popRoute: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
@@ -45,20 +37,12 @@ class Calendar extends Component {
     this.setState({ date });
   }
 
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
-  }
-
   render() {
     return (
       <Container theme={theme}>
         <Header>
           <Left>
-            <Button transparent style={styles.btnHeader} onPress={() => this.popRoute()}>
+            <Button transparent style={styles.btnHeader} onPress={() => Actions.popTo('home')}>
               <Icon active name="arrow-back" />
             </Button>
           </Left>
@@ -81,7 +65,7 @@ class Calendar extends Component {
           </View>
 
           <View style={{ backgroundColor: '#fff' }}>
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.popRoute()}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.pop()}>
               <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -101,7 +85,7 @@ class Calendar extends Component {
                 </Grid>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.popRoute()}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.pop()}>
               <Image source={require('../../../images/NewsIcons/3.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -121,7 +105,7 @@ class Calendar extends Component {
                 </Grid>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.popRoute()}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.pop()}>
               <Image source={require('../../../images/NewsIcons/4.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -141,7 +125,7 @@ class Calendar extends Component {
                 </Grid>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.popRoute()}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.pop()}>
               <Image source={require('../../../images/NewsIcons/11.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -161,7 +145,7 @@ class Calendar extends Component {
                 </Grid>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.popRoute()}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.pop()}>
               <Image source={require('../../../images/NewsIcons/13.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -181,7 +165,7 @@ class Calendar extends Component {
                 </Grid>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.popRoute()}>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.pop()}>
               <Image source={require('../../../images/NewsIcons/12.jpg')} style={styles.newsImage} />
               <View style={styles.newsContent}>
                 <Text numberOfLines={2} style={styles.newsHeader}>
@@ -211,8 +195,6 @@ class Calendar extends Component {
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
-    popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };
 }
 
