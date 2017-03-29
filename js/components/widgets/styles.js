@@ -119,6 +119,8 @@ export default {
     borderWidth: 2,
     borderColor: 'rgba(0,0,0,0.2)',
     alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: deviceHeight / 10,
   },
 };
