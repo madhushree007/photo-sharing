@@ -24,7 +24,6 @@ import Story from './components/story';
 import Timeline from './components/timeline';
 import Widgets from './components/widgets';
 import NeedHelp from './components/needhelp';
-import SplashPage from './components/splashscreen/';
 import { statusBarColor } from './themes/base-theme';
 
 
@@ -96,7 +95,6 @@ class AppNavigator extends Component {
             <Scene key="login" component={Login} hideNavBar initial={true} />
             <Scene key="signUp" component={SignUp} />
             <Scene key="needhelp" component={NeedHelp} />
-            <Scene key="splashscreen" component={SplashPage} />
             <Scene key="home" component={Home} />
             <Scene key="feedback" component={Feedback} />
             <Scene key="comments" component={Comments} />
