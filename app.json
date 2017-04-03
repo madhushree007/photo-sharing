@@ -1,7 +1,7 @@
 {
   "expo": {
     "sdkVersion": "15.0.0",
-    "icon": "./images/taxiApp.png",
+    "icon": "./images/logo.png",
     "loading": {
       "hideExponentText": true,
       "icon": "",
