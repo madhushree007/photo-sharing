@@ -1,7 +1,7 @@
 {
   "expo": {
     "sdkVersion": "15.0.0",
-    "icon": "./images/logo.png",
+    "icon": "./images/icon.png",
     "loading": {
       "hideExponentText": true,
       "icon": "",
