@@ -4,7 +4,7 @@
     "icon": "./images/icon.png",
     "loading": {
       "hideExponentText": true,
-      "icon": "",
+      "icon": "./images/loading.png",
       "backgroundImage": "./images/launchImages/splashscreen.png"
     },
     "orientation": "portrait",
@@ -14,6 +14,12 @@
         "ttf"
       ]
     },
+   "ios": {
+    "bundleIdentifier": "io.market.nativebase.geekyants.flatappui",
+  },
+  "android": {
+     "package": "io.market.nativebase.geekyants.flatappui",
+   },
    "androidStatusBarColor": "#01cca1",
      "androidStatusBar": {
      "barStyle": "dark-content",
