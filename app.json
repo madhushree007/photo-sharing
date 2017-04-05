@@ -2,6 +2,7 @@
   "expo": {
     "sdkVersion": "15.0.0",
     "icon": "./images/icon.png",
+     "slug": "StrapFlatApp",
     "loading": {
       "hideExponentText": true,
       "icon": "./images/loading.png",
