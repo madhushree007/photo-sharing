@@ -39,7 +39,7 @@ class Calendar extends Component {
 
   render() {
     return (
-      <Container theme={theme}>
+      <Container>
         <Header>
           <Left>
             <Button transparent style={styles.btnHeader} onPress={() => Actions.popTo('home')}>

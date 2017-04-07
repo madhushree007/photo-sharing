@@ -1,5 +1,4 @@
 
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, View, Platform } from 'react-native';
@@ -18,7 +17,7 @@ class Widgets extends Component {
 
   render() {
     return (
-      <Container theme={theme}>
+      <Container>
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
             <Left>

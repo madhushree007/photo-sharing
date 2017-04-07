@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
 
 import styles from './styles';
+import commonColor from '../../../native-base-theme/variables/commonColor';
 
 class NeedHelp extends Component {
 
@@ -24,6 +25,10 @@ class NeedHelp extends Component {
   render() {
     return (
       <Container>
+        <StatusBar
+          backgroundColor={commonColor.statusBarColor}
+          barStyle="light-content"
+        />
         <Content contentOffset={this.state.offset}>
           <View>
             <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >

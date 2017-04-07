@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Actions } from 'react-native-router-flux';
@@ -7,6 +7,7 @@ import { Actions } from 'react-native-router-flux';
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
 
 import styles from './styles';
+import commonColor from '../../../native-base-theme/variables/commonColor';
 
 class SignUp extends Component {
 
@@ -25,8 +26,13 @@ class SignUp extends Component {
 
 
   render() {
+
     return (
       <Container>
+        <StatusBar
+          backgroundColor={commonColor.statusBarColor}
+          barStyle="light-content"
+        />
         <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
           <Content padder>
             <Text style={styles.signupHeader}>
