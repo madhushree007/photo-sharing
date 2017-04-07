@@ -1,22 +1,13 @@
-
-
 import React, { Component } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-
 import { Actions } from 'react-native-router-flux';
-
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
 
 import styles from './styles';
 
 class NeedHelp extends Component {
 
-  static propTypes = {
-    navigation: React.PropTypes.shape({
-      key: React.PropTypes.string,
-    }),
-  }
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +24,7 @@ class NeedHelp extends Component {
   render() {
     return (
       <Container>
-        <Content contentOffset={this.state.offset} scrollEnabled={false}>
+        <Content contentOffset={this.state.offset}>
           <View>
             <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
 
@@ -72,8 +63,4 @@ class NeedHelp extends Component {
 }
 
 
-const mapStateToProps = state => ({
-  navigation: state.cardNavigation,
-});
-
-export default connect(mapStateToProps)(NeedHelp);
+export default connect()(NeedHelp);

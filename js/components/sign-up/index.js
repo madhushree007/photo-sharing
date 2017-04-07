@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
@@ -11,13 +9,6 @@ import { Container, Content, Text, Button, Icon, Item, Input, View } from 'nativ
 import styles from './styles';
 
 class SignUp extends Component {
-
-
-  static propTypes = {
-    navigation: React.PropTypes.shape({
-      key: React.PropTypes.string,
-    }),
-  }
 
   constructor(props) {
     super(props);
@@ -37,7 +28,7 @@ class SignUp extends Component {
     return (
       <Container>
         <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
-          <Content padder scrollEnabled={false}>
+          <Content padder>
             <Text style={styles.signupHeader}>
                                     CREATE ACCOUNT
                                 </Text>
@@ -85,14 +76,4 @@ class SignUp extends Component {
   }
 }
 
-
-function bindAction(dispatch) {
-  return {
-  };
-}
-
-const mapStateToProps = state => ({
-  navigation: state.cardNavigation,
-});
-
-export default connect(mapStateToProps, bindAction)(SignUp);
+export default connect()(SignUp);

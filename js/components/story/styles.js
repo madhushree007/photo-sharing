@@ -1,5 +1,3 @@
-
-
 const React = require('react-native');
 
 const { Dimensions, Platform } = React;
@@ -93,11 +91,11 @@ export default {
     height: 60,
   },
   modal: {
-    flex: 10,
     backgroundColor: primary,
     position: 'absolute',
     width: deviceWidth,
-    marginTop: (Platform.OS === 'android') ? 40 : 10,
+    height: null,
+    bottom: deviceHeight/2.5
   },
   slide: {
     flex: 1,

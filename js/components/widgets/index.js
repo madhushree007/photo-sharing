@@ -120,12 +120,11 @@ class Widgets extends Component {
                       bordered
                       rounded small
                       style={styles.detailsBtn}
+                      textStyle={Platform.OS === 'android' ?
+                                                { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' } :
+                                                { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' }}
                     >
-                      <Text
-                        style={Platform.OS === 'android' ?
-                        { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' } :
-                        { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' }}
-                      >Details</Text>
+                      <Text>Details</Text>
                     </Button>
                   </View>
                 </Image>
