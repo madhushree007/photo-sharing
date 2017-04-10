@@ -1,6 +1,6 @@
 {
   "name": "StrapFlatApp",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "private": true,
   "devDependencies": {
     "react-native-scripts": "0.0.26",
