@@ -39,7 +39,7 @@ class Feedback extends Component {
 
   render() {
     return (
-      <Container theme={theme} contentOffset={this.state.offset} scrollEnabled={false} >
+      <Container contentOffset={this.state.offset} scrollEnabled={false} >
         <Image source={require('../../../images/BG-signUp.png')} style={styles.container} >
           <Header>
             <Left>

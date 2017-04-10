@@ -54,7 +54,7 @@ class Story extends Component {
 
   render() {
     return (
-      <Container theme={theme} style={{ backgroundColor: '#fff' }}>
+      <Container style={{ backgroundColor: '#fff' }}>
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
             <Body style={{ flexDirection: 'row', justifyContent: 'space-around' }}>

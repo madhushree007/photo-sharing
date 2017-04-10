@@ -1,11 +1,11 @@
-
 import React, { Component } from 'react';
-import { Image, Platform } from 'react-native';
+import { Image, Platform, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Container, Content, Text, Item, Input, Button, Icon, View, Left, Right } from 'native-base';
 
 import styles from './styles';
+import commonColor from '../../../native-base-theme/variables/commonColor';
 
 const bg = require('../../../images/BG.png');
 const logo = require('../../../images/logo.png');
@@ -32,6 +32,10 @@ class Login extends Component {
   render() {
     return (
       <Container>
+        <StatusBar
+          backgroundColor={commonColor.statusBarColor}
+          barStyle="light-content"
+        />
         <Content scrollEnabled={true} bounces={false}>
           <Image source={bg} style={styles.background} >
             <Image source={logo} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />

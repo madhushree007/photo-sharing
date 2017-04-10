@@ -1,7 +1,5 @@
-
-
 import React, { Component } from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Actions } from 'react-native-router-flux';
@@ -9,15 +7,9 @@ import { Actions } from 'react-native-router-flux';
 import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
 
 import styles from './styles';
+import commonColor from '../../../native-base-theme/variables/commonColor';
 
 class SignUp extends Component {
-
-
-  static propTypes = {
-    navigation: React.PropTypes.shape({
-      key: React.PropTypes.string,
-    }),
-  }
 
   constructor(props) {
     super(props);
@@ -34,10 +26,15 @@ class SignUp extends Component {
 
 
   render() {
+
     return (
       <Container>
+        <StatusBar
+          backgroundColor={commonColor.statusBarColor}
+          barStyle="light-content"
+        />
         <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
-          <Content padder scrollEnabled={false}>
+          <Content padder>
             <Text style={styles.signupHeader}>
                                     CREATE ACCOUNT
                                 </Text>
@@ -85,14 +82,4 @@ class SignUp extends Component {
   }
 }
 
-
-function bindAction(dispatch) {
-  return {
-  };
-}
-
-const mapStateToProps = state => ({
-  navigation: state.cardNavigation,
-});
-
-export default connect(mapStateToProps, bindAction)(SignUp);
+export default connect()(SignUp);

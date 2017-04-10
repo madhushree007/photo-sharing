@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StatusBar, Platform } from 'react-native';
+import { StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
 import { Router, Scene } from 'react-native-router-flux';
@@ -24,7 +24,6 @@ import Story from './components/story';
 import Timeline from './components/timeline';
 import Widgets from './components/widgets';
 import NeedHelp from './components/needhelp';
-import SplashPage from './components/splashscreen/';
 import { statusBarColor } from './themes/base-theme';
 
 
@@ -35,9 +34,6 @@ class AppNavigator extends Component {
   static propTypes = {
     drawerState: React.PropTypes.string,
     closeDrawer: React.PropTypes.func,
-    navigation: React.PropTypes.shape({
-      key: React.PropTypes.string,
-    }),
   }
 
   componentDidUpdate() {
@@ -96,10 +92,9 @@ class AppNavigator extends Component {
         />
         <RouterWithRedux>
           <Scene key="root">
-            <Scene key="login" component={Login} hideNavBar initial={(Platform.OS === 'ios') ? true : false} />
+            <Scene key="login" component={Login} hideNavBar initial={true} />
             <Scene key="signUp" component={SignUp} />
             <Scene key="needhelp" component={NeedHelp} />
-            <Scene key="splashscreen" component={SplashPage} hideNavBar initial={(Platform.OS === 'android') ? true : false} />
             <Scene key="home" component={Home} />
             <Scene key="feedback" component={Feedback} />
             <Scene key="comments" component={Comments} />
@@ -129,7 +124,6 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
   drawerState: state.drawer.drawerState,
-  navigation: state.cardNavigation,
 });
 
 export default connect(mapStateToProps, bindAction)(AppNavigator);

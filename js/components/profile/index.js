@@ -23,7 +23,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <Container theme={theme}>
+      <Container>
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <HeaderContent />
 

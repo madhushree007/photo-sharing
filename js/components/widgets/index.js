@@ -1,5 +1,4 @@
 
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, View, Platform } from 'react-native';
@@ -18,7 +17,7 @@ class Widgets extends Component {
 
   render() {
     return (
-      <Container theme={theme}>
+      <Container>
         <Image source={require('../../../images/glow2.png')} style={styles.container} >
           <Header>
             <Left>
@@ -60,27 +59,27 @@ class Widgets extends Component {
 
               <Grid style={styles.weatherInfoContainer}>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>30'</Text>
+                  <Text style={styles.weatherInfo}>30</Text>
                   <Text style={styles.weatherTime}>8 AM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>43'</Text>
+                  <Text style={styles.weatherInfo}>43</Text>
                   <Text style={styles.weatherTime}>12 PM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>39'</Text>
+                  <Text style={styles.weatherInfo}>39</Text>
                   <Text style={styles.weatherTime}>4 PM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>37'</Text>
+                  <Text style={styles.weatherInfo}>37</Text>
                   <Text style={styles.weatherTime}>8 PM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>34'</Text>
+                  <Text style={styles.weatherInfo}>34</Text>
                   <Text style={styles.weatherTime}>12 AM</Text>
                 </Col>
                 <Col style={{ alignItems: 'center' }}>
-                  <Text style={styles.weatherInfo}>28'</Text>
+                  <Text style={styles.weatherInfo}>28</Text>
                   <Text style={styles.weatherTime}>4 AM</Text>
                 </Col>
               </Grid>
@@ -99,12 +98,11 @@ class Widgets extends Component {
                       bordered
                       rounded small
                       style={styles.detailsBtn}
+                      textStyle={Platform.OS === 'android' ?
+                                                { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' } :
+                                                { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' }}
                     >
-                      <Text
-                        style={Platform.OS === 'android' ?
-                        { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' } :
-                        { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' }}
-                      >Details</Text>
+                      <Text>Details</Text>
                     </Button>
                   </View>
                 </Image>
@@ -121,12 +119,11 @@ class Widgets extends Component {
                       bordered
                       rounded small
                       style={styles.detailsBtn}
+                      textStyle={Platform.OS === 'android' ?
+                                                { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' } :
+                                                { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' }}
                     >
-                      <Text
-                        style={Platform.OS === 'android' ?
-                        { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' } :
-                        { color: primary, fontSize: 12, fontWeight: '900', textAlign: 'center' }}
-                      >Details</Text>
+                      <Text>Details</Text>
                     </Button>
                   </View>
                 </Image>

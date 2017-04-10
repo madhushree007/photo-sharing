@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Platform, Dimensions } from 'react-native';
+import { Platform, Dimensions, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-
-
 import { Container, Content, Text, Button, Icon, View } from 'native-base';
 import Swiper from 'react-native-swiper';
 
 import styles from './styles';
+import commonColor from '../../../native-base-theme/variables/commonColor';
 
 const deviceWidth = Dimensions.get('window').width;
 class Walkthrough extends Component {
@@ -21,7 +20,11 @@ class Walkthrough extends Component {
   render() {
     return (
       <Container>
-        <Content scrollEnabled={false}>
+        <StatusBar
+          backgroundColor={commonColor.statusBarColor}
+          barStyle="light-content"
+        />
+        <Content>
           <Swiper
             loop={false}
             width={deviceWidth + 3}
