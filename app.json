@@ -16,10 +16,10 @@
       ]
     },
    "ios": {
-    "bundleIdentifier": "io.market.nativebase.geekyants.flatappui",
+    "bundleIdentifier": "io.market.nativebase.geekyants.flatappui"
   },
   "android": {
-     "package": "io.market.nativebase.geekyants.flatappui",
+     "package": "io.market.nativebase.geekyants.flatappui"
    },
    "androidStatusBarColor": "#01cca1",
      "androidStatusBar": {
