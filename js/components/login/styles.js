@@ -12,13 +12,14 @@ const deviceWidth = Dimensions.get('window').width;
 export default {
   iosShadow: {
     flex: 1,
-    width: (deviceHeight < 500) ? 80 : (deviceWidth / 4) + 12,
     resizeMode: 'contain',
-    height: (deviceHeight < 500) ? 50 : (deviceHeight / 15),
     alignSelf: 'center',
-    marginTop: (deviceWidth < 330) ? (deviceHeight / 15) : (deviceHeight / 6),
+    marginTop: 1,
+    /*width: (deviceHeight < 500) ? 120 : (deviceWidth / 4) + 12,
+    height: (deviceHeight < 500) ? 80 : (deviceHeight / 15),
+    marginTop: (deviceWidth < 330) ? (deviceHeight / 10) : (deviceHeight / 50),*/
   },
-  aShadow: {
+ /* aShadow: {
     flex: 1,
     resizeMode: 'contain',
     width: (deviceWidth / 3) + 8,
@@ -26,13 +27,10 @@ export default {
     padding: 20,
     alignSelf: 'center',
     marginTop: (deviceWidth < 330) ? (deviceHeight / 15) : ((deviceHeight / 5) - 60),
-  },
+  },*/
   inputGrp: {
     flexDirection: 'row',
-    backgroundColor: 'rgba(255,255,255,0.3)',
-    marginBottom: 20,
-    borderWidth: 0,
-    borderColor: 'transparent',
+    marginTop: 20,
   },
   input: {
     paddingLeft: 10,
@@ -44,17 +42,40 @@ export default {
     height: deviceHeight,
     backgroundColor: 'rgba(0,0,0,0.1)',
   },
+  bgTop: {
+    flex: 1,
+    width: null,
+    height: deviceHeight,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+  },
   bg: {
     flex: 1,
     paddingLeft: 20,
     paddingRight: 20,
-    paddingBottom: 70,
-    marginTop: (deviceHeight < 500) ? (Platform.OS === 'android' ? 20 : 0) : (Platform.OS === 'android' ? ((deviceHeight / 6) - 45) : ((deviceHeight / 6) - 10)),
+    marginTop: 10,
+    /*marginTop: (deviceHeight < 500) ? (Platform.OS === 'android' ? 20 : 0) : (Platform.OS === 'android' ? ((deviceHeight / 6) - 45) : ((deviceHeight / 6) - 10)),*/
+  },
+  btnView: {
+    width: deviceWidth / 2,
+    alignSelf: 'center',
+    paddingBottom: 60,
   },
   loginBtn: {
     marginTop: 10,
-    height: 50,
+    height: 40,
     alignItems: 'center',
+  },
+  btnCreate: {
+    backgroundColor: '#FFF',
+  },
+  btnFacebook: {
+    backgroundColor: '#4C66A4',
+  },
+  btnText: {
+    color: '#000',
+  },
+  btnTextWhite: {
+    color: '#FFF',
   },
   helpBtns: {
     opacity: 0.9,
@@ -65,4 +86,16 @@ export default {
   otherLinksContainer: {
     flexDirection: 'row',
   },
+  smallText: {
+    fontSize: 14,
+    alignSelf: 'center',
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  tinyText: {
+    fontSize: 12,
+    alignSelf: 'center',
+    paddingTop: 10,
+    paddingBottom: 20,
+  }
 }

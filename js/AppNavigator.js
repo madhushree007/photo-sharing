@@ -10,6 +10,10 @@ import { closeDrawer } from './actions/drawer';
 import Login from './components/login/';
 import Home from './components/home/';
 import SignUp from './components/sign-up/';
+import Search from './components/search/';
+import SearchResult from './components/searchResult/';
+import Notifiction from './components/notification/';
+import FooterNew from './components/footerNew/';
 import Feedback from './components/feedback/';
 import Comments from './components/comments/';
 import Profile from './components/profile/';
@@ -96,6 +100,9 @@ class AppNavigator extends Component {
             <Scene key="signUp" component={SignUp} />
             <Scene key="needhelp" component={NeedHelp} />
             <Scene key="home" component={Home} />
+            <Scene key="search" component={Search} />
+            <Scene key="searchResult" component={SearchResult} />
+            <Scene key="notification" component={Notifiction} />
             <Scene key="feedback" component={Feedback} />
             <Scene key="comments" component={Comments} />
             <Scene key="profile" component={Profile} />
@@ -109,6 +116,7 @@ class AppNavigator extends Component {
             <Scene key="story" component={Story} />
             <Scene key="timeline" component={Timeline} />
             <Scene key="widgets" component={Widgets} />
+            <Scene key="footerNew" component={FooterNew} />
           </Scene>
         </RouterWithRedux>
       </Drawer>

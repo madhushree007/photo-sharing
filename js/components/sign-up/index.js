@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Image, TouchableOpacity, StatusBar } from 'react-native';
+import { Image, Platform, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Actions } from 'react-native-router-flux';
 
-import { Container, Content, Text, Button, Icon, Item, Input, View } from 'native-base';
+import { Container, Content, Text, Item, Input, Button, Icon, View, Left, Right } from 'native-base';
 
 import styles from './styles';
 import commonColor from '../../../native-base-theme/variables/commonColor';
+
+const bg = require('../../../images/image.png');
+const logo = require('../../../images/logo.png');
 
 class SignUp extends Component {
 
@@ -33,50 +36,66 @@ class SignUp extends Component {
           backgroundColor={commonColor.statusBarColor}
           barStyle="light-content"
         />
-        <Image source={require('../../../images/BG-signUp.png')} style={styles.background} >
-          <Content padder>
-            <Text style={styles.signupHeader}>
-                                    CREATE ACCOUNT
-                                </Text>
-            <View style={styles.signupContainer}>
-              <Item rounded style={styles.inputGrp}>
-                <Icon name="person" />
+        <Content scrollEnabled={true} bounces={false}>
+          <Image source={bg} style={styles.background} >
+           <View style={styles.bgTop}>
+            <Image source={logo} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
+
+            <View style={styles.bg}>
+              <Item style={styles.inputGrp, styles.inputGrpFirst}>
                 <Input
-                  placeholder="Username" style={styles.input}
+                  placeholder="Username"
                   placeholderTextColor="#FFF"
+                  style={styles.input}
                 />
               </Item>
 
-              <Item rounded style={styles.inputGrp}>
-                <Icon name="mail-open" />
+              <Item style={styles.inputGrp}>
                 <Input
-                  placeholder="Email" style={styles.input}
+                  placeholder="Email"
                   placeholderTextColor="#FFF"
+                  style={styles.input}
                 />
               </Item>
 
-              <Item rounded style={styles.inputGrp}>
-                <Icon name="unlock" />
+              <Item style={styles.inputGrp}>
                 <Input
-                  placeholder="Password" secureTextEntry style={styles.input}
+                  placeholder="Password"
+                  secureTextEntry
                   placeholderTextColor="#FFF"
+                  style={styles.input}
                 />
               </Item>
 
-              <Button
-                rounded bordered block
-                onPress={() => Actions.pop()}
-                style={styles.signupBtn}
-              >
-                <Text style={{ color: '#FFF' }}>Continue</Text>
-              </Button>
+              </View>
+              <View style={styles.btnView}>
+                <Button
+                  rounded primary block 
+                  style={styles.loginBtn, styles.btnCreate}
+                  onPress={() => Actions.home({ username: this.state.username, password: this.state.password })}
+                >
+                  <Text style={styles.btnText}>
+                      Create
+                  </Text>
+                </Button>
 
-              <Button block transparent style={{ marginTop: 10 }}>
-                <Text style={styles.termsText}>Terms & Conditions</Text>
-              </Button>
+                <Text style={styles.smallText}>or</Text>
+                
+                <Button
+                  rounded primary block 
+                  style={styles.loginBtn, styles.btnFacebook}
+                  onPress={() => Actions.walkthrough({ username: this.state.username, password: this.state.password })}
+                >
+                  <Text style={styles.btnText}>Facebook</Text>
+                </Button>
+    
+              </View>
+
+            <Text style={styles.tinyText}>By using this app you agree with the terms of service</Text>
             </View>
-          </Content>
-        </Image>
+          </Image>
+
+        </Content>
       </Container>
     );
   }

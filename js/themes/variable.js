@@ -2,7 +2,7 @@
 const color = require('color');
 
 // theme background
-const primary = color('#01cca1');
+const primary = color('#333338');
 // header
 const secondary = color('#00c497');
 const info = color('#5bc0de');
@@ -13,8 +13,8 @@ const sidebar = color('#252932');
 const dark = color('rgba(0,0,0,0.8)');
 const light = color('rgba(255,255,255,0.8)');
 
-const theme1 = '#01cca1';		// theme background
-const header1 = '#00c497';	// header
+const theme1 = '#333338';   // theme background
+const header1 = '#333338';  // header
 
 // var theme2 = "#E74C3C";
 // var header2 ="#CB4335";

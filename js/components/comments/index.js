@@ -65,7 +65,7 @@ class Comments extends Component {
           <View style={styles.commentHeadbg}>
             <Text style={styles.commentHeader}>23 COMMENTS</Text>
             <ScrollableTabView renderTabBar={() => <CustomTabBar someProp={'here'} />}>
-              <TabOne tabLabel="Best" />
+              <TabOne tabLabel="Best121" />
               <TabTwo tabLabel="Newest" />
               <TabThree tabLabel="Oldest" />
             </ScrollableTabView>

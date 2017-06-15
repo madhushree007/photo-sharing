@@ -11,6 +11,7 @@ import { Grid, Col } from 'react-native-easy-grid';
 import { openDrawer } from '../../actions/drawer';
 
 import styles from './styles';
+import FooterNew from '../footerNew';
 
 const primary = require('../../themes/variable').brandPrimary;
 
@@ -71,44 +72,9 @@ class Settings extends Component {
         </Header>
 
         <Content showsVerticalScrollIndicator={false}>
-          <View style={styles.bg}>
-            <Text style={styles.signupHeader}>SETTINGS</Text>
-            <View style={{ marginTop: 20 }}>
-              <Grid>
-                <Col>
-                  <Button transparent style={styles.roundedButton}>
-                    <Icon name="cloud-upload" style={Platform.OS === 'android' ? { color: '#FFF', width: 23 } : { color: '#FFF', width: 22 }} />
-                  </Button>
-                </Col>
-                <Col>
-                  <TouchableOpacity style={{ alignSelf: 'center' }}>
-                    <Thumbnail source={require('../../../images/contacts/sanket.png')} style={styles.profilePic} />
-                  </TouchableOpacity>
-                </Col>
-                <Col>
-                  <Button transparent style={styles.roundedButton}>
-                    <Icon name="cloud-download" style={Platform.OS === 'android' ? { color: '#FFF', width: 23 } : { lineHeight: 0, color: '#FFF', width: 22 }} />
-                  </Button>
-                </Col>
-              </Grid>
-            </View>
-            <View style={styles.signupContainer}>
-              <Item rounded style={styles.inputGrp}>
-                <Icon name="ios-person-outline" />
-                <Input placeholder="Username" placeholderTextColor="rgba(255,255,255,0.5)" style={styles.input} />
-              </Item>
-              <Item rounded style={styles.inputGrp}>
-                <Icon name="ios-mail-open-outline" />
-                <Input placeholder="Email" placeholderTextColor="rgba(255,255,255,0.5)" style={styles.input} />
-              </Item>
-              <Item rounded style={styles.inputGrp}>
-                <Icon name="ios-unlock-outline" />
-                <Input placeholder="Password" placeholderTextColor="rgba(255,255,255,0.5)"secureTextEntry style={styles.input} />
-              </Item>
-            </View>
-          </View>
-          <View style={styles.notificationSwitchContainer}>
-            <Text style={styles.notificationHeader}>EMAIL NOTIFICATIONS</Text>
+        
+          <View style={styles.notificationContainer}>
+            <Text style={styles.notificationHeader}>FOLLOW PEOPLE</Text>
             <View>
               <Grid style={{ marginBottom: 10 }}>
                 <Col>
@@ -218,6 +184,7 @@ class Settings extends Component {
             </View>
           </View>
         </Content>
+        <FooterNew />
       </Container>
     );
   }

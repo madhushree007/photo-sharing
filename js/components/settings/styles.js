@@ -31,9 +31,6 @@ export default {
     width: null,
     height: null,
   },
-  bg: {
-    backgroundColor: primary,
-  },
   signupHeader: {
     alignSelf: 'center',
     fontSize: 22,
@@ -71,14 +68,16 @@ export default {
   input: {
     color: '#fff',
   },
-  notificationSwitchContainer: {
-    backgroundColor: '#fff',
-    padding: 20,
+  notificationContainer: {
+    backgroundColor: '#f9f9f9',
   },
   notificationHeader: {
-    color: primary,
-    fontWeight: 'bold',
-    paddingBottom: 20,
+    padding: 20,
+    color: '#28282B',
+    fontSize: 12,
+    borderBottom: 1,
+    borderWidth: 1,
+    borderColor: '#f0f0f0'
   },
   switchText: {
     color: '#222',

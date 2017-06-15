@@ -7,7 +7,7 @@ import { Container, Content, Text, Item, Input, Button, Icon, View, Left, Right 
 import styles from './styles';
 import commonColor from '../../../native-base-theme/variables/commonColor';
 
-const bg = require('../../../images/BG.png');
+const bg = require('../../../images/image.png');
 const logo = require('../../../images/logo.png');
 
 class Login extends Component {
@@ -38,21 +38,20 @@ class Login extends Component {
         />
         <Content scrollEnabled={true} bounces={false}>
           <Image source={bg} style={styles.background} >
+           <View style={styles.bgTop}>
             <Image source={logo} style={Platform.OS === 'android' ? styles.aShadow : styles.iosShadow} />
 
             <View style={styles.bg}>
-              <Item rounded style={styles.inputGrp}>
-                <Icon name="person" />
+              <Item style={styles.inputGrp}>
                 <Input
-                  placeholder="Username"
+                  placeholder="Username or Email"
                   onChangeText={username => this.setState({ username })}
                   placeholderTextColor="#FFF"
                   style={styles.input}
                 />
               </Item>
 
-              <Item rounded style={styles.inputGrp}>
-                <Icon name="unlock" />
+              <Item style={styles.inputGrp}>
                 <Input
                   placeholder="Password"
                   secureTextEntry
@@ -61,33 +60,41 @@ class Login extends Component {
                   style={styles.input}
                 />
               </Item>
-
-              <Button
-                rounded primary block large
-                style={styles.loginBtn}
-                onPress={() => Actions.walkthrough({ username: this.state.username, password: this.state.password })}
-              >
-                <Text style={Platform.OS === 'android' ? { fontSize: 16, textAlign: 'center', top: -5 } : { fontSize: 16, fontWeight: '900' }}>Get Started</Text>
-              </Button>
-
               <View style={styles.otherLinksContainer}>
-                <Left>
-                  <Button transparent style={{ alignSelf: 'flex-start' }} onPress={() => Actions.signUp()}>
-                    <Text style={styles.helpBtns}>
-                          Create Account
-                      </Text>
-                  </Button>
-                </Left>
                 <Right>
                   <Button transparent style={{ alignSelf: 'flex-end' }} onPress={() => Actions.needhelp()}>
                     <Text style={styles.helpBtns}>
-                          Need Help?
+                          Forgot Password?
                       </Text>
                   </Button>
                 </Right>
               </View>
-            </View>
+              </View>
+              <View style={styles.btnView}>
+                <Button
+                  rounded primary block 
+                  style={styles.loginBtn, styles.btnCreate}
+                  onPress={() => Actions.home({ username: this.state.username, password: this.state.password })}
+                >
+                  <Text style={styles.btnText}>
+                      Login
+                  </Text>
+                </Button>
 
+                <Text style={styles.smallText}>or</Text>
+
+                <Button
+                  rounded primary block 
+                  style={styles.loginBtn, styles.btnFacebook}
+                  onPress={() => Actions.walkthrough({ username: this.state.username, password: this.state.password })}
+                >
+                  <Text style={styles.btnTextWhite}>Facebook</Text>
+                </Button>
+                <Text style={styles.smallText} onPress={() => Actions.signUp()}>Not yet registered? Sign up</Text>
+              </View>
+
+            <Text style={styles.tinyText}>By using this app you agree with the terms of service</Text>
+            </View>
           </Image>
 
         </Content>

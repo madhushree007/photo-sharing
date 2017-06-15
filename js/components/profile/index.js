@@ -5,13 +5,17 @@ import { connect } from 'react-redux';
 import { Image, View, TouchableOpacity } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
-import { Container, Content, Text, Thumbnail } from 'native-base';
-import { Grid, Col } from 'react-native-easy-grid';
+import { Container, Content, Text, Thumbnail, Icon, Button } from 'native-base';
+import { Grid, Col, Row} from 'react-native-easy-grid';
 import HeaderContent from './../headerContent/';
 import { openDrawer } from '../../actions/drawer';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
+import FooterNew from '../footerNew';
+
+const pic = require('../../../images/NewsIcons/4.jpg');
+
 
 class Profile extends Component {
 
@@ -24,167 +28,154 @@ class Profile extends Component {
   render() {
     return (
       <Container>
-        <Image source={require('../../../images/glow2.png')} style={styles.container} >
-          <HeaderContent />
-
-          <Content showsVerticalScrollIndicator={false}>
-            <View style={styles.profileInfoContainer}>
+        <Content showsVerticalScrollIndicator={false}>
+            <View>
+            <Image source={pic} style={styles.container}>
+            <View style={styles.containerTop}>
               <TouchableOpacity style={{ alignSelf: 'center' }}>
                 <Thumbnail source={require('../../../images/contacts/sanket.png')} style={styles.profilePic} />
               </TouchableOpacity>
               <View style={styles.profileInfo}>
-                <TouchableOpacity>
-                  <Text style={styles.profileUser}>Kumar Sanket</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  <Text note style={styles.profileUserInfo}>CEO, GeekyAnts</Text>
-                </TouchableOpacity>
+                  <Text style={styles.profileUser}>Christine Sanchez</Text>
+                  <Text note style={styles.profileUserInfo}>Just a girl and her camera. Nature, animals, food.</Text>
+                <Button rounded style={styles.profileBtn}>
+                  <Text style={styles.profileTxt}>Edit Profile</Text>
+                </Button>
               </View>
-            </View>
+                <View>
+                <Grid style={styles.infoTab}>
+                  <Col>
+                    <TouchableOpacity style={styles.infoTabs_header}>
+                      <Text style={styles.infoTabs_tabCounts}>630</Text>
+                      <Text note style={styles.infoTabs_tabName}>Posts</Text>
+                    </TouchableOpacity>
+                  </Col>
+                  <Col>
+                    <TouchableOpacity style={styles.infoTabs_header}>
+                      <Text style={styles.infoTabs_tabCounts}>246K</Text>
+                      <Text note style={styles.infoTabs_tabName}>Followers</Text>
+                    </TouchableOpacity>
+                  </Col>
+                  <Col>
+                    <TouchableOpacity style={styles.infoTabs_header}>
+                      <Text style={styles.infoTabs_tabCounts}>652</Text>
+                      <Text note style={styles.infoTabs_tabName}>Followings</Text>
+                    </TouchableOpacity>
+                  </Col>
+                </Grid>
+                </View>
+              </View>
+            </Image>
 
+            </View>
             <View style={styles.linkTabs}>
               <Grid>
                 <Col>
                   <TouchableOpacity style={styles.linkTabs_header}>
-                    <Text style={styles.linkTabs_tabCounts}>13</Text>
-                    <Text note style={styles.linkTabs_tabName}>Comments</Text>
+                    <Icon name="ios-apps" style={styles.iconNew} />
                   </TouchableOpacity>
                 </Col>
                 <Col>
                   <TouchableOpacity style={styles.linkTabs_header}>
-                    <Text style={styles.linkTabs_tabCounts}>12</Text>
-                    <Text note style={styles.linkTabs_tabName}>Channels</Text>
+                    <Icon name="ios-list-box-outline" style={styles.iconNew} />
                   </TouchableOpacity>
                 </Col>
                 <Col>
                   <TouchableOpacity style={styles.linkTabs_header}>
-                    <Text style={styles.linkTabs_tabCounts}>52</Text>
-                    <Text note style={styles.linkTabs_tabName}>Bookmarks</Text>
+                    <Icon name="ios-copy-outline" style={styles.iconNew} />
                   </TouchableOpacity>
                 </Col>
               </Grid>
             </View>
-            <View style={{ backgroundColor: '#fff' }}>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
-                <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.newsImage} />
-                <View style={styles.newsContent}>
-                  <Text numberOfLines={2} style={styles.newsHeader}>
-                                        Flat App is focussed on a minimal use of simple elements.
-                                    </Text>
-                  <Grid style={{ marginTop: 25 }}>
+           <View>
+              <View>
+                <Grid>
+                  <Row style={styles.channelRow}>
                     <Col>
-                      <TouchableOpacity>
-                        <Text style={styles.newsLink}>CDC</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
                     <Col>
-                      <TouchableOpacity style={styles.newsTypeView}>
-                        <Text style={styles.newsTypeText}>ENVIRONMENT</Text>
-                      </TouchableOpacity>
-                    </Col>
-                  </Grid>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
-                <Image source={require('../../../images/NewsIcons/3.jpg')} style={styles.newsImage} />
-                <View style={styles.newsContent}>
-                  <Text numberOfLines={2} style={styles.newsHeader}>
-                                        So that the applications are able to load faster and reaize easily.
-                                    </Text>
-                  <Grid style={{ marginTop: 25 }}>
-                    <Col>
-                      <TouchableOpacity>
-                        <Text style={styles.newsLink}>SPACE.com</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/2.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
                     <Col>
-                      <TouchableOpacity style={styles.newsTypeView}>
-                        <Text style={styles.newsTypeText}>SCIENCE</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/3.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
-                  </Grid>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
-                <Image source={require('../../../images/NewsIcons/4.jpg')} style={styles.newsImage} />
-                <View style={styles.newsContent}>
-                  <Text numberOfLines={2} style={styles.newsHeader}>But still look sharp on high-definition screens.</Text>
-                  <Grid style={{ marginTop: 25 }}>
+                  </Row>
+                  <Row style={styles.channelRow}>
                     <Col>
-                      <TouchableOpacity>
-                        <Text style={styles.newsLink}>SKY.com</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/4.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
                     <Col>
-                      <TouchableOpacity style={styles.newsTypeView}>
-                        <Text style={styles.newsTypeText}>WORLD</Text>
-                      </TouchableOpacity>
-                    </Col>
-                  </Grid>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
-                <Image source={require('../../../images/NewsIcons/10.jpg')} style={styles.newsImage} />
-                <View style={styles.newsContent}>
-                  <Text numberOfLines={2} style={styles.newsHeader}>
-                                        Highly customizable widgets are part of our never ending mission.
-                                    </Text>
-                  <Grid style={{ marginTop: 25 }}>
-                    <Col>
-                      <TouchableOpacity>
-                        <Text style={styles.newsLink}>ANI.com</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/5.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
                     <Col>
-                      <TouchableOpacity style={styles.newsTypeView}>
-                        <Text style={styles.newsTypeText}>ANIMATION</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/6.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
-                  </Grid>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
-                <Image source={require('../../../images/NewsIcons/9.jpg')} style={styles.newsImage} />
-                <View style={styles.newsContent}>
-                  <Text numberOfLines={2} style={styles.newsHeader}>
-                                        Ready to use components built using NativeBase.
-                                    </Text>
-                  <Grid style={{ marginTop: 25 }}>
+                  </Row>
+                  <Row style={styles.channelRow}>
                     <Col>
-                      <TouchableOpacity>
-                        <Text style={styles.newsLink}>STYLE.com</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/7.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
                     <Col>
-                      <TouchableOpacity style={styles.newsTypeView}>
-                        <Text style={styles.newsTypeText}>FASHION</Text>
-                      </TouchableOpacity>
-                    </Col>
-                  </Grid>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => Actions.home()}>
-                <Image source={require('../../../images/NewsIcons/12.jpg')} style={styles.newsImage} />
-                <View style={styles.newsContent}>
-                  <Text numberOfLines={2} style={styles.newsHeader}>Theme your app with one single file.</Text>
-                  <Grid style={{ marginTop: 25 }}>
-                    <Col>
-                      <TouchableOpacity>
-                        <Text style={styles.newsLink}>ART.com</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/8.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
                     <Col>
-                      <TouchableOpacity style={styles.newsTypeView}>
-                        <Text style={styles.newsTypeText}>ART</Text>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/9.jpg')} style={styles.channelImg}>
+                        </Image>
                       </TouchableOpacity>
                     </Col>
-                  </Grid>
-                </View>
-              </TouchableOpacity>
-            </View>
+                  </Row>
+                  <Row style={styles.channelRow}>
+                    <Col>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/3.jpg')} style={styles.channelImg}>
+                        </Image>
+                      </TouchableOpacity>
+                    </Col>
+                    <Col>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/2.jpg')} style={styles.channelImg}>
+                        </Image>
+                      </TouchableOpacity>
+                    </Col>
+                    <Col>
+                      <TouchableOpacity onPress={() => Actions.channel()}>
+                        <Image source={require('../../../images/NewsIcons/1.jpg')} style={styles.channelImg}>
+                        </Image>
+                      </TouchableOpacity>
+                    </Col>
+                  </Row>
+                </Grid>
+              </View>
+           </View>
           </Content>
-        </Image>
+        
+        <FooterNew />
       </Container>
     );
   }

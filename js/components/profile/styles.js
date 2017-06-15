@@ -4,8 +4,10 @@ const React = require('react-native');
 
 const { Platform, Dimensions } = React;
 
-const deviceWidth = Dimensions.get('window').width;
 const primary = require('../../themes/variable').brandPrimary;
+
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 
 export default {
   container: {
@@ -13,50 +15,68 @@ export default {
     width: null,
     height: null,
   },
-  profileInfoContainer: {
-    backgroundColor: primary,
-    paddingTop: 10,
+  containerTop: {
+    flex: 1,
+    width: null,
+    height: null,
+    backgroundColor: 'rgba(0,0,0,0.7)',
   },
   profileUser: {
     alignSelf: 'center',
-    fontSize: 22,
-    fontWeight: 'bold',
+    fontSize: 16,
     paddingBottom: 5,
   },
   profileUserInfo: {
     alignSelf: 'center',
-    opacity: 0.8,
-    fontWeight: 'bold',
+    fontSize: 12,
     color: '#FFF',
   },
   profilePic: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginTop: 35,
   },
   profileInfo: {
     alignSelf: 'center',
     paddingTop: 5,
     paddingBottom: 10,
   },
-  linkTabs: {
-    backgroundColor: '#fff',
+  profileBtn: {
+    alignSelf: 'center',
+    backgroundColor: '#FFF',
+    height: 24,
+    marginTop: 10,
   },
-  linkTabs_header: {
+  profileTxt: {
+    fontSize: 12,
+    color: '#000',
+  },
+  infoTab: {
     padding: 15,
     alignSelf: 'center',
+    width: (deviceWidth - 80),
   },
-  linkTabs_tabCounts: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: primary,
+  infoTabs_header: {
+    alignSelf: 'center',
+  },
+  infoTabs_tabCounts: {
+    fontSize: 14,
     alignSelf: 'center',
     paddingBottom: Platform.OS === 'android' ? 3 : 0,
   },
-  linkTabs_tabName: {
-    color: '#444',
-    fontWeight: 'bold',
-    fontSize: (deviceWidth < 330) ? 13 : 15,
+  infoTabs_tabName: {
+    fontSize: 12,
+    color: '#FFF',
+  },
+  linkTabs: {
+    padding: 15,
+    flex: 1,
+    width: null,
+    height: null,
+  },
+  linkTabs_header: {
+    alignSelf: 'center',
   },
   newsImage: {
     width: 100,
@@ -92,4 +112,15 @@ export default {
     fontWeight: 'bold',
     paddingBottom: 5,
   },
+  channelRow: {
+    marginTop: 1,
+  },
+  channelImg: {
+    height: (deviceHeight / 6),
+    width: (deviceWidth / 3),
+  },
+  iconNew: {
+    color: '#2D2D31',
+    fontSize: 17,
+  }
 };
